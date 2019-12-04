@@ -3,7 +3,7 @@ package com.example.mvpornek.Presenter;
 import com.example.mvpornek.Model.LoginInteractor;
 import com.example.mvpornek.View.LoginView;
 
-public class LoginPresenterImpl implements LoginInteractor, LoginInteractor.OnLoginFinishedListener {
+public class LoginPresenterImpl implements LoginInteractor, LoginInteractor.OnLoginFinishedListener, LoginPrensenter{
 
     LoginView loginView;
     LoginInteractor loginInteractor;

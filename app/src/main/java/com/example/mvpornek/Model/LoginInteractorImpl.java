@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 
 public class LoginInteractorImpl implements LoginInteractor {
+
     @Override
     public void login(final String username, final String password, final OnLoginFinishedListener listener) {
 
@@ -24,6 +25,6 @@ public class LoginInteractorImpl implements LoginInteractor {
 
                 listener.onSuccess();
             }
-        }, delayMillis 1000);
+        },1000);
     }
 }

@@ -6,6 +6,5 @@ public interface LoginPrensenter {
 
     void onDestroyed();
 
-    public interface OnLoginFinishedListener {
-    }
+
 }
