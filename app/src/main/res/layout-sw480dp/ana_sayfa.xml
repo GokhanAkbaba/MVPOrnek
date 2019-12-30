@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/anasayfa_baslik_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/uygulama_adi"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:textSize="45dp"
+        android:autoSizeTextType="uniform"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/asansayfa_gonder_imgv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/soru_gonder_icon"
+        android:layout_marginRight="55dp"
+        app:layout_constraintTop_toTopOf="@+id/anasayfa_baslik_tv"
+        app:layout_constraintBottom_toBottomOf="@+id/anasayfa_baslik_tv"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <HorizontalScrollView
+        android:id="@+id/anasayfa_horizontalview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/anasayfa_alisveris_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/alisveris_icon"
+                android:scaleType="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_yemek_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/yemek_icon"
+                android:scaleType="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_alisveris_btn"
+                android:layout_marginLeft="7dp"/>
+
+            <ImageButton
+                android:id="@+id/anasayfa_tatil_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/tatil_icon"
+                android:scaleType="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_yemek_btn"
+                android:layout_marginLeft="7dp"/>
+
+            <ImageButton
+                android:id="@+id/anasayfa_adres_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/adres_icon"
+                android:scaleType="center"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
+                android:layout_marginLeft="7dp"/>
+
+            <ImageButton
+                android:id="@+id/anasayfa_spor_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/spor_icon"
+                android:scaleType="center"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_adres_btn"
+                android:layout_marginLeft="7dp"/>
+            <ImageButton
+                android:id="@+id/anasayfa_spor_btn2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/spor_icon"
+                android:scaleType="center"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_spor_btn"
+                android:layout_marginLeft="7dp"/>
+            <ImageButton
+                android:id="@+id/anasayfa_spor_btn3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:src="@mipmap/spor_icon"
+                android:scaleType="center"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_spor_btn2"
+                android:layout_marginLeft="7dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemTextColor="#000000"
+        app:itemIconTint="@color/uygulamaMavisi"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/nav_items" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

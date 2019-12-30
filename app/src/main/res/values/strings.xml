@@ -1,3 +1,51 @@
 <resources>
-    <string name="app_name">MVPOrnek</string>
+    <string name="app_name">Birine Sor</string>
+    <string name="gizlilik_kurali">Bir hesap oluşturarak, Hizmet Şartlarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz.</string>
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_notification">Bildirim</string>
+    <string name="nav_arama">Arama</string>
+    <string name="nav_profil">Profil</string>
+    <string name="nav_setting">Ayarlar</string>
+    <string name="uygulama_adi">birine sor</string>
+    <string name="uygulama_adi_buyuk">Birine Sor</string>
+    <string name="gonderi">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından
+        güzel oteller hangi illerde..</string>
+    <string name="ayarlarTxt">Ayarlar</string>
+    <string name="hesapTxt">Hesap</string>
+    <string name="hesapProfilDuzenleTxt">Profil Düzenle</string>
+    <string name="hesapSifreDegistirTxt">Şifre Değiştir</string>
+    <string name="bildirimlerTxt">Bildirimler</string>
+    <string name="cikisYapTxt">Çıkış Yap</string>
+    <string name="iptalTxt">İptal</string>
+    <string name="adSoyadTxt">Ad Soyad</string>
+    <string name="kullaniciAdiTxt">Kullanıcı Adı</string>
+    <string name="ePostaTxt">E-Posta</string>
+    <string name="sifreDegistirTxt">Şifre Değiştir</string>
+    <string name="mevcutSifreTxt">Mevcut Şifre</string>
+    <string name="yeniSifreTxt">Yeni Şifre</string>
+    <string name="tekrarYeniSifreTxt">Yeni Şifre Tekrar</string>
+    <string name="yemekEtiketTxt">#Yemek</string>
+    <string name="adresEtiketTxt">#Adres</string>
+    <string name="tatilEtiketTxt">#Tatil</string>
+    <string name="filmDiziEtiketTxt">#Film/Dizi</string>
+    <string name="alisverisEtiketTxt">#Alışveriş</string>
+    <string name="geziEtiketTxt">#Gezi</string>
+    <string name="sporEtiketTxt">#Spor</string>
+    <string name="rastgeleTxt">#Rastgele</string>
+    <string name="baslarkenTxt">BAŞLARKEN</string>
+    <string name="baslarkenMetin">Telefonunuza gelen bildirimlerin çeşitliliği için
+lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
+    <string name="yasadiginizIlTxt">Yaşadığınız İl</string>
+    <string name="ilgiAlaniTxt">Cevaplamak istediğiniz ilgi alanı</string>
+    <string name="herKonudaBildirimTxt">Her konuda bildirim </string>
+    <string name="soruyuYanıtlaTxt">Soruyu Yanıtla </string>
+    <string name="adliKisiYntTxt">adlı kişinin sorusunu yanıtlıyorsun </string>
+    <string name="baglantiKopyalaTxt">Bağlantıyı Kopyala</string>
+    <string name="kisiyiEngelleTxt">Kişiyi Engelle</string>
+    <string name="sizeBirSoruTxt">size bir soru sordu</string>
+    <string name="onceTxt">önce</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

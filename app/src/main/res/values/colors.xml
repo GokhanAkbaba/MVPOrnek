@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#82b3c9</color>
-    <color name="colorPrimaryDark">#0277bd</color>
-    <color name="colorAccent">#0277bd</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary" tools:ignore="MissingDefaultResource">#008577</color>
+    <color name="ayarlarGrisi">#DFE1E5</color>
+    <color name="uygulamaMavisi">#2699FB</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="profilSekmeBeyaz">#F9F9F9</color>
+    <color name="soruIsaretiCevaplanmamisRenk">#FEB30F</color>
+    <color name="soruIsaretiCevaplanmisRenk">#04C66A</color>
+    <color name="soruIsaretiCevapladigimRenk">#FE1744</color>
+    <color name="griTon">#707070</color>
 
-    <color name="colorBackGround">#0277bd</color>
+
 </resources>

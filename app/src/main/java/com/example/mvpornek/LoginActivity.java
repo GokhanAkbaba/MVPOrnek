@@ -1,7 +1,5 @@
 package com.example.mvpornek;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,65 +7,68 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.mvpornek.Model.LoginInteractorImpl;
-import com.example.mvpornek.Presenter.LoginPrensenter;
-import com.example.mvpornek.Presenter.LoginPresenterImpl;
-import com.example.mvpornek.View.LoginView;
+import com.example.mvpornek.Model.Kullanici;
+import com.example.mvpornek.Model.ModelGiris.GirisUygulamasi;
+import com.example.mvpornek.Presenter.GirisPrensenter;
+import com.example.mvpornek.Presenter.GirisPresenterUygulamasi;
+import com.example.mvpornek.View.GirisView;
 
-public class LoginActivity extends Activity implements LoginView, View.OnClickListener {
+public class LoginActivity extends Activity implements GirisView, View.OnClickListener {
 
     private ProgressBar progressBar;
-    private EditText usuario;
-    private EditText password;
-    private LoginPrensenter prensenter;
+    private EditText adSoyad,kullaniciAdi,eMail,sifre,sifreTekrar;
+    private GirisPrensenter prensenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.fragment_kullanici_kayit);
 
-        progressBar = findViewById(R.id.progressBar);
-        usuario = findViewById(R.id.edtusername);
-        password = findViewById(R.id.sifre);
+        adSoyad = findViewById(R.id.adSoyadText);
+        kullaniciAdi = findViewById(R.id.kullaniciAdiText);
+        eMail = findViewById(R.id.ePostaText);
+        sifre = findViewById(R.id.sifreText);
+        sifreTekrar = findViewById(R.id.sifreTekrariText);
 
-        findViewById(R.id.btnIngresar).setOnClickListener(this);
+        findViewById(R.id.kayitYapBtn).setOnClickListener(this);
 
-        prensenter = new LoginPresenterImpl(this, new LoginInteractorImpl());
+        prensenter = new GirisPresenterUygulamasi(this, new GirisUygulamasi());
     }
 
     @Override
     protected void onDestroy() {
-        prensenter.onDestroyed();
+        prensenter.uygulamayiYokEt();
         super.onDestroy();
     }
 
     @Override
     public void onClick(View view) {
-        prensenter.validateCredentials(usuario.getText().toString(),password.getText().toString());
+        Kullanici kullanici = new Kullanici(adSoyad.getText().toString(),kullaniciAdi.getText().toString(),eMail.getText().toString(),sifre.getText().toString(),sifreTekrar.getText().toString());
+        prensenter.girisKontrolIslemleri(kullanici);
     }
 
     @Override
     public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
+
     }
 
     @Override
     public void hideProgress() {
-        progressBar.setVisibility(View.GONE);
+
     }
 
     @Override
     public void setUsernameError() {
-        usuario.setError("Error de usurio");
+
     }
 
     @Override
     public void setPasswordError() {
-        password.setError("Error de password");
+
     }
 
     @Override
     public void navigateToHome() {
-        Toast.makeText(this, "Ingresor",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "OOO Helal Adamımmmmm",Toast.LENGTH_SHORT).show();
     }
 }

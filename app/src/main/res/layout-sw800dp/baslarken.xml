@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="@string/baslarkenTxt"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="382dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/baslarkenMetin"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/yasadiginizIlTxt"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="791dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/il_01"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="01"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_02"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="02"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_03"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="03"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_04"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="04"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_05"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="05"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_06"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="06"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_07"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="07"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_08"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="08"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_09"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="09"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_10"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="10"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_11"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="11"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="12"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_13"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="13"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_14"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="14"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_15"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="15"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_16"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="16"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_17"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="17"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_18"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="18"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_19"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="19"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_20"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="20"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_21"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="21"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_22"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="22"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_23"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="23"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_24"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="24"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_25"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="25"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_26"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="26"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_27"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="27"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_28"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="28"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_29"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="29"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_30"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="30"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_31"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="31"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_32"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="32"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_33"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="33"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_34"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="34"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_35"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="35"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/il_36"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/il_soru_paylas_arka_plan"
+                android:text="36"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/ilgiAlaniTxt"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/baslangicYemekBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/yemek_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/baslangicAlisverisBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/alisveris_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/baslangicAdresBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toEndOf="@+id/baslangicTatilBtn"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/adres_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/baslangicTatilBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toEndOf="@+id/baslangicAlisverisBtn"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/tatil_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/constraintLayout2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toEndOf="@+id/baslangicAdresBtn"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="43dp"
+            android:layout_height="47dp"
+            android:src="@mipmap/spor_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/baslangicFilmBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/baslangicYemekBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView28"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/film_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="444dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/herKonudaBildirimTxt"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/baslangicHerKonudaBildirimBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView29"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/her_konuda_bildirim_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

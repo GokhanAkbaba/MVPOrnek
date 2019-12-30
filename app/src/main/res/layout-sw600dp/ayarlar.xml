@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/ayarlarsayfasi_geri_btn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/geri_don_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/ayarlarsayfasi_ayarlar_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/ayarlarTxt"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="45sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/ayarlarsayfasi_hesap_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/ayarlarGrisi"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_ayarlar_tv">
+
+        <TextView
+            android:id="@+id/ayarlarsayfasi_hesap_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:text="@string/hesapTxt"
+            android:textSize="25dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ayarlarsayfasi_profilduzenle_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_hesap_rl">
+
+        <TextView
+            android:id="@+id/ayarlarsayfasi_profilduzenle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:text="@string/hesapProfilDuzenleTxt"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/ayarlar_ayrinti_icon" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/ayarlarsayfasi_view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#BBBCCD"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_profilduzenle_rl" />
+
+    <RelativeLayout
+        android:id="@+id/ayarlarsayfasi_sifredegistir_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view1" >
+
+        <TextView
+            android:id="@+id/ayarlarsayfasi_sifredegistir_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:textSize="25dp"
+            android:text="@string/hesapSifreDegistirTxt" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/ayarlar_ayrinti_icon"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/ayarlarsayfasi_view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#BBBCCD"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_sifredegistir_rl"/>
+
+
+    <RelativeLayout
+        android:id="@+id/ayarlarsayfasi_bildirimler_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view2">
+
+        <TextView
+            android:id="@+id/ayarlarsayfasi_bildirimler_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:textSize="25dp"
+            android:text="@string/bildirimlerTxt" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/ayarlar_ayrinti_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/ayarlarsayfasi_view3"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#BBBCCD"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_bildirimler_rl"/>
+
+    <RelativeLayout
+        android:id="@+id/ayarlarsayfasi_cikisyap_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view3">
+
+        <TextView
+            android:id="@+id/ayarlarsayfasi_cikisyap_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45dp"
+            android:text="@string/cikisYapTxt"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/ayarlar_ayrinti_icon" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/ayarlarsayfasi_view4"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#BBBCCD"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_cikisyap_rl"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
