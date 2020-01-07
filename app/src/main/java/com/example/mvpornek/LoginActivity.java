@@ -2,16 +2,20 @@ package com.example.mvpornek;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Model.Kullanici;
 import com.example.mvpornek.Model.ModelGiris.GirisUygulamasi;
 import com.example.mvpornek.Presenter.GirisPrensenter;
 import com.example.mvpornek.Presenter.GirisPresenterUygulamasi;
 import com.example.mvpornek.View.GirisView;
+import com.example.mvpornek.WebService.ServicesHelper;
+import com.kaopiz.kprogresshud.KProgressHUD;
 
 public class LoginActivity extends Activity implements GirisView, View.OnClickListener {
 
@@ -31,6 +35,10 @@ public class LoginActivity extends Activity implements GirisView, View.OnClickLi
         sifreTekrar = findViewById(R.id.sifreTekrariText);
 
         findViewById(R.id.kayitYapBtn).setOnClickListener(this);
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(this,null,null);
+        ServicesHelper servicesHelper = new ServicesHelper();
+        //servicesHelper.tumKullanicilariGetir();
+        servicesHelper.kullaniciGetir("HasanKarasahin");
 
         prensenter = new GirisPresenterUygulamasi(this, new GirisUygulamasi());
     }
