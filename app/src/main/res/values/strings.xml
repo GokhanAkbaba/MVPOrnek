@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Birine Sor</string>
     <string name="gizlilik_kurali">Bir hesap oluşturarak, Hizmet Şartlarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz.</string>
     <string name="nav_home">Ana Sayfa</string>
@@ -46,6 +46,6 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="onceTxt">önce</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" tools:ignore="ExtraTranslation">Hello blank fragment</string>
 
 </resources>

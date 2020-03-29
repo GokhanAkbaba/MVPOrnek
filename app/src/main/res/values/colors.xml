@@ -9,7 +9,7 @@
     <color name="soruIsaretiCevaplanmamisRenk">#FEB30F</color>
     <color name="soruIsaretiCevaplanmisRenk">#04C66A</color>
     <color name="soruIsaretiCevapladigimRenk">#FE1744</color>
-    <color name="griTon">#707070</color>
+    <color name="griTon" tools:ignore="MissingDefaultResource">#707070</color>
 
 
 </resources>
