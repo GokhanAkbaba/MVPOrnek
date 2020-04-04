@@ -1,4 +1,4 @@
-package com.example.mvpornek.Model;
+package com.example.mvpornek.Model.Kullanıcı;
 
 public class Kullanici {
     private String adSoyad;
@@ -7,12 +7,6 @@ public class Kullanici {
     private String sifre;
     private String sifreTekrar;
 
-    public Kullanici(String adSoyad, String kullaniciAdi, String eMail, String sifre) {
-        this.adSoyad = adSoyad;
-        this.kullaniciAdi = kullaniciAdi;
-        this.eMail = eMail;
-        this.sifre = sifre;
-    }
 
     public Kullanici(String adSoyad, String kullaniciAdi, String eMail, String sifre, String sifreTekrar) {
         this.adSoyad = adSoyad;

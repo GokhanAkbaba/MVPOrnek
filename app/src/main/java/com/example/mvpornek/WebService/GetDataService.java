@@ -23,11 +23,11 @@ public interface GetDataService {
     @POST("createuser")
     Call<ResponseBody> kullaniciOlustur(
 
-            @Field("adi") String adi,
-            @Field("soyadi") String soyadi,
-            @Field("kullanici_sifre") String kullanici_sifre,
-            @Field("kulllanici_sifre_tekrar") String kullanici_sifre_tekar,
-            @Field("kullanici_adi") String kullanici_adi
+            @Field("adSoyad") String adSoyad,
+            @Field("kullaniciAdi") String kullaniciAdi,
+            @Field("ePosta") String ePosta,
+            @Field("sifre") String sifre,
+            @Field("sifreTekrar") String sifreTekari
 
     );
 

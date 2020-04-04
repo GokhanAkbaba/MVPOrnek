@@ -1,7 +1,6 @@
 package com.example.mvpornek.WebService;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.Kullanici;
 
 import org.json.JSONObject;
 
@@ -17,7 +16,7 @@ public class ServicesHelper {
     private JSONObject kullanici;
 
     public ServicesHelper(){
-        this.service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        this.service = RetrofitClientInstance.getInstance().getDataService();
     }
 
     public List<JSONObject> tumKullanicilariGetir(){

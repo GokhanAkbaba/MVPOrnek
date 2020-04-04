@@ -1,8 +1,10 @@
-package com.example.mvpornek;
+package com.example.mvpornek.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.mvpornek.R;
 
 public class MainActivity extends AppCompatActivity {
 

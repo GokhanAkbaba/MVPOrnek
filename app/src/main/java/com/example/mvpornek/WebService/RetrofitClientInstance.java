@@ -24,17 +24,7 @@ public class RetrofitClientInstance {
         return mIstance;
     }
 
-    public GetDataService getDataService()
-    {
+    public GetDataService getDataService(){
         return retrofit.create(GetDataService.class);
     }
-  /*  public static Retrofit getRetrofitInstance() {
-        if (retrofit == null) {
-            retrofit = new retrofit2.Retrofit.Builder()
-                    .baseUrl(KULLANICI_KAYIT_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-        return retrofit;
-    }*/
 }

@@ -1,4 +1,4 @@
-package com.example.mvpornek;
+package com.example.mvpornek.Fragment;
 
 import android.app.Activity;
 
