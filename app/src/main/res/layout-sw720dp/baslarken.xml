@@ -5,7 +5,8 @@
     android:id="@+id/linearLayout10"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
     <TextView
         android:id="@+id/textView35"

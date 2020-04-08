@@ -67,14 +67,14 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="97dp"
-                android:layout_height="40dp"
+                android:layout_width="81dp"
+                android:layout_height="41dp"
                 android:layout_marginTop="52dp"
                 android:autoSizePresetSizes="@array/autosize_text_sizes"
                 android:autoSizeTextType="uniform"
                 android:text="Kayıt Ol"
                 android:textAlignment="center"
-                android:textColor="@color/griTon"
+                android:textColor="#000000"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toTopOf="parent" />
 

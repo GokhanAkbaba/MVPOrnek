@@ -1,29 +1,24 @@
 package com.example.mvpornek.Activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.Kullanıcı.Kullanici;
 import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
 import com.example.mvpornek.Presenter.LoginPresenter;
 import com.example.mvpornek.Presenter.LoginPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.View.LoginView;
-import com.example.mvpornek.WebService.RetrofitClientInstance;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends Activity implements LoginView,View.OnClickListener {
 
@@ -45,11 +40,6 @@ public class LoginActivity extends Activity implements LoginView,View.OnClickLis
         editTextsifre = findViewById(R.id.sifreText);
         editTextsifreTekrar = findViewById(R.id.sifreTekrariText);
 
-        ePosta = editTextMail.getText().toString().trim();
-        sifre=editTextsifre.getText().toString().trim();
-        adSoyad=editTextadSoyad.getText().toString().trim();
-        kullaniciAdi=editTextkullaniciAdi.getText().toString().trim();
-        sifreTekrar=editTextsifreTekrar.getText().toString().trim();
 
         findViewById(R.id.kayitYapBtn).setOnClickListener(this);
         presenter = new LoginPresenterImpl(this, new LoginInteractorImpl());
@@ -65,19 +55,32 @@ public class LoginActivity extends Activity implements LoginView,View.OnClickLis
 
     @Override
     public void onClick(View view) {
+        ePosta = editTextMail.getText().toString();
+        sifre=editTextsifre.getText().toString();
+        adSoyad=editTextadSoyad.getText().toString();
+        kullaniciAdi=editTextkullaniciAdi.getText().toString();
+        sifreTekrar=editTextsifreTekrar.getText().toString();
+
+        SharedPreferences sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("EPosta",ePosta);
+        editor.putBoolean("girisYapildi",true);
+        editor.apply();
+
         presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
-        Log.e("onClick","onClick");
+
     }
 
     @Override
     public void showProgress() {
-        //progressBar.setVisibility(View.VISIBLE);
-        Log.e("ShowProgress","ShowProgress");
+        ///progressBar.setVisibility(View.VISIBLE);
+
+
     }
 
     @Override
     public void hideProgress() {
-        //progressBar.setVisibility(View.GONE);
+        ///progressBar.setVisibility(View.GONE);
         Log.e("hideProgress","hideProgress");
     }
 
@@ -114,7 +117,9 @@ public class LoginActivity extends Activity implements LoginView,View.OnClickLis
     @Override
     public void navigateToHome()
     {
-        Toast.makeText(this,"Cevap",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
+        Intent intent= new Intent(LoginActivity.this,AnaSayfaActivity.class);
+        startActivity(intent);
     }
 
 

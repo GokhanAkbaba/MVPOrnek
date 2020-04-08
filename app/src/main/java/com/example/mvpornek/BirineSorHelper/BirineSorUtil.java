@@ -34,10 +34,10 @@ public class BirineSorUtil {
             baslik = "";
 
         Alerter.create(activity)
-            .setTitle(baslik)
-            .setText(icerik)
-            .setDuration(2000)
-            .show();
+                .setTitle(baslik)
+                .setText(icerik)
+                .setDuration(2000)
+                .show();
     }
 
 
