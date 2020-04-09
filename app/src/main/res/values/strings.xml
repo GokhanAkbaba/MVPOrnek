@@ -44,6 +44,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="kisiyiEngelleTxt">Kişiyi Engelle</string>
     <string name="sizeBirSoruTxt">size bir soru sordu</string>
     <string name="onceTxt">önce</string>
+    <string name="bildirimAciklamaTxt">Bildirim seçeneğini seçmediğiniz takdirde belirli aralıklarla bildirim gelecektir.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" tools:ignore="ExtraTranslation">Hello blank fragment</string>

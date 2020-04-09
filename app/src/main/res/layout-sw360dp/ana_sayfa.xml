@@ -64,7 +64,7 @@
                 android:layout_marginLeft="7dp"
                 android:background="@drawable/ana_sayfa_etiket_arka_plan"
                 android:scaleType="center"
-                android:src="@mipmap/adres_icon"
+                android:src="@mipmap/ic_launcher_adres"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />

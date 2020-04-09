@@ -441,159 +441,12 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/baslangicYemekBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView24"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="14dp"
-            android:src="@mipmap/yemek_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:id="@+id/baslangicAlisverisBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView23"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginEnd="8dp"
-            android:src="@mipmap/alisveris_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:id="@+id/baslangicAdresBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toEndOf="@+id/baslangicTatilBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView26"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginEnd="8dp"
-            android:src="@mipmap/adres_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:id="@+id/baslangicTatilBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toEndOf="@+id/baslangicAlisverisBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView25"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:src="@mipmap/tatil_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:id="@+id/constraintLayout2"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toEndOf="@+id/baslangicAdresBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView27"
-            android:layout_width="43dp"
-            android:layout_height="47dp"
-            android:src="@mipmap/spor_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/baslangicFilmBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baslangicAlisverisBtn"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView28"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="14dp"
-            android:src="@mipmap/film_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="505dp"
+        android:layout_marginTop="488dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/herKonudaBildirimTxt"
         android:textColor="#000000"
@@ -602,42 +455,142 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/baslangicHerKonudaBildirimBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+    <Button
+        android:id="@+id/yirmiDortSaatBildirimButon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/ana_sayfa_etiket_arka_plan"
+        android:background="@drawable/baslarkenilbuton"
+        android:drawableLeft="@mipmap/bildirim_icon"
+        android:paddingLeft="7dp"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView29"
-            android:layout_width="39dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="14dp"
-            android:src="@mipmap/her_konuda_bildirim_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/baslarkenSonrakiBtn"
         android:layout_width="174dp"
         android:layout_height="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/backgraoundapp"
         android:text="Sonraki"
         android:textColor="@color/profilSekmeBeyaz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baslangicHerKonudaBildirimBtn"
-        app:layout_constraintVertical_bias="0.102"
+        app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon"
+        app:layout_constraintVertical_bias="0.956"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/adresEtiketButon"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/ic_launcher_adres"
+        android:paddingLeft="10dp"
+        android:text="Adres"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/yemekEtiketButon"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/yemek_icon"
+        android:paddingLeft="10dp"
+        android:text="Yemek"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toEndOf="@+id/adresEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/sporEtiketButon"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/spor_icon"
+        android:paddingLeft="10dp"
+        android:text="Spor"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toEndOf="@+id/yemekEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/tatilEtiketButon"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/tatil_icon"
+        android:paddingLeft="10dp"
+        android:text="Tatil"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adresEtiketButon"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/alisverisEtiketButon"
+        android:layout_width="122dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/alisveris_icon"
+        android:paddingLeft="10dp"
+        android:text="Alışveriş"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toEndOf="@+id/tatilEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/yemekEtiketButon"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/sanatEtiketButon"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@mipmap/film_icon"
+        android:paddingLeft="10dp"
+        android:text="Sanat"
+
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintStart_toEndOf="@+id/alisverisEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/sporEtiketButon"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/bildirimAciklamaTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

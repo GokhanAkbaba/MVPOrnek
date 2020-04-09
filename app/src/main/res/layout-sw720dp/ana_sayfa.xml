@@ -86,7 +86,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:background="@drawable/ana_sayfa_etiket_arka_plan"
-                android:src="@mipmap/adres_icon"
+                android:src="@mipmap/ic_launcher_adres"
                 android:scaleType="center"
                 tools:ignore="MissingConstraints"
                 app:layout_constraintTop_toTopOf="parent"

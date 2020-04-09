@@ -11,15 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.BaslarkenActivity"></activity>
-        <activity android:name=".Activity.StartActivity"></activity>
-        <activity android:name=".Activity.AnaSayfaActivity" />
-        <activity android:name=".Activity.SplashScreenActivity">
+        <activity android:name=".Activity.BaslarkenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activity.StartActivity"></activity>
+        <activity android:name=".Activity.AnaSayfaActivity" />
+        <activity android:name=".Activity.SplashScreenActivity">
+
         </activity>
         <activity android:name=".Activity.LoginActivity" />
     </application>
