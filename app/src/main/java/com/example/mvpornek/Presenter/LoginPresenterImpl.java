@@ -21,7 +21,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.setKullaniciAdiHatasi();
             loginView.hideProgress();
         }
-        Log.e("onKullaniciAdiHatasi","onKullaniciAdiHatasi");
     }
 
     @Override
@@ -31,7 +30,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.setAdSoyadHatasi();
             loginView.hideProgress();
         }
-        Log.e("onAdSoyadHatasi","onAdSoyadHatasi");
     }
 
     @Override
@@ -41,7 +39,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.setSifeHatasi();
             loginView.hideProgress();
         }
-        Log.e("onSifreHatasi","onSifreHatasi");
     }
 
     @Override
@@ -51,7 +48,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.setSifreTekrarHatasi();
             loginView.hideProgress();
         }
-        Log.e("onSifreTekrarHatasi","onSifreTekrarHatasi");
     }
 
     @Override
@@ -61,7 +57,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.setEpostaHatasi();
             loginView.hideProgress();
         }
-        Log.e("onEpostaHatasi","onEpostaHatasi");
     }
 
     @Override

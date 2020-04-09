@@ -1,5 +1,6 @@
 package com.example.mvpornek.View;
 
 public interface SplashScreenView {
-    void navigateToHome();
+    void startActivity();
+    void anaSayfaActivity();
 }

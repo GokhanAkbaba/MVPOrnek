@@ -118,7 +118,7 @@ public class LoginActivity extends Activity implements LoginView,View.OnClickLis
     public void navigateToHome()
     {
         Toast.makeText(this,"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        Intent intent= new Intent(LoginActivity.this,AnaSayfaActivity.class);
+        Intent intent= new Intent(LoginActivity.this,BaslarkenActivity.class);
         startActivity(intent);
     }
 
