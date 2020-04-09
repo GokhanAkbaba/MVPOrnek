@@ -1,7 +1,6 @@
 package com.example.mvpornek.View;
 
-public interface LoginView {
-
+public interface RegisterView {
     void showProgress();
     void hideProgress();
     void setKullaniciAdiHatasi();

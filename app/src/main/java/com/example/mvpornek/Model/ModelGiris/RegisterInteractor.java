@@ -1,7 +1,7 @@
 package com.example.mvpornek.Model.ModelGiris;
 
-public interface LoginInteractor {
-    interface onLoginFinishedListener{
+public interface RegisterInteractor {
+    interface onRegisterFinishedListener{
         void onKullaniciAdiHatasi();
         void onAdSoyadHatasi();
         void onSifreHatasi();
@@ -10,5 +10,5 @@ public interface LoginInteractor {
         void onSuccess();
     }
 
-    void Login(String kullaniciAdi,String adSoyad, String sifre, String sifreTekrar, String ePosta, onLoginFinishedListener listener);
+    void Register(String kullaniciAdi,String adSoyad, String sifre, String sifreTekrar, String ePosta, onRegisterFinishedListener listener);
 }

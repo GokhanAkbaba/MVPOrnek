@@ -3,10 +3,10 @@ package com.example.mvpornek.Model.ModelGiris;
 import android.os.Handler;
 import android.text.TextUtils;
 
+public class RegisterInteractorImpl implements RegisterInteractor {
 
-public class LoginInteractorImpl implements LoginInteractor {
     @Override
-    public void Login(final String kullaniciAdi, final String adSoyad, final String sifre, final String sifreTekrar, final String ePosta, final onLoginFinishedListener listener) {
+    public void Register(final String kullaniciAdi, final String adSoyad, final String sifre, final String sifreTekrar, final String ePosta, final onRegisterFinishedListener listener) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -18,15 +18,15 @@ public class LoginInteractorImpl implements LoginInteractor {
                     listener.onKullaniciAdiHatasi();
                     return;
                 }
-               if(TextUtils.isEmpty(sifre)){
+                if(TextUtils.isEmpty(sifre)){
                     listener.onSifreHatasi();
                     return;
                 }
-               if(TextUtils.isEmpty(sifreTekrar)){
+                if(TextUtils.isEmpty(sifreTekrar)){
                     listener.onSifreTekrarHatasi();
                     return;
                 }
-               if(TextUtils.isEmpty(ePosta)){
+                if(TextUtils.isEmpty(ePosta)){
                     listener.onEpostaHatasi();
                     return;
                 }
@@ -34,4 +34,5 @@ public class LoginInteractorImpl implements LoginInteractor {
             }
         },1000);
     }
+
 }

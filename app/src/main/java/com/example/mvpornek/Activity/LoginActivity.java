@@ -1,150 +1,42 @@
 package com.example.mvpornek.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
-
-import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
-import com.example.mvpornek.Presenter.LoginPresenter;
-import com.example.mvpornek.Presenter.LoginPresenterImpl;
 import com.example.mvpornek.R;
-import com.example.mvpornek.View.LoginView;
 
-
-public class LoginActivity extends Activity implements LoginView,View.OnClickListener {
-
-    private LoginPresenter presenter;
-    private ProgressBar progressBar;
-    private EditText editTextadSoyad,editTextkullaniciAdi,editTextMail,editTextsifre,editTextsifreTekrar;
-    String ePosta,sifre,adSoyad,kullaniciAdi,sifreTekrar;
-
+public class LoginActivity extends Activity implements View.OnClickListener {
+    TextView kayitOlSecenek;
+    ImageButton girisYap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_kullanici_kayit);
+        setContentView(R.layout.fragment_kullanici_giris);
+        kayitOlSecenek=findViewById(R.id.kayitOlSecenekTxt);
+        kayitOlSecenek.setOnClickListener(this);
 
-        progressBar=findViewById(R.id.progressBar2);
-
-        editTextadSoyad = findViewById(R.id.adSoyadText);
-        editTextkullaniciAdi = findViewById(R.id.kullaniciAdiText);
-        editTextMail = findViewById(R.id.ePostaText);
-        editTextsifre = findViewById(R.id.sifreText);
-        editTextsifreTekrar = findViewById(R.id.sifreTekrariText);
-
-
-        findViewById(R.id.kayitYapBtn).setOnClickListener(this);
-        presenter = new LoginPresenterImpl(this, new LoginInteractorImpl());
-
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
+        girisYap=findViewById(R.id.girisYapBtn);
+        girisYap.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        ePosta = editTextMail.getText().toString();
-        sifre=editTextsifre.getText().toString();
-        adSoyad=editTextadSoyad.getText().toString();
-        kullaniciAdi=editTextkullaniciAdi.getText().toString();
-        sifreTekrar=editTextsifreTekrar.getText().toString();
-
-        SharedPreferences sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("EPosta",ePosta);
-        editor.putBoolean("girisYapildi",true);
-        editor.apply();
-
-        presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
+        switch (view.getId())
+        {
+            case R.id.kayitOlSecenekTxt:
+                Intent intent= new Intent(this,RegisterActivitiy.class);
+                startActivity(intent);
+                break;
+            case R.id.girisYapBtn:
+                break;
+        }
 
     }
-
-    @Override
-    public void showProgress() {
-        ///progressBar.setVisibility(View.VISIBLE);
-
-
-    }
-
-    @Override
-    public void hideProgress() {
-        ///progressBar.setVisibility(View.GONE);
-        Log.e("hideProgress","hideProgress");
-    }
-
-    @Override
-    public void setKullaniciAdiHatasi()
-    {
-        editTextkullaniciAdi.setError("Kullanıcı Adını Boş Bırakmayınız");
-    }
-
-    @Override
-    public void setAdSoyadHatasi()
-    {
-        editTextadSoyad.setError("Ad Soyad Boş Bırakmayınız");
-    }
-
-    @Override
-    public void setSifeHatasi()
-    {
-        editTextsifre.setError("Sifrenizi Boş Bırakmayınız");
-    }
-
-    @Override
-    public void setEpostaHatasi()
-    {
-        editTextMail.setError("e-Posta Boş Bırakmayınız");
-    }
-
-    @Override
-    public void setSifreTekrarHatasi()
-    {
-        editTextsifreTekrar.setError("Şifre Tekrar Boş Bırakmayınız");
-    }
-
-    @Override
-    public void navigateToHome()
-    {
-        Toast.makeText(this,"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        Intent intent= new Intent(LoginActivity.this,BaslarkenActivity.class);
-        startActivity(intent);
-    }
-
-
-       /* Call<ResponseBody> call = RetrofitClientInstance
-                .getInstance()
-                .getDataService()
-                .kullaniciOlustur(adSoyad,kullaniciAdi,ePosta,sifre,sifreTekrar);
-
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String s= response.body().string();
-                    Toast.makeText(LoginActivity.this,s,Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(LoginActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-
-    }*/
-
 }
