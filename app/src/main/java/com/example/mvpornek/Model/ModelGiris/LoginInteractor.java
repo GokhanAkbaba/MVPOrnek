@@ -6,5 +6,5 @@ public interface LoginInteractor {
         void onGirisSifreHatasi();
         void onSuccess();
     }
-    void Login(String ePosta);
+    void Login(String ePosta, String sifre, onLoginFinishedListener listener);
 }

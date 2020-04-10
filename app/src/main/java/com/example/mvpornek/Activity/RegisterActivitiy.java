@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.Model.ModelGiris.RegisterInteractorImpl;
@@ -21,6 +22,7 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
     private RegisterPresenter presenter;
     private ProgressBar progressBar;
     private EditText editTextadSoyad,editTextkullaniciAdi,editTextMail,editTextsifre,editTextsifreTekrar;
+    private TextView girisSecenekTxt;
     String ePosta,sifre,adSoyad,kullaniciAdi,sifreTekrar;
 
     @Override
@@ -35,6 +37,10 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
         editTextMail = findViewById(R.id.ePostaText);
         editTextsifre = findViewById(R.id.sifreText);
         editTextsifreTekrar = findViewById(R.id.sifreTekrariText);
+
+        girisSecenekTxt=findViewById(R.id.girisSecenektxt);
+        girisSecenekTxt.setOnClickListener(this);
+
 
 
         findViewById(R.id.kayitYapBtn).setOnClickListener(this);
@@ -56,14 +62,21 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
         adSoyad=editTextadSoyad.getText().toString();
         kullaniciAdi=editTextkullaniciAdi.getText().toString();
         sifreTekrar=editTextsifreTekrar.getText().toString();
+        switch (view.getId())
+        {
+            case R.id.kayitYapBtn:
+                SharedPreferences sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("EPosta",ePosta);
+                editor.putBoolean("girisYapildi",true);
+                editor.apply();
+                presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
+                break;
+            case R.id.girisSecenektxt:
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                break;
+        }
 
-        SharedPreferences sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("EPosta",ePosta);
-        editor.putBoolean("girisYapildi",true);
-        editor.apply();
-
-        presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
 
     }
 
