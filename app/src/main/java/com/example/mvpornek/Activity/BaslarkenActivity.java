@@ -52,8 +52,7 @@ public class BaslarkenActivity extends Activity implements View.OnClickListener 
         switch (view.getId())
         {
             case R.id.baslarkenSonrakiBtn:
-                Intent intent= new Intent(this,AnaSayfaActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                 break;
             case R.id.il_01:
                 if(checkIl==false)

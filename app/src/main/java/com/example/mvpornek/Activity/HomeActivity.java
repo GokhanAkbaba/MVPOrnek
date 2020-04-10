@@ -2,13 +2,11 @@ package com.example.mvpornek.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.mvpornek.R;
 
-public class AnaSayfaActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

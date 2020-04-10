@@ -31,8 +31,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         switch (view.getId())
         {
             case R.id.kayitOlSecenekTxt:
-                Intent intent= new Intent(this,RegisterActivitiy.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),RegisterActivitiy.class));
                 break;
             case R.id.girisYapBtn:
                 break;

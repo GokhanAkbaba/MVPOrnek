@@ -19,7 +19,6 @@
             android:background="@drawable/backgraoundapp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp">
-
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="341dp"

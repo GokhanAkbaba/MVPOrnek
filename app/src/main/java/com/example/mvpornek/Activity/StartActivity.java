@@ -38,12 +38,10 @@ public class StartActivity extends Activity implements View.OnClickListener {
         switch (view.getId())
         {
             case R.id.hesapOlusturBtn:
-                Intent intent= new Intent(StartActivity.this,RegisterActivitiy.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),RegisterActivitiy.class));
                 break;
             case R.id.baslangicGirisSecenek:
-                Intent intentLogin= new Intent(StartActivity.this,LoginActivity.class);
-                startActivity(intentLogin);
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 break;
         }
 

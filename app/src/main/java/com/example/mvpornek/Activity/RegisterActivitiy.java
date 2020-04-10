@@ -114,8 +114,7 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
     public void navigateToHome()
     {
         Toast.makeText(this,"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        Intent intent= new Intent(this,BaslarkenActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getApplicationContext(),BaslarkenActivity.class));
     }
 
 

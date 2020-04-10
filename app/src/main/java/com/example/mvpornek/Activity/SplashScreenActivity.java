@@ -28,7 +28,7 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
                     if(isLoged == false){
                         startActivity();
                     }else{
-                        anaSayfaActivity();
+                        homeActivity();
                     }
                 }
                 super.run();
@@ -39,13 +39,11 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 
     @Override
     public void startActivity() {
-        Intent intent =new Intent(SplashScreenActivity.this, StartActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getApplicationContext(),StartActivity.class));
     }
 
     @Override
-    public void anaSayfaActivity() {
-        Intent intent =new Intent(SplashScreenActivity.this, AnaSayfaActivity.class);
-        startActivity(intent);
+    public void homeActivity() {
+        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
     }
 }
