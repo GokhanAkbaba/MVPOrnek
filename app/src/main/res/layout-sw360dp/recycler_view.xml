@@ -3,43 +3,108 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="42dp"
-        tools:ignore="MissingConstraints" >
+        android:layout_width="412dp"
+        android:layout_height="194dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="42dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="198dp"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
 
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/kullaniciResmi"
                 android:layout_width="76dp"
                 android:layout_height="66dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103"
                 app:srcCompat="@drawable/man" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/kullaniciAdSoyad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="26dp"
                 android:text="Gökhan AKBABA"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                android:textSize="16sp"
+                android:textColor="#000"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/soruPaylasmaZamani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="1sa"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="#Adres #Tatil"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/denemeSoru1Txt"
+                android:textColor="#000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <ImageView
+                android:id="@+id/soruYorumIcon"
+                android:layout_width="43dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:src="@mipmap/yorum_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/yorumSayisiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="155"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="453dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="13.6dp"
+                android:background="@color/ayarlarGrisi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yorumSayisiTxt" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -44,9 +44,31 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="kisiyiEngelleTxt">Kişiyi Engelle</string>
     <string name="sizeBirSoruTxt">size bir soru sordu</string>
     <string name="onceTxt">önce</string>
+    <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>
     <string name="bildirimAciklamaTxt">Bildirim seçeneğini seçmediğiniz takdirde belirli aralıklarla bildirim gelecektir.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" tools:ignore="ExtraTranslation">Hello blank fragment</string>
+    <string-array name="kullanici_isimleri">
+        <item>Gökhan Akbaba</item>
+        <item>Aykut Erdal</item>
+        <item>Mustafa Akbel</item>
+    </string-array>
 
+    <string-array name="yorum_sayisi">
+        <item>152</item>
+        <item>263</item>
+        <item>300</item>
+    </string-array>
+
+    <string-array name="sorular">
+        <item>3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</item>
+        <item>Gaziantepde güzel baklava yiyebileceğim yerler neresi?</item>
+        <item>Trabzondaki en iyi öğrenci yurdu nerde?</item>
+    </string-array>
+    <string-array name="etiket">
+        <item>#Tatil#Alisveris</item>
+        <item>#Yemek</item>
+        <item>#Adres</item>
+    </string-array>
 </resources>

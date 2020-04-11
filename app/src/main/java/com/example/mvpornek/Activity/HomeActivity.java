@@ -1,6 +1,8 @@
 package com.example.mvpornek.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -12,7 +14,10 @@ import android.widget.ImageButton;
 import com.example.mvpornek.R;
 
 public class HomeActivity extends Activity implements View.OnClickListener {
+    String kullanici_isimleri[], yorum_sayisi[], sorular[], etiket[];
+    int kullaniciResmi[] ={R.drawable.man,R.drawable.man1,R.drawable.ceo};
     ImageButton alisverisButon,tatilButon,adresButon,sporButon,yemekButon,sanatButon;
+    RecyclerView recyclerViewSoruAlani;
     Button anaSayfaSoruButon;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false;
@@ -20,6 +25,12 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
+
+        kullanici_isimleri=getResources().getStringArray(R.array.kullanici_isimleri);
+        yorum_sayisi=getResources().getStringArray(R.array.yorum_sayisi);
+        sorular=getResources().getStringArray(R.array.sorular);
+        etiket=getResources().getStringArray(R.array.etiket);
+
 
         alisverisButon=findViewById(R.id.anasayfa_alisveris_btn);
         alisverisButon.setOnClickListener(this);
@@ -34,6 +45,11 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         sanatButon=findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
 
+        recyclerViewSoruAlani=findViewById(R.id.recyclerViewSoruAlani);
+
+        QuestionAdapterActivity questionAdapterActivity=new QuestionAdapterActivity(this,kullanici_isimleri,yorum_sayisi,sorular,etiket,kullaniciResmi);
+        recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
+        recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override

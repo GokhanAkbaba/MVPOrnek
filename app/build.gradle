@@ -27,6 +27,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp:okhttp:2.7.2'
     implementation 'com.kaopiz:kprogresshud:1.0.2'
+
     implementation 'com.tapadoo.android:alerter:4.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
@@ -35,4 +36,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation 'com.android.support:design:29.1.0'
+
+
 }

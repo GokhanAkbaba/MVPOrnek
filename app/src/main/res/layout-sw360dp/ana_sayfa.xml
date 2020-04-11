@@ -101,7 +101,7 @@
         android:id="@+id/anasayfa_soru_gonder"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginRight="56dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/baslarkenilbuton"
         android:drawableLeft="@mipmap/soru_gonder_icon"
 
@@ -126,16 +126,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/recyclerViewSoruAlani"
+        android:layout_width="402dp"
+        android:layout_height="515dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="7dp"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview" />
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -155,7 +157,7 @@
         android:layout_height="1dp"
 
         android:layout_marginTop="4px"
-        android:background="@drawable/color_curse"
+        android:background="@color/ayarlarGrisi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv" />
