@@ -29,7 +29,7 @@
                 android:id="@+id/anasayfa_alisveris_btn"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
                 android:src="@mipmap/alisveris_icon"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -40,7 +40,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
                 android:src="@mipmap/yemek_icon"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_alisveris_btn"
@@ -51,7 +51,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
                 android:src="@mipmap/tatil_icon"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_yemek_btn"
@@ -62,7 +62,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
                 android:src="@mipmap/ic_launcher_adres"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
@@ -74,7 +74,7 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
                 android:src="@mipmap/spor_icon"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_adres_btn"
@@ -82,26 +82,14 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageButton
-                android:id="@+id/anasayfa_spor_btn2"
+                android:id="@+id/anasayfa_sanat_btn"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/baslarkenilbuton"
                 android:scaleType="center"
-                android:src="@mipmap/spor_icon"
+                android:src="@mipmap/film_icon"
                 app:layout_constraintLeft_toRightOf="@+id/anasayfa_spor_btn"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints" />
-
-            <ImageButton
-                android:id="@+id/anasayfa_spor_btn3"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/ana_sayfa_etiket_arka_plan"
-                android:scaleType="center"
-                android:src="@mipmap/spor_icon"
-                app:layout_constraintLeft_toRightOf="@+id/anasayfa_spor_btn2"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
@@ -109,26 +97,30 @@
 
     </HorizontalScrollView>
 
-    <ImageView
-        android:id="@+id/asansayfa_gonder_imgv"
+    <Button
+        android:id="@+id/anasayfa_soru_gonder"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="56dp"
+        android:background="@drawable/baslarkenilbuton"
+        android:drawableLeft="@mipmap/soru_gonder_icon"
+
         android:src="@mipmap/soru_gonder_icon"
         app:layout_constraintBottom_toBottomOf="@+id/anasayfa_baslik_tv"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/anasayfa_baslik_tv" />
+        app:layout_constraintTop_toTopOf="@+id/anasayfa_baslik_tv"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/anasayfa_baslik_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:autoSizeTextType="uniform"
         android:text="@string/uygulama_adi"
         android:textColor="#000000"
-        android:textSize="45dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -156,5 +148,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/nav_items" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+
+        android:layout_marginTop="4px"
+        android:background="@drawable/color_curse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

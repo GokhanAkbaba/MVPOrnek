@@ -19,7 +19,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.setKullaniciAdiHatasi();
             registerView.hideProgress();
         }
-
     }
 
     @Override
@@ -29,7 +28,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.setAdSoyadHatasi();
             registerView.hideProgress();
         }
-
     }
 
     @Override
@@ -39,7 +37,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.setSifeHatasi();
             registerView.hideProgress();
         }
-
     }
 
     @Override
@@ -49,7 +46,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.setSifreTekrarHatasi();
             registerView.hideProgress();
         }
-
     }
 
     @Override
@@ -59,7 +55,15 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.setEpostaHatasi();
             registerView.hideProgress();
         }
+    }
 
+    @Override
+    public void onSifreKontrol() {
+        if(registerView != null)
+        {
+            registerView.setSifreKontrol();
+            registerView.hideProgress();
+        }
     }
 
     @Override
@@ -69,7 +73,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.navigateToHome();
             registerView.hideProgress();
         }
-
     }
     @Override
     public void validateCredentials(String kullaniciAdi, String adSoyad, String sifre, String sifreTekrar, String ePosta) {

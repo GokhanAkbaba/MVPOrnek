@@ -69,7 +69,7 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
                 SharedPreferences.Editor editor=sharedPreferences.edit();
                 editor.putString("EPosta",ePosta);
                 editor.putBoolean("girisYapildi",true);
-                editor.apply();
+                //editor.apply();
                 presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
                 break;
             case R.id.girisSecenektxt:
@@ -79,7 +79,6 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
 
 
     }
-
     @Override
     public void showProgress() {
         ///progressBar.setVisibility(View.VISIBLE);
@@ -121,6 +120,11 @@ public class RegisterActivitiy extends Activity implements RegisterView,View.OnC
     public void setSifreTekrarHatasi()
     {
         editTextsifreTekrar.setError("Şifre Tekrar Boş Bırakmayınız");
+    }
+
+    @Override
+    public void setSifreKontrol() {
+        editTextsifreTekrar.setError("Şifreler Eşleşmiyor");
     }
 
     @Override

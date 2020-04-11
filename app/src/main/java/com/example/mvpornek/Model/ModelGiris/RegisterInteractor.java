@@ -7,6 +7,7 @@ public interface RegisterInteractor {
         void onSifreHatasi();
         void onSifreTekrarHatasi();
         void onEpostaHatasi();
+        void onSifreKontrol();
         void onSuccess();
     }
 

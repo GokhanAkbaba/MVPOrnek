@@ -8,5 +8,6 @@ public interface RegisterView {
     void setSifeHatasi();
     void setEpostaHatasi();
     void setSifreTekrarHatasi();
+    void setSifreKontrol();
     void navigateToHome();
 }
