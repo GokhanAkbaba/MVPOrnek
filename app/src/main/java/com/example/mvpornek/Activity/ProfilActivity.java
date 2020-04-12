@@ -1,19 +1,15 @@
 package com.example.mvpornek.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TableLayout;
 
-import com.example.mvpornek.BegendiklerimFragment;
-import com.example.mvpornek.CevaplarimFragment;
+import com.example.mvpornek.Fragment.BegendiklerimFragment;
+import com.example.mvpornek.Fragment.CevaplarimFragment;
 import com.example.mvpornek.R;
-import com.example.mvpornek.SorularimFragment;
-import com.example.mvpornek.ViewPagerAdapter;
+import com.example.mvpornek.Fragment.SorularimFragment;
+import com.example.mvpornek.Fragment.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class ProfilActivity extends FragmentActivity {

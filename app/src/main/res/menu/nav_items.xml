@@ -3,18 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@mipmap/baseline_home_black_48"
-        android:title="@string/nav_home" />
+        android:id="@+id/anaSayfaItem"
+        android:icon="@mipmap/ana_sayfa_bar_icon"
+        android:title="" />
     <item
-        android:icon="@drawable/ic_search_black_48dp"
-        android:title="@string/nav_arama" />
+        android:id="@+id/aramaItem"
+        android:icon="@mipmap/arama_bar_icon"
+        android:title="" />
     <item
-        android:icon="@mipmap/baseline_notifications_black_48"
-        android:title="@string/nav_notification" />
+        android:id="@+id/bildirimItem"
+        android:icon="@mipmap/bildirim_bar_icon"
+        android:title="" />
     <item
-        android:icon="@mipmap/baseline_person_black_48"
-        android:title="@string/nav_profil" />
+        android:id="@+id/profilItem"
+        android:icon="@mipmap/profil_bar_icon"
+        android:title="" />
     <item
-        android:icon="@mipmap/baseline_settings_black_48"
-        android:title="@string/nav_setting" />
+        android:id="@+id/ayarlarItem"
+        android:icon="@mipmap/ayarlar_bar_icon"
+        android:title="" />
 </menu>

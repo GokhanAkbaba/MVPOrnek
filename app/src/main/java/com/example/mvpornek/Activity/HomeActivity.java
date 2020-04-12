@@ -1,23 +1,34 @@
 package com.example.mvpornek.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
+import com.example.mvpornek.Fragment.BildirimlerFragment;
+import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.R;
+import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends Activity implements View.OnClickListener {
-    String kullanici_isimleri[], yorum_sayisi[], sorular[], etiket[];
-    int kullaniciResmi[] ={R.drawable.man,R.drawable.man1,R.drawable.ceo};
+public class HomeActivity extends FragmentActivity implements View.OnClickListener {
+
     ImageButton alisverisButon,tatilButon,adresButon,sporButon,yemekButon,sanatButon;
-    RecyclerView recyclerViewSoruAlani;
+
+    BottomNavigationView bottomNavigationView;
     Button anaSayfaSoruButon;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false;
@@ -25,12 +36,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
-
-        kullanici_isimleri=getResources().getStringArray(R.array.kullanici_isimleri);
-        yorum_sayisi=getResources().getStringArray(R.array.yorum_sayisi);
-        sorular=getResources().getStringArray(R.array.sorular);
-        etiket=getResources().getStringArray(R.array.etiket);
-
 
         alisverisButon=findViewById(R.id.anasayfa_alisveris_btn);
         alisverisButon.setOnClickListener(this);
@@ -45,11 +50,32 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         sanatButon=findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
 
-        recyclerViewSoruAlani=findViewById(R.id.recyclerViewSoruAlani);
+        bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.anaSayfaItem:
+                        HomeFragment homeFragment=new HomeFragment();
+                        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,homeFragment);
+                        fragmentTransaction.commit();
+                        break;
+                    case R.id.profilItem:
+                        startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
+                        break;
+                    case R.id.bildirimItem:
+                        /*BildirimlerFragment frag = new BildirimlerFragment();
+                        FragmentManager manager = getSupportFragmentManager();
+                        manager.beginTransaction().replace(R.id.anaSayfaLayout,frag).commit();*/
 
-        QuestionAdapterActivity questionAdapterActivity=new QuestionAdapterActivity(this,kullanici_isimleri,yorum_sayisi,sorular,etiket,kullaniciResmi);
-        recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
-        recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(this));
+                        break;
+                }
+                return true;
+            }
+        });
+
     }
 
     @Override
