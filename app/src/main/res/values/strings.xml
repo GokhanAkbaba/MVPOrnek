@@ -47,8 +47,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>
     <string name="bildirimAciklamaTxt">Bildirim seçeneğini seçmediğiniz takdirde belirli aralıklarla bildirim gelecektir.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" tools:ignore="ExtraTranslation">Hello blank fragment</string>
+
     <string-array name="kullanici_isimleri">
         <item>Gökhan Akbaba</item>
         <item>Aykut Erdal</item>
@@ -66,6 +65,23 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
         <item>Gaziantepde güzel baklava yiyebileceğim yerler neresi?</item>
         <item>Trabzondaki en iyi öğrenci yurdu nerde?</item>
     </string-array>
+
+    <string-array name="bildirim_aciklama">
+        <item>3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</item>
+        <item>Şahinbey Belediyesinin arkasındaki lokanta güzel.</item>
+    </string-array>
+
+    <string-array name="bildirim_neden">
+        <item>size bir soru sordu.</item>
+        <item>sorunuza cevap verdi</item>
+
+    </string-array>
+
+    <string-array name="bildirim_zaman">
+        <item>5dk</item>
+        <item>3dk</item>
+    </string-array>
+
     <string-array name="etiket">
         <item>#Tatil#Alisveris</item>
         <item>#Yemek</item>

@@ -1,4 +1,4 @@
-package com.example.mvpornek.Fragment;
+package com.example.mvpornek.Fragment.ProfilTabFragment;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mvpornek.Activity.QuestionAdapterActivity;
+import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
 import com.example.mvpornek.R;
 
 

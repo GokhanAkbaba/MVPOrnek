@@ -5,10 +5,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.example.mvpornek.Fragment.BegendiklerimFragment;
-import com.example.mvpornek.Fragment.CevaplarimFragment;
+import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
+import com.example.mvpornek.Fragment.ProfilTabFragment.CevaplarimFragment;
 import com.example.mvpornek.R;
-import com.example.mvpornek.Fragment.SorularimFragment;
+import com.example.mvpornek.Fragment.ProfilTabFragment.SorularimFragment;
 import com.example.mvpornek.Fragment.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 

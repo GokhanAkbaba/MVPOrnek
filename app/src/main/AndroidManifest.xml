@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.LoginActivity" >
+        </activity>
         <activity android:name=".Activity.RegisterActivitiy" />
         <activity android:name=".Activity.BaslarkenActivity" />
         <activity android:name=".Activity.StartActivity" />

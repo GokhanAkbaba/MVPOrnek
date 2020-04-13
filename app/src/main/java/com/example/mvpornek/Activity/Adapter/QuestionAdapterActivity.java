@@ -1,4 +1,4 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Activity.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,16 +14,16 @@ import com.example.mvpornek.R;
 
 public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapterActivity.MyViewHolder>
 {
-    String data1[], data2[],data3[],data4[];
+    String kullanici_isimleri[], yorum_sayisi[],sorular[],etiket[];
     int kullaniciResimleri[];
     Context context;
     public QuestionAdapterActivity(Context ct, String kullanici_isimleri[], String yorum_sayisi[], String sorular[],String etiket[], int kullaniciImg[])
     {
         this.context=ct;
-        this.data1=kullanici_isimleri;
-        this.data2=yorum_sayisi;
-        this.data3=etiket;
-        this.data4=sorular;
+        this.kullanici_isimleri=kullanici_isimleri;
+        this.yorum_sayisi=yorum_sayisi;
+        this.etiket=etiket;
+        this.sorular=sorular;
         this.kullaniciResimleri=kullaniciImg;
 
     }
@@ -32,23 +32,23 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
     public QuestionAdapterActivity.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater=LayoutInflater.from(context);
-        View view =inflater.inflate(R.layout.recycler_view,parent,false);
+        View view =inflater.inflate(R.layout.sorular_icerik,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapterActivity.MyViewHolder holder, int position) {
-        holder.adSoyad.setText(data1[position]);
-        holder.yorum_sayisi.setText(data2[position]);
-        holder.etiket.setText(data3[position]);
-        holder.sorular.setText(data4[position]);
+        holder.adSoyad.setText(kullanici_isimleri[position]);
+        holder.yorum_sayisi.setText(yorum_sayisi[position]);
+        holder.etiket.setText(etiket[position]);
+        holder.sorular.setText(sorular[position]);
         holder.profilResmi.setImageResource(kullaniciResimleri[position]);
 
     }
 
     @Override
     public int getItemCount() {
-        return data1.length;
+        return kullanici_isimleri.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
