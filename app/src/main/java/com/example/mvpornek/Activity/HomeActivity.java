@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
+import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -45,6 +46,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         FragmentTransaction fragmentTransactionBildirim=getSupportFragmentManager().beginTransaction();
                         fragmentTransactionBildirim.replace(R.id.anaSayfaFrameLayout,bildirimlerFragment);
                         fragmentTransactionBildirim.commit();
+                        break;
+                    case R.id.aramaItem:
+                        SearchFragment searchFragment = new SearchFragment();
+                        FragmentTransaction fragmentTransactionBildirim2=getSupportFragmentManager().beginTransaction();
+                        fragmentTransactionBildirim2.replace(R.id.anaSayfaFrameLayout,searchFragment);
+                        fragmentTransactionBildirim2.commit();
                         break;
                 }
                 return true;

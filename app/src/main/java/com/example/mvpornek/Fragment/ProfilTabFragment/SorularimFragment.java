@@ -11,7 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SorularimFragment extends Fragment {
@@ -21,8 +25,8 @@ public class SorularimFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    String kullanici_isimleri[], yorum_sayisi[], sorular[], etiket[];
-    int kullaniciResmi[] ={R.drawable.man,R.drawable.man1,R.drawable.ceo};
+    List<QuestionModel> questionModels=new ArrayList<>();
+    QuestionAdapterActivity questionAdapterActivity;
 
 
     private String mParam1;
@@ -50,10 +54,11 @@ public class SorularimFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        kullanici_isimleri=getResources().getStringArray(R.array.kullanici_isimleri);
-        yorum_sayisi=getResources().getStringArray(R.array.yorum_sayisi);
-        sorular=getResources().getStringArray(R.array.sorular);
-        etiket=getResources().getStringArray(R.array.etiket);
+        questionModels.add(new QuestionModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","153","#Tatil#Adres",R.drawable.man));
+        questionModels.add(new QuestionModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
+        questionModels.add(new QuestionModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
+        questionAdapterActivity=new QuestionAdapterActivity(questionModels);
+
     }
 
     @Override
@@ -62,7 +67,6 @@ public class SorularimFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sorularim, container, false);
 
         recyclerView=(RecyclerView) view.findViewById(R.id.profilRecyclerView);
-        QuestionAdapterActivity questionAdapterActivity=new QuestionAdapterActivity(getActivity(),kullanici_isimleri,yorum_sayisi,sorular,etiket,kullaniciResmi);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(questionAdapterActivity);
         return view;

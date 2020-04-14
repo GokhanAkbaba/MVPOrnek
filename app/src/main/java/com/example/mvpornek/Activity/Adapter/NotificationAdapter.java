@@ -10,42 +10,48 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mvpornek.Model.Kullanıcı.NotificationModel;
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
 
+import java.util.List;
+
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.BildirimViewHolder> {
-    String kullanici_isimleri[], bildirim_aciklama[],bildirim_neden[],bildirim_zaman[];
-    int kullaniciResimleri[];
+    private List<NotificationModel> notificationModelList;
     Context context;
 
-    public NotificationAdapter(String[] kullanici_isimleri, String[] bildirim_aciklama, String[] bildirim_neden, String[] bildirim_zaman, int[] kullaniciResimleri, Context context) {
-        this.kullanici_isimleri = kullanici_isimleri;
-        this.bildirim_aciklama = bildirim_aciklama;
-        this.bildirim_neden = bildirim_neden;
-        this.bildirim_zaman = bildirim_zaman;
-        this.kullaniciResimleri = kullaniciResimleri;
-        this.context = context;
+    public NotificationAdapter(List<NotificationModel> notificationModelList) {
+
+        this.notificationModelList=notificationModelList;
     }
 
     @NonNull
     @Override
     public NotificationAdapter.BildirimViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater=LayoutInflater.from(context);
-        View view =inflater.inflate(R.layout.bildirimler_icerik,parent,false);
-        return new BildirimViewHolder(view);
+        context=parent.getContext();
+        return new NotificationAdapter.BildirimViewHolder(LayoutInflater.from(context).inflate(R.layout.bildirimler_icerik,parent,false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.BildirimViewHolder holder, int position) {
-        holder.bildirimKisi.setText(kullanici_isimleri[position]);
-        holder.bildirimAciklama.setText(bildirim_aciklama[position]);
-        holder.bildirimNedenTxt.setText(bildirim_neden[position]);
-        holder.bildirimZamani.setText(bildirim_zaman[position]);
-        holder.bildirimKisiResim.setImageResource(kullaniciResimleri[position]);
+
+        NotificationModel notificationModel=notificationModelList.get(position);
+        String kullaniciAdi=notificationModel.getKullaniciAdi();
+        String bildirimAciklama=notificationModel.getBildirimAciklama();
+        String bildirimNeden=notificationModel.getBildirimNeden();
+        String bildirimZaman=notificationModel.getBildirimZaman();
+        int kullaniciResimi=notificationModel.getKullaniciResimleri();
+        holder.bildirimKisi.setText(kullaniciAdi);
+        holder.bildirimAciklama.setText(bildirimAciklama);
+        holder.bildirimNedenTxt.setText(bildirimNeden);
+        holder.bildirimZamani.setText(bildirimZaman);
+        holder.bildirimKisiResim.setImageResource(kullaniciResimi);
     }
 
     @Override
     public int getItemCount() {
-        return bildirim_neden.length;
+        return notificationModelList.size();
     }
 
     public class BildirimViewHolder extends RecyclerView.ViewHolder{

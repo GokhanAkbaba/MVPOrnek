@@ -87,4 +87,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
         <item>#Yemek</item>
         <item>#Adres</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

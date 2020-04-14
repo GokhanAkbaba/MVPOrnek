@@ -4,56 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout17"
     android:layout_width="match_parent"
+    android:background="@color/ayarlarGrisi"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-    <ImageButton
-        android:id="@+id/aramasayfasi_geri_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:src="@mipmap/geri_don_icon"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/araLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </ImageButton>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/aramasayfasi_searchview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input_field"
-        android:textCursorDrawable="@drawable/color_curse"
-        app:layout_constraintLeft_toRightOf="@id/aramasayfasi_geri_btn"
-        app:layout_constraintTop_toTopOf="@+id/aramasayfasi_geri_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/aramasayfasi_geri_btn"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="20dp"
-        app:queryBackground="@android:color/transparent">
-    </androidx.appcompat.widget.SearchView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/aramasayfasi_searchview"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="#dfe1e5">
-    </View>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/searchTabBar"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemTextColor="#000000"
-        app:itemIconTint="@color/uygulamaMavisi"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/nav_items" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:text="Arama"
+                android:textColor="@color/colorAccent" />
+        </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="413dp"
+        android:layout_height="677dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/arama_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/araLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/arama_sayfasi_recyclerView"
+            android:layout_width="411dp"
+            android:layout_height="675dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

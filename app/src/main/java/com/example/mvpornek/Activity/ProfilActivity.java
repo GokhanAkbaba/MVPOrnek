@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.CevaplarimFragment;
@@ -37,6 +38,5 @@ public class ProfilActivity extends FragmentActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
-
 
 }

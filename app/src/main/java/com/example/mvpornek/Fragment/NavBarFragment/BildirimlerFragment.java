@@ -12,8 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvpornek.Activity.Adapter.NotificationAdapter;
+import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
+import com.example.mvpornek.Model.Kullanıcı.NotificationModel;
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BildirimlerFragment extends Fragment {
 
@@ -21,17 +27,8 @@ public class BildirimlerFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     RecyclerView recyclerViewBildirimler;
-
-    String kullanici_isimleri[], bildirim_aciklama[], bildirim_neden[], bildirim_zaman[];
-    int kullaniciResmi[] ={R.drawable.man,R.drawable.man1,R.drawable.ceo};
-
-
-
-
-
-
-
-
+    List<NotificationModel> notificationModelList =new ArrayList<>();
+    NotificationAdapter notificationAdapter;
     private String mParam1;
     private String mParam2;
 
@@ -57,13 +54,11 @@ public class BildirimlerFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        kullanici_isimleri=getResources().getStringArray(R.array.kullanici_isimleri);
-        bildirim_aciklama=getResources().getStringArray(R.array.bildirim_aciklama);
-        bildirim_neden=getResources().getStringArray(R.array.bildirim_neden);
-        bildirim_zaman=getResources().getStringArray(R.array.bildirim_zaman);
+        notificationModelList.add(new NotificationModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","size bir soru sordu.","5dk",R.drawable.man));
+        notificationModelList.add(new NotificationModel("Aykut Erdal","Şahinbey Belediyesinin arkasındaki lokanta güzel.","sorunuza cevap verdi","3dk",R.drawable.man1));
+        notificationAdapter=new NotificationAdapter(notificationModelList);
 
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,9 +67,10 @@ public class BildirimlerFragment extends Fragment {
         mToolbar.setTitle(getString(R.string.bildirimlerTxt));
 
         recyclerViewBildirimler=(RecyclerView) view.findViewById(R.id.bildirimleRecyclerView);
-        NotificationAdapter notificationAdapter=new NotificationAdapter(kullanici_isimleri,bildirim_aciklama,bildirim_neden,bildirim_zaman,kullaniciResmi,getActivity());
         recyclerViewBildirimler.setAdapter(notificationAdapter);
         recyclerViewBildirimler.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
+
+
 }

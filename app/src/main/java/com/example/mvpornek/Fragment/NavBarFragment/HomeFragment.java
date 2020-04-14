@@ -12,7 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
@@ -24,9 +28,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false;
     private String mParam1;
     private String mParam2;
-    String kullanici_isimleri[], yorum_sayisi[], sorular[], etiket[];
-    int kullaniciResmi[] ={R.drawable.man,R.drawable.man1,R.drawable.ceo};
+
     RecyclerView recyclerViewSoruAlani;
+    List<QuestionModel> questionModels=new ArrayList<>();
+    QuestionAdapterActivity questionAdapterActivity;
 
     public HomeFragment() {
 
@@ -48,11 +53,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        kullanici_isimleri=getResources().getStringArray(R.array.kullanici_isimleri);
-        yorum_sayisi=getResources().getStringArray(R.array.yorum_sayisi);
-        sorular=getResources().getStringArray(R.array.sorular);
-        etiket=getResources().getStringArray(R.array.etiket);
-
+        questionModels.add(new QuestionModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","153","#Tatil#Adres",R.drawable.man));
+        questionModels.add(new QuestionModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
+        questionModels.add(new QuestionModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
+        questionAdapterActivity=new QuestionAdapterActivity(questionModels);
 
     }
 
@@ -72,11 +76,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         sporButon.setOnClickListener(this);
         sanatButon=view.findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
-        recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
-        QuestionAdapterActivity questionAdapterActivity=new QuestionAdapterActivity(getActivity(),kullanici_isimleri,yorum_sayisi,sorular,etiket,kullaniciResmi);
+       recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         return view;
     }
 

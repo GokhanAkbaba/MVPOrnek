@@ -10,45 +10,49 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mvpornek.Activity.StartActivity;
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
+
+import java.util.List;
 
 public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapterActivity.MyViewHolder>
 {
-    String kullanici_isimleri[], yorum_sayisi[],sorular[],etiket[];
-    int kullaniciResimleri[];
-    Context context;
-    public QuestionAdapterActivity(Context ct, String kullanici_isimleri[], String yorum_sayisi[], String sorular[],String etiket[], int kullaniciImg[])
+    private List<QuestionModel> questionModelList;
+    private Context context;
+    public QuestionAdapterActivity(List<QuestionModel> questionModelList)
     {
-        this.context=ct;
-        this.kullanici_isimleri=kullanici_isimleri;
-        this.yorum_sayisi=yorum_sayisi;
-        this.etiket=etiket;
-        this.sorular=sorular;
-        this.kullaniciResimleri=kullaniciImg;
+        this.questionModelList=questionModelList;
 
     }
     @NonNull
     @Override
     public QuestionAdapterActivity.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context=parent.getContext();
 
-        LayoutInflater inflater=LayoutInflater.from(context);
-        View view =inflater.inflate(R.layout.sorular_icerik,parent,false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.sorular_icerik,null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapterActivity.MyViewHolder holder, int position) {
-        holder.adSoyad.setText(kullanici_isimleri[position]);
-        holder.yorum_sayisi.setText(yorum_sayisi[position]);
-        holder.etiket.setText(etiket[position]);
-        holder.sorular.setText(sorular[position]);
-        holder.profilResmi.setImageResource(kullaniciResimleri[position]);
+
+        QuestionModel questionModel= questionModelList.get(position);
+        String kullaniciAdi=questionModel.getKullaniciAdi();
+        String soru=questionModel.getSoru();
+        String yorumSayisi=questionModel.getYorumSayisi();
+        int kullaniciProfilResmi=questionModel.getKullaniciProfilResmi();
+        String etiket=questionModel.getEtiket();
+        holder.adSoyad.setText(kullaniciAdi);
+        holder.yorum_sayisi.setText(yorumSayisi);
+        holder.etiket.setText(etiket);
+        holder.sorular.setText(soru);
+        holder.profilResmi.setImageResource(kullaniciProfilResmi);
 
     }
 
     @Override
     public int getItemCount() {
-        return kullanici_isimleri.length;
+        return questionModelList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
