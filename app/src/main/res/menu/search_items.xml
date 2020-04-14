@@ -5,7 +5,7 @@
     <item
         android:title="Search View"
         android:id="@+id/searchBar"
-        android:icon="@mipmap/geri_don_icon"
+        android:icon="@mipmap/arama_bar_icon"
         app:showAsAction="always|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
          />
