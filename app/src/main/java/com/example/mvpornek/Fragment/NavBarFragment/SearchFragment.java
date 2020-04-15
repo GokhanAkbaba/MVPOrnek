@@ -1,27 +1,25 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
-import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 
 import com.example.mvpornek.Activity.Adapter.SearchAdapter;
+import com.example.mvpornek.Activity.DenemeActivity;
 import com.example.mvpornek.Activity.QuestionDetailActivity;
 import com.example.mvpornek.Model.Kullanıcı.SearchModel;
 import com.example.mvpornek.R;
@@ -83,17 +81,18 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         toolbar=(Toolbar) view.findViewById(R.id.searchTabBar);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaSayfasiRecyclerView.setAdapter(searchAdapter);
+        toolbar.setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        startActivity(new Intent(getActivity(), DenemeActivity.class));
     }
 
     @Override
     public void searchQuestionSelected(SearchModel searchModel) {
-
         startActivity(new Intent(getActivity(), QuestionDetailActivity.class).putExtra("data",searchModel));
     }
 

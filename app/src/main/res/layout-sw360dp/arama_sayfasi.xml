@@ -24,9 +24,12 @@
             android:id="@+id/searchTabBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/araLayout">
+
+
 
 
         </androidx.appcompat.widget.Toolbar>

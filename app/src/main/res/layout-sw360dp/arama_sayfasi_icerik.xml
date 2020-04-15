@@ -9,20 +9,18 @@
     tools:ignore="MissingDefaultResource">
 
 
-
     <androidx.appcompat.widget.SearchView
         android:id="@+id/aramasayfasi_searchview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="377dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/input_field"
         android:textCursorDrawable="@drawable/color_curse"
-        app:layout_constraintTop_toTopOf="@+id/aramasayfasi_geri_btn"
         app:layout_constraintBottom_toBottomOf="@+id/aramasayfasi_geri_btn"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="20dp"
-        app:queryBackground="@android:color/transparent">
-    </androidx.appcompat.widget.SearchView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/aramasayfasi_geri_btn"
+        app:queryBackground="@android:color/transparent"></androidx.appcompat.widget.SearchView>
 
     <View
         android:layout_width="match_parent"
