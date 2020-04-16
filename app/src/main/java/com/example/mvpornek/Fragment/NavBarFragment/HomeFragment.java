@@ -1,12 +1,17 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -14,6 +19,7 @@ import android.widget.ImageButton;
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
+import com.google.android.material.internal.NavigationMenuItemView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +54,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -170,8 +177,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     checkSanatEtiket=false;
                 }
                 break;
-            case R.id.anasayfa_soru_gonder:
-                break;
+
         }
     }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.home_items,menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+
+    }
+
 }

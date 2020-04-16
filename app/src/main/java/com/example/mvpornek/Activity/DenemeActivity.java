@@ -34,7 +34,7 @@ public class DenemeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_items,menu);
-        MenuItem menuItem=menu.findItem(R.id.searchBar);
+        MenuItem menuItem=menu.findItem(R.id.action_search);
         searchView=(SearchView) menuItem.getActionView();
         menuItem.expandActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

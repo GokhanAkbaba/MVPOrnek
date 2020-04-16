@@ -63,8 +63,6 @@ public class BildirimlerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bildirimler_sayfasi, container, false);
-        Toolbar mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        mToolbar.setTitle(getString(R.string.bildirimlerTxt));
 
         recyclerViewBildirimler=(RecyclerView) view.findViewById(R.id.bildirimleRecyclerView);
         recyclerViewBildirimler.setAdapter(notificationAdapter);

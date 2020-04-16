@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:title="Search View"
-        android:id="@+id/searchBar"
-        android:icon="@mipmap/arama_bar_icon"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-         />
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:id="@+id/action_search"
+    android:title="Search View"
+    app:iconTint="@color/uygulamaMavisi"
+    app:showAsAction="always"
+    app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
 </menu>
