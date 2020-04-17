@@ -7,5 +7,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     app:iconTint="@color/uygulamaMavisi"
     app:showAsAction="always"
     app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <item android:id="@+id/search_settings"
+        android:title="Search Settings"
+        app:iconTint="@color/uygulamaMavisi"
+        android:icon="@mipmap/ayarlar_bar_icon"
+        app:showAsAction="always"
+        />
 
 </menu>

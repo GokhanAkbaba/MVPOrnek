@@ -2,43 +2,38 @@ package com.example.mvpornek.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 
 import com.example.mvpornek.R;
+import com.google.android.material.animation.MatrixEvaluator;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AramaIcerikFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import br.com.mauker.materialsearchview.MaterialSearchView;
+
 public class AramaIcerikFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static final String CONTENT_AUTHORITY = "br.com.mauker.materialsearchview.searchhistorydatabase";
+    SearchView searchView;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public AramaIcerikFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AramaIcerikFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AramaIcerikFragment newInstance(String param1, String param2) {
         AramaIcerikFragment fragment = new AramaIcerikFragment();
         Bundle args = new Bundle();
@@ -50,6 +45,8 @@ public class AramaIcerikFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.GONE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -61,7 +58,29 @@ public class AramaIcerikFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.arama_sayfasi_icerik, container, false);
-
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return view;
     }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        inflater.inflate(R.menu.search_items_content,menu);
+        MenuItem menuItem=menu.findItem(R.id.action_search_content);
+        searchView= (SearchView) menuItem.getActionView();
+        searchView.onActionViewExpanded();
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+
+                // Respond to the action bar's Up/Home button
+                return false;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

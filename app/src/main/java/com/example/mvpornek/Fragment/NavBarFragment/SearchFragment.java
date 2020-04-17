@@ -34,6 +34,7 @@ import androidx.appcompat.widget.SearchView;
 import com.example.mvpornek.Activity.Adapter.SearchAdapter;
 import com.example.mvpornek.Activity.DenemeActivity;
 import com.example.mvpornek.Activity.QuestionDetailActivity;
+import com.example.mvpornek.Fragment.AramaIcerikFragment;
 import com.example.mvpornek.Model.Kullanıcı.SearchModel;
 import com.example.mvpornek.R;
 
@@ -87,6 +88,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
 
 
+
     }
 
     @Override
@@ -97,6 +99,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
 
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaSayfasiRecyclerView.setAdapter(searchAdapter);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         return view;
     }
@@ -115,8 +119,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         inflater.inflate(R.menu.search_items,menu);
         MenuItem menuItem=menu.findItem(R.id.action_search);
         searchView= (SearchView) menuItem.getActionView();
-      ///  searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setBackgroundResource(R.drawable.input_field);
+        searchView.setMinimumHeight(Integer.MAX_VALUE);
         searchView.onActionViewExpanded();
         searchView.setQueryHint(getResources().getString(R.string.aramaCubuguTxt));
         searchView.clearFocus();
@@ -139,7 +143,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
                 Log.e("Gd","Gökhan");
                 searchView.clearFocus();
                 searchView.setVisibility(View.INVISIBLE);
-                BildirimlerFragment bildirimlerFragment = new BildirimlerFragment();
+                AramaIcerikFragment bildirimlerFragment = new AramaIcerikFragment();
                 FragmentTransaction fragmentTransactionBildirim=getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransactionBildirim.replace(R.id.anaSayfaFrameLayout,bildirimlerFragment);
                 fragmentTransactionBildirim.commit();

@@ -9,6 +9,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -34,6 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         anaSayfaGetir();
 
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -62,7 +64,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
         });
-
     }
 
     @Override
