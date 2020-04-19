@@ -1,59 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout17"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-    <ImageButton
-        android:id="@+id/aramasayfasi_geri_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:src="@mipmap/geri_don_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </ImageButton>
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/aramasayfasi_searchview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input_field"
-        android:textCursorDrawable="@drawable/color_curse"
-        app:layout_constraintLeft_toRightOf="@id/aramasayfasi_geri_btn"
-        app:layout_constraintTop_toTopOf="@+id/aramasayfasi_geri_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/aramasayfasi_geri_btn"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="20dp"
-        app:queryBackground="@android:color/transparent">
-    </androidx.appcompat.widget.SearchView>
-
-    <View
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/searchContentToolbar"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/aramasayfasi_searchview"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="#dfe1e5">
-    </View>
+        android:layout_height="@dimen/toolbar_size"
+        android:background="@drawable/content_level_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemTextColor="#000000"
-        app:itemIconTint="@color/uygulamaMavisi"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/nav_items" />
+        <ImageView
+            android:id="@+id/search_content_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/search_content_level_one_back_icon" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_page"
+            android:layout_width="@dimen/search_bar_background_width"
+            android:layout_height="@dimen/search_bar_height"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/input_field" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/searchPageListView"
+        android:layout_width="409dp"
+        android:layout_height="661dp"
+        android:layout_marginTop="1dp"
+        android:divider="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchContentToolbar"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

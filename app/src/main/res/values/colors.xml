@@ -11,6 +11,8 @@
     <color name="soruIsaretiCevaplanmisRenk">#04C66A</color>
     <color name="soruIsaretiCevapladigimRenk">#FE1744</color>
     <color name="renkSiyah">#000</color>
+    <color name="colorGrayPrimay">#eceff1</color>
+    <color name="colorGrayDarkSecondary">#62757f</color>
     <color name="griTon" tools:ignore="MissingDefaultResource">#707070</color>
 
 

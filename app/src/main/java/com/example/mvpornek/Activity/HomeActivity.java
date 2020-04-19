@@ -1,26 +1,21 @@
 package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.mvpornek.Fragment.DenemeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends FragmentActivity implements View.OnClickListener {
 
 
 
@@ -54,7 +49,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         fragmentTransactionBildirim.commit();
                         break;
                     case R.id.aramaItem:
-                        SearchFragment searchFragment = new SearchFragment();
+                        SearchFragment searchFragment=new SearchFragment();
                         FragmentTransaction fragmentTransactionBildirim2=getSupportFragmentManager().beginTransaction();
                         fragmentTransactionBildirim2.replace(R.id.anaSayfaFrameLayout,searchFragment);
                         fragmentTransactionBildirim2.commit();
@@ -76,7 +71,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction fragmentTransactionHome=getSupportFragmentManager().beginTransaction();
         fragmentTransactionHome.replace(R.id.anaSayfaFrameLayout,homeFragment);
         fragmentTransactionHome.commit();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setTitle("Birine Sor");
+
     }
 }

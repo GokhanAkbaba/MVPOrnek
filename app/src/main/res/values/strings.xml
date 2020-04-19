@@ -45,6 +45,8 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="sizeBirSoruTxt">size bir soru sordu</string>
     <string name="onceTxt">önce</string>
     <string name="aramaCubuguTxt">Birine Sor\'da Ara</string>
+    <string name="searchTabItemKullaniciTxt">Kullanıcılar</string>
+    <string name="searchTabItemSorularTxt">Sorular</string>
     <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>
     <string name="bildirimAciklamaTxt">Bildirim seçeneğini seçmediğiniz takdirde belirli aralıklarla bildirim gelecektir.</string>
 
