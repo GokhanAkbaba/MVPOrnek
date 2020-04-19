@@ -11,7 +11,7 @@
 
     <HorizontalScrollView
         android:id="@+id/anasayfa_horizontalview"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:scrollbars="none"
@@ -23,9 +23,9 @@
         app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
             <ImageButton
@@ -103,12 +103,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSoruAlani"
-        android:layout_width="407dp"
-        android:layout_height="666dp"
-        android:layout_marginTop="6dp"
+        android:layout_width="321dp"
+        android:layout_height="455dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview" />
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview"
+        app:layout_constraintVertical_bias="0.238" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

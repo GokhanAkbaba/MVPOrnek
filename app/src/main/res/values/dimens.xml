@@ -5,4 +5,6 @@
     <dimen name="toolbar_size">68dp</dimen>
     <dimen name="search_bar_height">38dp</dimen>
     <dimen name="search_bar_background_width">300dp</dimen>
+    <dimen name="search_bar_background_width_320dp">250dp</dimen>
+    <dimen name="search_bar_width_320dp">250dp</dimen>
 </resources>

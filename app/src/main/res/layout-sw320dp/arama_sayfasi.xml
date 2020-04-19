@@ -29,9 +29,9 @@
 
             <RelativeLayout
                 android:id="@+id/search_content_search_bar"
-                android:layout_width="300dp"
+                android:layout_width="@dimen/search_bar_background_width_320dp"
                 android:layout_height="@dimen/search_bar_height"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="17dp"
                 android:background="@drawable/input_field">
 
@@ -55,7 +55,7 @@
                 android:id="@+id/search_content_search_settings"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="17dp"
                 android:src="@mipmap/ayarlar_bar_icon" />
 

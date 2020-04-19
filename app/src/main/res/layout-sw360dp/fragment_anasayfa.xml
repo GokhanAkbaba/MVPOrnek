@@ -103,8 +103,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSoruAlani"
-        android:layout_width="407dp"
-        android:layout_height="666dp"
+        android:layout_width="match_parent"
+        android:layout_height="693dp"
         android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
