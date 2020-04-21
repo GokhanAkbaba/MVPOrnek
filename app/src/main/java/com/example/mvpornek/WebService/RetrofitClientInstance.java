@@ -7,7 +7,7 @@ public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
     private static RetrofitClientInstance mIstance;
-    private static final String BASE_URL = "http://192.168.0.14:8000/";
+    private static final String BASE_URL = "http://inamemrah.com/birineSorWebServis/";
 
     private RetrofitClientInstance()
     {

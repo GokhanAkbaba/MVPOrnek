@@ -1,5 +1,7 @@
 package com.example.mvpornek.WebService;
 
+import com.example.mvpornek.Model.searchUsers;
+
 import org.json.JSONObject;
 import java.util.List;
 
@@ -30,5 +32,8 @@ public interface GetDataService {
             @Field("sifreTekrar") String sifreTekari
 
     );
+
+    @GET("kullanicilariGetir")
+    Call<searchUsersResponse> getKullanici();
 
 }
