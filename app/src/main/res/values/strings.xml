@@ -44,6 +44,11 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="kisiyiEngelleTxt">Kişiyi Engelle</string>
     <string name="sizeBirSoruTxt">size bir soru sordu</string>
     <string name="onceTxt">önce</string>
+    <string name="adSoyadTextInputHint">Ad Soyad</string>
+    <string name="kullaniciAdiTextInputHint">Kullanıcı Adı</string>
+    <string name="ePostaTextInputHint">e-Posta</string>
+    <string name="sifreTextInputHint">Şifre</string>
+    <string name="sifreTekrarTextInputHint">Şifre Tekrar</string>
     <string name="aramaCubuguTxt">Birine Sor\'da Ara</string>
     <string name="searchTabItemKullaniciTxt">Kullanıcılar</string>
     <string name="searchTabItemSorularTxt">Sorular</string>

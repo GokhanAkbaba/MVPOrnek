@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvpornek.Activity.StartActivity;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.R;
 

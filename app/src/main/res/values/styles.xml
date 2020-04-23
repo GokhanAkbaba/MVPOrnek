@@ -1,15 +1,12 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorWhite</item><!-- ActionBar -->
         <item name="colorPrimaryDark">@color/ayarlarGrisi</item> <!-- Üstteki küçük bar -->
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/renkSiyah</item>
+        <item name="colorError">@color/hataRenk</item>
         <item name="autoCompleteTextViewStyle">@style/cursorColor</item>
-
-
-
     </style>
     <style name="cursorColor" parent="Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/color_curse</item>

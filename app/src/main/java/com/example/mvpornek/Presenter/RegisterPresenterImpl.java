@@ -22,10 +22,29 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
+    public void onOffKullaniciAdiHatasi() {
+        if(registerView != null)
+        {
+            registerView.setOffKullaniciAdiHatasi();
+            registerView.hideProgress();
+        }
+    }
+
+
+    @Override
     public void onAdSoyadHatasi() {
         if(registerView != null)
         {
             registerView.setAdSoyadHatasi();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
+    public void onOffAdSoyadHatasi() {
+        if(registerView != null)
+        {
+            registerView.setOffAdSoyadHatasi();
             registerView.hideProgress();
         }
     }
@@ -40,10 +59,28 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
+    public void onOffSifreHatasi() {
+        if(registerView != null)
+        {
+            registerView.setOffSifeHatasi();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
     public void onSifreTekrarHatasi() {
         if(registerView != null)
         {
             registerView.setSifreTekrarHatasi();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
+    public void onOffSifreTekrarHatasi() {
+        if(registerView != null)
+        {
+            registerView.setOffSifreTekrarHatasi();
             registerView.hideProgress();
         }
     }
@@ -58,10 +95,28 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
+    public void onOffEpostaHatasi() {
+        if(registerView != null)
+        {
+            registerView.setOffEpostaHatasi();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
     public void onSifreKontrol() {
         if(registerView != null)
         {
             registerView.setSifreKontrol();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
+    public void onOffSifreKontrol() {
+        if(registerView != null)
+        {
+            registerView.setOffSifreKontrol();
             registerView.hideProgress();
         }
     }

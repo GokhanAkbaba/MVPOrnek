@@ -51,7 +51,7 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         switch (view.getId())
         {
             case R.id.kayitOlSecenekTxt:
-                startActivity(new Intent(getApplicationContext(),RegisterActivitiy.class));
+
                 break;
             case R.id.girisYapBtn:
                 loginPresenter.loginValideCredentals(girisKullanici,girisSifre);

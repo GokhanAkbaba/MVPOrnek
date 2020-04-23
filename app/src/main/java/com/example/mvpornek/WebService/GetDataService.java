@@ -1,6 +1,7 @@
 package com.example.mvpornek.WebService;
 
-import com.example.mvpornek.Model.searchUsers;
+
+import com.example.mvpornek.Model.searchUsersResponse;
 
 import org.json.JSONObject;
 import java.util.List;

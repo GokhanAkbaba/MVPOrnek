@@ -15,25 +15,64 @@ public class RegisterInteractorImpl implements RegisterInteractor {
                     listener.onAdSoyadHatasi();
                     return;
                 }
+
+                if(!TextUtils.isEmpty(adSoyad))
+                {
+                    listener.onOffAdSoyadHatasi();
+                    return;
+                }
+
                 if(TextUtils.isEmpty(kullaniciAdi)){
                     listener.onKullaniciAdiHatasi();
                     return;
                 }
+                if(!TextUtils.isEmpty(kullaniciAdi))
+                {
+                    listener.onOffKullaniciAdiHatasi();
+                    return;
+                }
+
                 if(TextUtils.isEmpty(sifre)){
                     listener.onSifreHatasi();
                     return;
                 }
+
+                if(!TextUtils.isEmpty(sifreTekrar))
+                {
+                    listener.onOffSifreHatasi();
+                    return;
+                }
+
                 if(TextUtils.isEmpty(sifreTekrar)){
                     listener.onSifreTekrarHatasi();
                     return;
                 }
+
+                if(!TextUtils.isEmpty(sifreTekrar))
+                {
+                    listener.onOffSifreTekrarHatasi();
+                    return;
+                }
+
                 if(TextUtils.isEmpty(ePosta)){
                     listener.onEpostaHatasi();
                     return;
                 }
+                if(!TextUtils.isEmpty(ePosta))
+                {
+                    listener.onOffEpostaHatasi();
+                    return;
+                }
+
                 if(!TextUtils.equals(sifre,sifreTekrar))
                 {
                     listener.onSifreKontrol();
+                    return;
+                }
+
+                if(TextUtils.equals(sifre,sifreTekrar))
+                {
+                    listener.onOffSifreKontrol();
                     return;
                 }
                 listener.onSuccess();
