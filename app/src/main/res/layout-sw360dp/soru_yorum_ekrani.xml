@@ -17,7 +17,7 @@
         android:backgroundTint="@color/uygulamaMavisi"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/soruyuYanıtlaTxt"
+        android:hint="Soruyu Yanıtla"
         android:inputType="textMultiLine"
         android:textCursorDrawable="@drawable/color_curse"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="23dp"
-        android:text="@string/adliKisiYntTxt"
+        android:text="adlı kişinini sorusunu yanıt olarak"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,34 +66,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="600dp"
+        android:background="@color/ayarlarGrisi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="391dp"
         android:layout_height="66dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText7"
-        app:layout_constraintVertical_bias="1.0">
-
-        <View
-            android:id="@+id/divider11"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/ayarlarGrisi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="4dp" />
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/button2"
             android:layout_width="71dp"
             android:layout_height="31dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="7dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/soru_etiket_arkaplan"
             android:text="Yanıtla"

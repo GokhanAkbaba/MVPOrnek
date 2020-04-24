@@ -21,15 +21,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
         }
     }
 
-    @Override
-    public void onOffKullaniciAdiHatasi() {
-        if(registerView != null)
-        {
-            registerView.setOffKullaniciAdiHatasi();
-            registerView.hideProgress();
-        }
-    }
-
 
     @Override
     public void onAdSoyadHatasi() {
@@ -40,29 +31,12 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
         }
     }
 
-    @Override
-    public void onOffAdSoyadHatasi() {
-        if(registerView != null)
-        {
-            registerView.setOffAdSoyadHatasi();
-            registerView.hideProgress();
-        }
-    }
 
     @Override
     public void onSifreHatasi() {
         if(registerView != null)
         {
             registerView.setSifeHatasi();
-            registerView.hideProgress();
-        }
-    }
-
-    @Override
-    public void onOffSifreHatasi() {
-        if(registerView != null)
-        {
-            registerView.setOffSifeHatasi();
             registerView.hideProgress();
         }
     }
@@ -77,15 +51,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
-    public void onOffSifreTekrarHatasi() {
-        if(registerView != null)
-        {
-            registerView.setOffSifreTekrarHatasi();
-            registerView.hideProgress();
-        }
-    }
-
-    @Override
     public void onEpostaHatasi() {
         if(registerView != null)
         {
@@ -94,14 +59,7 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
         }
     }
 
-    @Override
-    public void onOffEpostaHatasi() {
-        if(registerView != null)
-        {
-            registerView.setOffEpostaHatasi();
-            registerView.hideProgress();
-        }
-    }
+
 
     @Override
     public void onSifreKontrol() {
@@ -113,20 +71,10 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
-    public void onOffSifreKontrol() {
-        if(registerView != null)
-        {
-            registerView.setOffSifreKontrol();
-            registerView.hideProgress();
-        }
-    }
-
-    @Override
     public void onSuccess() {
         if(registerView != null)
         {
             registerView.navigateToHome();
-            registerView.hideProgress();
         }
     }
     @Override

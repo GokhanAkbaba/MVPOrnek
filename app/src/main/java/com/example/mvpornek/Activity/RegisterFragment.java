@@ -38,7 +38,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     private static final String ARG_PARAM2 = "param2";
 
     private RegisterPresenter presenter;
-    private ProgressBar progressBar;
     TextInputLayout adSoyadInputLayout,kullaniciAdiInputLayout,ePostaInputLayout,sifreInputLayout,sifreTekrarInputLayout;
     private EditText editTextadSoyad,editTextkullaniciAdi,editTextMail,editTextsifre,editTextsifreTekrar;
     private Button girisSecenekBtn;
@@ -74,7 +73,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kullanici_kayit, container, false);
 
-        progressBar=view.findViewById(R.id.progressBar2);
         adSoyadInputLayout=view.findViewById(R.id.adSoyadTextInputLayout);
         kullaniciAdiInputLayout=view.findViewById(R.id.kullaniciAdiTextInputLayout);
         ePostaInputLayout=view.findViewById(R.id.ePostaTextInputLayout);
@@ -107,17 +105,10 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     public void hideProgress() {
 
     }
-
     @Override
     public void setKullaniciAdiHatasi() {
         kullaniciAdiInputLayout.setError("Kullanıcı Adını Boş Bırakmayınız");
     }
-
-    @Override
-    public void setOffKullaniciAdiHatasi() {
-        kullaniciAdiInputLayout.setError(null);
-    }
-
 
     @Override
     public void setAdSoyadHatasi() {
@@ -126,54 +117,32 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     }
 
     @Override
-    public void setOffAdSoyadHatasi() {
-        adSoyadInputLayout.setError(null);
-    }
-
-    @Override
     public void setSifeHatasi() {
         sifreInputLayout.setError("Sifrenizi Boş Bırakmayınız");
-    }
-
-    @Override
-    public void setOffSifeHatasi() {
-        sifreInputLayout.setError(null);
     }
 
     @Override
     public void setEpostaHatasi() {
         ePostaInputLayout.setError("e-Posta Boş Bırakmayınız");
     }
-
-    @Override
-    public void setOffEpostaHatasi() {
-        ePostaInputLayout.setError(null);
-    }
-
     @Override
     public void setSifreTekrarHatasi() {
         sifreTekrarInputLayout.setError("Şifre Tekrar Boş Bırakmayınız");
     }
-
-    @Override
-    public void setOffSifreTekrarHatasi() {
-        sifreTekrarInputLayout.setError(null);
-    }
-
     @Override
     public void setSifreKontrol() {
         sifreTekrarInputLayout.setError("Şifreler Eşleşmiyor");
     }
 
     @Override
-    public void setOffSifreKontrol() {
-        sifreTekrarInputLayout.setError(null);
-    }
-
-    @Override
     public void navigateToHome() {
-        //Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        Log.e("df","KAYIT BAŞARILI");
+        kullaniciAdiInputLayout.setError(null);
+        adSoyadInputLayout.setError(null);
+        sifreInputLayout.setError(null);
+        ePostaInputLayout.setError(null);
+        sifreTekrarInputLayout.setError(null);
+
+        Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         //startActivity(new Intent(getApplicationContext(),BaslarkenActivity.class));
     }
 
@@ -200,7 +169,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         }
 
     }
-
     @Override
     public void onDestroy() {
         presenter.onDestroy();

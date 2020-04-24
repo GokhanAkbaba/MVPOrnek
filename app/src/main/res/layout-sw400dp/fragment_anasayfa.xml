@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/anaSayfaLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:ignore="MissingDefaultResource">
+
+    <HorizontalScrollView
+        android:id="@+id/anasayfa_horizontalview"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/anasayfa_alisveris_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/alisveris_icon"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_yemek_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/yemek_icon"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_alisveris_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_tatil_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/tatil_icon"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_yemek_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_adres_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/ic_launcher_adres"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_spor_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/spor_icon"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_adres_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/anasayfa_sanat_btn"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/baslarkenilbuton"
+                android:scaleType="center"
+                android:src="@mipmap/film_icon"
+                app:layout_constraintLeft_toRightOf="@+id/anasayfa_spor_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSoruAlani"
+        android:layout_width="match_parent"
+        android:layout_height="693dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

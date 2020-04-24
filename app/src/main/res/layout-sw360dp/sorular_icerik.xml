@@ -15,8 +15,8 @@
         tools:layout_editor_absoluteY="42dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="198dp"
+            android:layout_width="318dp"
+            android:layout_height="match_parent"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
 
@@ -39,8 +39,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="26dp"
                 android:text="Gökhan AKBABA"
-                android:textSize="16sp"
                 android:textColor="#000"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,8 +67,8 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="384dp"
-                android:layout_height="34dp"
+                android:layout_width="300dp"
+                android:layout_height="35dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"

@@ -12,8 +12,8 @@
         android:id="@+id/ayarlarsayfasi_geri_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
         android:src="@mipmap/geri_don_icon"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +24,10 @@
         android:id="@+id/ayarlarsayfasi_ayarlar_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="@string/ayarlarTxt"
         android:textColor="@color/uygulamaMavisi"
-        android:textSize="30sp"
+        android:textSize="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,8 +35,8 @@
     <RelativeLayout
         android:id="@+id/ayarlarsayfasi_hesap_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
         android:background="@color/ayarlarGrisi"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -48,16 +48,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/hesapTxt"
-            android:textSize="15dp" />
+            android:textSize="13dp" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/ayarlarsayfasi_profilduzenle_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_hesap_rl">
@@ -67,16 +67,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/hesapProfilDuzenleTxt"
-            android:textSize="15dp" />
+            android:textSize="13dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             android:src="@mipmap/ayarlar_ayrinti_icon" />
     </RelativeLayout>
 
@@ -92,7 +92,7 @@
     <RelativeLayout
         android:id="@+id/ayarlarsayfasi_sifredegistir_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view1" >
@@ -102,8 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="13dp"
             android:text="@string/hesapSifreDegistirTxt" />
 
         <ImageView
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             android:src="@mipmap/ayarlar_ayrinti_icon"/>
     </RelativeLayout>
 
@@ -128,7 +128,7 @@
     <RelativeLayout
         android:id="@+id/ayarlarsayfasi_bildirimler_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view2">
@@ -138,8 +138,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:textSize="15dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="13dp"
             android:text="@string/bildirimlerTxt" />
 
         <ImageView
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             android:src="@mipmap/ayarlar_ayrinti_icon" />
 
     </RelativeLayout>
@@ -164,7 +164,7 @@
     <RelativeLayout
         android:id="@+id/ayarlarsayfasi_cikisyap_rl"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view3">
@@ -174,9 +174,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="30dp"
             android:text="@string/cikisYapTxt"
-            android:textSize="15sp"
+            android:textSize="13dp"
             android:textStyle="bold" />
 
         <ImageView
@@ -184,7 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             android:src="@mipmap/ayarlar_ayrinti_icon" />
     </RelativeLayout>
 
