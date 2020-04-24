@@ -106,8 +106,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
     }
     @Override
-    public void setKullaniciAdiHatasi() {
-        kullaniciAdiInputLayout.setError("Kullanıcı Adını Boş Bırakmayınız");
+    public void setKullaniciAdiHatasi(String error) {
+        kullaniciAdiInputLayout.setError(error);
     }
 
     @Override
@@ -122,8 +122,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     }
 
     @Override
-    public void setEpostaHatasi() {
-        ePostaInputLayout.setError("e-Posta Boş Bırakmayınız");
+    public void setEpostaHatasi(String error) {
+        ePostaInputLayout.setError(error);
     }
     @Override
     public void setSifreTekrarHatasi() {

@@ -5,9 +5,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.mvpornek.Activity.RegisterFragment;
 import com.example.mvpornek.Model.Kullanıcı.Kullanici;
 import com.example.mvpornek.WebService.GetDataService;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -18,7 +22,7 @@ import retrofit2.Response;
 
 
 public class RegisterInteractorImpl implements RegisterInteractor {
-    GetDataService getDataService;
+    String hata=null;
     @Override
     public void Register(final String kullaniciAdi, final String adSoyad, final String sifre, final String sifreTekrar, final String ePosta, final onRegisterFinishedListener listener) {
         new Handler().postDelayed(new Runnable() {
@@ -31,7 +35,7 @@ public class RegisterInteractorImpl implements RegisterInteractor {
                 }
 
                 if (TextUtils.isEmpty(kullaniciAdi)) {
-                    listener.onKullaniciAdiHatasi();
+                    listener.onKullaniciAdiHatasi("Kullanıcı Adı Boş Bırakmayınız");
                     return;
                 }
 
@@ -46,7 +50,7 @@ public class RegisterInteractorImpl implements RegisterInteractor {
                 }
 
                 if (TextUtils.isEmpty(ePosta)) {
-                    listener.onEpostaHatasi();
+                    listener.onEpostaHatasi("e-Posta Boş Bırakmayınız");
                     return;
                 }
 
@@ -54,31 +58,51 @@ public class RegisterInteractorImpl implements RegisterInteractor {
                     listener.onSifreKontrol();
                     return;
                 }
-                Call<ResponseBody> call=RetrofitClientInstance
-                        .getInstance()
-                        .getDataService()
-                        .kullaniciKayit(adSoyad,kullaniciAdi,ePosta,sifre,sifreTekrar);
+                    Call<ResponseBody> call=RetrofitClientInstance
+                            .getInstance()
+                            .getDataService()
+                            .kullaniciKayit(adSoyad,kullaniciAdi,ePosta,sifre,sifreTekrar);
 
-                call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        try {
-                            String s=response.body().string();
-                            System.out.println("Sunucu Cevabı "+s);
-                        }catch (IOException e){
-                            e.printStackTrace();
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                try {
+                                    if(response.code() ==201)
+                                    {
+                                        hata=response.body().string();
+
+                                    }else{
+                                        hata=response.body().string();
+                                    }
+                                }catch (IOException e){
+                                    e.printStackTrace();
+                                }
+
+                                if (hata!=null)
+                                {
+                                    int a;
+                                    try{
+                                        JSONObject jsonObject= new JSONObject(hata);
+                                        a=jsonObject.getInt("code");
+                                        if(a==156)
+                                        {
+                                            listener.onEpostaHatasi(jsonObject.getString("message"));
+                                        }else if(a==155){
+                                            listener.onKullaniciAdiHatasi(jsonObject.getString("message"));
+                                        }
+                                    }catch (JSONException e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            System.out.println("Bağlantı Hatası "+t.getMessage());
                         }
+                    });
 
+                    listener.onSuccess();
 
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        System.out.println("Bağlantı Hatası "+t.getMessage());
-                    }
-                });
-
-                listener.onSuccess();
             }
         }, 1000);
     }

@@ -13,10 +13,10 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
-    public void onKullaniciAdiHatasi() {
+    public void onKullaniciAdiHatasi(String error) {
         if(registerView != null)
         {
-            registerView.setKullaniciAdiHatasi();
+            registerView.setKullaniciAdiHatasi(error);
             registerView.hideProgress();
         }
     }
@@ -51,10 +51,10 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
-    public void onEpostaHatasi() {
+    public void onEpostaHatasi(String error) {
         if(registerView != null)
         {
-            registerView.setEpostaHatasi();
+            registerView.setEpostaHatasi(error);
             registerView.hideProgress();
         }
     }
