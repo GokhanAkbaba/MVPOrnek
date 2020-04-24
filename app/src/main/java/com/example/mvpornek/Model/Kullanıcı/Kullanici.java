@@ -1,12 +1,19 @@
 package com.example.mvpornek.Model.Kullanıcı;
 
-public class Kullanici {
-    private String adSoyad;
-    private String kullaniciAdi;
-    private String eMail;
-    private String sifre;
-    private String sifreTekrar;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class Kullanici {
+    @Expose
+    @SerializedName("ad_soyad") private String adSoyad;
+    @Expose
+    @SerializedName("kullaniciAdi") private String kullaniciAdi;
+    @Expose
+    @SerializedName("kullanici_eposta") private String eMail;
+    @Expose
+    @SerializedName("kullanici_sifre") private String sifre;
+    @Expose
+    @SerializedName("kullanici_tekrar_sifre") private String sifreTekrar;
 
     public Kullanici(String adSoyad, String kullaniciAdi, String eMail, String sifre, String sifreTekrar) {
         this.adSoyad = adSoyad;
@@ -14,9 +21,6 @@ public class Kullanici {
         this.eMail = eMail;
         this.sifre = sifre;
         this.sifreTekrar = sifreTekrar;
-    }
-
-    public Kullanici() {
     }
 
     public String getAdSoyad() {
@@ -58,4 +62,8 @@ public class Kullanici {
     public void setSifreTekrar(String sifreTekrar) {
         this.sifreTekrar = sifreTekrar;
     }
+
+
+
+
 }

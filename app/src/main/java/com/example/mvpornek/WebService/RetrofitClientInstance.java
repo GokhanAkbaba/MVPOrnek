@@ -7,7 +7,7 @@ public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
     private static RetrofitClientInstance mIstance;
-    private static final String BASE_URL = "http://inamemrah.com/birineSorWebServis/";
+    private static final String BASE_URL = "https://inamemrah.com/birineSorWebServis/";
 
     private RetrofitClientInstance()
     {

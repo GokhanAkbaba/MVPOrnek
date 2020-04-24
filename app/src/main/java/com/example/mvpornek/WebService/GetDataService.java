@@ -23,18 +23,15 @@ public interface GetDataService {
     Call<List<JSONObject>> getKullanicilar();
 
     @FormUrlEncoded
-    @POST("createuser")
-    Call<ResponseBody> kullaniciOlustur(
+    @POST("kullaniciKayit.php")
+    Call<ResponseBody> kullaniciKayit(
 
-            @Field("adSoyad") String adSoyad,
+            @Field("ad_soyad") String adSoyad,
             @Field("kullaniciAdi") String kullaniciAdi,
-            @Field("ePosta") String ePosta,
-            @Field("sifre") String sifre,
-            @Field("sifreTekrar") String sifreTekari
+            @Field("kullanici_eposta") String ePosta,
+            @Field("kullanici_sifre") String sifre,
+            @Field("kullanici_tekrar_sifre") String sifreTekari
 
     );
-
-    @GET("kullanicilariGetir")
-    Call<searchUsersResponse> getKullanici();
 
 }
