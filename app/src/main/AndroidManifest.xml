@@ -27,7 +27,6 @@
 
         </activity>
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.BaslarkenActivity" />
     </application>
 
 </manifest>

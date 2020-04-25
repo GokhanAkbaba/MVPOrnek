@@ -11,7 +11,8 @@
     <dimen name="kayitOlTextInputLayoutHeight">60dp</dimen>
     <dimen name="kayitOlEditText">40dp</dimen>
 
-    <dimen name="kayitOlTextInputLayoutWidth320">240dp</dimen>
-    <dimen name="kayitOlTextInputLayoutHeight320">60dp</dimen>
-    <dimen name="kayitOlEditText320">40dp</dimen>
+    <dimen name="kayitOlTextInputLayoutWidth320">220dp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight320">54dp</dimen>
+    <dimen name="kayitOlEditText320">34dp</dimen>
+    <dimen name="kayitOlEditTextSize320">10sp</dimen>
 </resources>

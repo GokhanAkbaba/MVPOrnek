@@ -77,7 +77,11 @@ public class SplashScreeenFragment extends Fragment {
         thread.start();
         return view;
     }
-
+    public void getBeginingFragment()
+    {
+        BeginingFragment beginingFragment=new BeginingFragment();
+        callFragment(beginingFragment);
+    }
     public void getStartFragment()
     {
         StartFragment startFragment=new StartFragment();

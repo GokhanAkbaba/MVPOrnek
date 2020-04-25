@@ -9,15 +9,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import com.example.mvpornek.R;
+
+import java.util.ArrayList;
 
 
 public class BeginingFragment extends Fragment implements View.OnClickListener {
 
-    Button adanaBtn,adres,yemek,spor,tatil,alisveris,sanat,yrmDrtBildirim;
+    Button adres,yemek,spor,tatil,alisveris,sanat,yrmDrtBildirim;
     Boolean checkIl = false;
+    Spinner spinner;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false;
 
@@ -29,7 +35,6 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
     private String mParam2;
 
     public BeginingFragment() {
-        // Required empty public constructor
     }
 
     public static BeginingFragment newInstance(String param1, String param2) {
@@ -55,13 +60,11 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
        View view= inflater.inflate(R.layout.baslarken, container, false);
         view.findViewById(R.id.baslarkenSonrakiBtn).setOnClickListener(this);
-        adanaBtn=view.findViewById(R.id.il_01);
-        adanaBtn.setOnClickListener(this);
-        view.findViewById(R.id.il_02).setOnClickListener(this);
-        view.findViewById(R.id.il_03).setOnClickListener(this);
-        view.findViewById(R.id.il_04).setOnClickListener(this);
-        view.findViewById(R.id.il_05).setOnClickListener(this);
-        view.findViewById(R.id.il_06).setOnClickListener(this);
+        spinner=view.findViewById(R.id.ilAutoCompleteTextView);
+        ArrayAdapter arrayAdapter=ArrayAdapter.createFromResource(getContext(),R.array.il,android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
         adres=view.findViewById(R.id.adresEtiketButon);
         adres.setOnClickListener(this);
         yemek=view.findViewById(R.id.yemekEtiketButon);
@@ -86,21 +89,6 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
         {
             case R.id.baslarkenSonrakiBtn:
                 startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
-                break;
-            case R.id.il_01:
-                if(checkIl==false)
-                {
-                    adanaBtn.setBackground(getActivity().getDrawable(R.drawable.baslarkenilonaybuton));
-                    adanaBtn.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    checkIl=true;
-                }
-                else
-                {
-                    adanaBtn.setBackground(getActivity().getDrawable(R.drawable.baslarkenilbuton));
-                    adanaBtn.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    checkIl=false;
-                }
-
                 break;
             case R.id.adresEtiketButon:
 

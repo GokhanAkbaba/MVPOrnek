@@ -115,7 +115,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         adSoyadInputLayout.setError("Ad Soyad Boş Bırakmayınız");
 
     }
-
     @Override
     public void setSifeHatasi() {
         sifreInputLayout.setError("Sifrenizi Boş Bırakmayınız");
@@ -143,9 +142,12 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         ePostaInputLayout.setError(null);
         sifreTekrarInputLayout.setError(null);
         Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(getApplicationContext(),BaslarkenActivity.class));
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("EPosta",ePosta);
+        editor.putBoolean("girisYapildi",true);
+        getBeginingFragment();
     }
-
     @Override
     public void onClick(View view) {
 
@@ -157,10 +159,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         switch (view.getId())
         {
             case R.id.kayitYapBtn:
-                SharedPreferences sharedPreferences=getActivity().getSharedPreferences("login",MODE_PRIVATE);
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("EPosta",ePosta);
-                editor.putBoolean("girisYapildi",true);
                 presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
                 break;
             case R.id.girisSecenektxt:
@@ -173,6 +171,20 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     public void onDestroy() {
         presenter.onDestroy();
         super.onDestroy();
+    }
+
+    public void getBeginingFragment()
+    {
+        BeginingFragment beginingFragment=new BeginingFragment();
+        callFragment(beginingFragment);
+    }
+
+    public void callFragment(Fragment fragment)
+    {
+        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.startActivityLayout,fragment);
+        fragmentTransaction.commit();
     }
 
 }

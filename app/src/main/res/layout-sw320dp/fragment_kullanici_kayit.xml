@@ -32,15 +32,16 @@
                 android:id="@+id/textView"
                 android:layout_width="261dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="26dp"
                 android:text="Hoş Geldiniz"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.508"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -54,14 +55,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="345dp"
-            android:layout_height="441dp"
+            android:layout_width="297dp"
+            android:layout_height="410dp"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="58dp"
             android:layout_marginEnd="9dp"
             android:background="@drawable/kayit_arka_plan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.576"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
@@ -69,7 +70,7 @@
             <Button
                 android:id="@+id/girisSecenektxt"
                 android:layout_width="61dp"
-                android:layout_height="30dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/giris_yap_btn"
@@ -77,14 +78,14 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/uygulamaMavisiTwo"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/kayitOlSecenekBtn"
                 android:layout_width="61dp"
-                android:layout_height="30dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:alpha=".5"
@@ -94,7 +95,7 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/ayarlarGrisi"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/girisSecenektxt"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,7 +104,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="@dimen/kayitOlTextInputLayoutWidth320"
                 android:layout_height="@dimen/kayitOlTextInputLayoutHeight320"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="5dp"
                 android:hint="@string/adSoyadTextInputHint"
                 android:paddingLeft="5dp"
                 android:paddingTop="0dp"
@@ -111,7 +112,6 @@
 
                 app:boxStrokeColor="@color/uygulamaMavisi"
                 app:errorEnabled="true"
-                app:helperText="sdfsd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/kayitOlSecenekBtn"
@@ -125,7 +125,7 @@
                     android:nextFocusDown="@+id/kullaniciAdiText"
                     android:singleLine="true"
                     android:textCursorDrawable="@drawable/color_curse"
-                    android:textSize="15dp" />
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -151,7 +151,7 @@
                     android:imeOptions="actionNext"
                     android:nextFocusDown="@+id/ePostaText"
                     android:singleLine="true"
-                    android:textSize="15dp" />
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,7 +178,7 @@
                     android:imeOptions="actionNext"
                     android:nextFocusDown="@+id/sifreText"
                     android:singleLine="true"
-                    android:textSize="15dp" />
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -207,7 +207,7 @@
                     android:inputType="textPassword"
                     android:nextFocusDown="@+id/sifreTekrariText"
                     android:singleLine="true"
-                    android:textSize="15dp" />
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -234,18 +234,20 @@
                     android:inputType="textPassword"
                     android:nextFocusDown="@+id/kayitYapBtn"
                     android:singleLine="true"
-                    android:textSize="15dp" />
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <ImageButton
                 android:id="@+id/kayitYapBtn"
-                android:layout_width="52dp"
-                android:layout_height="48dp"
+                android:layout_width="48dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/circle"
                 android:src="@mipmap/ico"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sifreTekrarTextInputLayout" />
 
@@ -264,7 +266,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
