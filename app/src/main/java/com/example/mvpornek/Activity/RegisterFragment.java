@@ -134,6 +134,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         sifreTekrarInputLayout.setError("Şifreler Eşleşmiyor");
     }
 
+
     @Override
     public void navigateToHome() {
         kullaniciAdiInputLayout.setError(null);
@@ -141,7 +142,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         sifreInputLayout.setError(null);
         ePostaInputLayout.setError(null);
         sifreTekrarInputLayout.setError(null);
-
         Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         //startActivity(new Intent(getApplicationContext(),BaslarkenActivity.class));
     }

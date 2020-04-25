@@ -85,7 +85,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
 
         }
         registerInteractor.Register(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta,this);
-
     }
 
     @Override
