@@ -242,7 +242,7 @@
                 android:id="@+id/kayitYapBtn"
                 android:layout_width="52dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/circle"
                 android:src="@mipmap/ico"
                 app:layout_constraintEnd_toEndOf="parent"

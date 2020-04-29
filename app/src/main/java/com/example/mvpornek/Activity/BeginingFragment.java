@@ -133,6 +133,12 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,2);
                         }else if("Spor"==etiketList.get(i)){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,3);
+                        }else if("Alışveriş"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,4);
+                        }else if("Tatil"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,5);
+                        }else if("Sanat"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,6);
                         }
                     }
                 }else{
@@ -305,6 +311,6 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
     @Override
     public void setEtiketHatasi() {
-        Toast.makeText(getActivity(),"En Az Bir Etiket Seçiniz",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"En Az Bir Tane Soru Alanı Seçiniz",Toast.LENGTH_SHORT).show();
     }
 }

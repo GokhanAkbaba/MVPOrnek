@@ -1,6 +1,7 @@
 package com.example.mvpornek.WebService;
 
 
+import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
 
 
@@ -28,6 +29,16 @@ public interface GetDataService {
             @Field("kullanici_eposta") String ePosta,
             @Field("kullanici_sifre") String sifre,
             @Field("kullanici_tekrar_sifre") String sifreTekari
+
+    );
+
+    @FormUrlEncoded
+    @POST("secenekKayit.php")
+    Call<EtiketResponse> etiketKayit(
+
+            @Field("id") int id,
+            @Field("etiket") int etiket,
+            @Field("il") int il
 
     );
 
