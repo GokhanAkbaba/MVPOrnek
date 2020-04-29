@@ -1,29 +1,23 @@
 package com.example.mvpornek.Model.ModelGiris;
 
-import android.os.Handler;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.example.mvpornek.Activity.RegisterFragment;
-import com.example.mvpornek.Model.Kullanıcı.Kullanici;
-import com.example.mvpornek.WebService.GetDataService;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
+import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
 public class RegisterInteractorImpl implements RegisterInteractor {
-    String hata=null;
-    int sonuc;
+Context context;
+
+    public RegisterInteractorImpl(Context context) {
+        this.context = context;
+    }
+
     @Override
     public void Register(final String kullaniciAdi, final String adSoyad, final String sifre, final String sifreTekrar, final String ePosta, final onRegisterFinishedListener listener) {
 
@@ -57,48 +51,34 @@ public class RegisterInteractorImpl implements RegisterInteractor {
             return;
         }
 
-        Call<ResponseBody> call=RetrofitClientInstance
+        Call<KullaniciResponse> call=RetrofitClientInstance
                 .getInstance()
                 .getDataService()
                 .kullaniciKayit(adSoyad,kullaniciAdi,ePosta,sifre,sifreTekrar);
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<KullaniciResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    if(response.code() ==201)
-                    {
-                        hata=response.body().string();
-                    }else{
-                        hata=response.body().string();
-                    }
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-
-                if (hata!=null)
+            public void onResponse(Call<KullaniciResponse> call, Response<KullaniciResponse> response) {
+                KullaniciResponse kullaniciResponse=response.body();
+                if (response.isSuccessful() && response.body() !=null)
                 {
-                    int a;
-                    try{
-                        JSONObject jsonObject= new JSONObject(hata);
-                        a=jsonObject.getInt("code");
-
+                    int a=response.body().getCode();
                         if(a==156)
                         {
-                            listener.onEpostaHatasi(jsonObject.getString("message"));
+                            listener.onEpostaHatasi(response.body().getMessage());
                         }else if(a==155){
-                            listener.onKullaniciAdiHatasi(jsonObject.getString("message"));
+                            listener.onKullaniciAdiHatasi(response.body().getMessage());
                         }else if(a==157)
                         {
+
+                            SharedPrefManager.getInstance(context)
+                                    .kullaniciKayit(kullaniciResponse.getKullanici());
                             listener.onSuccess();
                         }
-                    }catch (JSONException e){
-                        e.printStackTrace();
-                    }
                 }
             }
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<KullaniciResponse> call, Throwable t) {
                 System.out.println("Bağlantı Hatası "+t.getMessage());
             }
         });

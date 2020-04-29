@@ -21,13 +21,20 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
 import com.example.mvpornek.Model.ModelGiris.RegisterInteractorImpl;
 import com.example.mvpornek.Presenter.RegisterPresenter;
 import com.example.mvpornek.Presenter.RegisterPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.RegisterView;
+import com.example.mvpornek.WebService.RetrofitClientInstance;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -91,7 +98,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
 
         view.findViewById(R.id.kayitYapBtn).setOnClickListener(this);
-        presenter = new RegisterPresenterImpl(this, new RegisterInteractorImpl());
+        presenter = new RegisterPresenterImpl(this, new RegisterInteractorImpl(getActivity()));
 
 
         return view;
@@ -142,10 +149,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         ePostaInputLayout.setError(null);
         sifreTekrarInputLayout.setError(null);
         Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("login",MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("EPosta",ePosta);
-        editor.putBoolean("girisYapildi",true);
         getBeginingFragment();
     }
     @Override
@@ -159,6 +162,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         switch (view.getId())
         {
             case R.id.kayitYapBtn:
+
                 presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
                 break;
             case R.id.girisSecenektxt:

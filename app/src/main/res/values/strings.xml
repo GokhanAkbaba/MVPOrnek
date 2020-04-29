@@ -36,7 +36,8 @@
     <string name="baslarkenMetin">Telefonunuza gelen bildirimlerin çeşitliliği için
 lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="yasadiginizIlTxt">Yaşadığınız İl</string>
-    <string name="ilgiAlaniTxt">Cevaplamak istediğiniz ilgi alanı</string>
+    <string name="ilgiAlaniTxt">Cevaplamak istediğiniz soru alanı</string>
+    <string name="yasadiginizIlAciklamaTxt">Sadece seçtiğiniz ilden gelen soruları cevaplayabileceksiniz</string>
     <string name="herKonudaBildirimTxt">Her konuda bildirim </string>
     <string name="soruyuYanıtlaTxt">Soruyu Yanıtla </string>
     <string name="adliKisiYntTxt">adlı kişinin sorusunu yanıtlıyorsun </string>
@@ -53,7 +54,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="searchTabItemKullaniciTxt">Kullanıcılar</string>
     <string name="searchTabItemSorularTxt">Sorular</string>
     <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>
-    <string name="bildirimAciklamaTxt">Bildirim seçeneğini seçmediğiniz takdirde belirli aralıklarla bildirim gelecektir.</string>
+    <string name="bildirimAciklamaTxt">7/24 seçeneğinini seçtiğiniz takdirde bütün illerden her alanda gelen soruları cevaplayabileceksiniz</string>
 
 
     <string-array name="kullanici_isimleri">
@@ -100,6 +101,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="il">
+        <item>İl Seçiniz</item>
         <item>Adana</item>
         <item>Adıyaman</item>
         <item>Afyon</item>

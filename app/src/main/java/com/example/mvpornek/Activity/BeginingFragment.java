@@ -6,33 +6,49 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mvpornek.Model.Kullanıcı.Kullanici;
+import com.example.mvpornek.Model.ModelGiris.BeginingInteractor;
+import com.example.mvpornek.Model.ModelGiris.BeginingInteractorImpl;
+import com.example.mvpornek.Presenter.BeginingPresenter;
+import com.example.mvpornek.Presenter.BeginingPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.BeginingView;
 
 import java.util.ArrayList;
 
 
-public class BeginingFragment extends Fragment implements View.OnClickListener {
+public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener {
 
-    Button adres,yemek,spor,tatil,alisveris,sanat,yrmDrtBildirim;
-    Boolean checkIl = false;
+    Button adres,yemek,spor,tatil,alisveris,sanat,yrmDrtBildirim,secimOnay;
     Spinner spinner;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false;
+    String selectedIl;
+    int selectedIlPlaka;
+
+    int kullaniciId;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
+    private BeginingPresenter beginingPresenter;
     private String mParam1;
     private String mParam2;
+
+    ArrayList<String> etiketList=new ArrayList<String>();
 
     public BeginingFragment() {
     }
@@ -79,6 +95,23 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
         sanat.setOnClickListener(this);
         yrmDrtBildirim=view.findViewById(R.id.yirmiDortSaatBildirimButon);
         yrmDrtBildirim.setOnClickListener(this);
+        Kullanici kullanici= SharedPrefManager.getInstance(getContext()).getKullanici();
+        kullaniciId=kullanici.getId();
+        beginingPresenter=new BeginingPresenterImpl(this, new BeginingInteractorImpl());
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedIl=adapterView.getItemAtPosition(i).toString();
+                selectedIlPlaka=i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
+        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         return view;
     }
 
@@ -88,25 +121,47 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
         switch (view.getId())
         {
             case R.id.baslarkenSonrakiBtn:
-                startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+                int etiketKod=0;
+                if(etiketList.size() > 0)
+                {
+                    for(int i = 0; i < etiketList.size(); i++)
+                    {
+                        if("Adres"==etiketList.get(i))
+                        {
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,1);
+                        }else if("Yemek"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,2);
+                        }else if("Spor"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,3);
+                        }
+                    }
+                }else{
+                    beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,0);
+                }
+
                 break;
             case R.id.adresEtiketButon:
 
                 if(checkAdresEtiket == false)
                 {
+
+                    etiketList.add("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     adres.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.onay_icon);
                     adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkAdresEtiket = true;
+
                 }
                 else
                 {
+                    etiketList.remove("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     adres.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.ic_launcher_adres);
                     adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkAdresEtiket=false;
+
                 }
 
 
@@ -115,6 +170,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
 
                 if(checkYemekEtiket == false)
                 {
+                    etiketList.add("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     yemek.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.onay_icon);
@@ -123,6 +179,8 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+
+                    etiketList.remove("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     yemek.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.yemek_icon);
@@ -134,6 +192,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
             case R.id.sporEtiketButon:
                 if(checkSporEtiket == false)
                 {
+                    etiketList.add("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     spor.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.onay_icon);
@@ -142,6 +201,8 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+
+                    etiketList.remove("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     spor.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.spor_icon);
@@ -153,6 +214,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
             case R.id.alisverisEtiketButon:
                 if(checkAlisverisEtiket == false)
                 {
+                    etiketList.add("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     alisveris.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.onay_icon);
@@ -161,6 +223,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+                    etiketList.remove("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     alisveris.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.alisveris_icon);
@@ -171,6 +234,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
             case R.id.tatilEtiketButon:
                 if(checkTatilEtiket == false)
                 {
+                    etiketList.add("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     tatil.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.onay_icon);
@@ -179,6 +243,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+                    etiketList.remove("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     tatil.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.tatil_icon);
@@ -189,6 +254,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
             case R.id.sanatEtiketButon:
                 if(checkSanatEtiket == false)
                 {
+                    etiketList.add("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
                     sanat.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.onay_icon);
@@ -197,6 +263,7 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+                    etiketList.remove("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
                     sanat.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.film_icon);
@@ -222,5 +289,22 @@ public class BeginingFragment extends Fragment implements View.OnClickListener {
                 break;
         }
 
+    }
+
+    @Override
+    public void navigateToHome() {
+        startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+        Toast.makeText(getActivity(),"Seçim İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setIlHatasi() {
+        Toast.makeText(getActivity(),"Lütfen İl Seçiniz",Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void setEtiketHatasi() {
+        Toast.makeText(getActivity(),"En Az Bir Etiket Seçiniz",Toast.LENGTH_SHORT).show();
     }
 }

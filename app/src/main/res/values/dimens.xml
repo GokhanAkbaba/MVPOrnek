@@ -15,4 +15,9 @@
     <dimen name="kayitOlTextInputLayoutHeight320">54dp</dimen>
     <dimen name="kayitOlEditText320">34dp</dimen>
     <dimen name="kayitOlEditTextSize320">10sp</dimen>
+
+    <dimen name="baslarkenEtiketButonWidth400">112dp</dimen>
+    <dimen name="baslarkenEtiketButonHeight400">40dp</dimen>
+    <dimen name="baslarkenEtiketTextSize400">15sp</dimen>
+    <dimen name="baslarkenBaslikSize400">45sp</dimen>
 </resources>
