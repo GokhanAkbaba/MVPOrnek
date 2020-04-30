@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.KullaniciGirisFragment"
     tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,22 +22,24 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="264dp"
-                android:layout_height="57dp"
-                android:layout_marginTop="44dp"
-                android:autoSizePresetSizes="@array/autosize_text_sizes"
-                android:autoSizeTextType="uniform"
+                android:layout_width="287dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="72dp"
                 android:text="Giriş Yap"
                 android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
+                android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.632"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="325dp"
-            android:layout_height="331dp"
+            android:layout_width="308dp"
+            android:layout_height="340dp"
             android:layout_marginTop="132dp"
             android:background="@drawable/kayit_arka_plan"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,93 +47,115 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
-            <EditText
-                android:id="@+id/girisKullaniciText"
-                android:layout_width="248dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="128dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/input_field"
-                android:ems="10"
-                android:hint="Kullanıcı Adı"
-                android:padding="@dimen/textBoxPadding"
-                android:inputType="textPersonName"
-                android:textCursorDrawable="@drawable/color_curse"
-                app:layout_constraintBottom_toTopOf="@+id/girisSifreText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ePostaTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/kayitOlTextInputLayoutWidth320"
+                android:layout_height="@dimen/kayitOlTextInputLayoutHeight320"
+                android:layout_marginTop="25dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="0dp"
+                android:textColorHint="@color/colorGreyPrimary"
+                app:boxStrokeColor="@color/uygulamaMavisi"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/button3">
 
-            <EditText
-                android:id="@+id/girisSifreText"
-                android:layout_width="249dp"
-                android:layout_height="38dp"
+                <EditText
+                    android:id="@+id/girisKullaniciText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/kayitOlEditText320"
+                    android:ems="10"
+                    android:hint="e-Posta"
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@+id/kullaniciAdiText"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@drawable/color_curse"
+                    android:textSize="@dimen/kayitOlEditTextSize320" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button3"
+                android:alpha=".5"
+                android:layout_width="51dp"
+                android:layout_height="31dp"
                 android:layout_marginStart="44dp"
-                android:layout_marginTop="188dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/input_field"
-                android:ems="10"
-                android:hint="Şifre"
-                android:padding="@dimen/textBoxPadding"
-                android:inputType="textPersonName"
-                android:textCursorDrawable="@drawable/color_curse"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/kayit_ol_btn"
+                android:text="Giriş"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/ayarlarGrisi"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/kayitOlSecenekTxt"
+                android:layout_width="51dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/giris_yap_btn"
+                android:text="Kayıt Ol"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/uygulamaMavisiTwo"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/button3"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/girisYapBtn"
                 android:layout_width="52dp"
                 android:layout_height="49dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/circle"
                 android:src="@mipmap/ico"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="81dp"
-                android:layout_height="41dp"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="52dp"
-                android:autoSizePresetSizes="@array/autosize_text_sizes"
-                android:autoSizeTextType="uniform"
-                android:text="Kayıt Ol"
-                android:textAlignment="center"
-                android:textColor="#707070"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/sifreTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/kayitOlTextInputLayoutWidth320"
+                android:layout_height="@dimen/kayitOlTextInputLayoutHeight320"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="0dp"
+                android:textColorHint="@color/colorGreyPrimary"
+                app:boxStrokeColor="@color/uygulamaMavisi"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout">
+
+                <EditText
+                    android:id="@+id/girisSifreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/kayitOlEditText320"
+                    android:ems="10"
+                    android:hint="Şifre"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/girisYapBtn"
+                    android:textSize="@dimen/kayitOlEditTextSize320"
+                    android:textCursorDrawable="@drawable/color_curse" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:layout_width="68dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="52dp"
-                android:autoSizePresetSizes="@array/autosize_text_sizes"
-                android:autoSizeTextType="uniform"
-                android:text="Giriş"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="105dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="252dp"
-                android:layout_marginEnd="28dp"
+                android:id="@+id/sifreUnuttumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="210dp"
+                android:layout_marginEnd="48dp"
+                android:textSize="10sp"
                 android:text="Şifremi Unuttum"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

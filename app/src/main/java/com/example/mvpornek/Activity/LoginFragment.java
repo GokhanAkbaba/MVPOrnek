@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,21 +13,30 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
+import com.example.mvpornek.Presenter.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.LoginPresenter;
 import com.example.mvpornek.Presenter.LoginPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.LoginView;
+import com.google.android.material.textfield.TextInputLayout;
 
-public class LoginFragment extends Fragment implements LoginView, View.OnClickListener {
+public class LoginFragment extends Fragment implements LoginView, InternetConnectionView, View.OnClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private LoginPresenter loginPresenter;
+    private InternetConnectionPresenter internetConnectionPresenter;
     TextView kayitOlSecenek,girisKullaniciTxt,girisSifreTxt,sifreUnuttumTxt;
     ImageButton girisYap;
     String girisKullanici,girisSifre;
+
+    TextInputLayout sifreTextInputLayout,epostaInputLayout;
+
 
 
     private String mParam1;
@@ -70,7 +80,12 @@ public class LoginFragment extends Fragment implements LoginView, View.OnClickLi
         sifreUnuttumTxt=view.findViewById(R.id.sifreUnuttumText);
         sifreUnuttumTxt.setOnClickListener(this);
 
+        sifreTextInputLayout=view.findViewById(R.id.sifreTextInputLayout);
+        epostaInputLayout=view.findViewById(R.id.ePostaTextInputLayout);
+
         loginPresenter=new LoginPresenterImpl(this,new LoginInteractorImpl(getActivity()));
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+        internetConnectionPresenter.internetBaglantiKontrolu();
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
         return view;
     }
@@ -84,7 +99,7 @@ public class LoginFragment extends Fragment implements LoginView, View.OnClickLi
         switch (view.getId())
         {
             case R.id.kayitOlSecenekTxt:
-
+                getRegisterFragment();
                 break;
             case R.id.girisYapBtn:
                 loginPresenter.loginValideCredentals(girisKullanici,girisSifre);
@@ -107,16 +122,18 @@ public class LoginFragment extends Fragment implements LoginView, View.OnClickLi
 
     @Override
     public void setGirisEPostaAdiHatasi() {
-        girisKullaniciTxt.setError("Eposta Boş Bırakmayınız");
+        epostaInputLayout.setError("Eposta Boş Bırakmayınız");
     }
 
     @Override
     public void setGirisSifreHatasi() {
-        girisSifreTxt.setError("Şifre Boş Bırakmayınız");
+        sifreTextInputLayout.setError("Şifre Boş Bırakmayınız");
     }
 
     @Override
     public void navigateToGiris() {
+        epostaInputLayout.setError(null);
+        sifreTextInputLayout.setError(null);
         Toast.makeText(getActivity(),"Giriş İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
     }
@@ -129,5 +146,29 @@ public class LoginFragment extends Fragment implements LoginView, View.OnClickLi
     @Override
     public void onStart() {
         super.onStart();
+    }
+
+    public void getRegisterFragment()
+    {
+        RegisterFragment registerFragment=new RegisterFragment();
+        callFragment(registerFragment);
+    }
+
+    public void callFragment(Fragment fragment)
+    {
+        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.startActivityLayout,fragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void internetBaglantiHatasi() {
+        Toast.makeText(getActivity(),"İnternet Bağlantı Hatası",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
     }
 }

@@ -20,4 +20,6 @@
     <dimen name="baslarkenEtiketButonHeight400">40dp</dimen>
     <dimen name="baslarkenEtiketTextSize400">15sp</dimen>
     <dimen name="baslarkenBaslikSize400">45sp</dimen>
+
+
 </resources>

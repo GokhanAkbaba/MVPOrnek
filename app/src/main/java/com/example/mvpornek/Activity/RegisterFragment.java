@@ -13,20 +13,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.RegisterInteractorImpl;
+import com.example.mvpornek.Presenter.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.RegisterPresenter;
 import com.example.mvpornek.Presenter.RegisterPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.RegisterView;
 import com.google.android.material.textfield.TextInputLayout;
 
 
-public class RegisterFragment extends Fragment implements RegisterView,View.OnClickListener {
+public class RegisterFragment extends Fragment implements RegisterView,View.OnClickListener, InternetConnectionView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private RegisterPresenter presenter;
+    private InternetConnectionPresenter internetConnectionPresenter;
+
     TextInputLayout adSoyadInputLayout,kullaniciAdiInputLayout,ePostaInputLayout,sifreInputLayout,sifreTekrarInputLayout;
     private EditText editTextadSoyad,editTextkullaniciAdi,editTextMail,editTextsifre,editTextsifreTekrar;
     private Button girisSecenekBtn;
@@ -81,8 +87,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
         view.findViewById(R.id.kayitYapBtn).setOnClickListener(this);
         presenter = new RegisterPresenterImpl(this, new RegisterInteractorImpl(getActivity()));
-
-
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+        internetConnectionPresenter.internetBaglantiKontrolu();
         return view;
     }
     @Override
@@ -148,7 +154,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
                 presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
                 break;
             case R.id.girisSecenektxt:
-
+                getLoginFragment();
                 break;
         }
 
@@ -173,4 +179,19 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         fragmentTransaction.commit();
     }
 
+    public void getLoginFragment()
+    {
+        LoginFragment loginFragment=new LoginFragment();
+        callFragment(loginFragment);
+    }
+
+    @Override
+    public void internetBaglantiHatasi() {
+        Toast.makeText(getActivity(),"İnternet Bağlantı Hatası",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
+    }
 }
