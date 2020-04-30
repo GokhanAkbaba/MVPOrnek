@@ -26,7 +26,6 @@
         <activity android:name=".Activity.HomeActivity">
 
         </activity>
-        <activity android:name=".Activity.LoginActivity" />
     </application>
 
 </manifest>

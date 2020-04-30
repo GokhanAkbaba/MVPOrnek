@@ -1,10 +1,6 @@
 package com.example.mvpornek.Model.ModelGiris;
 
-import android.text.TextUtils;
-
 import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
-import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
 import retrofit2.Call;

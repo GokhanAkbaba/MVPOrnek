@@ -6,20 +6,16 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mvpornek.Model.Kullanıcı.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.BeginingInteractor;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.ModelGiris.BeginingInteractorImpl;
 import com.example.mvpornek.Presenter.BeginingPresenter;
 import com.example.mvpornek.Presenter.BeginingPresenterImpl;

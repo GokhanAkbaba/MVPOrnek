@@ -1,4 +1,4 @@
-package com.example.mvpornek.Model.Kullanıcı;
+package com.example.mvpornek.Model.Kullanıcı.KullaniciKayit;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

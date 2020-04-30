@@ -74,7 +74,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 getRegisterFragment();
                 break;
             case R.id.baslangicGirisSecenek:
-
+                getLoginFragment();
                 break;
         }
 
@@ -84,6 +84,11 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     {
         RegisterFragment registerFragment=new RegisterFragment();
         callFragment(registerFragment);
+    }
+    public void getLoginFragment()
+    {
+        LoginFragment loginFragment=new LoginFragment();
+        callFragment(loginFragment);
     }
 
     public void callFragment(Fragment fragment)

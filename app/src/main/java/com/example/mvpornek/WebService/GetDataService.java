@@ -2,19 +2,14 @@ package com.example.mvpornek.WebService;
 
 
 import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
+import com.example.mvpornek.Model.KullaniciGiris.KullaniciGirisResponse;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
 
 
-import org.json.JSONObject;
-import java.util.List;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface GetDataService {
 
@@ -39,6 +34,15 @@ public interface GetDataService {
             @Field("id") int id,
             @Field("etiket") int etiket,
             @Field("il") int il
+
+    );
+
+    @FormUrlEncoded
+    @POST("kullaniciGiris.php")
+    Call<KullaniciGirisResponse> kullaniciGiris(
+
+            @Field("ePosta") String ePosta,
+            @Field("sifre") String sifre
 
     );
 

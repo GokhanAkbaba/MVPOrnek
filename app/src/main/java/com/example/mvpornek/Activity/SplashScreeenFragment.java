@@ -1,5 +1,6 @@
 package com.example.mvpornek.Activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -55,8 +57,8 @@ public class SplashScreeenFragment extends Fragment {
 
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
 
-        SharedPreferences prefs=getActivity().getSharedPreferences("login",MODE_PRIVATE);
-        final boolean isLoged=prefs.getBoolean("girisYapildi",false);
+
+        final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
         Thread thread= new Thread(){
             @Override
             public void run() {
@@ -68,7 +70,7 @@ public class SplashScreeenFragment extends Fragment {
                     if(isLoged == false){
                         getStartFragment();
                     }else{
-
+                        startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
                     }
                 }
                 super.run();

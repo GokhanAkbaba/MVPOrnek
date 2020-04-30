@@ -2,7 +2,7 @@ package com.example.mvpornek.Model.ModelGiris;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciResponse;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
