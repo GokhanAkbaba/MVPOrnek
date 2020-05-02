@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/searchContentAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ayarlarToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_size"
+            android:background="@drawable/content_level_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <Button
+                android:id="@+id/profilDuzenleGeriBtn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:clickable="true"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:background="@drawable/ripple_back_button"
+                android:drawableTint="@color/uygulamaMavisi"
+                android:drawableLeft="@mipmap/ayarlar_geri_donus"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:text="Profil Düzenle"
+                android:textColor="@color/uygulamaMavisi"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="21sp"
+                />
+            <Button
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="95dp"
+                android:clickable="true"
+                android:text="@string/iptalTxt"
+                android:textSize="17sp"
+                android:textAllCaps="false"
+                android:fontFamily="@string/font_family_mediumSans"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:background="@drawable/ripple"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilDuzenleProfilResmi"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="78dp"
+        android:src="@drawable/man"
+        app:civ_border_color="#000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/adSoyadTextField"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:hint="@string/adSoyadTxt"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/uygulamaMavisi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilDuzenleProfilResmi"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/profilDuzenleAdSoyadTxt"
+            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+            android:layout_marginEnd="1dp"
+            android:ems="10"
+            android:enabled="true"
+            android:fontFamily="@string/font_family_mediumSans"
+            android:inputType="textPersonName"
+            android:text="Gökhan Akbaba"
+            android:textCursorDrawable="@drawable/color_curse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/kullaniciAdiTextField"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/kullaniciAdiTxt"
+        app:layout_constraintTop_toBottomOf="@+id/adSoyadTextField"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/profilDuzenleKullaniciAdiTxt"
+            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+            android:ems="10"
+            android:enabled="true"
+            android:textCursorDrawable="@drawable/color_curse"
+            android:inputType="textPersonName"
+            android:fontFamily="@string/font_family_mediumSans"
+            android:text="\@GokhanAkbaba"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ePostaTextField"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/ePostaTxt"
+        app:layout_constraintTop_toBottomOf="@+id/kullaniciAdiTextField"
+        tools:ignore="MissingConstraints">
+        <EditText
+            android:id="@+id/profilDuzenleEpostaTxt"
+            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+            android:ems="10"
+            android:enabled="true"
+            android:fontFamily="@string/font_family_mediumSans"
+            android:inputType="textPersonName"
+            android:text="gokhanakbaba1907@gmail.com"
+            android:textCursorDrawable="@drawable/color_curse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            tools:ignore="MissingConstraints" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="608dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="88dp"
+            android:background="@drawable/button"
+            android:text="Güncelle"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

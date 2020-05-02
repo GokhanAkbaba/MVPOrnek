@@ -40,8 +40,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="308dp"
-            android:layout_height="340dp"
+            android:layout_width="372dp"
+            android:layout_height="453dp"
             android:layout_marginTop="132dp"
             android:background="@drawable/kayit_arka_plan"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +52,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ePostaTextInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/kayitOlTextInputLayoutWidth320"
-                android:layout_height="@dimen/kayitOlTextInputLayoutHeight320"
+                android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
+                android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
                 android:layout_marginTop="25dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="0dp"
@@ -66,25 +66,25 @@
 
                 <EditText
                     android:id="@+id/girisKullaniciText"
-                    android:layout_width="match_parent"
+                    android:layout_width="270dp"
                     android:layout_height="@dimen/kayitOlEditText320"
                     android:ems="10"
                     android:hint="e-Posta"
                     android:imeOptions="actionNext"
-                    android:nextFocusDown="@+id/kullaniciAdiText"
                     android:inputType="textPersonName"
+                    android:nextFocusDown="@+id/kullaniciAdiText"
                     android:singleLine="true"
                     android:textCursorDrawable="@drawable/color_curse"
-                    android:textSize="@dimen/kayitOlEditTextSize320" />
+                    android:textSize="@dimen/kayitOlEditTextSize400" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/button3"
-                android:alpha=".5"
                 android:layout_width="51dp"
                 android:layout_height="31dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="32dp"
+                android:alpha=".5"
                 android:background="@drawable/kayit_ol_btn"
                 android:text="Giriş"
                 android:textAlignment="center"
@@ -98,8 +98,8 @@
                 android:id="@+id/kayitOlSecenekTxt"
                 android:layout_width="51dp"
                 android:layout_height="31dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/giris_yap_btn"
                 android:text="Kayıt Ol"
                 android:textAlignment="center"
@@ -111,23 +111,24 @@
 
             <ImageButton
                 android:id="@+id/girisYapBtn"
-                android:layout_width="52dp"
-                android:layout_height="49dp"
+                android:layout_width="65dp"
+                android:layout_height="62dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/circle"
                 android:src="@mipmap/ico"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.974" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/sifreTextInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/kayitOlTextInputLayoutWidth320"
-                android:layout_height="@dimen/kayitOlTextInputLayoutHeight320"
+                android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
+                android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
                 android:layout_marginTop="4dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="0dp"
@@ -140,23 +141,23 @@
 
                 <EditText
                     android:id="@+id/girisSifreText"
-                    android:layout_width="match_parent"
+                    android:layout_width="270dp"
                     android:layout_height="@dimen/kayitOlEditText320"
                     android:ems="10"
                     android:hint="Şifre"
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:nextFocusDown="@+id/girisYapBtn"
-                    android:textSize="@dimen/kayitOlEditTextSize320"
-                    android:textCursorDrawable="@drawable/color_curse" />
+                    android:textCursorDrawable="@drawable/color_curse"
+                    android:textSize="@dimen/kayitOlEditTextSize400" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/sifreUnuttumText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="210dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginTop="268dp"
+                android:layout_marginEnd="44dp"
                 android:text="Şifremi Unuttum"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

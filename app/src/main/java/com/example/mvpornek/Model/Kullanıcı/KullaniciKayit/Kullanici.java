@@ -7,22 +7,46 @@ public class Kullanici {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
     @SerializedName("ad_soyad")
     @Expose
     private String adSoyad;
     @SerializedName("kullanici_adi")
     @Expose
     private String kullaniciAdi;
+    @SerializedName("kullanici_sifre")
+    @Expose
+    private String kullaniciSifre;
+    @SerializedName("salt")
+    @Expose
+    private String salt;
+    @SerializedName("kapak_foto")
+    @Expose
+    private String kapakFoto;
+    @SerializedName("profil_foto")
+    @Expose
+    private String profilFoto;
+    @SerializedName("kullanici_eposta")
+    @Expose
+    private String kullaniciEposta;
 
-    public Kullanici(int id,String adSoyad, String kullaniciAdi) {
+    public Kullanici(int id, String adSoyad, String kullaniciAdi, String kullaniciSifre, String salt, String kapakFoto, String profilFoto, String kullaniciEposta) {
+        this.id = id;
         this.adSoyad = adSoyad;
         this.kullaniciAdi = kullaniciAdi;
-        this.id=id;
+        this.kullaniciSifre = kullaniciSifre;
+        this.salt = salt;
+        this.kapakFoto = kapakFoto;
+        this.profilFoto = profilFoto;
+        this.kullaniciEposta = kullaniciEposta;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAdSoyad() {
@@ -41,5 +65,43 @@ public class Kullanici {
         this.kullaniciAdi = kullaniciAdi;
     }
 
+    public String getKullaniciSifre() {
+        return kullaniciSifre;
+    }
 
+    public void setKullaniciSifre(String kullaniciSifre) {
+        this.kullaniciSifre = kullaniciSifre;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getKapakFoto() {
+        return kapakFoto;
+    }
+
+    public void setKapakFoto(String kapakFoto) {
+        this.kapakFoto = kapakFoto;
+    }
+
+    public String getProfilFoto() {
+        return profilFoto;
+    }
+
+    public void setProfilFoto(String profilFoto) {
+        this.profilFoto = profilFoto;
+    }
+
+    public String getKullaniciEposta() {
+        return kullaniciEposta;
+    }
+
+    public void setKullaniciEposta(String kullaniciEposta) {
+        this.kullaniciEposta = kullaniciEposta;
+    }
 }

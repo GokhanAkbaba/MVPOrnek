@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
 import com.example.mvpornek.Presenter.InternetConnectionPresenter;
@@ -85,7 +86,6 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
 
         loginPresenter=new LoginPresenterImpl(this,new LoginInteractorImpl(getActivity()));
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
-        internetConnectionPresenter.internetBaglantiKontrolu();
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
         return view;
     }
@@ -100,6 +100,7 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
         {
             case R.id.kayitOlSecenekTxt:
                 getRegisterFragment();
+                internetConnectionPresenter.internetBaglantiKontrolu();
                 break;
             case R.id.girisYapBtn:
                 loginPresenter.loginValideCredentals(girisKullanici,girisSifre);
@@ -112,12 +113,12 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
 
     @Override
     public void showProgress() {
-
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Giriş İşlemi Gerçekleştiriliyor");
     }
 
     @Override
     public void hideProgress() {
-
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBitir();
     }
 
     @Override
@@ -134,8 +135,10 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
     public void navigateToGiris() {
         epostaInputLayout.setError(null);
         sifreTextInputLayout.setError(null);
+        hideProgress();
         Toast.makeText(getActivity(),"Giriş İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+
     }
     @Override
     public void onDestroy() {

@@ -12,7 +12,7 @@ public class BirineSorUtil {
     /*Singleton BirineSorUtil*/
     private static BirineSorUtil birineSorUtil;
 
-    private BirineSorUtil(){}
+    public BirineSorUtil(){}
 
     public static BirineSorUtil getInstanceBirineSorUtil(){
         if (birineSorUtil == null)

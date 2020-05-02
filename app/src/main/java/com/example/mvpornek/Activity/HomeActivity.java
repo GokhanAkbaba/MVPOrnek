@@ -1,6 +1,7 @@
 package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -12,7 +13,9 @@ import android.view.View;
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
+import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends FragmentActivity implements View.OnClickListener {
@@ -26,8 +29,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
-
-        anaSayfaGetir();
+        getHomeFragment();
 
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
 
@@ -37,23 +39,19 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 switch (menuItem.getItemId())
                 {
                     case R.id.anaSayfaItem:
-                        anaSayfaGetir();
+                        getHomeFragment();
                         break;
                     case R.id.profilItem:
                         startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
                         break;
                     case R.id.bildirimItem:
-                        BildirimlerFragment bildirimlerFragment = new BildirimlerFragment();
-                        FragmentTransaction fragmentTransactionBildirim=getSupportFragmentManager().beginTransaction();
-                        fragmentTransactionBildirim.replace(R.id.anaSayfaFrameLayout,bildirimlerFragment);
-                        fragmentTransactionBildirim.commit();
+                        getBildirimlerFragment();
                         break;
                     case R.id.aramaItem:
-                        SearchFragment searchFragment=new SearchFragment();
-                        FragmentTransaction fragmentTransactionBildirim2=getSupportFragmentManager().beginTransaction();
-                        fragmentTransactionBildirim2.replace(R.id.anaSayfaFrameLayout,searchFragment);
-                        fragmentTransactionBildirim2.commit();
-
+                        getSearchFragment();
+                        break;
+                    case R.id.ayarlarItem:
+                        getSettingsFragment();
                         break;
                 }
                 return true;
@@ -66,11 +64,33 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
     }
-    public void anaSayfaGetir(){
+    public void  getHomeFragment(){
         HomeFragment homeFragment=new HomeFragment();
-        FragmentTransaction fragmentTransactionHome=getSupportFragmentManager().beginTransaction();
-        fragmentTransactionHome.replace(R.id.anaSayfaFrameLayout,homeFragment);
-        fragmentTransactionHome.commit();
+        callFragment(homeFragment);
 
     }
+
+    public void getSettingsFragment()
+    {
+        SettingsFragment settingsFragment=new SettingsFragment();
+        callFragment(settingsFragment);
+    }
+    public void getSearchFragment()
+    {
+        SearchFragment searchFragment=new SearchFragment();
+        callFragment(searchFragment);
+    }
+    public void getBildirimlerFragment()
+    {
+        BildirimlerFragment bildirimlerFragment = new BildirimlerFragment();
+        callFragment(bildirimlerFragment);
+    }
+    public void callFragment(Fragment fragment)
+    {
+        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,fragment);
+        fragmentTransaction.commit();
+    }
+
 }

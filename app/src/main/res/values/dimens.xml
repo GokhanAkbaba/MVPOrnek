@@ -16,10 +16,26 @@
     <dimen name="kayitOlEditText320">38dp</dimen>
     <dimen name="kayitOlEditTextSize320">10sp</dimen>
 
+    <dimen name="kayitOlTextInputLayoutWidth400">280dp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight400">68dp</dimen>
+    <dimen name="kayitOlEditText400">38dp</dimen>
+    <dimen name="kayitOlEditTextSize400">15sp</dimen>
+
     <dimen name="baslarkenEtiketButonWidth400">112dp</dimen>
     <dimen name="baslarkenEtiketButonHeight400">40dp</dimen>
     <dimen name="baslarkenEtiketTextSize400">15sp</dimen>
     <dimen name="baslarkenBaslikSize400">45sp</dimen>
+
+    <dimen name="ayarlarSayfaTextSize400">18sp</dimen>
+    <dimen name="ayarlarSayfaLayoutHeight400">55dp</dimen>
+    <dimen name="ayarlarSayfaImageViewHeght400">35dp</dimen>
+    <dimen name="ayarlarSayfaImageViewMarginStart400">219dp</dimen>
+    <dimen name="ayarlarSayfaImageViewMarginTop400">14dp</dimen>
+
+    <dimen name="ayarlarProfilDuzenleEditTextHeigt400">46dp</dimen>
+    <dimen name="ayarlarProfilDuzenleEditTextWidth400">317dp</dimen>
+    <dimen name="ayarlarProfilDuzenleTextViewSize400">17sp</dimen>
+
 
 
 </resources>

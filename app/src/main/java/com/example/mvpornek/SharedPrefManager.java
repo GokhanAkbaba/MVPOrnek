@@ -3,7 +3,6 @@ package com.example.mvpornek;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.mvpornek.Model.KullaniciGiris.KullaniciGirisModel;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 
 public class SharedPrefManager {
@@ -26,7 +25,6 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-
     public void kullaniciKayit(Kullanici kullanici){
         SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
@@ -34,18 +32,11 @@ public class SharedPrefManager {
         editor.putInt("id",kullanici.getId());
         editor.putString("AdSoyad",kullanici.getAdSoyad());
         editor.putString("KullaniciAdi",kullanici.getKullaniciAdi());
-        editor.apply();
-
-    }
-
-    public void kullaniciGiris(KullaniciGirisModel kullaniciGirisModel){
-        SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-
-        editor.putInt("id",kullaniciGirisModel.getId());
-        editor.putString("AdSoyad",kullaniciGirisModel.getAdSoyad());
-        editor.putString("KullaniciAdi",kullaniciGirisModel.getKullaniciAdi());
-        editor.putString("KullaniciAdi",kullaniciGirisModel.getKullaniciEposta());
+        editor.putString("kullaniciSifre",kullanici.getKullaniciSifre());
+        editor.putString("salt",kullanici.getSalt());
+        editor.putString("kapakFoto",kullanici.getKapakFoto());
+        editor.putString("profilFoto",kullanici.getProfilFoto());
+        editor.putString("kullaniciEposta",kullanici.getKullaniciEposta());
         editor.apply();
 
     }
@@ -60,17 +51,7 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new Kullanici(
                 sharedPreferences.getInt("id",-1),
-                sharedPreferences.getString("adSoyad",null),
-                sharedPreferences.getString("KullaniciAdi",null)
-        );
-    }
-
-    public KullaniciGirisModel getKullaniciGiris()
-    {
-        SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return new KullaniciGirisModel(
-                sharedPreferences.getInt("id",-1),
-                sharedPreferences.getString("adSoyad",null),
+                sharedPreferences.getString("AdSoyad",null),
                 sharedPreferences.getString("KullaniciAdi",null),
                 sharedPreferences.getString("kullaniciSifre",null),
                 sharedPreferences.getString("salt",null),

@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.example.mvpornek.Model.KullaniciGiris.KullaniciGirisResponse;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
@@ -34,30 +34,31 @@ public class LoginInteractorImpl implements LoginInteractor{
                     listener.onGirisSifreHatasi();
                     return;
                 }
-                Call<KullaniciGirisResponse> call= RetrofitClientInstance
+                Call<KullaniciResponse> call= RetrofitClientInstance
                         .getInstance()
                         .getDataService()
                         .kullaniciGiris(ePosta,sifre);
 
-                call.enqueue(new Callback<KullaniciGirisResponse>() {
+                call.enqueue(new Callback<KullaniciResponse>() {
                     @Override
-                    public void onResponse(Call<KullaniciGirisResponse> call, Response<KullaniciGirisResponse> response) {
-                        KullaniciGirisResponse kullaniciGirisResponse=response.body();
+                    public void onResponse(Call<KullaniciResponse> call, Response<KullaniciResponse> response) {
+                        KullaniciResponse kullaniciGirisResponse=response.body();
                         Boolean hata=response.body().getError();
                         if (response.isSuccessful() && response.body() !=null)
                         {
-                                if(hata==true)
+                                if(hata==false)
                                 {
                                     Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
-                                }else{
                                     SharedPrefManager.getInstance(context)
-                                            .kullaniciGiris(kullaniciGirisResponse.getKullaniciGirisModel());
+                                            .kullaniciKayit(kullaniciGirisResponse.getKullanici());
                                     listener.onSuccess();
+                                }else{
+                                    Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
                     @Override
-                    public void onFailure(Call<KullaniciGirisResponse> call, Throwable t) {
+                    public void onFailure(Call<KullaniciResponse> call, Throwable t) {
                         System.out.println("Bağlantı Hatası "+t.getMessage());
                     }
                 });

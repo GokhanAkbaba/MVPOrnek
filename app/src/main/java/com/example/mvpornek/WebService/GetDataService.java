@@ -2,7 +2,6 @@ package com.example.mvpornek.WebService;
 
 
 import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
-import com.example.mvpornek.Model.KullaniciGiris.KullaniciGirisResponse;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
 
 
@@ -39,7 +38,7 @@ public interface GetDataService {
 
     @FormUrlEncoded
     @POST("kullaniciGiris.php")
-    Call<KullaniciGirisResponse> kullaniciGiris(
+    Call<KullaniciResponse> kullaniciGiris(
 
             @Field("ePosta") String ePosta,
             @Field("sifre") String sifre

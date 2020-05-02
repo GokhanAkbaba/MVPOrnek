@@ -55,7 +55,12 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="searchTabItemSorularTxt">Sorular</string>
     <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>
     <string name="bildirimAciklamaTxt">7/24 seçeneğinini seçtiğiniz takdirde bütün illerden her alanda gelen soruları cevaplayabileceksiniz</string>
-
+    <string name="font_family_mediumSans">sans-serif-medium</string>
+    <string name="ayarlarSayfaHesapTxt">Hesap</string>
+    <string name="ayarlarSayfaProfilDuzenleTxt">Profil Düzenle</string>
+    <string name="ayarlarSayfaSifreDegistir">Şifre Değiştir</string>
+    <string name="ayarlarSayfaBildirimler">Bildirimler</string>
+    <string name="ayarlarSayfaCikisYap">Çıkış Yap</string>
 
     <string-array name="kullanici_isimleri">
         <item>Gökhan Akbaba</item>

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.RegisterInteractorImpl;
 import com.example.mvpornek.Presenter.InternetConnectionPresenter;
@@ -93,12 +94,11 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     }
     @Override
     public void showProgress() {
-
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Kayıt İşlemi Gerçekleştiriliyor");
     }
-
     @Override
     public void hideProgress() {
-
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBitir();
     }
     @Override
     public void setKullaniciAdiHatasi(String error) {
@@ -138,6 +138,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         sifreTekrarInputLayout.setError(null);
         Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         getBeginingFragment();
+        hideProgress();
     }
     @Override
     public void onClick(View view) {

@@ -7,194 +7,238 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
-
-    <ImageView
-        android:id="@+id/ayarlarsayfasi_geri_btn"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/searchContentAppbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:src="@mipmap/geri_don_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </ImageView>
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/ayarlarsayfasi_ayarlar_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/ayarlarTxt"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ayarlarToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_size"
+            android:background="@drawable/content_level_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
 
-    <RelativeLayout
-        android:id="@+id/ayarlarsayfasi_hesap_rl"
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:text="@string/ayarlarTxt"
+                android:textColor="@color/uygulamaMavisi"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="21sp"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout17"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/ayarlarGrisi"
+        android:layout_height="57dp"
+        android:background="@color/colorGrayPrimay"
         android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_ayarlar_tv">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar">
 
         <TextView
-            android:id="@+id/ayarlarsayfasi_hesap_tv"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:text="@string/hesapTxt"
-            android:textSize="18dp" />
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@string/font_family_mediumSans"
+            android:text="@string/ayarlarSayfaHesapTxt"
+            android:textSize="20sp" />
+    </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/profilDuzenleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout17"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/ayarlarSayfaProfilDuzenleTxt"
+            android:textColor="@color/renkSiyah"
+            android:textSize="@dimen/ayarlarSayfaTextSize400" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
+            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:tint="@color/ayarlarGrisi"
+            android:src="@mipmap/search_content_level_one_back_icon" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="54dp"
+            android:background="@color/ayarlarGrisi"
+            app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/ayarlarsayfasi_profilduzenle_rl"
+        android:id="@+id/sifreDegistirLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_hesap_rl">
-
-        <TextView
-            android:id="@+id/ayarlarsayfasi_profilduzenle_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:text="@string/hesapProfilDuzenleTxt"
-            android:textSize="18dp" />
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilDuzenleLayout"
+        tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
+            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:src="@mipmap/search_content_level_one_back_icon"
+            android:tint="@color/ayarlarGrisi" />
+
+        <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/ayarlar_ayrinti_icon" />
-    </RelativeLayout>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/ayarlarSayfaSifreDegistir"
+            android:textColor="@color/renkSiyah"
+            android:textSize="@dimen/ayarlarSayfaTextSize400" />
 
-    <View
-        android:id="@+id/ayarlarsayfasi_view1"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#BBBCCD"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_profilduzenle_rl" />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="54dp"
+            android:background="@color/ayarlarGrisi" />
+    </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/ayarlarsayfasi_sifredegistir_rl"
+        android:id="@+id/bildirimlerLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view1" >
-
-        <TextView
-            android:id="@+id/ayarlarsayfasi_sifredegistir_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:textSize="18dp"
-            android:text="@string/hesapSifreDegistirTxt" />
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sifreDegistirLayout"
+        tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
+            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:src="@mipmap/search_content_level_one_back_icon"
+            android:tint="@color/ayarlarGrisi" />
+
+        <TextView
+            android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/ayarlar_ayrinti_icon"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/ayarlarSayfaBildirimler"
+            android:textColor="@color/renkSiyah"
+            android:textSize="@dimen/ayarlarSayfaTextSize400" />
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="54dp"
+            android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
-
-    <View
-        android:id="@+id/ayarlarsayfasi_view2"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#BBBCCD"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_sifredegistir_rl"/>
-
 
     <RelativeLayout
-        android:id="@+id/ayarlarsayfasi_bildirimler_rl"
+        android:id="@+id/cikisYapLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view2">
-
-        <TextView
-            android:id="@+id/ayarlarsayfasi_bildirimler_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:textSize="18dp"
-            android:text="@string/bildirimlerTxt" />
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/ripple"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bildirimlerLayout"
+        tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
+            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:src="@mipmap/search_content_level_one_back_icon"
+            android:tint="@color/ayarlarGrisi" />
+
+        <TextView
+            android:id="@+id/textView44"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/ayarlar_ayrinti_icon" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/ayarlarSayfaCikisYap"
+            android:textColor="@color/renkSiyah"
+            android:textSize="@dimen/ayarlarSayfaTextSize400"/>
+
+
 
     </RelativeLayout>
 
-    <View
-        android:id="@+id/ayarlarsayfasi_view3"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#BBBCCD"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_bildirimler_rl"/>
-
-    <RelativeLayout
-        android:id="@+id/ayarlarsayfasi_cikisyap_rl"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ayarlarsayfasi_view3">
-
-        <TextView
-            android:id="@+id/ayarlarsayfasi_cikisyap_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="45dp"
-            android:text="@string/cikisYapTxt"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/ayarlar_ayrinti_icon" />
-    </RelativeLayout>
-
-    <View
-        android:id="@+id/ayarlarsayfasi_view4"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#BBBCCD"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ayarlarsayfasi_cikisyap_rl"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

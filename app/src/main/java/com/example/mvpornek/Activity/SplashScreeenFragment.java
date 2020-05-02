@@ -59,6 +59,7 @@ public class SplashScreeenFragment extends Fragment {
 
 
         final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
+        System.out.println(isLoged);
         Thread thread= new Thread(){
             @Override
             public void run() {
@@ -78,11 +79,6 @@ public class SplashScreeenFragment extends Fragment {
         };
         thread.start();
         return view;
-    }
-    public void getBeginingFragment()
-    {
-        BeginingFragment beginingFragment=new BeginingFragment();
-        callFragment(beginingFragment);
     }
     public void getStartFragment()
     {
