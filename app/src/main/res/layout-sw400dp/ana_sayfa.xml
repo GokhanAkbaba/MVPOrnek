@@ -38,6 +38,19 @@
         tools:ignore="MissingConstraints">
 
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right|center"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="55dp"
+            android:backgroundTint="@color/uygulamaMavisiTwo"
+            android:backgroundTintMode="src_in"
+            android:tint="@color/profilSekmeBeyaz"
+            android:src="@mipmap/soru_gonder_icon"
+            app:fabSize="normal"
+            tools:ignore="MissingConstraints" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

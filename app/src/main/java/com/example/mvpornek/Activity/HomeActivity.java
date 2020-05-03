@@ -42,7 +42,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         getHomeFragment();
                         break;
                     case R.id.profilItem:
-                        startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
+                        getProfilFragment();
                         break;
                     case R.id.bildirimItem:
                         getBildirimlerFragment();
@@ -84,6 +84,11 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     {
         BildirimlerFragment bildirimlerFragment = new BildirimlerFragment();
         callFragment(bildirimlerFragment);
+    }
+    public void getProfilFragment()
+    {
+        ProfilFragment profilFragment = new ProfilFragment();
+        callFragment(profilFragment);
     }
     public void callFragment(Fragment fragment)
     {

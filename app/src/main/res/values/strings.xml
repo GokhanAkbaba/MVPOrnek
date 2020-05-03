@@ -61,6 +61,9 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="ayarlarSayfaSifreDegistir">Şifre Değiştir</string>
     <string name="ayarlarSayfaBildirimler">Bildirimler</string>
     <string name="ayarlarSayfaCikisYap">Çıkış Yap</string>
+    <string name="profil_fotografi_sec_txt">Profil Fotoğrafı Seç</string>
+    <string name="fotograf_cek_txt">Fotoğraf çek</string>
+    <string name="galeriden_sec_txt">Mevcut fotoğraflardan seç</string>
 
     <string-array name="kullanici_isimleri">
         <item>Gökhan Akbaba</item>
@@ -189,4 +192,16 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
         <item>Osmaniye</item>
         <item>Düzce</item>
     </string-array>
+
+    <string name="dialog_permission_title">Grant Permissions</string>
+    <string name="dialog_permission_message">This app needs permission to use this feature. You can grant them in app settings.</string>
+    <string name="go_to_settings">GOTO SETTINGS</string>
+    <string name="action_settings">Settings</string>
+    <string name="profile_desc">Rowan Sebastian Atkinson CBE is an English actor,  comedian and screenwriter</string>
+    <string name="profile_title">Mr Bean</string>
+    <string name="posts">posts</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="msg_error_unable_select_profile_pic">Unable to set profile image. Please try again!</string>
+    <string name="toast_image_intent_null">Image picker option is missing!</string>
 </resources>

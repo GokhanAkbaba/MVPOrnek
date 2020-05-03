@@ -18,6 +18,9 @@
     <color name="colorGrayDarkSecondary">#62757f</color>
     <color name="colorGreyPrimary">#9E9E9E</color>
     <color name="griTon" tools:ignore="MissingDefaultResource">#707070</color>
+    <color name="profile_desc">#D1D1FF</color>
+    <color name="bg_meta_container">#000000</color>
+    <color name="profile_default_tint">#e0e0e0</color>
 
 
 </resources>
