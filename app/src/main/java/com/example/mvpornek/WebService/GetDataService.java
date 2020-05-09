@@ -45,4 +45,17 @@ public interface GetDataService {
 
     );
 
+    @FormUrlEncoded
+    @POST("profilGuncelle.php")
+    Call<KullaniciResponse> profilGuncelle(
+
+            @Field("id")int kullaniciId,
+            @Field("kullaniciAdSoyad") String kullanciAdSoyad,
+            @Field("kullaniciAdi") String kullanciAdi,
+            @Field("kullaniciEposta") String kullanciEPosta,
+            @Field ("profilResmi") String kullaniciResmi
+
+    );
+
+
 }

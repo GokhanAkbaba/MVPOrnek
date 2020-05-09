@@ -11,17 +11,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
-import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
 import com.example.mvpornek.Activity.IntroActivity;
-import com.example.mvpornek.Activity.LoginFragment;
-import com.example.mvpornek.Activity.ProfilActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
-import com.squareup.picasso.Picasso;
 
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {
@@ -29,14 +25,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
     Toolbar toolbar;
 
     public SettingsFragment() {
-        // Required empty public constructor
+
     }
 
     public static SettingsFragment newInstance(String param1, String param2) {
@@ -66,6 +62,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         profilRelativeLayout.setOnClickListener(this);
         RelativeLayout cikisRelativeLayout=(RelativeLayout) view.findViewById(R.id.cikisYapLayout);
         cikisRelativeLayout.setOnClickListener(this);
+        RelativeLayout sifreDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
+        sifreDegistirLayout.setOnClickListener(this);
         return view;
 
     }
@@ -81,6 +79,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 SharedPrefManager.getInstance(getActivity()).clear();
                 startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
                 BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
+
+            case R.id.sifreDegistirLayout:
+                startActivity(new Intent(getActivity().getApplicationContext(), SifreDuzenleActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
         }
     }
 }

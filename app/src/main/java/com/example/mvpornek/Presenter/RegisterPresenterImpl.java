@@ -82,7 +82,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
         if(registerView != null)
         {
             registerView.showProgress();
-
         }
         registerInteractor.Register(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta,this);
     }

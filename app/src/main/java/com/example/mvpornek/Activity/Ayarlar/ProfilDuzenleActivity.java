@@ -2,26 +2,39 @@ package com.example.mvpornek.Activity.Ayarlar;
 
 import android.Manifest;
 import android.app.Activity;
+import android.bluetooth.BluetoothAssignedNumbers;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 import com.example.mvpornek.Activity.ImagePickerActivity;
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
+import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractor;
+import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractorImpl;
+import com.example.mvpornek.Presenter.ProfilUpdatePresenter;
+import com.example.mvpornek.Presenter.ProfilUpdatePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.ProfilUpdateView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -30,36 +43,54 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.squareup.picasso.Picasso;
 
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
-import static com.yalantis.ucrop.UCropFragment.TAG;
 
-public class ProfilDuzenleActivity extends Activity implements View.OnClickListener {
-    CircleImageView circleImageView;
+public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView, View.OnClickListener {
+    private ProfilUpdatePresenter profilUpdatePresenter;
+    ImageView imageView;
+    Bitmap bitmap=null;
+    String A;
+    Uri uri;
+    Kullanici kullanici;
+    EditText adSoyadTxt,kullaniciAdiTxt,kullaniciEposta;
+    TextInputLayout adSoyadInput,kullaniciAdiInput,ePostaInput;
     public static final int REQUEST_IMAGE = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_profil_duzenle);
-        TextInputLayout adSoyadInput=(TextInputLayout) findViewById(R.id.adSoyadTextField);
-        Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
-        EditText adSoyadTxt=findViewById(R.id.profilDuzenleAdSoyadTxt);
-        EditText kullaniciAdiTxt=findViewById(R.id.profilDuzenleKullaniciAdiTxt);
-        EditText kullaniciEposta=findViewById(R.id.profilDuzenleEpostaTxt);
+        adSoyadInput= findViewById(R.id.adSoyadTextField);
+        kullaniciAdiInput=findViewById(R.id.kullaniciAdiTextField);
+        ePostaInput=findViewById(R.id.ePostaTextField);
+        kullanici= SharedPrefManager.getInstance(this).getKullanici();
+        adSoyadTxt=findViewById(R.id.profilDuzenleAdSoyadTxt);
+        kullaniciAdiTxt=findViewById(R.id.profilDuzenleKullaniciAdiTxt);
+        kullaniciEposta=findViewById(R.id.profilDuzenleEpostaTxt);
         Button profilDuzenleGeriBtn=findViewById(R.id.profilDuzenleGeriBtn);
+        Button profilGuncelleButon=findViewById(R.id.profilGuncelleButon);
+        profilGuncelleButon.setOnClickListener(this);
         profilDuzenleGeriBtn.setOnClickListener(this);
-        circleImageView=findViewById(R.id.profilDuzenleProfilResmi);
-        circleImageView.setOnClickListener(this);
-        Picasso.get().load(kullanici.getProfilFoto()).into(circleImageView);
+        imageView=findViewById(R.id.profilDuzenleFotoAlani);
+        imageView.setOnClickListener(this);
+        loadProfile(kullanici.getProfilFoto());
         adSoyadTxt.setText(kullanici.getAdSoyad());
         kullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
         kullaniciEposta.setText(kullanici.getKullaniciEposta());
         ImagePickerActivity.clearCache(this);
 
+        profilUpdatePresenter=new ProfilUpdatePresenterImpl(this,new ProfilUpdateInteractorImpl(ProfilDuzenleActivity.this));
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -69,23 +100,31 @@ public class ProfilDuzenleActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String ePosta,sifre,adSoyad,resim;
+        ePosta = adSoyadTxt.getText().toString();
+        sifre=kullaniciAdiTxt.getText().toString();
+        adSoyad=kullaniciEposta.getText().toString();
+
+
         switch (view.getId())
         {
             case R.id.profilDuzenleGeriBtn:
                 onBackPressed();
                 break;
-            case R.id.profilDuzenleProfilResmi:
+            case R.id.profilDuzenleFotoAlani:
                 onProfileImageClick();
+                break;
+            case R.id.profilGuncelleButon:
+                 String profilResim=convertToString();
+                 profilUpdatePresenter.updateValideCredentals(kullanici.getId(),ePosta,sifre,adSoyad,profilResim);
                 break;
         }
     }
 
     private void loadProfile(String url) {
         GlideApp.with(this).load(url)
-                .into(circleImageView);
-        circleImageView.setColorFilter(ContextCompat.getColor(this, android.R.color.transparent));
+                .into(imageView);
     }
-
 
     void onProfileImageClick() {
         Dexter.withActivity(this)
@@ -151,16 +190,30 @@ public class ProfilDuzenleActivity extends Activity implements View.OnClickListe
         startActivityForResult(intent, REQUEST_IMAGE);
     }
 
+    private String convertToString() {
+        if(bitmap==null) {
+            System.out.println("CONVERT"+bitmap);
+            return "resim";
+        }
+        else{
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            byte[] imgByte = byteArrayOutputStream.toByteArray();
+            return Base64.encodeToString(imgByte,Base64.DEFAULT);
+        }
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
-                Uri uri = data.getParcelableExtra("path");
+               uri = data.getParcelableExtra("path");
                 try {
                     // You can update this bitmap to your server
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    imageView.setImageBitmap(bitmap);
                     // loading profile image from local cache
-                    loadProfile(uri.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -185,5 +238,39 @@ public class ProfilDuzenleActivity extends Activity implements View.OnClickListe
         Uri uri = Uri.fromParts("package", getPackageName(), null);
         intent.setData(uri);
         startActivityForResult(intent, 101);
+    }
+
+    @Override
+    public void showProgress() {
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(this,null,"Profil Güncelleniyor");
+    }
+
+    @Override
+    public void hideProgress() {
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBitir();
+    }
+
+    @Override
+    public void setGuncelleEPostaAdiHatasi() {
+        ePostaInput.setError("E-postayı Boş Bırakmayınız");
+    }
+
+    @Override
+    public void setGuncelleKullaniciAdiHatasi() {
+        kullaniciAdiInput.setError("Kullanıcı Adı Boş Bırakmayınız");
+    }
+
+    @Override
+    public void setGuncelleKullaniciAdiSoyad() {
+        adSoyadInput.setError("Ad Soyad Boş Bırakmayınız");
+    }
+
+    @Override
+    public void navigateToProfilUpdate() {
+        adSoyadInput.setError(null);
+        kullaniciAdiInput.setError(null);
+        ePostaInput.setError(null);
+        Toast.makeText(this,"Profiliniz Güncellendi",Toast.LENGTH_SHORT).show();
+        hideProgress();
     }
 }
