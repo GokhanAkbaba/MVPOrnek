@@ -9,6 +9,7 @@
     tools:ignore="MissingDefaultResource">
 
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/anasayfa_nav_view"
         android:layout_width="match_parent"
@@ -28,7 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp"
-
         app:layout_constraintBottom_toTopOf="@+id/anasayfa_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

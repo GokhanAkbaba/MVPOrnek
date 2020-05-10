@@ -1,8 +1,9 @@
 package com.example.mvpornek.WebService;
 
 
-import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
+import com.example.mvpornek.Model.Response.EtiketResponse;
+import com.example.mvpornek.Model.Response.KullaniciResponse;
+import com.example.mvpornek.Model.Response.SifreResponse;
 
 
 import retrofit2.Call;
@@ -56,6 +57,19 @@ public interface GetDataService {
             @Field ("profilResmi") String kullaniciResmi
 
     );
+
+    @FormUrlEncoded
+    @POST("sifreGuncelle.php")
+    Call<SifreResponse> sifreGuncelle(
+
+            @Field("kullaniciId")int kullaniciId,
+            @Field("mevcutSifre") String mevcutSifre,
+            @Field("yeniSifre") String yeniSifre,
+            @Field("yeniTekrarSifre") String yeniTekararSifre
+
+
+    );
+
 
 
 }

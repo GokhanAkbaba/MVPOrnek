@@ -62,8 +62,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         profilRelativeLayout.setOnClickListener(this);
         RelativeLayout cikisRelativeLayout=(RelativeLayout) view.findViewById(R.id.cikisYapLayout);
         cikisRelativeLayout.setOnClickListener(this);
-        RelativeLayout sifreDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
-        sifreDegistirLayout.setOnClickListener(this);
+        RelativeLayout sifreRelativeDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
+        sifreRelativeDegistirLayout.setOnClickListener(this);
         return view;
 
     }
@@ -79,7 +79,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 SharedPrefManager.getInstance(getActivity()).clear();
                 startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
                 BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
-
+                break;
             case R.id.sifreDegistirLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), SifreDuzenleActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);

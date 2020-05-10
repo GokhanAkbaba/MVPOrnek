@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
+import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 

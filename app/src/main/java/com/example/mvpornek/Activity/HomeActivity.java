@@ -18,6 +18,8 @@ import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
+
 public class HomeActivity extends FragmentActivity implements View.OnClickListener {
 
 
@@ -29,29 +31,37 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
-        getHomeFragment();
+        loadFragment(new HomeFragment(),"AnaSayfa");
+
 
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                Fragment fragment=null;
                 switch (menuItem.getItemId())
                 {
                     case R.id.anaSayfaItem:
-                        getHomeFragment();
+                        fragment=new HomeFragment();
+                        loadFragment(fragment,"AnaSayfaFragment");
                         break;
                     case R.id.profilItem:
-                        getProfilFragment();
+                        fragment=new ProfilFragment();
+                        loadFragment(fragment,"ProfilFragment");
                         break;
                     case R.id.bildirimItem:
-                        getBildirimlerFragment();
+                        fragment=new BildirimlerFragment();
+                        loadFragment(fragment,"BildirimFragment");
                         break;
                     case R.id.aramaItem:
-                        getSearchFragment();
+                        fragment=new SearchFragment();
+                        loadFragment(fragment,"AramaFragment");
                         break;
                     case R.id.ayarlarItem:
-                        getSettingsFragment();
+                        fragment=new SettingsFragment();
+                        loadFragment(fragment,"AyarlarFragment");
                         break;
                 }
                 return true;
@@ -64,38 +74,26 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
     }
-    public void  getHomeFragment(){
-        HomeFragment homeFragment=new HomeFragment();
-        callFragment(homeFragment);
 
-    }
-
-    public void getSettingsFragment()
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        SettingsFragment settingsFragment=new SettingsFragment();
-        callFragment(settingsFragment);
-    }
-    public void getSearchFragment()
-    {
-        SearchFragment searchFragment=new SearchFragment();
-        callFragment(searchFragment);
-    }
-    public void getBildirimlerFragment()
-    {
-        BildirimlerFragment bildirimlerFragment = new BildirimlerFragment();
-        callFragment(bildirimlerFragment);
-    }
-    public void getProfilFragment()
-    {
-        ProfilFragment profilFragment = new ProfilFragment();
-        callFragment(profilFragment);
-    }
-    public void callFragment(Fragment fragment)
-    {
-        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,fragment);
-        fragmentTransaction.commit();
+        System.out.println("-----"+fragmentTag);
+        if(fragment != null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.anaSayfaFrameLayout,fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        getSupportFragmentManager().popBackStack("AramaFragment", POP_BACK_STACK_INCLUSIVE);
+        bottomNavigationView.getMenu().getItem(0).setChecked(true);
+        //getHomeFragment();
+    }
 }

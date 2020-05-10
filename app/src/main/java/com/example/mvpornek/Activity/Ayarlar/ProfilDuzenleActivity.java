@@ -2,17 +2,13 @@ package com.example.mvpornek.Activity.Ayarlar;
 
 import android.Manifest;
 import android.app.Activity;
-import android.bluetooth.BluetoothAssignedNumbers;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,15 +16,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
+
 
 import com.example.mvpornek.Activity.ImagePickerActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractor;
 import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractorImpl;
 import com.example.mvpornek.Presenter.ProfilUpdatePresenter;
 import com.example.mvpornek.Presenter.ProfilUpdatePresenterImpl;
@@ -41,18 +35,12 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-import com.squareup.picasso.Picasso;
+
 
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-
 
 public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView, View.OnClickListener {
     private ProfilUpdatePresenter profilUpdatePresenter;
@@ -100,7 +88,7 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
 
     @Override
     public void onClick(View view) {
-        String ePosta,sifre,adSoyad,resim;
+        String ePosta,sifre,adSoyad;
         ePosta = adSoyadTxt.getText().toString();
         sifre=kullaniciAdiTxt.getText().toString();
         adSoyad=kullaniciEposta.getText().toString();

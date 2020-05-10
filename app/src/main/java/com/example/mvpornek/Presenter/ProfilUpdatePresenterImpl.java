@@ -57,6 +57,7 @@ public class ProfilUpdatePresenterImpl implements ProfilUpdatePresenter,ProfilUp
         if(profilUpdateView != null)
         {
             profilUpdateView.navigateToProfilUpdate();
+            profilUpdateView.hideProgress();
         }
     }
 }

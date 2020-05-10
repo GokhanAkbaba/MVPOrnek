@@ -1,6 +1,6 @@
 package com.example.mvpornek.Model.ModelGiris;
 
-import com.example.mvpornek.Model.Kullanıcı.EtiketResponse;
+import com.example.mvpornek.Model.Response.EtiketResponse;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
 import retrofit2.Call;

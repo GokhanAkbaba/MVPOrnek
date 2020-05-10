@@ -1,4 +1,4 @@
-package com.example.mvpornek.Model.Kullanıcı.KullaniciKayit;
+package com.example.mvpornek.Model.Response;
 
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.google.gson.annotations.Expose;

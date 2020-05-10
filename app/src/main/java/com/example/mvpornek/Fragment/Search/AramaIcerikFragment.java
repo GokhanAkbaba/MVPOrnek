@@ -13,9 +13,12 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 
+import com.example.mvpornek.Activity.LoginFragment;
 import com.example.mvpornek.R;
 
 public class AramaIcerikFragment extends Fragment implements View.OnClickListener {
@@ -25,6 +28,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     SearchView searchView;
     ImageView imageView;
     ListView listView;
+    Button geriButon;
     ArrayAdapter<String> arrayAdapter;
 
     String [] aranan_terim={"Gökhan","Akbaba","Araba","Ev","Bina","CNN Türk"};
@@ -59,11 +63,12 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.arama_sayfasi_icerik, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView_page);
-        imageView=(ImageView) view.findViewById(R.id.search_content_back);
         listView=(ListView) view.findViewById(R.id.searchPageListView);
+
+        geriButon=(Button) view.findViewById(R.id.aramaSayfasiIcerikGeriBtn);
+        geriButon.setOnClickListener(this);
         arrayAdapter=new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,aranan_terim);
         listView.setAdapter(arrayAdapter);
-        imageView.setOnClickListener(this);
         searchView.onActionViewExpanded();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -90,9 +95,25 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+
+        switch (view.getId())
+        {
+            case R.id.aramaSayfasiIcerikGeriBtn:
+                getSearchContentLevelOneFragment();
+            break;
+        }
+    }
+    public void getSearchContentLevelOneFragment()
+    {
         SearchContentLevelOneFragment searchContentLevelOneFragment = new SearchContentLevelOneFragment();
-        FragmentTransaction fragmentTransactionsearchContentLevelOneFragment=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransactionsearchContentLevelOneFragment.replace(R.id.anaSayfaFrameLayout,searchContentLevelOneFragment);
-        fragmentTransactionsearchContentLevelOneFragment.commit();
+        callFragment(searchContentLevelOneFragment);
+    }
+
+    public void callFragment(Fragment fragment)
+    {
+        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,fragment);
+        fragmentTransaction.commit();
     }
 }

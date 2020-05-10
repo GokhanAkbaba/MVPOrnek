@@ -5,8 +5,9 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.KullaniciResponse;
+import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.LoginView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
 import retrofit2.Call;
@@ -16,6 +17,7 @@ import retrofit2.Response;
 public class LoginInteractorImpl implements LoginInteractor{
 
     Context context;
+    LoginView loginView;
 
     public LoginInteractorImpl(Context context) {
         this.context = context;
@@ -54,6 +56,7 @@ public class LoginInteractorImpl implements LoginInteractor{
                                     listener.onSuccess();
                                 }else{
                                     Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                                    loginView.hideProgress();
                                 }
                             }
                         }
