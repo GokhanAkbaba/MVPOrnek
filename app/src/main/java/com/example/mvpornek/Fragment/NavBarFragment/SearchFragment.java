@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.widget.SearchView;
 
 import com.example.mvpornek.Activity.Adapter.SearchAdapter;
+import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Activity.QuestionDetailActivity;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.Kullanıcı.SearchModel;
@@ -83,18 +85,18 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         aramaSayfasiRecyclerView=(RecyclerView) view.findViewById(R.id.arama_sayfasi_recyclerView);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaSayfasiRecyclerView.setAdapter(searchAdapter);
-
-
         return view;
     }
 
     @Override
     public void onClick(View view)
     {
+        Fragment fragment;
         switch (view.getId())
         {
             case R.id.search_content_search_bar:
-                getAramaIcerikFragmentGetir();
+                fragment=new AramaIcerikFragment();
+                loadFragment(fragment,"AramaIcerik");
                 break;
             case R.id.search_content_search_text:
 
@@ -107,20 +109,16 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
     {
         startActivity(new Intent(getActivity(), QuestionDetailActivity.class).putExtra("data",searchModel));
     }
-
-    public void getAramaIcerikFragmentGetir()
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        AramaIcerikFragment aramaIcerikFragment = new AramaIcerikFragment();
-        callFragment(aramaIcerikFragment);
-
-    }
-
-    public void callFragment(Fragment fragment)
-    {
-        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,fragment);
-        fragmentTransaction.addToBackStack(fragment.toString());
-        fragmentTransaction.commit();
+        if(fragment != null){
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.anaSayfaFrameLayout,fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }

@@ -71,4 +71,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
                 tools:ignore="MissingConstraints" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

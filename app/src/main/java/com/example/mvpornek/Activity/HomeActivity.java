@@ -3,7 +3,7 @@ package com.example.mvpornek.Activity;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,6 @@ import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
 import com.example.mvpornek.R;
-import com.example.mvpornek.SharedPrefManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
@@ -25,6 +24,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
     BottomNavigationView bottomNavigationView;
+    int item ;
 
 
     @Override
@@ -34,6 +34,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         loadFragment(new HomeFragment(),"AnaSayfa");
 
 
+
+
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -41,6 +43,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                 Fragment fragment=null;
+                item=menuItem.getItemId();
                 switch (menuItem.getItemId())
                 {
                     case R.id.anaSayfaItem:
@@ -49,19 +52,19 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         break;
                     case R.id.profilItem:
                         fragment=new ProfilFragment();
-                        loadFragment(fragment,"ProfilFragment");
+                        loadFragment(fragment,"Fragment");
                         break;
                     case R.id.bildirimItem:
                         fragment=new BildirimlerFragment();
-                        loadFragment(fragment,"BildirimFragment");
+                        loadFragment(fragment,"Fragment");
                         break;
                     case R.id.aramaItem:
                         fragment=new SearchFragment();
-                        loadFragment(fragment,"AramaFragment");
+                        loadFragment(fragment,"Fragment");
                         break;
                     case R.id.ayarlarItem:
                         fragment=new SettingsFragment();
-                        loadFragment(fragment,"AyarlarFragment");
+                        loadFragment(fragment,"Fragment");
                         break;
                 }
                 return true;
@@ -77,7 +80,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        System.out.println("-----"+fragmentTag);
         if(fragment != null){
             getSupportFragmentManager()
                     .beginTransaction()
@@ -91,9 +93,22 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
+       /*System.out.println("SAYII"+ getSupportFragmentManager().popBackStackImmediate());
         super.onBackPressed();
-        getSupportFragmentManager().popBackStack("AramaFragment", POP_BACK_STACK_INCLUSIVE);
-        bottomNavigationView.getMenu().getItem(0).setChecked(true);
-        //getHomeFragment();
+
+        getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
+        //getSupportFragmentManager().popBackStack();
+
+        bottomNavigationView.getMenu().getItem(0).setChecked(true);*/
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        else {
+            super.onBackPressed();
+            getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
+        }
     }
 }
