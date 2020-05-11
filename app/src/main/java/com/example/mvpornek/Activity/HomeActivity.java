@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -14,29 +16,31 @@ import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
+import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends FragmentActivity implements View.OnClickListener {
+public class HomeActivity extends FragmentActivity implements View.OnClickListener,FragmentManager.OnBackStackChangedListener {
 
 
 
     BottomNavigationView bottomNavigationView;
     int item ;
+    int sayac=0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
-        loadFragment(new HomeFragment(),"AnaSayfa");
-
-
+        loadFragment(new HomeFragment(),"AnaSayfaFragment");
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
 
 
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -80,11 +84,18 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        if(fragment != null){
+                /*int count = getSupportFragmentManager().getBackStackEntryCount();
+                int last = getSupportFragmentManager().getBackStackEntryCount()-1;
+                 FragmentManager.BackStackEntry entry = getSupportFragmentManager().getBackStackEntryAt(last);
+                System.out.println("Count"+last+"NAME"+entry.getName());
+                    if (TextUtils.equals(entry.getName(), fragmentTag)) {
+
+                }*/
+        if (fragment != null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .addToBackStack(fragmentTag)
-                    .replace(R.id.anaSayfaFrameLayout,fragment)
+                    .replace(R.id.anaSayfaFrameLayout, fragment)
                     .commit();
             return true;
         }
@@ -93,22 +104,37 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
-       /*System.out.println("SAYII"+ getSupportFragmentManager().popBackStackImmediate());
-        super.onBackPressed();
 
-        getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
-        //getSupportFragmentManager().popBackStack();
-
-        bottomNavigationView.getMenu().getItem(0).setChecked(true);*/
-        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+        int count=getSupportFragmentManager().getBackStackEntryCount();
+        FragmentManager.BackStackEntry entry=getSupportFragmentManager().getBackStackEntryAt(count -1);
+        if(count == 0){
+            super.onBackPressed();
+        } else if(count >1){
+           getSupportFragmentManager().popBackStack();
+       }else if (count == 1){
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-        else {
-            super.onBackPressed();
-            getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
+        if(entry.getName() == "Fragment"){
+           getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
+           bottomNavigationView.getMenu().getItem(0).setChecked(true);
         }
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        System.out.println("Stack Durumu");
+        int count=getSupportFragmentManager().getBackStackEntryCount();
+        if(count <= 2)
+        {
+            bottomNavigationView.setVisibility(View.VISIBLE);
+        }
+        for (int i=count - 1;i>=0;i--){
+            FragmentManager.BackStackEntry entry=getSupportFragmentManager().getBackStackEntryAt(i);
+            System.out.println(i+"--"+entry.getName());
+        }
+        System.out.println("\n");
     }
 }

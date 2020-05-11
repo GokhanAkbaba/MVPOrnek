@@ -24,6 +24,7 @@ import com.example.mvpornek.Activity.QuestionDetailActivity;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.Kullanıcı.SearchModel;
 import com.example.mvpornek.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
      SearchAdapter searchAdapter;
     private SearchView.OnQueryTextListener queryTextListener;
     private SearchView searchView = null;
-
     private String mParam1;
     private String mParam2;
 
@@ -85,6 +85,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         aramaSayfasiRecyclerView=(RecyclerView) view.findViewById(R.id.arama_sayfasi_recyclerView);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaSayfasiRecyclerView.setAdapter(searchAdapter);
+
         return view;
     }
 
