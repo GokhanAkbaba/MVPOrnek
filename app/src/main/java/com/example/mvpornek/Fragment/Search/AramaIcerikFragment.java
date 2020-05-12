@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 
+import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Activity.LoginFragment;
 import com.example.mvpornek.R;
 
@@ -31,6 +32,8 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     ListView listView;
     Button geriButon;
     ArrayAdapter<String> arrayAdapter;
+
+    HomeActivity homeActivity= new HomeActivity();
 
     String [] aranan_terim={"Gökhan","Akbaba","Araba","Ev","Bina","CNN Türk"};
     private String mParam1;
@@ -57,12 +60,6 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        /*getActivity().getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });*/
     }
 
     @Override
@@ -106,7 +103,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         switch (view.getId())
         {
             case R.id.aramaSayfasiIcerikGeriBtn:
-                getSearchContentLevelOneFragment();
+                getActivity().getSupportFragmentManager().popBackStack();
             break;
         }
     }

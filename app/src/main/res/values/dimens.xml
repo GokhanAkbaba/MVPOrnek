@@ -36,6 +36,12 @@
     <dimen name="ayarlarProfilDuzenleEditTextWidth400">317dp</dimen>
     <dimen name="ayarlarProfilDuzenleTextViewSize400">17sp</dimen>
 
+    <dimen name="soruPaylasEtiketBtnTextSize400">10sp</dimen>
+    <dimen name="soruPaylasEtiketBtnLayoutMarginTop400">12dp</dimen>
+    <dimen name="soruPaylasEtiketBtnLayoutMarginStart400">12dp</dimen>
+    <dimen name="soruPaylasEtiketBtnWidth400">66dp</dimen>
+    <dimen name="soruPaylasEtiketBtnHeight400">24dp</dimen>
+
 
 
 </resources>

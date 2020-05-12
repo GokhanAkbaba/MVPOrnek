@@ -1,24 +1,34 @@
 package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
+import com.example.mvpornek.Fragment.QuestionPostFragment;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
@@ -28,8 +38,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     BottomNavigationView bottomNavigationView;
     int item ;
-    int sayac=0;
-
+    FloatingActionButton soruPaylasBtn;
+    AlertDialog.Builder dialogBuilder;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +48,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         setContentView(R.layout.ana_sayfa);
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
         getSupportFragmentManager().addOnBackStackChangedListener(this);
-
-
+        soruPaylasBtn=findViewById(R.id.soruPaylasimButon);
+        soruPaylasBtn.setOnClickListener(this);
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
+
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -76,21 +88,25 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         });
     }
 
+
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()){
+            case R.id.soruPaylasimButon:
+                dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+                View layoutView = getLayoutInflater().inflate(R.layout.soru_paylas_ekrani, null);
+                dialogBuilder.setView(layoutView);
+                alertDialog = dialogBuilder.create();
+                alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
+        }
 
     }
 
     private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-                /*int count = getSupportFragmentManager().getBackStackEntryCount();
-                int last = getSupportFragmentManager().getBackStackEntryCount()-1;
-                 FragmentManager.BackStackEntry entry = getSupportFragmentManager().getBackStackEntryAt(last);
-                System.out.println("Count"+last+"NAME"+entry.getName());
-                    if (TextUtils.equals(entry.getName(), fragmentTag)) {
 
-                }*/
         if (fragment != null) {
             getSupportFragmentManager()
                     .beginTransaction()
