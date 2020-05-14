@@ -96,7 +96,6 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-
     @Override
     public void onClick(View view) {
 
@@ -107,17 +106,19 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
             break;
         }
     }
-    public void getSearchContentLevelOneFragment()
+
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        SearchContentLevelOneFragment searchContentLevelOneFragment = new SearchContentLevelOneFragment();
-        callFragment(searchContentLevelOneFragment);
+
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.anaSayfaFrameLayout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
-    public void callFragment(Fragment fragment)
-    {
-        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.anaSayfaFrameLayout,fragment);
-        fragmentTransaction.commit();
-    }
 }

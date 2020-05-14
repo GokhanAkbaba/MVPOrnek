@@ -32,6 +32,7 @@
     <string name="geziEtiketTxt">#Gezi</string>
     <string name="sporEtiketTxt">#Spor</string>
     <string name="rastgeleTxt">#Rastgele</string>
+    <string name="yazilimTxt">#Yazılım</string>
     <string name="baslarkenTxt">BAŞLARKEN</string>
     <string name="baslarkenMetin">Telefonunuza gelen bildirimlerin çeşitliliği için
 lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>

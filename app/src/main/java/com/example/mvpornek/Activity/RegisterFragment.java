@@ -3,6 +3,7 @@ package com.example.mvpornek.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     String ePosta,sifre,adSoyad,kullaniciAdi,sifreTekrar;
     private String mParam1;
     private String mParam2;
+    Fragment fragment=null;
 
     public RegisterFragment() {
 
@@ -137,7 +139,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         ePostaInputLayout.setError(null);
         sifreTekrarInputLayout.setError(null);
         Toast.makeText(getActivity(),"Kayıt İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        getBeginingFragment();
+        fragment=new BeginingFragment();
+        loadFragment(fragment,"BeginingFragment");
         hideProgress();
     }
     @Override
@@ -155,7 +158,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
                 presenter.validateCredentials(kullaniciAdi,adSoyad,sifre,sifreTekrar,ePosta);
                 break;
             case R.id.girisSecenektxt:
-                getLoginFragment();
+                fragment=new LoginFragment();
+                loadFragment(fragment,"LoginFragment");
                 break;
         }
 
@@ -166,24 +170,18 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         super.onDestroy();
     }
 
-    public void getBeginingFragment()
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        BeginingFragment beginingFragment=new BeginingFragment();
-        callFragment(beginingFragment);
-    }
 
-    public void callFragment(Fragment fragment)
-    {
-        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.startActivityLayout,fragment);
-        fragmentTransaction.commit();
-    }
-
-    public void getLoginFragment()
-    {
-        LoginFragment loginFragment=new LoginFragment();
-        callFragment(loginFragment);
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.startActivityLayout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.Model.Response.SifreResponse;
 
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -66,6 +68,18 @@ public interface GetDataService {
             @Field("mevcutSifre") String mevcutSifre,
             @Field("yeniSifre") String yeniSifre,
             @Field("yeniTekrarSifre") String yeniTekararSifre
+
+
+    );
+
+    @FormUrlEncoded
+    @POST("soruKaydet.php")
+    Call<SifreResponse> soruKaydet(
+
+            @Field("kullaniciId")int kullaniciId,
+            @Field("soru") String mevcutSifre,
+            @Field("etiket[]")List<Integer> etiket,
+            @Field("il[]") List<Integer> il
 
 
     );

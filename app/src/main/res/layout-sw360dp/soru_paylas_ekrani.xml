@@ -3,17 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout9"
-    android:background="#56141414"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="350dp"
+    android:layout_height="350dp"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="298dp"
-        android:layout_height="421dp"
-        android:layout_marginTop="84dp"
-        android:background="@mipmap/soru_paylas_arka_plan"
+        android:layout_width="355dp"
+        android:layout_height="460dp"
+        android:background="@drawable/soru_paylas_arka_plan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,192 +35,135 @@
             android:layout_width="311dp"
             android:layout_height="82dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="19dp"
             android:background="@drawable/soru_paylas_text_sekil"
             android:ems="10"
+            android:gravity="start|top"
             android:hint="@string/uygulama_adi_buyuk"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-        <ImageView
+        <Button
             android:id="@+id/yemekEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="40dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="236dp"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/yemekEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintTop_toBottomOf="@+id/editText6" />
 
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="45dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/yemekEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/yemekEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/yemekEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/adresEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="194dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/adresEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/yemekEtiketBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/editText6" />
 
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/adresEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/adresEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/adresEtiketBtn" />
-
-        <ImageView
+        <Button
             android:id="@+id/tatilEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/soru_etiket_arkaplan"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/tatilEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/adresEtiketBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintTop_toBottomOf="@+id/editText6" />
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/tatilEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tatilEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/tatilEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/filmDiziEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/soru_etiket_arkaplan"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/filmDiziEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/tatilEtiketBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintTop_toBottomOf="@+id/editText6" />
 
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/filmDiziEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/filmDiziEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/filmDiziEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/alisverisEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/alisverisEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/yemekEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/geziEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/geziEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/alisverisEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/adresEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/rastgeleEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
+            android:hint="@string/rastgeleTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/geziEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/tatilEtiketBtn" />
 
-        <ImageView
+        <Button
             android:id="@+id/sporEtiketBtn"
-            android:layout_width="66dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/soru_etiket_arkaplan"
+            android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+            android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+            android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+            android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
+            android:hint="@string/sporEtiketTxt"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
+            android:background="@drawable/soru_etiket_buton_beyaz"
+            android:textColorHint="@color/uygulamaMavisi"
             app:layout_constraintStart_toEndOf="@+id/rastgeleEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/filmDiziEtiketBtn" />
 
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/alisverisEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/alisverisEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/alisverisEtiketBtn" />
 
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/geziEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/geziEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/geziEtiketBtn" />
 
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/sporEtiketTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/sporEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/sporEtiketBtn" />
 
-        <ImageView
-            android:id="@+id/imageView29"
-            android:layout_width="33dp"
-            android:layout_height="34dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
-            android:src="@mipmap/mavi_kapat_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         <Button
             android:id="@+id/button2"
@@ -253,10 +194,10 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="275dp"
+            android:layout_marginTop="20dp"
             android:scrollbars="none"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/geziEtiketBtn">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -267,7 +208,7 @@
                     android:id="@+id/il_01"
                     android:layout_width="44dp"
                     android:layout_height="43dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="01"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -277,7 +218,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="02"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -287,7 +228,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="03"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -297,7 +238,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="04"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -307,7 +248,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="05"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -317,7 +258,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="06"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -327,7 +268,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="07"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -337,7 +278,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="08"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -347,7 +288,7 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:background="@drawable/il_soru_paylas_arka_plan"
+                    android:background="@drawable/baslarkenilbuton"
                     android:text="09"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="20sp" />
@@ -625,18 +566,6 @@
             </LinearLayout>
 
         </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/rastgeleTxt"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/rastgeleEtiketBtn"
-            app:layout_constraintTop_toTopOf="@+id/rastgeleEtiketBtn" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
