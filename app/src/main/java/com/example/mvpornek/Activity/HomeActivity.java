@@ -12,7 +12,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -24,6 +26,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
@@ -56,9 +59,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     Button soruPaylasButon;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     int item ;
+    private int i=0;
+    private Handler hdlr = new Handler();
     FloatingActionButton soruPaylasBtn;
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
+    ProgressBar progressBar;
     ArrayList<Integer> illerList=new ArrayList<Integer>();
     ArrayList<Integer> etiketList=new ArrayList<Integer>();
     Boolean checkAdanaEtiket=false,checkArtvinEtiket=false;
@@ -154,12 +160,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                     public void afterTextChanged(Editable editable) {
                     }
                 });
+
                 soruPaylasButon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         String soruAlaniText=soruAlaniTxt.getText().toString();
-                        questionRegistrationPresenter.questionRegistrationValideCredentals(kullanici.getId(),soruAlaniText,illerList,etiketList);
-                        System.out.println(soruAlaniText+"   "+kullanici.getId());
+                        questionRegistrationPresenter.questionRegistrationValideCredentals(kullanici.getId(),soruAlaniText,etiketList,illerList);
                     }
                 });
 
@@ -421,6 +427,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void navigateToQuestionRegistration() {
+        alertDialog.dismiss();
         Toast.makeText(this,"Birine Soruldu",Toast.LENGTH_LONG).show();
     }
+
 }

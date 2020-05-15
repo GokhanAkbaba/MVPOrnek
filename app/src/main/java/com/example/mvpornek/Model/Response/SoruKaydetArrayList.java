@@ -6,11 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class SoruKaydetArrayList {
-    @SerializedName("il")
-    @Expose
+
     private ArrayList<Integer> il;
-    @SerializedName("etiket")
-    @Expose
+
     private ArrayList<Integer> etiket;
 
 
@@ -19,4 +17,11 @@ public class SoruKaydetArrayList {
         this.etiket = etiket;
     }
 
+    public ArrayList<Integer> getIl() {
+        return il;
+    }
+
+    public ArrayList<Integer> getEtiket() {
+        return etiket;
+    }
 }

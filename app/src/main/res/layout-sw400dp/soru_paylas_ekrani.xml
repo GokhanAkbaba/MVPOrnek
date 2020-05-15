@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:text="@string/uygulama_adi_buyuk"
             android:textColor="#000000"
             android:textSize="35sp"
@@ -35,7 +35,7 @@
             android:layout_width="311dp"
             android:layout_height="82dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="19dp"
             android:background="@drawable/soru_paylas_text_sekil"
             android:ems="10"
@@ -43,8 +43,8 @@
             android:hint="@string/uygulama_adi_buyuk"
             android:inputType="textMultiLine"
             android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             android:paddingTop="6dp"
+            android:paddingEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,16 +52,15 @@
 
         <Button
             android:id="@+id/yemekEtiketBtn"
-            android:clickable="true"
             android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
             android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="236dp"
+            android:layout_marginStart="24dp"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
             android:hint="@string/yemekEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
 
@@ -73,8 +72,8 @@
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="20dp"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/adresEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/yemekEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
@@ -86,8 +85,8 @@
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="20dp"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/tatilEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/adresEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
@@ -100,8 +99,8 @@
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="20dp"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/filmDiziEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/tatilEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
@@ -114,8 +113,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/alisverisEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/yemekEtiketBtn" />
@@ -127,8 +126,8 @@
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/geziEtiketTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/alisverisEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/adresEtiketBtn" />
@@ -140,8 +139,8 @@
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
             android:background="@drawable/soru_etiket_buton_beyaz"
-            android:textColorHint="@color/uygulamaMavisi"
             android:hint="@string/yazilimTxt"
+            android:textColorHint="@color/uygulamaMavisi"
             android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/geziEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/tatilEtiketBtn" />
@@ -152,17 +151,18 @@
             android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
             android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
             android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop400"
-            android:hint="@string/sporEtiketTxt"
-            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             android:background="@drawable/soru_etiket_buton_beyaz"
+            android:hint="@string/sporEtiketTxt"
             android:textColorHint="@color/uygulamaMavisi"
+            android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
             app:layout_constraintStart_toEndOf="@+id/yazilimEtiketBtn"
             app:layout_constraintTop_toBottomOf="@+id/filmDiziEtiketBtn" />
+
         <Button
             android:id="@+id/soruPaylasBtn"
             android:layout_width="242dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/soru_etiket_arkaplan"
             android:text="Birine Sor"
             android:textAllCaps="false"
@@ -176,7 +176,7 @@
             android:id="@+id/checkBox"
             android:layout_width="99dp"
             android:layout_height="33dp"
-            android:layout_marginTop="321dp"
+            android:layout_marginTop="305dp"
             android:layout_marginEnd="17dp"
             android:text="Tüm İller"
             app:layout_constraintEnd_toEndOf="parent"
@@ -185,9 +185,9 @@
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:scrollbars="none"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/geziEtiketBtn">
@@ -201,10 +201,10 @@
                     android:id="@+id/il_01"
                     android:layout_width="44dp"
                     android:layout_height="43dp"
-                    android:hint="01"
                     android:background="@drawable/baslarkenilbuton"
-                    android:textColorHint="@color/uygulamaMavisi"
+                    android:hint="01"
                     android:textColor="@color/uygulamaMavisi"
+                    android:textColorHint="@color/uygulamaMavisi"
                     android:textSize="20sp" />
 
                 <Button
@@ -212,12 +212,11 @@
                     android:layout_width="44dp"
                     android:layout_height="43dp"
                     android:layout_marginStart="5dp"
-                    android:hint="02"
                     android:background="@drawable/baslarkenilbuton"
-                    android:textColorHint="@color/uygulamaMavisi"
+                    android:hint="02"
                     android:textColor="@color/uygulamaMavisi"
-                    android:textSize="20sp"
-                    />
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/il_03"

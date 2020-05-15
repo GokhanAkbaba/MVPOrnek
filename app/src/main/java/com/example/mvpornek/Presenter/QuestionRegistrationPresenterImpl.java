@@ -16,14 +16,13 @@ public class QuestionRegistrationPresenterImpl implements QuestionRegistrationPr
     }
 
 
-
     @Override
-    public void questionRegistrationValideCredentals(int id, String soru, ArrayList<Integer> il, ArrayList<Integer> etiket) {
+    public void questionRegistrationValideCredentals(int id, String soru, ArrayList<Integer> etiket,ArrayList<Integer> il) {
         if(questionRegistrationView != null)
         {
             questionRegistrationView.showProgress();
         }
-        questionRegistrationInteractor.QuestionRegistration(id,soru,il,etiket,this);
+        questionRegistrationInteractor.QuestionRegistration(id,soru,etiket,il,this);
     }
 
     @Override

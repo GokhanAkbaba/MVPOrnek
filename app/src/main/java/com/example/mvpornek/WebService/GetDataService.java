@@ -4,14 +4,21 @@ package com.example.mvpornek.WebService;
 import com.example.mvpornek.Model.Response.EtiketResponse;
 import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.Model.Response.SifreResponse;
+import com.example.mvpornek.Model.Response.SoruKaydetArrayList;
+import com.example.mvpornek.Model.Response.SoruKaydetResponse;
+import com.google.gson.JsonObject;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface GetDataService {
 
@@ -73,16 +80,16 @@ public interface GetDataService {
     );
 
     @FormUrlEncoded
-    @POST("soruKaydet.php")
-    Call<SifreResponse> soruKaydet(
+    @POST("soruKayit.php")
+    Call<SoruKaydetResponse> soruKaydet(
 
             @Field("kullaniciId")int kullaniciId,
-            @Field("soru") String mevcutSifre,
-            @Field("etiket[]")List<Integer> etiket,
-            @Field("il[]") List<Integer> il
+            @Field("soru") String soru,
+            @Field("etiket[]") ArrayList<Integer> etiket,
+            @Field("il[]") ArrayList<Integer> il
+           /// @Body JsonObject kullanicisoru
 
-
-    );
+            );
 
 
 
