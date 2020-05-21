@@ -61,7 +61,7 @@ public class ProfilUpdateInteractorImpl implements ProfilUpdateInteractor {
                     }
                     @Override
                     public void onFailure(Call<KullaniciResponse> call, Throwable t) {
-                        System.out.println("Bağlantı Hatası "+t.getMessage());
+                            listener.onGuncelleKullaniciProfilFoto("Bir Sorun Oluştu");
                     }
                 });
             }

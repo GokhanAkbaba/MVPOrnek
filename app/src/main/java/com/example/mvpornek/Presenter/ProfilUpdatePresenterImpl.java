@@ -53,6 +53,15 @@ public class ProfilUpdatePresenterImpl implements ProfilUpdatePresenter,ProfilUp
     }
 
     @Override
+    public void onGuncelleKullaniciProfilFoto(String message) {
+        if(profilUpdateView != null)
+        {
+            profilUpdateView.setGuncelleKullaniciProfilFoto(message);
+            profilUpdateView.hideProgress();
+        }
+    }
+
+    @Override
     public void onSuccess() {
         if(profilUpdateView != null)
         {

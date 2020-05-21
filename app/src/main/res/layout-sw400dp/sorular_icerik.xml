@@ -8,29 +8,42 @@
     tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="412dp"
-        android:layout_height="194dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="42dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sorularIcerikLayout"
             android:layout_width="match_parent"
-            android:layout_height="198dp"
+            android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
 
-
-            <ImageView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/kullaniciResmi"
-                android:layout_width="76dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="6dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.103"
-                app:srcCompat="@drawable/man" />
+                app:layout_constraintVertical_bias="0.103">
+
+                <ImageView
+                    android:id="@+id/roundedKullaniciResmi"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rumeli" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/kullaniciAdSoyad"
@@ -39,8 +52,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="26dp"
                 android:text="Gökhan AKBABA"
-                android:textSize="16sp"
                 android:textColor="#000"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,28 +63,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1sa"
-                android:textSize="16sp"
+                android:textSize="11sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
-                app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciAdiTxt" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="#Adres #Tatil"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
 
             <TextView
+                android:id="@+id/kullaniciAdiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="\@GokhanAkbaba"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
+
+            <TextView
                 android:id="@+id/textView12"
                 android:layout_width="384dp"
-                android:layout_height="34dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/jost"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
+                android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 
 import com.example.mvpornek.Activity.ImagePickerActivity;
@@ -41,12 +42,13 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView, View.OnClickListener {
     private ProfilUpdatePresenter profilUpdatePresenter;
     ImageView imageView;
     Bitmap bitmap=null;
-    String A;
+    Boolean fotoKontrol=false;
     Uri uri;
     Kullanici kullanici;
     EditText adSoyadTxt,kullaniciAdiTxt,kullaniciEposta;
@@ -70,9 +72,12 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
         imageView=findViewById(R.id.profilDuzenleFotoAlani);
         imageView.setOnClickListener(this);
         loadProfile(kullanici.getProfilFoto());
+
         adSoyadTxt.setText(kullanici.getAdSoyad());
         kullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
         kullaniciEposta.setText(kullanici.getKullaniciEposta());
+
+
         ImagePickerActivity.clearCache(this);
 
         profilUpdatePresenter=new ProfilUpdatePresenterImpl(this,new ProfilUpdateInteractorImpl(ProfilDuzenleActivity.this));
@@ -88,10 +93,10 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
 
     @Override
     public void onClick(View view) {
-        String ePosta,sifre,adSoyad;
-        ePosta = adSoyadTxt.getText().toString();
-        sifre=kullaniciAdiTxt.getText().toString();
-        adSoyad=kullaniciEposta.getText().toString();
+        String ePosta,kullaniciAdi,adSoyad;
+        adSoyad = adSoyadTxt.getText().toString();
+        kullaniciAdi=kullaniciAdiTxt.getText().toString();
+        ePosta=kullaniciEposta.getText().toString();
 
 
         switch (view.getId())
@@ -103,14 +108,26 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
                 onProfileImageClick();
                 break;
             case R.id.profilGuncelleButon:
-                 String profilResim=convertToString();
-                 profilUpdatePresenter.updateValideCredentals(kullanici.getId(),ePosta,sifre,adSoyad,profilResim);
+
+                 if(fotoKontrol==true){
+                     String profilResim=convertToString();
+                     profilUpdatePresenter.updateValideCredentals(kullanici.getId(),adSoyad,kullaniciAdi,ePosta,profilResim);
+                     fotoKontrol=false;
+                 }else{
+                     profilUpdatePresenter.updateValideCredentals(kullanici.getId(),adSoyad,kullaniciAdi,ePosta,kullanici.getProfilFoto());
+                 }
+
                 break;
         }
     }
 
     private void loadProfile(String url) {
         GlideApp.with(this).load(url)
+                .into(imageView);
+    }
+
+    private void loadProfileDefault() {
+        GlideApp.with(this).load(R.drawable.rumeli)
                 .into(imageView);
     }
 
@@ -179,29 +196,26 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
     }
 
     private String convertToString() {
-        if(bitmap==null) {
-            System.out.println("CONVERT"+bitmap);
-            return "resim";
-        }
-        else{
+
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
             byte[] imgByte = byteArrayOutputStream.toByteArray();
             return Base64.encodeToString(imgByte,Base64.DEFAULT);
-        }
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         if (requestCode == REQUEST_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
                uri = data.getParcelableExtra("path");
+               fotoKontrol=true;
                 try {
-                    // You can update this bitmap to your server
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                    imageView.setImageBitmap(bitmap);
-                    // loading profile image from local cache
+                        // You can update this bitmap to your server
+                        bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                        imageView.setImageBitmap(bitmap);
+                        // loading profile image from local cache
+                    
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -251,6 +265,11 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
     @Override
     public void setGuncelleKullaniciAdiSoyad() {
         adSoyadInput.setError("Ad Soyad Boş Bırakmayınız");
+    }
+
+    @Override
+    public void setGuncelleKullaniciProfilFoto(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override

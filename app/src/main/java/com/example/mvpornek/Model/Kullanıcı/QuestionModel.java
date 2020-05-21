@@ -1,57 +1,75 @@
 package com.example.mvpornek.Model.Kullanıcı;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class QuestionModel {
-    public String kullaniciAdi;
-    public String soru;
-    public String yorumSayisi;
-    public int kullaniciProfilResmi;
-    public String etiket;
 
+    @SerializedName("ad_soyad")
+    @Expose
+    private String adSoyad;
+    @SerializedName("kullanici_adi")
+    @Expose
+    private String kullaniciAdi;
+    @SerializedName("soru")
+    @Expose
+    private String soru;
+    @SerializedName("etiket_adi")
+    @Expose
+    private String etiketAdi;
+    @SerializedName("zaman")
+    @Expose
+    private String zaman;
+    @SerializedName("profil_foto")
+    @Expose
+    private String profilFoto;
 
-    public void setEtiket(String etiket) {
-        this.etiket = etiket;
+    public String getAdSoyad() {
+        return adSoyad;
     }
 
-    public void setKullaniciAdi(String kullaniciAdi) {
-        this.kullaniciAdi = kullaniciAdi;
-    }
-
-    public void setSoru(String soru) {
-        this.soru = soru;
-    }
-
-    public void setYorumSayisi(String yorumSayisi) {
-        this.yorumSayisi = yorumSayisi;
-    }
-
-    public void setKullaniciProfilResmi(int kullaniciProfilResmi) {
-        this.kullaniciProfilResmi = kullaniciProfilResmi;
+    public void setAdSoyad(String adSoyad) {
+        this.adSoyad = adSoyad;
     }
 
     public String getKullaniciAdi() {
         return kullaniciAdi;
     }
 
+    public void setKullaniciAdi(String kullaniciAdi) {
+        this.kullaniciAdi = kullaniciAdi;
+    }
+
     public String getSoru() {
         return soru;
     }
 
-    public String getYorumSayisi() {
-        return yorumSayisi;
-    }
-
-    public int getKullaniciProfilResmi() {
-        return kullaniciProfilResmi;
-    }
-    public String getEtiket() {
-        return etiket;
-    }
-
-    public QuestionModel(String kullaniciAdi, String soru, String yorumSayisi,String etiket, int kullaniciProfilResmi) {
-        this.kullaniciAdi = kullaniciAdi;
+    public void setSoru(String soru) {
         this.soru = soru;
-        this.yorumSayisi = yorumSayisi;
-        this.kullaniciProfilResmi = kullaniciProfilResmi;
-        this.etiket=etiket;
     }
+
+    public String getEtiketAdi() {
+        return etiketAdi;
+    }
+
+    public void setEtiketAdi(String etiketAdi) {
+        this.etiketAdi = etiketAdi;
+    }
+
+    public String getZaman() {
+        return zaman;
+    }
+
+    public void setZaman(String zaman) {
+        this.zaman = zaman;
+    }
+
+    public String getProfilFoto() {
+        return profilFoto;
+    }
+
+    public void setProfilFoto(String profilFoto) {
+        this.profilFoto = profilFoto;
+    }
+
 }

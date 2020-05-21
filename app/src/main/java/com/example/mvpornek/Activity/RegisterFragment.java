@@ -186,7 +186,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
     @Override
     public void internetBaglantiHatasi() {
-        Toast.makeText(getActivity(),"İnternet Bağlantı Hatası",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_SHORT).show();
     }
 
     @Override

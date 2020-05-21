@@ -43,5 +43,9 @@
     <dimen name="soruPaylasEtiketBtnHeight400">24dp</dimen>
 
 
+    <dimen name="ayarlarProfilDuzenleEditTextWidth320">270dp</dimen>
+    <dimen name="ayarlarProfilDuzenleEditTextHeigt320">39dp</dimen>
+
+
 
 </resources>

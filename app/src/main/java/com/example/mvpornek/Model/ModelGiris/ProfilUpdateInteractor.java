@@ -5,6 +5,7 @@ public interface ProfilUpdateInteractor {
         void onGuncelleEPostaHatasi();
         void onGuncelleKullaniciAdiHatasi();
         void onGuncelleKullaniciAdSoyad();
+        void onGuncelleKullaniciProfilFoto(String message);
         void onSuccess();
     }
     void profilUpdate(int id,String adSoyad, String kullaniciAdi, String kullaniciEposta,String profilResmi,onProfilUpdateFinishedListener listener);

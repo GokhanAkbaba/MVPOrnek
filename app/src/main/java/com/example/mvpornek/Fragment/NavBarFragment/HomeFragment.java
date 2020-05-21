@@ -7,7 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,10 +17,21 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
+import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
+import com.example.mvpornek.Model.Response.SorularResponse;
+import com.example.mvpornek.Presenter.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
+import com.example.mvpornek.Presenter.QuestionPresenter;
+import com.example.mvpornek.Presenter.QuestionPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.InternetConnectionView;
+import com.example.mvpornek.View.QuestionView;
 import com.google.android.material.internal.NavigationMenuItemView;
 
 import java.util.ArrayList;
@@ -26,7 +39,7 @@ import java.util.List;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements View.OnClickListener, QuestionView, InternetConnectionView {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageButton alisverisButon,tatilButon,adresButon,sporButon,yemekButon,sanatButon;
@@ -35,10 +48,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private String mParam1;
     private String mParam2;
 
-    RecyclerView recyclerViewSoruAlani;
-    List<QuestionModel> questionModels=new ArrayList<>();
-    QuestionAdapterActivity questionAdapterActivity;
+    SwipeRefreshLayout swipeRefreshLayout;
 
+    RecyclerView recyclerViewSoruAlani;
+    List<QuestionModel> questionModels;
+    QuestionAdapterActivity questionAdapterActivity;
+    QuestionPresenterImpl questionPresenter;
+    QuestionAdapterActivity.ItemClickListener itemClickListener;
+
+    Kullanici kullanici;
+
+    InternetConnectionPresenterImpl internetConnectionPresenter;
     public HomeFragment() {
 
     }
@@ -60,10 +80,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        questionModels.add(new QuestionModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","153","#Tatil#Adres",R.drawable.man));
-        questionModels.add(new QuestionModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
-        questionModels.add(new QuestionModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
-        questionAdapterActivity=new QuestionAdapterActivity(questionModels);
+        kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
+        questionPresenter = new QuestionPresenterImpl(this);
+        questionPresenter.loadData(kullanici.getId());
+
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
 
     }
 
@@ -71,6 +92,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_anasayfa, container, false);
+
         alisverisButon=view.findViewById(R.id.anasayfa_alisveris_btn);
         alisverisButon.setOnClickListener(this);
         yemekButon=view.findViewById(R.id.anasayfa_yemek_btn);
@@ -83,7 +105,27 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         sporButon.setOnClickListener(this);
         sanatButon=view.findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
-       recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
+
+        swipeRefreshLayout=view.findViewById(R.id.swiperefreshAnasayfa);
+
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                internetConnectionPresenter.internetBaglantiKontrolu();
+                questionPresenter.loadData(kullanici.getId());
+
+            }
+        });
+
+        itemClickListener =((vw,position)-> {
+
+        });
+
+
+
+        recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
@@ -190,4 +232,39 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    @Override
+    public void onGetResult(List<QuestionModel> data) {
+        questionAdapterActivity= new QuestionAdapterActivity(data,getActivity(),itemClickListener);
+        questionAdapterActivity.notifyDataSetChanged();
+        recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
+        questionModels=data;
+
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+
+    }
+
+    @Override
+    public void showLoading() {
+        if (swipeRefreshLayout != null) {
+            swipeRefreshLayout.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void internetBaglantiHatasi() {
+        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
+    }
 }

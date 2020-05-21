@@ -1,11 +1,13 @@
 package com.example.mvpornek.WebService;
 
 
+import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.Model.Response.EtiketResponse;
 import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.Model.Response.SifreResponse;
 import com.example.mvpornek.Model.Response.SoruKaydetArrayList;
 import com.example.mvpornek.Model.Response.SoruKaydetResponse;
+import com.example.mvpornek.Model.Response.SorularResponse;
 import com.google.gson.JsonObject;
 
 
@@ -87,9 +89,14 @@ public interface GetDataService {
             @Field("soru") String soru,
             @Field("etiket[]") ArrayList<Integer> etiket,
             @Field("il[]") ArrayList<Integer> il
-           /// @Body JsonObject kullanicisoru
+    );
 
-            );
+    @FormUrlEncoded
+    @POST("sorulariGetir.php")
+    Call<List<QuestionModel>> sorulariGetir(
+            @Field("kullaniciId") int kullaniciId
+
+    );
 
 
 

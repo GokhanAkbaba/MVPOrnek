@@ -36,11 +36,15 @@ import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
 import com.example.mvpornek.Fragment.QuestionPostFragment;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
+import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.QuestionRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenter;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionRegistrationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,13 +55,14 @@ import java.util.List;
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends FragmentActivity implements View.OnClickListener,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends FragmentActivity implements View.OnClickListener, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
 
     BottomNavigationView bottomNavigationView;
     Button soruPaylasButon;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
+    private InternetConnectionPresenter internetConnectionPresenter;
     int item ;
     private int i=0;
     private Handler hdlr = new Handler();
@@ -79,6 +84,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         soruPaylasBtn=findViewById(R.id.soruPaylasimButon);
         soruPaylasBtn.setOnClickListener(this);
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
+        internetConnectionPresenter.internetBaglantiKontrolu();
+
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -119,6 +127,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.soruPaylasimButon:
+                internetConnectionPresenter.internetBaglantiKontrolu();
                 dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
                 View layoutView = getLayoutInflater().inflate(R.layout.soru_paylas_ekrani, null);
                 dialogBuilder.setView(layoutView);
@@ -164,6 +173,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 soruPaylasButon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        internetConnectionPresenter.internetBaglantiKontrolu();
                         String soruAlaniText=soruAlaniTxt.getText().toString();
                         questionRegistrationPresenter.questionRegistrationValideCredentals(kullanici.getId(),soruAlaniText,etiketList,illerList);
                     }
@@ -350,8 +360,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
-    private boolean loadFragment(Fragment fragment,String fragmentTag)
-    {
+    private boolean loadFragment(Fragment fragment,String fragmentTag) {
 
         if (fragment != null) {
             getSupportFragmentManager()
@@ -431,4 +440,14 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         Toast.makeText(this,"Birine Soruldu",Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void internetBaglantiHatasi() {
+
+        Toast.makeText(this,"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
+    }
 }
