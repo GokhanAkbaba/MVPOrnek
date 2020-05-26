@@ -12,6 +12,9 @@
         güzel oteller hangi illerde..</string>
     <string name="ayarlarTxt">Ayarlar</string>
     <string name="hesapTxt">Hesap</string>
+    <string name="girisYapTxt">Giriş Yap</string>
+    <string name="kayitOlTxt">Kayıt Ol</string>
+    <string name="hosGeldinizTxt">Hoş Geldiniz</string>
     <string name="hesapProfilDuzenleTxt">Profil Düzenle</string>
     <string name="hesapSifreDegistirTxt">Şifre Değiştir</string>
     <string name="bildirimlerTxt">Bildirimler</string>
@@ -65,6 +68,8 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="profil_fotografi_sec_txt">Profil Fotoğrafı Seç</string>
     <string name="fotograf_cek_txt">Fotoğraf çek</string>
     <string name="galeriden_sec_txt">Mevcut fotoğraflardan seç</string>
+    <string name="hesabınYokMuTxt">Birine Sor\'a kaydol.</string>
+    <string name="sifreniMiUnuttunTxt">Şifreni mi unuttun?</string>
 
     <string-array name="kullanici_isimleri">
         <item>Gökhan Akbaba</item>

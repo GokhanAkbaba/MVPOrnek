@@ -12,9 +12,13 @@
     <dimen name="kayitOlEditText">40dp</dimen>
 
     <dimen name="kayitOlTextInputLayoutWidth320">220dp</dimen>
-    <dimen name="kayitOlTextInputLayoutHeight320">58dp</dimen>
-    <dimen name="kayitOlEditText320">38dp</dimen>
-    <dimen name="kayitOlEditTextSize320">10sp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight320">50dp</dimen>
+    <dimen name="girisYapTextInputLayoutWidth320">220dp</dimen>
+    <dimen name="girisYapTextInputLayoutHeight320">58dp</dimen>
+    <dimen name="girisYapEditTextPadding320">5dp</dimen>
+    <dimen name="girisYapEditText320">35dp</dimen>
+    <dimen name="kayitOlEditText320">30dp</dimen>
+    <dimen name="kayitOlEditTextSize320">13sp</dimen>
 
     <dimen name="kayitOlTextInputLayoutWidth400">280dp</dimen>
     <dimen name="kayitOlTextInputLayoutHeight400">68dp</dimen>
@@ -57,6 +61,17 @@
 
     <dimen name="fragmentAnaSayfaEtiketButonHeight320">38dp</dimen>
     <dimen name="fragmentAnaSayfaEtiketButonWidth320">38dp</dimen>
+    <dimen name="girisYapTxtTextSize320">28sp</dimen>
+
+    <dimen name="girisYapTxtTextSize360">38sp</dimen>
+    <dimen name="kayitOlTextInputLayoutWidth360">250dp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight360">78dp</dimen>
+    <dimen name="kayitOlEditTextSize360">14sp</dimen>
+    <dimen name="kayitOlEditText360">38dp</dimen>
+
+
+    <dimen name="girisYapTxtTextSize400">38sp</dimen>
+
 
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
     private static final String ARG_PARAM2 = "param2";
     private LoginPresenter loginPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
-    TextView kayitOlSecenek,girisKullaniciTxt,girisSifreTxt,sifreUnuttumTxt;
+    TextView kayitOlSecenek,girisKullaniciTxt,girisSifreTxt,sifreUnuttumTxt,kayitOlSecenekBtn;
     ImageButton girisYap;
     String girisKullanici,girisSifre;
 
@@ -70,8 +71,11 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kullanici_giris, container, false);
 
-        kayitOlSecenek=view.findViewById(R.id.kayitOlSecenekTxt);
+       kayitOlSecenek=view.findViewById(R.id.kayitOlSecenekTxt);
         kayitOlSecenek.setOnClickListener(this);
+
+        kayitOlSecenekBtn=view.findViewById(R.id.kayitOlSecenekBtn);
+        kayitOlSecenekBtn.setOnClickListener(this);
 
         girisYap=view.findViewById(R.id.girisYapBtn);
         girisYap.setOnClickListener(this);
@@ -95,17 +99,22 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
 
         girisKullanici=girisKullaniciTxt.getText().toString();
         girisSifre=girisSifreTxt.getText().toString();
-
+        Fragment fragment=null;
         switch (view.getId())
         {
             case R.id.kayitOlSecenekTxt:
-                getRegisterFragment();
+                fragment=new RegisterFragment();
+                loadFragment(fragment,"LoginFragment");
                 internetConnectionPresenter.internetBaglantiKontrolu();
                 break;
             case R.id.girisYapBtn:
                 loginPresenter.loginValideCredentals(girisKullanici,girisSifre);
                 break;
             case R.id.sifreUnuttumText:
+                break;
+            case R.id.kayitOlSecenekBtn:
+                fragment=new RegisterFragment();
+                loadFragment(fragment,"LoginFragment");
                 break;
         }
 
@@ -142,7 +151,7 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
     }
     @Override
     public void onDestroy() {
-        loginPresenter.onDestroy();
+       loginPresenter.onDestroy();
         super.onDestroy();
     }
 
@@ -151,18 +160,21 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
         super.onStart();
     }
 
-    public void getRegisterFragment()
-    {
-        RegisterFragment registerFragment=new RegisterFragment();
-        callFragment(registerFragment);
-    }
 
-    public void callFragment(Fragment fragment)
+
+
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.startActivityLayout,fragment);
-        fragmentTransaction.commit();
+
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.startActivityLayout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
     @Override

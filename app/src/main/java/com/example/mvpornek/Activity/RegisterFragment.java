@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
@@ -37,7 +38,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
     TextInputLayout adSoyadInputLayout,kullaniciAdiInputLayout,ePostaInputLayout,sifreInputLayout,sifreTekrarInputLayout;
     private EditText editTextadSoyad,editTextkullaniciAdi,editTextMail,editTextsifre,editTextsifreTekrar;
-    private Button girisSecenekBtn;
+    TextView girisSecenekBtn;
     String ePosta,sifre,adSoyad,kullaniciAdi,sifreTekrar;
     private String mParam1;
     private String mParam2;
@@ -83,8 +84,6 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
         editTextsifreTekrar = view.findViewById(R.id.sifreTekrariText);
 
         girisSecenekBtn=view.findViewById(R.id.girisSecenektxt);
-        girisSecenekBtn.setClickable(false);
-        girisSecenekBtn.setAlpha(.5f);
         girisSecenekBtn.setOnClickListener(this);
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
 
@@ -109,7 +108,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
     @Override
     public void setAdSoyadHatasi() {
-        adSoyadInputLayout.setError("Ad Soyad Boş Bırakmayınız");
+       adSoyadInputLayout.setError("Ad Soyad Boş Bırakmayınız");
 
     }
     @Override
@@ -123,7 +122,7 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
     }
     @Override
     public void setSifreTekrarHatasi() {
-        sifreTekrarInputLayout.setError("Şifre Tekrar Boş Bırakmayınız");
+       sifreTekrarInputLayout.setError("Şifre Tekrar Boş Bırakmayınız");
     }
     @Override
     public void setSifreKontrol() {
