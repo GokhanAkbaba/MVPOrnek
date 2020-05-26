@@ -47,5 +47,17 @@
     <dimen name="ayarlarProfilDuzenleEditTextHeigt320">39dp</dimen>
 
 
+    <dimen name="soruPaylasEtiketBtnWidth320">46dp</dimen>
+    <dimen name="soruPaylasEtiketBtnHeight320">18dp</dimen>
+    <dimen name="soruPaylasEtiketBtnTextSize320">8sp</dimen>
+    <dimen name="soruPaylasIlBtnWidth320">34dp</dimen>
+    <dimen name="soruPaylasIlBtnHeight320">34dp</dimen>
+    <dimen name="soruPaylasIlBtnText320">15sp</dimen>
+    <dimen name="soruPaylasEtiketBtnLayoutMarginTop320">10dp</dimen>
+
+    <dimen name="fragmentAnaSayfaEtiketButonHeight320">38dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonWidth320">38dp</dimen>
+
+
 
 </resources>

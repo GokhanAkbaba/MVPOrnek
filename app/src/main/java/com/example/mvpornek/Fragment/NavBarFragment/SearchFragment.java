@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,30 +12,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 
-import com.example.mvpornek.Activity.Adapter.SearchAdapter;
-import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Activity.QuestionDetailActivity;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.Kullanıcı.SearchModel;
 import com.example.mvpornek.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SearchFragment extends Fragment implements View.OnClickListener,SearchAdapter.SearchQuestionSelected {
+public class SearchFragment extends Fragment implements View.OnClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private RecyclerView aramaSayfasiRecyclerView;
      List<SearchModel>searchModelList=new ArrayList<>();
-     SearchAdapter searchAdapter;
     private SearchView.OnQueryTextListener queryTextListener;
     private SearchView searchView = null;
     private String mParam1;
@@ -69,7 +62,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         searchModelList.add(new SearchModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
         searchModelList.add(new SearchModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
         searchModelList.add(new SearchModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
-        searchAdapter=new SearchAdapter(searchModelList,this);
+
 
 
 
@@ -84,7 +77,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         relativeLayoutSearchBar.setOnClickListener(this);
         aramaSayfasiRecyclerView=(RecyclerView) view.findViewById(R.id.arama_sayfasi_recyclerView);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        aramaSayfasiRecyclerView.setAdapter(searchAdapter);
+
 
         return view;
     }
@@ -104,12 +97,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,Sea
         }
 
     }
-
-    @Override
-    public void searchQuestionSelected(SearchModel searchModel)
-    {
-        startActivity(new Intent(getActivity(), QuestionDetailActivity.class).putExtra("data",searchModel));
-    }
+    
     private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
         if(fragment != null){

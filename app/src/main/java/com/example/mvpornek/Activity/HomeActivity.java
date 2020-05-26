@@ -66,7 +66,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     int item ;
     private int i=0;
     private Handler hdlr = new Handler();
-    FloatingActionButton soruPaylasBtn;
+    FloatingActionButton birineSorBtn;
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     ProgressBar progressBar;
@@ -81,8 +81,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         setContentView(R.layout.ana_sayfa);
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
         getSupportFragmentManager().addOnBackStackChangedListener(this);
-        soruPaylasBtn=findViewById(R.id.soruPaylasimButon);
-        soruPaylasBtn.setOnClickListener(this);
+        birineSorBtn=findViewById(R.id.soruPaylasimButon);
+        birineSorBtn.setOnClickListener(this);
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
