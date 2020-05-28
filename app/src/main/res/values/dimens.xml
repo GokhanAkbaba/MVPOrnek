@@ -45,6 +45,7 @@
     <dimen name="soruPaylasEtiketBtnLayoutMarginStart400">12dp</dimen>
     <dimen name="soruPaylasEtiketBtnWidth400">66dp</dimen>
     <dimen name="soruPaylasEtiketBtnHeight400">24dp</dimen>
+    <dimen name="girisYapTxtTextSize400">38sp</dimen>
 
 
     <dimen name="ayarlarProfilDuzenleEditTextWidth320">270dp</dimen>
@@ -64,13 +65,17 @@
     <dimen name="girisYapTxtTextSize320">28sp</dimen>
 
     <dimen name="girisYapTxtTextSize360">38sp</dimen>
-    <dimen name="kayitOlTextInputLayoutWidth360">250dp</dimen>
-    <dimen name="kayitOlTextInputLayoutHeight360">78dp</dimen>
+    <dimen name="girisYapTextInputLayoutWidth360">250dp</dimen>
+    <dimen name="girisYapTextInputLayoutHeight360">78dp</dimen>
     <dimen name="kayitOlEditTextSize360">14sp</dimen>
     <dimen name="kayitOlEditText360">38dp</dimen>
 
+    <dimen name="kayitOlTextInputLayoutWidth360">250dp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight360">60dp</dimen>
+    <dimen name="kayitOlEditTextPadding360">5dp</dimen>
 
-    <dimen name="girisYapTxtTextSize400">38sp</dimen>
+
+
 
 
 

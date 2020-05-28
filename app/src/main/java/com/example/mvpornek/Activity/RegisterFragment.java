@@ -85,7 +85,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
 
         girisSecenekBtn=view.findViewById(R.id.girisSecenektxt);
         girisSecenekBtn.setOnClickListener(this);
-        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
+        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
+        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         view.findViewById(R.id.kayitYapBtn).setOnClickListener(this);
         presenter = new RegisterPresenterImpl(this, new RegisterInteractorImpl(getActivity()));

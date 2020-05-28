@@ -90,7 +90,8 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
 
         loginPresenter=new LoginPresenterImpl(this,new LoginInteractorImpl(getActivity()));
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
-        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
+        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
+        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         return view;
     }
 
