@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/anaSayfaLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-
+    <ScrollView
+        android:id="@+id/filename_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:isScrollContainer="false"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/anaSayfaLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/anasayfa_nav_view"
@@ -28,7 +42,7 @@
         android:id="@+id/anaSayfaFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
+
         app:layout_constraintBottom_toTopOf="@+id/anasayfa_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -44,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right|center"
             android:layout_marginEnd="15dp"
-            android:layout_marginBottom="55dp"
+            android:layout_marginBottom="85dp"
             android:backgroundTint="@color/uygulamaMavisiTwo"
             android:backgroundTintMode="src_in"
             android:clickable="true"
@@ -57,3 +71,5 @@
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -47,6 +47,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapterActivity.RecyclerViewAdapter holder, int position) {
         QuestionModel questionModel=questionModels.get(position);
+        int soruId=questionModel.getId();
         String kullaniciAdSoyad=questionModel.getAdSoyad();
         String kullaniciAdi=questionModel.getKullaniciAdi();
         String soru=questionModel.getSoru();
@@ -60,6 +61,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
         holder.etiket.setText(etiket);
         holder.sorular.setText(soru);
         holder.zaman.setText(zaman);
+        holder.soruId.setText(String.valueOf(soruId));
 
         GlideApp.with(context).load(kullaniciProfilResmi).apply( new RequestOptions().centerCrop()).into(holder.profilResmi);
     }
@@ -71,7 +73,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
 
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
         ItemClickListener itemClickListener;
-        TextView adSoyad,kullanicAdi,etiket,yorum_sayisi,sorular,zaman;
+        TextView adSoyad,kullanicAdi,etiket,yorum_sayisi,sorular,zaman,soruId;
         ImageView profilResmi;
         ConstraintLayout sorularIcerik;
         RecyclerViewAdapter(View itemView,ItemClickListener itemClickListener) {
@@ -85,6 +87,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             zaman=itemView.findViewById(R.id.soruPaylasmaZamani);
             profilResmi=itemView.findViewById(R.id.roundedKullaniciResmi);
             sorularIcerik=itemView.findViewById(R.id.sorularIcerikLayout);
+            soruId=itemView.findViewById(R.id.soruIdTxt);
 
             sorularIcerik.setOnClickListener(this::onClick);
         }

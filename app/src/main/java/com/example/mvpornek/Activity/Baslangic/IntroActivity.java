@@ -1,15 +1,11 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Activity.Baslangic;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
-import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.R;
 
 public class IntroActivity extends FragmentActivity {

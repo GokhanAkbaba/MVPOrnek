@@ -20,7 +20,7 @@
         <activity
             android:name=".Activity.Ayarlar.ProfilDuzenleActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".Activity.IntroActivity">
+        <activity android:name=".Activity.Baslangic.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,9 @@
         </activity>
         <activity android:name=".Activity.QuestionDetailActivity" />
         <activity android:name=".Activity.ForgotPasswordActivity" />
-        <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.HomeActivity"
+            android:windowSoftInputMode="stateVisible"
+            />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/AppTheme.NoActionBar" />

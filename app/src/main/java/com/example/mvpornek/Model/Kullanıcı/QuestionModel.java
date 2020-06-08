@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuestionModel {
 
+    @SerializedName("id")
+    @Expose
+    private int id;
     @SerializedName("ad_soyad")
     @Expose
     private String adSoyad;
@@ -70,6 +73,14 @@ public class QuestionModel {
 
     public void setProfilFoto(String profilFoto) {
         this.profilFoto = profilFoto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

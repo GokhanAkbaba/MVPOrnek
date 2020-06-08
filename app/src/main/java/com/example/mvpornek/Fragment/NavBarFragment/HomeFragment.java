@@ -1,55 +1,66 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Handler;
-import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
-import com.example.mvpornek.Model.Response.SorularResponse;
-import com.example.mvpornek.Presenter.InternetConnectionPresenter;
 import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
-import com.example.mvpornek.Presenter.QuestionPresenter;
 import com.example.mvpornek.Presenter.QuestionPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionView;
-import com.google.android.material.internal.NavigationMenuItemView;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
-public class HomeFragment extends Fragment implements View.OnClickListener, QuestionView, InternetConnectionView {
+public class HomeFragment extends  BottomSheetDialogFragment implements View.OnClickListener, QuestionView, InternetConnectionView {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageButton alisverisButon,tatilButon,adresButon,sporButon,yemekButon,sanatButon;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false;
+
+    //private FrameLayout bottomSheet;
+    //private BottomSheetBehavior bottomSheetBehavior;
+
     private String mParam1;
     private String mParam2;
 
-    SwipeRefreshLayout swipeRefreshLayout;
 
+    SwipeRefreshLayout swipeRefreshLayout;
+    ImageButton closeBottomSheet;
     RecyclerView recyclerViewSoruAlani;
     List<QuestionModel> questionModels;
     QuestionAdapterActivity questionAdapterActivity;
@@ -80,11 +91,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         questionPresenter = new QuestionPresenterImpl(this);
         questionPresenter.loadData(kullanici.getId());
-
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
     }
 
@@ -92,7 +104,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_anasayfa, container, false);
-
         alisverisButon=view.findViewById(R.id.anasayfa_alisveris_btn);
         alisverisButon.setOnClickListener(this);
         yemekButon=view.findViewById(R.id.anasayfa_yemek_btn);
@@ -105,10 +116,35 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
         sporButon.setOnClickListener(this);
         sanatButon=view.findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
-
+        //bottomSheet=view.findViewById(R.id.yorumlar_bottomSheet);
+        //bottomSheetBehavior=BottomSheetBehavior.from(bottomSheet);
         swipeRefreshLayout=view.findViewById(R.id.swiperefreshAnasayfa);
+        /*closeBottomSheet=view.findViewById(R.id.bottomSheetCloseBtn);
+        closeBottomSheet.setOnClickListener(this);*/
 
 
+        /*bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+                switch (i) {
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        System.out.println("GİZLEN");
+                        break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        Toast.makeText(getActivity(),"STATE_DRAGGING",Toast.LENGTH_SHORT).show();
+                        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        Toast.makeText(getActivity(),"STATE_SETTLING",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+
+            }
+        });*/
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -120,21 +156,40 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
         });
 
         itemClickListener =((vw,position)-> {
+            int soruId=questionModels.get(position).getId();
 
+            /*if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+                ((HomeActivity)getActivity()).BottomNavigationViewHidden();
+            }*/
+            showBottomSheet();
         });
-
-
 
         recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
         return view;
     }
-
+    public void showBottomSheet() {
+        CommentBottomDialogFragment addPhotoBottomDialogFragment =
+                CommentBottomDialogFragment.newInstance();
+        addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+                CommentBottomDialogFragment.TAG);
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId())
         {
+
+            case R.id.bottomSheetCloseBtn:
+                /*if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
+                    ((HomeActivity)getActivity()).BottomNavigationView();
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }*/
+                break;
             case R.id.anasayfa_alisveris_btn:
                 if(checkAlisverisEtiket == false)
                 {
@@ -226,10 +281,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.home_items,menu);
-
         super.onCreateOptionsMenu(menu, inflater);
-
-
     }
 
     @Override
@@ -266,5 +318,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Ques
     @Override
     public void internetBaglantisi() {
 
+    }
+
+    private boolean loadFragment(Fragment fragment,String fragmentTag) {
+
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .add(R.id.anaSayfaFrameLayout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }

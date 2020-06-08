@@ -1,4 +1,4 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Activity.Baslangic;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.ModelGiris.BeginingInteractorImpl;
 import com.example.mvpornek.Presenter.BeginingPresenter;
@@ -295,7 +296,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
         Toast.makeText(getActivity(),"Seçim İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
     }
 

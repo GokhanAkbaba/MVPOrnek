@@ -1,7 +1,6 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Activity.Baslangic;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,10 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
-
-import static android.content.Context.MODE_PRIVATE;
 
 
 public class SplashScreeenFragment extends Fragment {
@@ -71,7 +69,7 @@ public class SplashScreeenFragment extends Fragment {
                     if(isLoged == false){
                         getStartFragment();
                     }else{
-                        startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
                     }
                 }
                 super.run();

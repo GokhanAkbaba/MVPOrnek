@@ -9,571 +9,582 @@
 
 
     <ScrollView
-        android:layout_width="321dp"
+        android:id="@+id/filename_scroll"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="none"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="255dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/soru_paylas_arka_plan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/uygulama_adi_buyuk"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/soruAlaniText"
-                android:layout_width="220dp"
-                android:layout_height="62dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/soru_paylas_text_sekil"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="@string/uygulama_adi_buyuk"
-                android:inputType="textMultiLine"
-                android:paddingStart="5dp"
-                android:paddingTop="6dp"
-                android:paddingEnd="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-            <Button
-                android:id="@+id/yemekEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:clickable="true"
-                android:hint="@string/yemekEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
-
-
-            <Button
-                android:id="@+id/adresEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/adresEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/yemekEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
-
-            <Button
-                android:id="@+id/tatilEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/tatilEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/adresEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
-
-            <Button
-                android:id="@+id/filmDiziEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/filmDiziEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/tatilEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
-
-            <Button
-                android:id="@+id/alisverisEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/alisverisEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/yemekEtiketBtn" />
-
-            <Button
-                android:id="@+id/geziEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/geziEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/alisverisEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/adresEtiketBtn" />
-
-            <Button
-                android:id="@+id/yazilimEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/yazilimTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/geziEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/tatilEtiketBtn" />
-
-            <Button
-                android:id="@+id/sporEtiketBtn"
-                android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
-                android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
-                android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
-                android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
-                android:background="@drawable/soru_etiket_buton_beyaz"
-                android:hint="@string/sporEtiketTxt"
-                android:textColorHint="@color/uygulamaMavisi"
-                android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
-                app:layout_constraintStart_toEndOf="@+id/yazilimEtiketBtn"
-                app:layout_constraintTop_toBottomOf="@+id/filmDiziEtiketBtn" />
-
-            <Button
-                android:id="@+id/soruPaylasBtn"
-                android:layout_width="170dp"
-                android:layout_height="35dp"
-                android:layout_marginBottom="80dp"
-                android:background="@drawable/soru_etiket_arkaplan"
-                android:text="Birine Sor"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="255dp"
+                android:layout_height="330dp"
+                android:background="@drawable/soru_paylas_arka_plan"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="17dp"
-                android:fontFamily="@font/jost_medium"
-                android:text="Tüm İller"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:scrollbars="none"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/geziEtiketBtn">
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView26"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/uygulama_adi_buyuk"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <Button
-                        android:id="@+id/il_01"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:hint="01"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textColorHint="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <EditText
+                    android:id="@+id/soruAlaniText"
+                    android:layout_width="220dp"
+                    android:layout_height="62dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/soru_paylas_text_sekil"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/uygulama_adi_buyuk"
+                    android:inputType="textMultiLine"
+                    android:paddingStart="5dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-                    <Button
-                        android:id="@+id/il_02"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:hint="02"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textColorHint="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/yemekEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:clickable="true"
+                    android:hint="@string/yemekEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
 
-                    <Button
-                        android:id="@+id/il_03"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="03"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_04"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="04"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/adresEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/adresEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/yemekEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
 
-                    <Button
-                        android:id="@+id/il_05"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="05"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/tatilEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/tatilEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/adresEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
 
-                    <Button
-                        android:id="@+id/il_06"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="06"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/filmDiziEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/filmDiziEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/tatilEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/soruAlaniText" />
 
-                    <Button
-                        android:id="@+id/il_07"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="07"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/alisverisEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/alisverisEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/yemekEtiketBtn" />
 
-                    <Button
-                        android:id="@+id/il_08"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="08"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/geziEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/geziEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/alisverisEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/adresEtiketBtn" />
 
-                    <Button
-                        android:id="@+id/il_09"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/baslarkenilbuton"
-                        android:text="09"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/yazilimEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/yazilimTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/geziEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/tatilEtiketBtn" />
 
-                    <Button
-                        android:id="@+id/il_10"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="10"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/sporEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth320"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight320"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="@string/sporEtiketTxt"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize320"
+                    app:layout_constraintStart_toEndOf="@+id/yazilimEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/filmDiziEtiketBtn" />
 
-                    <Button
-                        android:id="@+id/il_11"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="11"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <Button
+                    android:id="@+id/soruPaylasBtn"
+                    android:layout_width="170dp"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/soru_etiket_arkaplan"
+                    android:text="Birine Sor"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkBox"
+                    app:layout_constraintVertical_bias="0.0" />
 
-                    <Button
-                        android:id="@+id/il_12"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="12"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="17dp"
+                    android:fontFamily="@font/jost_medium"
+                    android:text="Tüm İller"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-                    <Button
-                        android:id="@+id/il_13"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="13"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/geziEtiketBtn">
 
-                    <Button
-                        android:id="@+id/il_14"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="14"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/il_15"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="15"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_01"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:hint="01"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textColorHint="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_16"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="16"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_02"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:hint="02"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textColorHint="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_17"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="17"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_03"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="03"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_18"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="18"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_04"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="04"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_19"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="19"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_05"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="05"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_20"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="20"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_06"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="06"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_21"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="21"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_07"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="07"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_22"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="22"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_08"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="08"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_23"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="23"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_09"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:text="09"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_24"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="24"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_10"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="10"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_25"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="25"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_11"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="11"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_26"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="26"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_12"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="12"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_27"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="27"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_13"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="13"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_28"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="28"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_14"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="14"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_29"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="29"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_15"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="15"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_30"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="30"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_16"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="16"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_31"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="31"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_17"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="17"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_32"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="32"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_18"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="18"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_33"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="33"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_19"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="19"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_34"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="34"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_20"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="20"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_35"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="35"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_21"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="21"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                    <Button
-                        android:id="@+id/il_36"
-                        android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                        android:layout_height="@dimen/soruPaylasIlBtnWidth320"
-                        android:layout_marginStart="5dp"
-                        android:background="@drawable/il_soru_paylas_arka_plan"
-                        android:text="36"
-                        android:textColor="@color/uygulamaMavisi"
-                        android:textSize="@dimen/soruPaylasIlBtnText320" />
+                        <Button
+                            android:id="@+id/il_22"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="22"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/il_23"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="23"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
-            </HorizontalScrollView>
+                        <Button
+                            android:id="@+id/il_24"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="24"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
 
+                        <Button
+                            android:id="@+id/il_25"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="25"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_26"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="26"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_27"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="27"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_28"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="28"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_29"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="29"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_30"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="30"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_31"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="31"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_32"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="32"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_33"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="33"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_34"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="34"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_35"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="35"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                        <Button
+                            android:id="@+id/il_36"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/il_soru_paylas_arka_plan"
+                            android:text="36"
+                            android:textColor="@color/uygulamaMavisi"
+                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

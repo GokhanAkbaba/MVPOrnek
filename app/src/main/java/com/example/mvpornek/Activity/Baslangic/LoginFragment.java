@@ -1,11 +1,9 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Activity.Baslangic;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
@@ -22,7 +21,6 @@ import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.LoginPresenter;
 import com.example.mvpornek.Presenter.LoginPresenterImpl;
 import com.example.mvpornek.R;
-import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.LoginView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -147,7 +145,7 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
         sifreTextInputLayout.setError(null);
         hideProgress();
         Toast.makeText(getActivity(),"Giriş İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getActivity().getApplicationContext(),HomeActivity.class));
+        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
 
     }
     @Override

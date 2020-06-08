@@ -76,6 +76,17 @@
 
 
 
+    <dimen name="fragmentAnaSayfaEtiketButonWidth360">44dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonHeight360">44dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonMarginLeft360">10dp</dimen>
+    <dimen name="soruPaylasEtiketBtnWidth360">50dp</dimen>
+    <dimen name="soruPaylasEtiketBtnHeight360">22dp</dimen>
+    <dimen name="soruPaylasEtiketBtnTextSize360">10sp</dimen>
+    <dimen name="soruPaylasIlBtnHeight360">38dp</dimen>
+    <dimen name="soruPaylasIlBtnWidth360">38dp</dimen>
+    <dimen name="soruPaylasIlBtnText360">16sp</dimen>
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.example.mvpornek.Activity;
+package com.example.mvpornek.Fragment.NavBarFragment;
 
 import android.os.Bundle;
 

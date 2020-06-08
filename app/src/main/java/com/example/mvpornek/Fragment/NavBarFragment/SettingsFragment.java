@@ -14,7 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.example.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
-import com.example.mvpornek.Activity.IntroActivity;
+import com.example.mvpornek.Activity.Baslangic.IntroActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
