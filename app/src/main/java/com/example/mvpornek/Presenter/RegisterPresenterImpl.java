@@ -21,7 +21,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
         }
     }
 
-
     @Override
     public void onAdSoyadHatasi() {
         if(registerView != null)
@@ -30,7 +29,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.hideProgress();
         }
     }
-
 
     @Override
     public void onSifreHatasi() {
@@ -58,8 +56,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
             registerView.hideProgress();
         }
     }
-
-
 
     @Override
     public void onSifreKontrol() {

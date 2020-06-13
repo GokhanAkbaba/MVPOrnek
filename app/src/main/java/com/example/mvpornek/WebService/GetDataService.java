@@ -2,6 +2,7 @@ package com.example.mvpornek.WebService;
 
 
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
+import com.example.mvpornek.Model.Response.CevapKaydetResponse;
 import com.example.mvpornek.Model.Response.EtiketResponse;
 import com.example.mvpornek.Model.Response.KullaniciResponse;
 import com.example.mvpornek.Model.Response.SifreResponse;
@@ -96,6 +97,15 @@ public interface GetDataService {
     Call<List<QuestionModel>> sorulariGetir(
             @Field("kullaniciId") int kullaniciId
 
+    );
+
+    @FormUrlEncoded
+    @POST("cevapKayit.php")
+    Call<CevapKaydetResponse> cevapKaydet(
+
+            @Field("kullanici_id") int kullaniciId,
+            @Field("soru_id") int soruId,
+            @Field("cevap") String soru
     );
 
 

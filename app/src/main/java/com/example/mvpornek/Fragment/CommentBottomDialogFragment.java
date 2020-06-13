@@ -32,11 +32,10 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     public static final String TAG = "ActionBottomDialog";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private int mParam1;
     private String mParam2;
     ImageButton bottomSheetCloseBtn;
     ConstraintLayout yorumAlani;
@@ -45,15 +44,21 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     }
 
 
-    public static CommentBottomDialogFragment newInstance() {
-
-        return new CommentBottomDialogFragment();
+    public static CommentBottomDialogFragment newInstance(int param1) {
+        CommentBottomDialogFragment commentBottomDialogFragment = new CommentBottomDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, param1);
+        commentBottomDialogFragment.setArguments(args);
+        return commentBottomDialogFragment;
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getInt(ARG_PARAM1);
+        }
     }
 
     @Override
@@ -79,13 +84,13 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
                 getDialog().cancel();
                 break;
             case R.id.yorumAlani:
-                showBottomSheet();
+                showBottomSheet(mParam1);
                 break;
         }
     }
-    public void showBottomSheet() {
+    public void showBottomSheet(int soruID) {
         CommentFieldFragment addPhotoBottomDialogFragment =
-                CommentFieldFragment.newInstance();
+                CommentFieldFragment.newInstance(soruID);
         addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentFieldFragment.TAG);
     }

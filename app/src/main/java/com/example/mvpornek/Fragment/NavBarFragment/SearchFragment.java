@@ -56,17 +56,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        searchModelList.add(new SearchModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","153","#Tatil#Adres",R.drawable.man));
-        searchModelList.add(new SearchModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
-        searchModelList.add(new SearchModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
-        searchModelList.add(new SearchModel("Aykut Erdal","Gaziantepde güzel baklava yiyebileceğim yerler neresi?","263","#Yemek",R.drawable.man1));
-        searchModelList.add(new SearchModel("Mustafa Akbel","Trabzondaki en iyi öğrenci yurdu nerde?","300","#Adres",R.drawable.ceo));
-
-
-
-
-
     }
 
     @Override
@@ -77,7 +66,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         relativeLayoutSearchBar.setOnClickListener(this);
         aramaSayfasiRecyclerView=(RecyclerView) view.findViewById(R.id.arama_sayfasi_recyclerView);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            int myInt = bundle.getInt("sayi");
+            System.out.println("SONUÇ"+myInt);
+        }else{
+            System.out.println("BOŞŞŞŞŞŞŞŞŞ");
+        }
 
         return view;
     }

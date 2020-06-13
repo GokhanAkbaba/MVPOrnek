@@ -1,55 +1,63 @@
 package com.example.mvpornek.Fragment;
 
-import android.accessibilityservice.AccessibilityService;
+
 import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
+import com.example.mvpornek.Model.ModelGiris.CommentRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.CommentRegistrationPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.CommentRegistrationView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CommentFieldFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener{
+public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener, CommentRegistrationView {
 
     public static final String TAG = "ActionBottomDialog";
+    private static final String ARG_PARAM1 = "param1";
+    private int mParam1;
     ScrollView klavyeAlani;
     EditText editText;
     ImageButton yorumGonderBtn;
+    CommentRegistrationPresenterImpl commentRegistrationPresenter;
 
     public CommentFieldFragment() {
         // Required empty public constructor
     }
 
 
-    public static CommentFieldFragment newInstance() {
-
-
-        return new CommentFieldFragment();
+    public static CommentFieldFragment newInstance(int param1) {
+        CommentFieldFragment fragment = new CommentFieldFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, param1);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            mParam1 = getArguments().getInt(ARG_PARAM1);
+            System.out.println(mParam1);
+        }
+        commentRegistrationPresenter=new CommentRegistrationPresenterImpl(this,new CommentRegistrationInteractorImpl(getActivity()));
     }
 
     @Override
@@ -112,8 +120,26 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
     @Override
     public void onClick(View view) {
-
+        String soru = editText.getText().toString();
+        Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
+        commentRegistrationPresenter.commentRegistrationValideCredentals(mParam1,kullanici.getId(),soru);
     }
 
 
+    @Override
+    public void showProgress() {
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Yorum Yapılıyor");
+    }
+
+    @Override
+    public void hideProgress() {
+        BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBitir();
+    }
+
+    @Override
+    public void navigateToCommentRegistration() {
+        Toast.makeText(getActivity(),"Yorumunuz Gönderildi",Toast.LENGTH_SHORT).show();
+        hideProgress();
+        getDialog().cancel();
+    }
 }

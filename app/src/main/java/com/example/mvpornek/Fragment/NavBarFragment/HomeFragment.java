@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -45,22 +46,14 @@ import java.util.List;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
-public class HomeFragment extends  BottomSheetDialogFragment implements View.OnClickListener, QuestionView, InternetConnectionView {
+public class HomeFragment extends BottomSheetDialogFragment implements View.OnClickListener, QuestionView, InternetConnectionView {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageButton alisverisButon,tatilButon,adresButon,sporButon,yemekButon,sanatButon;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false;
 
-    //private FrameLayout bottomSheet;
-    //private BottomSheetBehavior bottomSheetBehavior;
-
-    private String mParam1;
-    private String mParam2;
-
-
     SwipeRefreshLayout swipeRefreshLayout;
-    ImageButton closeBottomSheet;
     RecyclerView recyclerViewSoruAlani;
     List<QuestionModel> questionModels;
     QuestionAdapterActivity questionAdapterActivity;
@@ -87,16 +80,10 @@ public class HomeFragment extends  BottomSheetDialogFragment implements View.OnC
     public void onCreate(Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         questionPresenter = new QuestionPresenterImpl(this);
         questionPresenter.loadData(kullanici.getId());
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
-        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
     }
 
@@ -116,35 +103,7 @@ public class HomeFragment extends  BottomSheetDialogFragment implements View.OnC
         sporButon.setOnClickListener(this);
         sanatButon=view.findViewById(R.id.anasayfa_sanat_btn);
         sanatButon.setOnClickListener(this);
-        //bottomSheet=view.findViewById(R.id.yorumlar_bottomSheet);
-        //bottomSheetBehavior=BottomSheetBehavior.from(bottomSheet);
         swipeRefreshLayout=view.findViewById(R.id.swiperefreshAnasayfa);
-        /*closeBottomSheet=view.findViewById(R.id.bottomSheetCloseBtn);
-        closeBottomSheet.setOnClickListener(this);*/
-
-
-        /*bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View view, int i) {
-                switch (i) {
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        System.out.println("GİZLEN");
-                        break;
-                    case BottomSheetBehavior.STATE_DRAGGING:
-                        Toast.makeText(getActivity(),"STATE_DRAGGING",Toast.LENGTH_SHORT).show();
-                        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                        break;
-                    case BottomSheetBehavior.STATE_SETTLING:
-                        Toast.makeText(getActivity(),"STATE_SETTLING",Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View view, float v) {
-
-            }
-        });*/
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -157,13 +116,7 @@ public class HomeFragment extends  BottomSheetDialogFragment implements View.OnC
 
         itemClickListener =((vw,position)-> {
             int soruId=questionModels.get(position).getId();
-
-            /*if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
-                ((HomeActivity)getActivity()).BottomNavigationViewHidden();
-            }*/
-            showBottomSheet();
+            showBottomSheet(soruId);
         });
 
         recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
@@ -173,9 +126,9 @@ public class HomeFragment extends  BottomSheetDialogFragment implements View.OnC
 
         return view;
     }
-    public void showBottomSheet() {
+    public void showBottomSheet(int soruId) {
         CommentBottomDialogFragment addPhotoBottomDialogFragment =
-                CommentBottomDialogFragment.newInstance();
+                CommentBottomDialogFragment.newInstance(soruId);
         addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }
@@ -185,10 +138,7 @@ public class HomeFragment extends  BottomSheetDialogFragment implements View.OnC
         {
 
             case R.id.bottomSheetCloseBtn:
-                /*if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
-                    ((HomeActivity)getActivity()).BottomNavigationView();
-                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                }*/
+
                 break;
             case R.id.anasayfa_alisveris_btn:
                 if(checkAlisverisEtiket == false)
