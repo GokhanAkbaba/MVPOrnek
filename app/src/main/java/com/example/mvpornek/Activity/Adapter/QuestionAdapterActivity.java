@@ -52,18 +52,22 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
         String kullaniciAdi=questionModel.getKullaniciAdi();
         String soru=questionModel.getSoru();
         String zaman=zamanDonusumu(questionModel.getZaman());
-        //String yorumSayisi=questionModel.getYorumSayisi();
+        int yorumSayisi=questionModel.getCevapSayisi();
         String kullaniciProfilResmi=questionModel.getProfilFoto();
         String etiket=questionModel.getEtiketAdi();
         holder.adSoyad.setText(kullaniciAdSoyad);
-        //holder.yorum_sayisi.setText(yorumSayisi);
         holder.kullanicAdi.setText(kullaniciAdi);
         holder.etiket.setText(etiket);
         holder.sorular.setText(soru);
         holder.zaman.setText(zaman);
         holder.soruId.setText(String.valueOf(soruId));
-
         GlideApp.with(context).load(kullaniciProfilResmi).apply( new RequestOptions().centerCrop()).into(holder.profilResmi);
+
+        if(yorumSayisi == 0){
+            holder.yorum_sayisi.setText("");
+        }else{
+            holder.yorum_sayisi.setText(String.valueOf(yorumSayisi));
+        }
     }
 
     @Override
@@ -74,7 +78,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
         ItemClickListener itemClickListener;
         TextView adSoyad,kullanicAdi,etiket,yorum_sayisi,sorular,zaman,soruId;
-        ImageView profilResmi;
+        ImageView profilResmi,soruYorumIcon;
         ConstraintLayout sorularIcerik;
         RecyclerViewAdapter(View itemView,ItemClickListener itemClickListener) {
             super(itemView);
@@ -88,8 +92,8 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             profilResmi=itemView.findViewById(R.id.roundedKullaniciResmi);
             sorularIcerik=itemView.findViewById(R.id.sorularIcerikLayout);
             soruId=itemView.findViewById(R.id.soruIdTxt);
-
-            sorularIcerik.setOnClickListener(this::onClick);
+            soruYorumIcon=itemView.findViewById(R.id.soruYorumIcon);
+            soruYorumIcon.setOnClickListener(this::onClick);
         }
 
         @Override

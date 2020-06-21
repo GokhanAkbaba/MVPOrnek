@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout13"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/sorularIcerikLayout"
-        android:layout_width="375dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
+        android:id="@+id/yorumlarIcerikLayout"
+        android:layout_width="411dp"
+        android:layout_height="55dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -31,16 +29,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.103" />
+            app:layout_constraintVertical_bias="0.103">
 
-        <ImageView
-            android:id="@+id/roundedKullaniciResmi"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:scaleType="centerCrop"
-            android:src="@drawable/rumeli"
-            tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/roundedKullaniciResmi"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rumeli"
+                tools:ignore="MissingConstraints" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/yorumKullaniciAdi"
@@ -49,45 +48,49 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="6dp"
             android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/roundedKullaniciResmi"
+            android:textColor="@color/renkSiyah"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/yorumTxt"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="TextView"
+            android:textColor="@color/renkSiyah"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toEndOf="@+id/roundedKullaniciResmi"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
             app:layout_constraintTop_toBottomOf="@+id/yorumKullaniciAdi"
-            app:layout_constraintVertical_bias="0.066"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageButton"
-            android:layout_width="24dp"
-            android:layout_height="23dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:src="@mipmap/guven_oyu"
+            android:tint="@color/ayarlarGrisi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/yorumTxt"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/begeniSayisiTxt"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="6dp"
-            android:text="116"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.777"
             app:layout_constraintStart_toEndOf="@+id/yorumTxt"
             app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

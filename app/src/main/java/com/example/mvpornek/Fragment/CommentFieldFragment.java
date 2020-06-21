@@ -19,17 +19,22 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.ModelGiris.CommentRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.CommentPresenterImpl;
 import com.example.mvpornek.Presenter.CommentRegistrationPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentRegistrationView;
+import com.example.mvpornek.View.CommentView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.util.List;
 
 public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener, CommentRegistrationView {
 
-    public static final String TAG = "ActionBottomDialog";
+    public static final String TAG = "CommentFieldFragment";
     private static final String ARG_PARAM1 = "param1";
     private int mParam1;
     ScrollView klavyeAlani;
@@ -55,7 +60,6 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
-            System.out.println(mParam1);
         }
         commentRegistrationPresenter=new CommentRegistrationPresenterImpl(this,new CommentRegistrationInteractorImpl(getActivity()));
     }
@@ -73,6 +77,8 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         klavyeAlani=view.findViewById(R.id.klavyeAlani);
         ViewGroup.LayoutParams params=klavyeAlani.getLayoutParams();
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -123,8 +129,8 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         String soru = editText.getText().toString();
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         commentRegistrationPresenter.commentRegistrationValideCredentals(mParam1,kullanici.getId(),soru);
-    }
 
+    }
 
     @Override
     public void showProgress() {
@@ -141,5 +147,7 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         Toast.makeText(getActivity(),"Yorumunuz Gönderildi",Toast.LENGTH_SHORT).show();
         hideProgress();
         getDialog().cancel();
+
     }
+
 }

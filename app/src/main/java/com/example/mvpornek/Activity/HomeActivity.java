@@ -387,6 +387,12 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         if(entry.getName() == "Fragment"){
            getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
            bottomNavigationView.getMenu().getItem(0).setChecked(true);
+        }else if(entry.getName() == "AnaSayfaFragment"){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            getSupportFragmentManager().popBackStack("AnaSayfaFragment", 0);
         }
     }
 
@@ -434,6 +440,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     public void navigateToQuestionRegistration() {
         alertDialog.dismiss();
         Toast.makeText(this,"Birine Soruldu",Toast.LENGTH_LONG).show();
+
     }
 
     @Override
@@ -445,13 +452,5 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void internetBaglantisi() {
 
-    }
-    public void BottomNavigationViewHidden(){
-        birineSorBtn.hide();
-        bottomNavigationView.setVisibility(View.INVISIBLE);
-    }
-    public void BottomNavigationView(){
-        birineSorBtn.show();
-        bottomNavigationView.setVisibility(View.VISIBLE);
     }
 }

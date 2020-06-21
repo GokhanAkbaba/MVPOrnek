@@ -1,10 +1,13 @@
 package com.example.mvpornek.WebService;
 
 
+import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
 import com.example.mvpornek.Model.Response.CevapKaydetResponse;
+import com.example.mvpornek.Model.Response.CevapSilResponse;
 import com.example.mvpornek.Model.Response.EtiketResponse;
 import com.example.mvpornek.Model.Response.KullaniciResponse;
+import com.example.mvpornek.Model.Response.LikeModel;
 import com.example.mvpornek.Model.Response.SifreResponse;
 import com.example.mvpornek.Model.Response.SoruKaydetArrayList;
 import com.example.mvpornek.Model.Response.SoruKaydetResponse;
@@ -106,6 +109,28 @@ public interface GetDataService {
             @Field("kullanici_id") int kullaniciId,
             @Field("soru_id") int soruId,
             @Field("cevap") String soru
+    );
+
+    @FormUrlEncoded
+    @POST("yorumlariGetir.php")
+    Call<List<CommentModel>> yorumlariGetir(
+            @Field("soruId") int soruId
+
+    );
+
+    @FormUrlEncoded
+    @POST("cevapSil.php")
+    Call<CevapSilResponse> cevapSil(
+            @Field("cevap_id") int cevapId
+    );
+
+    @FormUrlEncoded
+    @POST("begenislemleri.php")
+    Call<LikeModel> begeniYap(
+            @Field("cevap_id") int cevapId,
+            @Field("kullanici_id") int kullaniciId,
+            @Field("begeni") int begeni,
+            @Field("durum") int durum
     );
 
 

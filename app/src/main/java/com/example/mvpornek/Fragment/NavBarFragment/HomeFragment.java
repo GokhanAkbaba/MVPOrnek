@@ -1,33 +1,24 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
-import android.app.Dialog;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
-import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
 import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
@@ -38,8 +29,6 @@ import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionView;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
@@ -67,12 +56,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -84,6 +69,10 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         questionPresenter = new QuestionPresenterImpl(this);
         questionPresenter.loadData(kullanici.getId());
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+        itemClickListener =((vw,position)-> {
+            int soruId=questionModels.get(position).getId();
+            showBottomSheet(soruId);
+        });
 
     }
 
@@ -114,22 +103,18 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             }
         });
 
-        itemClickListener =((vw,position)-> {
-            int soruId=questionModels.get(position).getId();
-            showBottomSheet(soruId);
-        });
-
         recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewSoruAlani.setOnClickListener(this);
 
 
         return view;
     }
     public void showBottomSheet(int soruId) {
-        CommentBottomDialogFragment addPhotoBottomDialogFragment =
+        CommentBottomDialogFragment commentBottomDialogFragment =
                 CommentBottomDialogFragment.newInstance(soruId);
-        addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+        commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }
     @Override
@@ -137,8 +122,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         switch (view.getId())
         {
 
-            case R.id.bottomSheetCloseBtn:
-
+            case R.id.recyclerViewSoruAlani:
                 break;
             case R.id.anasayfa_alisveris_btn:
                 if(checkAlisverisEtiket == false)
@@ -268,18 +252,5 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     @Override
     public void internetBaglantisi() {
 
-    }
-
-    private boolean loadFragment(Fragment fragment,String fragmentTag) {
-
-        if (fragment != null) {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .addToBackStack(fragmentTag)
-                    .add(R.id.anaSayfaFrameLayout, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
     }
 }

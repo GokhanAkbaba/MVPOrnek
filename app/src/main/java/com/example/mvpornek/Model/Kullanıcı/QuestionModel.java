@@ -26,6 +26,17 @@ public class QuestionModel {
     @SerializedName("profil_foto")
     @Expose
     private String profilFoto;
+    @SerializedName("cevap_sayisi")
+    @Expose
+    private int cevapSayisi;
+
+    public int getCevapSayisi() {
+        return cevapSayisi;
+    }
+
+    public void setCevapSayisi(int cevapSayisi) {
+        this.cevapSayisi = cevapSayisi;
+    }
 
     public String getAdSoyad() {
         return adSoyad;

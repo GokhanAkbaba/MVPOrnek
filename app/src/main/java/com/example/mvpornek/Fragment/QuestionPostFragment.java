@@ -34,15 +34,6 @@ public class QuestionPostFragment extends Fragment implements View.OnClickListen
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment QuestionPostFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static QuestionPostFragment newInstance(String param1, String param2) {
         QuestionPostFragment fragment = new QuestionPostFragment();
         Bundle args = new Bundle();
@@ -72,8 +63,5 @@ public class QuestionPostFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        System.out.println("ÇALIT"+view.getId());
-
-
     }
 }
