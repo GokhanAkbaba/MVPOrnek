@@ -13,10 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
-import com.example.mvpornek.Model.ModelGiris.RegisterInteractorImpl;
-import com.example.mvpornek.Presenter.InternetConnectionPresenter;
-import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
+import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
+import com.example.mvpornek.Model.Kayit.RegisterInteractorImpl;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.RegisterPresenter;
 import com.example.mvpornek.Presenter.RegisterPresenterImpl;
 import com.example.mvpornek.R;

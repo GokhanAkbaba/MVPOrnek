@@ -1,6 +1,6 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.ModelGiris.PasswordUpdateInteractor;
+import com.example.mvpornek.Model.SifreGuncelle.PasswordUpdateInteractor;
 import com.example.mvpornek.View.PasswordUpdate;
 
 public class PasswordUpdatePresenterImpl implements PasswordUpdatePresenter, PasswordUpdateInteractor.onPasswordUpdateFinishedListener {

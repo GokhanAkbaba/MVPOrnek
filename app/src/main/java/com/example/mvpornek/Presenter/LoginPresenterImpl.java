@@ -1,5 +1,5 @@
 package com.example.mvpornek.Presenter;
-import com.example.mvpornek.Model.ModelGiris.LoginInteractor;
+import com.example.mvpornek.Model.Giris.LoginInteractor;
 import com.example.mvpornek.View.LoginView;
 
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLoginFinishedListener {

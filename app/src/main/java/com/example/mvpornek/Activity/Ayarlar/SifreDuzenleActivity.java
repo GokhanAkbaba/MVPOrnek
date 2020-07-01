@@ -1,7 +1,5 @@
 package com.example.mvpornek.Activity.Ayarlar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.PasswordUpdateInteractor;
-import com.example.mvpornek.Model.ModelGiris.PasswordUpdateInteractorImpl;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Model.SifreGuncelle.PasswordUpdateInteractorImpl;
 import com.example.mvpornek.Presenter.PasswordUpdatePresenter;
 import com.example.mvpornek.Presenter.PasswordUpdatePresenterImpl;
 import com.example.mvpornek.R;

@@ -1,8 +1,6 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
-import com.example.mvpornek.Model.Response.EtiketResponse;
-import com.example.mvpornek.Model.Response.SorularResponse;
+import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.View.QuestionView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 

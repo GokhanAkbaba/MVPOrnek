@@ -3,7 +3,7 @@ package com.example.mvpornek;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
+import com.example.mvpornek.Models.Kullanici;
 
 public class SharedPrefManager {
 

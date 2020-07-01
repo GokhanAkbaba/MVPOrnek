@@ -1,6 +1,6 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractor;
+import com.example.mvpornek.Model.ProfilGuncelle.ProfilUpdateInteractor;
 import com.example.mvpornek.View.ProfilUpdateView;
 
 public class ProfilUpdatePresenterImpl implements ProfilUpdatePresenter,ProfilUpdateInteractor.onProfilUpdateFinishedListener {

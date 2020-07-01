@@ -1,6 +1,6 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.ModelGiris.QuestionRegistrationInteractor;
+import com.example.mvpornek.Model.SoruKayit.QuestionRegistrationInteractor;
 import com.example.mvpornek.View.QuestionRegistrationView;
 
 import java.util.ArrayList;

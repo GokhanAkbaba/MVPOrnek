@@ -1,24 +1,20 @@
 package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -29,11 +25,11 @@ import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
-import com.example.mvpornek.Model.ModelGiris.QuestionRegistrationInteractorImpl;
-import com.example.mvpornek.Presenter.InternetConnectionPresenter;
-import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
+import com.example.mvpornek.Model.SoruKayit.QuestionRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenter;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenterImpl;
 import com.example.mvpornek.R;
@@ -41,7 +37,6 @@ import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionRegistrationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -75,11 +70,11 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         birineSorBtn=findViewById(R.id.soruPaylasimButon);
         birineSorBtn.setOnClickListener(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
-
+        progressBar=findViewById(R.id.anaSayfaProgressBar);
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
-
+      
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -115,7 +110,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         });
 
     }
-
+    public void init(int value){
+    progressBar.setVisibility(value);
+    }
 
     @Override
     public void onClick(View view) {
@@ -356,7 +353,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
-    private boolean loadFragment(Fragment fragment,String fragmentTag) {
+    public boolean loadFragment(Fragment fragment,String fragmentTag) {
 
         if (fragment != null) {
             getSupportFragmentManager()
@@ -433,7 +430,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void setSoruAlaniHatasi() {
-
+        Toast.makeText(this,"Hata Oluştu",Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -452,5 +449,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void internetBaglantisi() {
 
+    }
+
+    public void menuDurum(int durum){
+        bottomNavigationView.getMenu().getItem(durum).setChecked(true);
     }
 }

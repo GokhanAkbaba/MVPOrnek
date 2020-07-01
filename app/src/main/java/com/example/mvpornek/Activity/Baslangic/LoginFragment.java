@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.ModelGiris.InternetConnectionInteractorImpl;
-import com.example.mvpornek.Model.ModelGiris.LoginInteractorImpl;
-import com.example.mvpornek.Presenter.InternetConnectionPresenter;
-import com.example.mvpornek.Presenter.InternetConnectionPresenterImpl;
+import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
+import com.example.mvpornek.Model.Giris.LoginInteractorImpl;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.LoginPresenter;
 import com.example.mvpornek.Presenter.LoginPresenterImpl;
 import com.example.mvpornek.R;

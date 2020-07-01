@@ -1,7 +1,6 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,9 +14,8 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.widget.SearchView;
 
-import com.example.mvpornek.Activity.QuestionDetailActivity;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
-import com.example.mvpornek.Model.Kullanıcı.SearchModel;
+import com.example.mvpornek.Models.SearchModel;
 import com.example.mvpornek.R;
 
 import java.util.ArrayList;

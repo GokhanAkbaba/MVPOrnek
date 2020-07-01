@@ -1,6 +1,6 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.ModelGiris.RegisterInteractor;
+import com.example.mvpornek.Model.Kayit.RegisterInteractor;
 import com.example.mvpornek.View.RegisterView;
 
 public class RegisterPresenterImpl implements RegisterPresenter, RegisterInteractor.onRegisterFinishedListener {

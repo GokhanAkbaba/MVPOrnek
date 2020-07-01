@@ -1,10 +1,8 @@
 package com.example.mvpornek.Presenter;
 
-import com.example.mvpornek.Model.Response.LikeModel;
+import com.example.mvpornek.Response.LikeModel;
 import com.example.mvpornek.View.LikesView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

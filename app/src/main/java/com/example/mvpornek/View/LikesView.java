@@ -1,6 +1,6 @@
 package com.example.mvpornek.View;
 
-import com.example.mvpornek.Model.Response.LikeModel;
+import com.example.mvpornek.Response.LikeModel;
 
 
 public interface LikesView {

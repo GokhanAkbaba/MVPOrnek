@@ -4,16 +4,13 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -22,27 +19,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mvpornek.Activity.Adapter.CommentAdapter;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.Response.KullaniciResponse;
-import com.example.mvpornek.Model.Response.LikeModel;
-import com.example.mvpornek.Presenter.CommentDeletePresenterImpl;
-import com.example.mvpornek.Presenter.CommentPresenterImpl;
+import com.example.mvpornek.Adapter.CommentAdapter;
+import com.example.mvpornek.Models.CommentModel;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Response.LikeModel;
+import com.example.mvpornek.Presenter.YorumSil.CommentDeletePresenterImpl;
+import com.example.mvpornek.Presenter.Yorum.CommentPresenterImpl;
 import com.example.mvpornek.Presenter.LikesPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentDeleteView;
 import com.example.mvpornek.View.CommentView;
 import com.example.mvpornek.View.LikesView;
-import com.example.mvpornek.WebService.RetrofitClientInstance;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CommentBottomDialogFragment extends BottomSheetDialogFragment implements View.OnClickListener, LikesView, CommentView, CommentDeleteView {
 

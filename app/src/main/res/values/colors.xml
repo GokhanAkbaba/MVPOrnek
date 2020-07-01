@@ -21,6 +21,12 @@
     <color name="profile_desc">#D1D1FF</color>
     <color name="bg_meta_container">#000000</color>
     <color name="profile_default_tint">#e0e0e0</color>
+    <color name="ana_sayfa_alisveris_color">#ffd361</color>
+    <color name="ana_sayfa_adres_color">#b69769</color>
+    <color name="ana_sayfa_sinema_color">#ff9b54</color>
+    <color name="ana_sayfa_spor_color">#9e82ff</color>
+    <color name="ana_sayfa_tatil_color">#f89aba</color>
+    <color name="ana_sayfa_yemek_color">#8dc6e8</color>
 
 
 </resources>

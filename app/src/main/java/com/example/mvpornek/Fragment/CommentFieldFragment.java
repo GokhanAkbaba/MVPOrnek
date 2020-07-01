@@ -4,8 +4,6 @@ package com.example.mvpornek.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -19,18 +17,13 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.CommentRegistrationInteractorImpl;
-import com.example.mvpornek.Presenter.CommentPresenterImpl;
-import com.example.mvpornek.Presenter.CommentRegistrationPresenterImpl;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Model.YorumKayit.CommentRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.YorumKayit.CommentRegistrationPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentRegistrationView;
-import com.example.mvpornek.View.CommentView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
-import java.util.List;
 
 public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener, CommentRegistrationView {
 

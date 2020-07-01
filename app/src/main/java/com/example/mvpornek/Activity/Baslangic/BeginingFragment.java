@@ -16,10 +16,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.BeginingInteractorImpl;
-import com.example.mvpornek.Presenter.BeginingPresenter;
-import com.example.mvpornek.Presenter.BeginingPresenterImpl;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Model.Baslangic.BeginingInteractorImpl;
+import com.example.mvpornek.Presenter.Baslangic.BeginingPresenter;
+import com.example.mvpornek.Presenter.Baslangic.BeginingPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.BeginingView;

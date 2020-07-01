@@ -17,14 +17,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 
 
 import com.example.mvpornek.Activity.ImagePickerActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.GlideApp;
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.Kullanici;
-import com.example.mvpornek.Model.ModelGiris.ProfilUpdateInteractorImpl;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Model.ProfilGuncelle.ProfilUpdateInteractorImpl;
 import com.example.mvpornek.Presenter.ProfilUpdatePresenter;
 import com.example.mvpornek.Presenter.ProfilUpdatePresenterImpl;
 import com.example.mvpornek.R;
@@ -42,7 +41,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 
 public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView, View.OnClickListener {
     private ProfilUpdatePresenter profilUpdatePresenter;

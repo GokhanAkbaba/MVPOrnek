@@ -2,7 +2,6 @@ package com.example.mvpornek.Fragment.NavBarFragment;
 
 import android.os.Bundle;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,11 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mvpornek.Activity.Adapter.NotificationAdapter;
-import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Adapter.NotificationAdapter;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
-import com.example.mvpornek.Model.Kullanıcı.NotificationModel;
-import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
+import com.example.mvpornek.Models.NotificationModel;
 import com.example.mvpornek.R;
 
 import java.util.ArrayList;

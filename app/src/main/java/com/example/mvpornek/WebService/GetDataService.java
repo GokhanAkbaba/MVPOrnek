@@ -1,30 +1,26 @@
 package com.example.mvpornek.WebService;
 
 
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
-import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
-import com.example.mvpornek.Model.Response.CevapKaydetResponse;
-import com.example.mvpornek.Model.Response.CevapSilResponse;
-import com.example.mvpornek.Model.Response.EtiketResponse;
-import com.example.mvpornek.Model.Response.KullaniciResponse;
-import com.example.mvpornek.Model.Response.LikeModel;
-import com.example.mvpornek.Model.Response.SifreResponse;
-import com.example.mvpornek.Model.Response.SoruKaydetArrayList;
-import com.example.mvpornek.Model.Response.SoruKaydetResponse;
-import com.example.mvpornek.Model.Response.SorularResponse;
-import com.google.gson.JsonObject;
+import com.example.mvpornek.Models.CommentModel;
+import com.example.mvpornek.Response.KullaniciGetirResponse;
+import com.example.mvpornek.Models.QuestionModel;
+import com.example.mvpornek.Response.CevapKaydetResponse;
+import com.example.mvpornek.Response.CevapSilResponse;
+import com.example.mvpornek.Response.EtiketResponse;
+import com.example.mvpornek.Response.KullaniciResponse;
+import com.example.mvpornek.Response.LikeModel;
+import com.example.mvpornek.Response.SifreResponse;
+import com.example.mvpornek.Response.SoruKaydetResponse;
+import com.example.mvpornek.Response.SoruSilResponse;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface GetDataService {
 
@@ -123,6 +119,12 @@ public interface GetDataService {
     Call<CevapSilResponse> cevapSil(
             @Field("cevap_id") int cevapId
     );
+    @FormUrlEncoded
+    @POST("soruSil.php")
+    Call<SoruSilResponse> soruSil(
+            @Field("soruId") int soruId
+    );
+
 
     @FormUrlEncoded
     @POST("begenislemleri.php")
@@ -131,6 +133,26 @@ public interface GetDataService {
             @Field("kullanici_id") int kullaniciId,
             @Field("begeni") int begeni,
             @Field("durum") int durum
+    );
+
+    @FormUrlEncoded
+    @POST("menuSorulariGetir.php")
+    Call<List<QuestionModel>> menuSorulariGetir(
+            @Field("etiketId") int etiketId
+
+    );
+
+    @FormUrlEncoded
+    @POST("kullaniciGetir.php")
+    Call<KullaniciGetirResponse> kullaniciGetir(
+            @Field("kullaniciId") int kullaniciId
+    );
+
+    @FormUrlEncoded
+    @POST("kullaniciSorularimGetir.php")
+    Call<List<QuestionModel>> kullaniciSorulariGetir(
+            @Field("kullaniciId") int kullaniciId
+
     );
 
 

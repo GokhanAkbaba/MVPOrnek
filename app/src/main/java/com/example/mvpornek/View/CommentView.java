@@ -1,6 +1,6 @@
 package com.example.mvpornek.View;
 
-import com.example.mvpornek.Model.Kullanıcı.KullaniciKayit.CommentModel;
+import com.example.mvpornek.Models.CommentModel;
 
 import java.util.List;
 

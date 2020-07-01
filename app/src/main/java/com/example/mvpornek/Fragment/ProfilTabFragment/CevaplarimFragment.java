@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mvpornek.Activity.Adapter.QuestionAdapterActivity;
-import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
+import com.example.mvpornek.Adapter.QuestionAdapterActivity;
+import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.R;
 
 import java.util.ArrayList;
@@ -21,13 +21,10 @@ import java.util.List;
 public class CevaplarimFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
 
-    private String mParam1;
-    private String mParam2;
+    private int mParam1;
 
-    List<QuestionModel> questionModels=new ArrayList<>();
     QuestionAdapterActivity questionAdapterActivity;
 
     private RecyclerView cevaplarimRecyclerView;
@@ -38,11 +35,10 @@ public class CevaplarimFragment extends Fragment {
 
     }
 
-    public static CevaplarimFragment newInstance(String param1, String param2) {
+    public static CevaplarimFragment newInstance(int param1) {
         CevaplarimFragment fragment = new CevaplarimFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_PARAM1, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,8 +47,7 @@ public class CevaplarimFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getInt(ARG_PARAM1);
         }
 
     }

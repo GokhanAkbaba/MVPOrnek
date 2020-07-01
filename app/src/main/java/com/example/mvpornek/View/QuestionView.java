@@ -1,9 +1,6 @@
 package com.example.mvpornek.View;
 
-import android.graphics.Movie;
-
-import com.example.mvpornek.Model.Kullanıcı.QuestionModel;
-import com.example.mvpornek.Model.Response.SorularResponse;
+import com.example.mvpornek.Models.QuestionModel;
 
 import java.util.List;
 
