@@ -1,6 +1,7 @@
 package com.example.mvpornek.WebService;
 
 
+import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
@@ -153,6 +154,12 @@ public interface GetDataService {
     Call<List<QuestionModel>> kullaniciSorulariGetir(
             @Field("kullaniciId") int kullaniciId
 
+    );
+
+    @FormUrlEncoded
+    @POST("profilCevaplariGetir.php")
+    Call<List<AnswersModel>> kullaniciCevaplariGetir(
+            @Field("kullaniciId") int kullaniciId
     );
 
 

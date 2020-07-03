@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mvpornek.Adapter.QuestionAdapterActivity;
-import com.example.mvpornek.AdapterProfilQuestion.AdapterProfilQuestion;
+import com.example.mvpornek.Adapter.AdapterProfilQuestion;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Presenter.ProfilQuestionPresenterImpl;
@@ -19,7 +18,6 @@ import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.ProfilQuestionView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -93,13 +91,4 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         System.out.println("Bağlantı Hatası(Sorularım Fragment) "+message);
     }
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
 }

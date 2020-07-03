@@ -1,4 +1,4 @@
-package com.example.mvpornek.AdapterProfilQuestion;
+package com.example.mvpornek.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Adapter.QuestionAdapterActivity;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.QuestionModel;

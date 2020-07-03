@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -94,8 +95,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             usersGetPresenter.loadUsersData(mParam1);
             sorularimFragment = SorularimFragment.newInstance(mParam1);
             cevaplarimFragment= CevaplarimFragment.newInstance(mParam1);
-            setTabLayout(sorularimFragment);
-            setTabLayout(cevaplarimFragment);
+            setTabLayout(sorularimFragment,new BegendiklerimFragment(),cevaplarimFragment);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -107,8 +107,8 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             }, 400);
         }else{
             sorularimFragment = SorularimFragment.newInstance(kullanici.getId());
-            setTabLayout(sorularimFragment);
-            setTabLayout(cevaplarimFragment);
+            cevaplarimFragment= CevaplarimFragment.newInstance(kullanici.getId());
+            setTabLayout(sorularimFragment,new BegendiklerimFragment(),cevaplarimFragment);
             profilKullaniciAdSoyadTxt.setText(kullanici.getAdSoyad());
             profilKullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
@@ -124,11 +124,11 @@ public class ProfilFragment extends Fragment implements UsersGetView {
     public void onErrorLoading(String message) {
         Toast.makeText(getActivity(),"Profil Görüntülenme Başarısız",Toast.LENGTH_SHORT);
     }
-    public void setTabLayout(Fragment fragment){
+    public void setTabLayout(Fragment sorularim, Fragment begendiklerim,Fragment cevaplarim){
         viewPagerAdapter=new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        viewPagerAdapter.AddFragment(fragment,"Sorularım");
-        viewPagerAdapter.AddFragment(new BegendiklerimFragment(),"Beğendiklerim");
-        viewPagerAdapter.AddFragment(fragment,"Cevaplarim");
+        viewPagerAdapter.AddFragment(sorularim,"Sorularım");
+        viewPagerAdapter.AddFragment(begendiklerim,"Beğendiklerim");
+        viewPagerAdapter.AddFragment(cevaplarim,"Cevaplarim");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }

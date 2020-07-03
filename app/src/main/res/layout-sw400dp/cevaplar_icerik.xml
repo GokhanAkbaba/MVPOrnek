@@ -17,7 +17,7 @@
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/sorularIcerikLayout"
+            android:id="@+id/profilCevaplarIcerikLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="1dp"
@@ -69,12 +69,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/profilCevapKullaniciAdiTxt" />
 
             <TextView
-                android:id="@+id/profilCevaplarimTxt"
+                android:id="@+id/profilCevaplananKisiTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
-                android:textSize="13sp"
+                android:text="dfsdfs"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
 
@@ -91,47 +93,55 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="298dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginBottom="15sp"
                 android:fontFamily="@font/jost"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profilCevaplarimTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/profilCevaplananKisiTxt"
+                app:layout_constraintVertical_bias="0.135" />
 
             <View
                 android:id="@+id/divider3"
                 android:layout_width="453dp"
                 android:layout_height="1dp"
                 android:background="@color/ayarlarGrisi"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="184dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="13dp"
                 android:layout_marginLeft="5dp"
+                android:textSize="12sp"
                 android:text="sorusuna yanıt olarak"
-                app:layout_constraintStart_toEndOf="@+id/profilCevaplarimTxt"
+                app:layout_constraintStart_toEndOf="@+id/profilCevaplananKisiTxt"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
 
             <ImageView
                 android:id="@+id/profilCevapImageButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="88dp"
                 android:layout_marginEnd="16dp"
                 android:clickable="true"
+                android:tag="seçilmedi"
                 android:src="@mipmap/guven_oyu"
                 android:tint="@color/ayarlarGrisi"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toTopOf="@+id/profilCevapKullaniciAdiTxt" />
 
             <TextView
                 android:id="@+id/yorumCevapBegeniSayisiTxt"
