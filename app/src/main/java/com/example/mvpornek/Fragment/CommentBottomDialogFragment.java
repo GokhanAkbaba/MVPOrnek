@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.Adapter.CommentAdapter;
+import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Response.LikeModel;

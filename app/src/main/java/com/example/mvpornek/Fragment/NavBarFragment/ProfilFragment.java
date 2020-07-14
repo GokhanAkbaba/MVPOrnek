@@ -45,6 +45,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
     private ViewPagerAdapter viewPagerAdapter;
     SorularimFragment sorularimFragment;
     CevaplarimFragment cevaplarimFragment;
+    BegendiklerimFragment begendiklerimFragment;
     KullaniciGetir kullaniciGetir;
     private static final String ARG_PARAM1 = "param1";
     UsersGetPresenterImpl usersGetPresenter;
@@ -95,7 +96,8 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             usersGetPresenter.loadUsersData(mParam1);
             sorularimFragment = SorularimFragment.newInstance(mParam1);
             cevaplarimFragment= CevaplarimFragment.newInstance(mParam1);
-            setTabLayout(sorularimFragment,new BegendiklerimFragment(),cevaplarimFragment);
+            begendiklerimFragment=BegendiklerimFragment.newInstance(mParam1);
+            setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -108,7 +110,8 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         }else{
             sorularimFragment = SorularimFragment.newInstance(kullanici.getId());
             cevaplarimFragment= CevaplarimFragment.newInstance(kullanici.getId());
-            setTabLayout(sorularimFragment,new BegendiklerimFragment(),cevaplarimFragment);
+            begendiklerimFragment=BegendiklerimFragment.newInstance(kullanici.getId());
+            setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
             profilKullaniciAdSoyadTxt.setText(kullanici.getAdSoyad());
             profilKullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);

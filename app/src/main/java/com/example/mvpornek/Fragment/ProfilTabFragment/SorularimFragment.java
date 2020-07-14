@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mvpornek.Adapter.AdapterProfilQuestion;
+import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Presenter.ProfilQuestionPresenterImpl;
@@ -35,6 +37,8 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
     Kullanici kullanici;
 
     private int mParam1;
+
+    TextView recyclerViewProfilSorularimText;
 
 
     public SorularimFragment() {
@@ -66,11 +70,23 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         profilQuestionPresenter=new ProfilQuestionPresenterImpl(this);
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         profilQuestionPresenter.loadData(mParam1);
+        recyclerViewProfilSorularimText=view.findViewById(R.id.recyclerViewProfilSorularimText);
         profilSorularimRecyclerView=view.findViewById(R.id.profilSorularimRecyclerView);
         profilSorularimRecyclerView.setAdapter(adapterProfilQuestion);
         profilSorularimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         profilSorularimRecyclerView.setOnClickListener(this);
+
+        itemClickListener =((vw,position)-> {
+            int soruId=questionModels.get(position).getId();
+            showBottomSheet(soruId);
+        });
         return view;
+    }
+    public void showBottomSheet(int soruId) {
+        CommentBottomDialogFragment commentBottomDialogFragment =
+                CommentBottomDialogFragment.newInstance(soruId);
+        commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+                CommentBottomDialogFragment.TAG);
     }
 
     @Override
@@ -89,6 +105,11 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
     @Override
     public void onErrorLoading(String message) {
         System.out.println("Bağlantı Hatası(Sorularım Fragment) "+message);
+    }
+
+    @Override
+    public void onGetResultControl() {
+        recyclerViewProfilSorularimText.setVisibility(View.VISIBLE);
     }
 
 }

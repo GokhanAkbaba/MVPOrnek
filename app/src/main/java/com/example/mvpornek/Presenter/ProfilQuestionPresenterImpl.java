@@ -1,5 +1,6 @@
 package com.example.mvpornek.Presenter;
 
+import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.View.ProfilQuestionView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
@@ -30,6 +31,10 @@ public class ProfilQuestionPresenterImpl implements ProfilQuestionPresenter{
             public void onResponse(Call<List<QuestionModel>> call, Response<List<QuestionModel>> response) {
                 if (response.isSuccessful() && response.body() !=null) {
                     profilQuestionView.onGetResult(response.body());
+                }
+                List<QuestionModel> data=response.body();
+                if(data == null || data.isEmpty() ){
+                    profilQuestionView.onGetResultControl();
                 }
             }
             @Override

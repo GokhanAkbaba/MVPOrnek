@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.Kullanici;
@@ -92,10 +94,22 @@ public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnsw
             profilCevaplarIcerikLayout=itemView.findViewById(R.id.profilCevaplarIcerikLayout);
             soruId=itemView.findViewById(R.id.soruIdTxt);
             profilCevapKullaniciAdSoyad.setOnClickListener(this::onClick);
+            profilCevapImageButton.setOnClickListener(this::onClick);
+            profilCevaplananKisiTxt.setOnClickListener(this::onClick);
         }
 
         @Override
         public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.profilCevapImageButton:
+                        itemClickListener.onItemClick(view,getAdapterPosition());
+                    break;
+                case R.id.profilCevaplananKisiTxt:
+                    ProfilFragment profilFragment = ProfilFragment.newInstance(answersModels.get(getAdapterPosition()).getSoru_soran_id());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    ((HomeActivity)context).menuDurum(3);
+                    break;
+            }
 
         }
     }

@@ -1,6 +1,7 @@
-package com.example.mvpornek.Presenter;
+package com.example.mvpornek.Presenter.Soru;
 
 import com.example.mvpornek.Models.QuestionModel;
+import com.example.mvpornek.Presenter.Soru.QuestionPresenter;
 import com.example.mvpornek.View.QuestionView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 

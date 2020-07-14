@@ -3,7 +3,7 @@ package com.example.mvpornek.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AnswersModel {
+public class LikesModel {
 
     @SerializedName("kullanici_id")
     @Expose
@@ -23,9 +23,6 @@ public class AnswersModel {
     @SerializedName("zaman")
     @Expose
     private String zaman;
-    @SerializedName("soru_soran")
-    @Expose
-    private String soru_soran;
     @SerializedName("begeni_sayisi")
     @Expose
     private int begeni_sayisi;
@@ -35,13 +32,6 @@ public class AnswersModel {
     @SerializedName("cevap_id")
     @Expose
     private int cevap_id;
-    @SerializedName("soru_soran_id")
-    @Expose
-    private int soru_soran_id;
-
-    public int getSoru_soran_id() {
-        return soru_soran_id;
-    }
 
     public int getCevap_id() {
         return cevap_id;
@@ -74,11 +64,6 @@ public class AnswersModel {
     public String getZaman() {
         return zaman;
     }
-
-    public String getSoru_soran() {
-        return soru_soran;
-    }
-
     public int getBegeni_sayisi() {
         return begeni_sayisi;
     }

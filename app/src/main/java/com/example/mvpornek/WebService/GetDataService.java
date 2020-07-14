@@ -3,6 +3,7 @@ package com.example.mvpornek.WebService;
 
 import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.CommentModel;
+import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Response.CevapKaydetResponse;
@@ -159,6 +160,12 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("profilCevaplariGetir.php")
     Call<List<AnswersModel>> kullaniciCevaplariGetir(
+            @Field("kullaniciId") int kullaniciId
+    );
+
+    @FormUrlEncoded
+    @POST("profilBegeniGetir.php")
+    Call<List<LikesModel>> kullaniciBegenileriGetir(
             @Field("kullaniciId") int kullaniciId
     );
 

@@ -29,7 +29,7 @@ import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionMenuPresenterImpl;
-import com.example.mvpornek.Presenter.QuestionPresenterImpl;
+import com.example.mvpornek.Presenter.Soru.QuestionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionsDeletePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
@@ -98,8 +98,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         itemClickListener =((vw,position)-> {
                     int soruId=questionModels.get(position).getId();
                     showBottomSheet(soruId);
-
-
         });
 
         itemLongClickListener =((vw,position)-> {

@@ -34,7 +34,6 @@ public class QuestionMenuPresenterImpl implements QuestionMenuPresenter {
                 }
                 List<QuestionModel> data=response.body();
                 if(data == null || data.isEmpty() ){
-                    System.out.println("Çalıştı-2");
                     questionMenuView.onGetResultControl();
                 }
             }
