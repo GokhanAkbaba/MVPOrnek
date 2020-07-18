@@ -67,8 +67,6 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
         } else {
             holder.yorum_sayisi.setText(String.valueOf(yorumSayisi));
         }
-
-
     }
 
     @Override

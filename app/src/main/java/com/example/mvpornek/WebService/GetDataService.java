@@ -11,6 +11,7 @@ import com.example.mvpornek.Response.CevapSilResponse;
 import com.example.mvpornek.Response.EtiketResponse;
 import com.example.mvpornek.Response.KullaniciResponse;
 import com.example.mvpornek.Response.LikeModel;
+import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.SifreResponse;
 import com.example.mvpornek.Response.SoruKaydetResponse;
 import com.example.mvpornek.Response.SoruSilResponse;
@@ -168,6 +169,13 @@ public interface GetDataService {
     Call<List<LikesModel>> kullaniciBegenileriGetir(
             @Field("kullaniciId") int kullaniciId
     );
+
+    @FormUrlEncoded
+    @POST("aramaKullaniciGetir.php")
+    Call<List<SearchListResponse>> aramaKullaniciGetir(
+            @Field("kullaniciAdi") String kullaniciAdi
+    );
+
 
 
 

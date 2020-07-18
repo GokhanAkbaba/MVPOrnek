@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,19 +19,27 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Adapter.AdapterProfilQuestion;
+import com.example.mvpornek.Adapter.SearchAdapter;
+import com.example.mvpornek.Models.AnswersModel;
+import com.example.mvpornek.Presenter.SearchUsersPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.Response.SearchListResponse;
+import com.example.mvpornek.View.SearchUsersView;
 
-public class AramaIcerikFragment extends Fragment implements View.OnClickListener {
+import java.util.List;
+
+public class AramaIcerikFragment extends Fragment implements View.OnClickListener, SearchUsersView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     SearchView searchView;
     ImageView imageView;
-    ListView listView;
+    List<SearchListResponse> searchListResponseList;
     Button geriButon;
-    ArrayAdapter<String> arrayAdapter;
-
-    HomeActivity homeActivity= new HomeActivity();
+    SearchUsersPresenterImpl searchUsersPresenter;
+    RecyclerView aramaRecyclerView;
+    SearchAdapter searchAdapter;
 
     String [] aranan_terim={"Gökhan","Akbaba","Araba","Ev","Bina","CNN Türk"};
     private String mParam1;
@@ -56,6 +66,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -63,23 +74,24 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.arama_sayfasi_icerik, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView_page);
-        listView=(ListView) view.findViewById(R.id.searchPageListView);
-
+        aramaRecyclerView=view.findViewById(R.id.aramaRecyclerView);
+        aramaRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        aramaRecyclerView.setAdapter(searchAdapter);
+        searchUsersPresenter=new SearchUsersPresenterImpl(this);
         geriButon=(Button) view.findViewById(R.id.aramaSayfasiIcerikGeriBtn);
         geriButon.setOnClickListener(this);
-        arrayAdapter=new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,aranan_terim);
-        listView.setAdapter(arrayAdapter);
+        searchUsersPresenter.loadData("");
         searchView.onActionViewExpanded();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
+                searchUsersPresenter.loadData(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                arrayAdapter.getFilter().filter(newText);
+                searchUsersPresenter.loadData(newText);
                 return false;
             }
         });
@@ -103,18 +115,17 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         }
     }
 
-    private boolean loadFragment(Fragment fragment,String fragmentTag)
-    {
+    @Override
+    public void onGetResult(List<SearchListResponse> data) {
+        searchAdapter=new SearchAdapter(data,getActivity());
+        searchAdapter.notifyDataSetChanged();
+        aramaRecyclerView.setAdapter(searchAdapter);
+        searchListResponseList=data;
 
-        if (fragment != null) {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .addToBackStack(fragmentTag)
-                    .replace(R.id.anaSayfaFrameLayout, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
     }
 
+    @Override
+    public void onErrorLoading(String message) {
+
+    }
 }
