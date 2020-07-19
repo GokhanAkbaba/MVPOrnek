@@ -28,9 +28,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM2 = "param2";
 
     private RecyclerView aramaSayfasiRecyclerView;
-     List<SearchModel>searchModelList=new ArrayList<>();
-    private SearchView.OnQueryTextListener queryTextListener;
-    private SearchView searchView = null;
+
     private String mParam1;
     private String mParam2;
 

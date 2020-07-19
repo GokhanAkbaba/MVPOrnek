@@ -58,10 +58,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="17dp"
                 android:src="@mipmap/ayarlar_bar_icon" />
-
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/arama_sayfasi_recyclerView"
                 android:layout_width="match_parent"
@@ -70,5 +68,4 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
                 tools:ignore="MissingConstraints" />
-    
 </androidx.constraintlayout.widget.ConstraintLayout>

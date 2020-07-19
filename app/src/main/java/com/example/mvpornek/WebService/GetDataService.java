@@ -4,6 +4,7 @@ package com.example.mvpornek.WebService;
 import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.LikesModel;
+import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Response.CevapKaydetResponse;
@@ -176,7 +177,9 @@ public interface GetDataService {
             @Field("kullaniciAdi") String kullaniciAdi
     );
 
-
-
+    @FormUrlEncoded
+    @POST("aramaSorulariGetir.php")
+    Call<List<SearchQuestionModel>> aramaSorulariGetir(
+    );
 
 }
