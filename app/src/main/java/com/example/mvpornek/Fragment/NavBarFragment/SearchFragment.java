@@ -6,28 +6,47 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.widget.SearchView;
 
+import com.example.mvpornek.Adapter.SearchAdapterQuestion;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
-import com.example.mvpornek.Models.SearchModel;
+import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
+import com.example.mvpornek.Models.SearchQuestionModel;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
+import com.example.mvpornek.Presenter.SearchQuestionPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.View.InternetConnectionView;
+import com.example.mvpornek.View.SearchQuestionView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class SearchFragment extends Fragment implements View.OnClickListener {
+public class SearchFragment extends Fragment implements View.OnClickListener, SearchQuestionView,InternetConnectionView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private RecyclerView aramaSayfasiRecyclerView;
+
+    SearchAdapterQuestion searchAdapterQuestion;
+    SearchAdapterQuestion.ItemClickListener itemClickListener;
+
+    List<SearchQuestionModel> searchQuestionModels;
+
+    SearchQuestionPresenterImpl searchQuestionPresenter;
+    InternetConnectionPresenterImpl internetConnectionPresenter;
+
+    SwipeRefreshLayout swipeRefreshLayout;
+
+    TextView aramaRecyclerViewTxt;
 
     private String mParam1;
     private String mParam2;
@@ -58,17 +77,31 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.arama_sayfasi, container, false);
-        RelativeLayout relativeLayoutSearchBar=(RelativeLayout) view.findViewById(R.id.search_content_search_bar);
+        RelativeLayout relativeLayoutSearchBar=view.findViewById(R.id.search_content_search_bar);
         relativeLayoutSearchBar.setOnClickListener(this);
-        aramaSayfasiRecyclerView=(RecyclerView) view.findViewById(R.id.arama_sayfasi_recyclerView);
+
+        aramaSayfasiRecyclerView=view.findViewById(R.id.arama_sayfasi_recyclerView);
+        searchQuestionPresenter = new SearchQuestionPresenterImpl(this);
+        searchQuestionPresenter.loadData();
+
+        aramaSayfasiRecyclerView.setAdapter(searchAdapterQuestion);
         aramaSayfasiRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            int myInt = bundle.getInt("sayi");
-            System.out.println("SONUÇ"+myInt);
-        }else{
-            System.out.println("BOŞŞŞŞŞŞŞŞŞ");
-        }
+        aramaSayfasiRecyclerView.setOnClickListener(this);
+
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+
+        aramaRecyclerViewTxt=view.findViewById(R.id.aramaRecyclerViewTxt);
+
+        swipeRefreshLayout=view.findViewById(R.id.aramaSwipeRefreshLayout);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                internetConnectionPresenter.internetBaglantiKontrolu();
+                searchQuestionPresenter.loadData();
+            }
+        });
+
 
         return view;
     }
@@ -100,5 +133,46 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onGetResult(List<SearchQuestionModel> data) {
+    searchAdapterQuestion=new SearchAdapterQuestion(data,getActivity(),itemClickListener);
+    searchAdapterQuestion.notifyDataSetChanged();
+    aramaSayfasiRecyclerView.setAdapter(searchAdapterQuestion);
+    searchQuestionModels=data;
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Toast.makeText(getActivity(),"Bir Hata Oluştu.",Toast.LENGTH_LONG).show();
+        System.out.println("Bağlantı Hatası(Search Fragment) "+message);
+    }
+
+    @Override
+    public void showLoading() {
+        if (swipeRefreshLayout != null) {
+            swipeRefreshLayout.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onGetResultControl() {
+        aramaRecyclerViewTxt.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void internetBaglantiHatasi() {
+        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz.",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
     }
 }

@@ -25,9 +25,16 @@ public class SearchQuestionModel {
     @SerializedName("zaman")
     @Expose
     private String zaman;
+    @SerializedName("etiket")
+    @Expose
+    private String etiket;
     @SerializedName("yorum_sayisi")
     @Expose
     private int yorum_sayisi;
+
+    public String getEtiket() {
+        return etiket;
+    }
 
     public int getKullanici_id() {
         return kullanici_id;

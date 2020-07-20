@@ -53,10 +53,10 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
         String zaman = zamanDonusumu(searchQuestionModel.getZaman());
         int yorumSayisi = searchQuestionModel.getYorum_sayisi();
         String kullaniciProfilResmi = searchQuestionModel.getProfil_foto();
-        //String etiket = questionModel.getEtiketAdi();
+        String etiket = searchQuestionModel.getEtiket();
         holder.adSoyad.setText(kullaniciAdSoyad);
         holder.kullanicAdi.setText(kullaniciAdi);
-        //holder.etiket.setText(etiket);
+        holder.etiket.setText(etiket);
         holder.sorular.setText(soru);
         holder.zaman.setText(zaman);
         GlideApp.with(context).load(kullaniciProfilResmi).apply(new RequestOptions().centerCrop()).into(holder.profilResmi);
@@ -69,7 +69,7 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
 
     @Override
     public int getItemCount() {
-        return 0;
+       return searchQuestionModels.size();
     }
 
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{

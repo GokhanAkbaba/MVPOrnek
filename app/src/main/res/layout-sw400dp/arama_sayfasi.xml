@@ -31,8 +31,8 @@
                 android:layout_height="@dimen/search_bar_height"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="17dp"
-                android:clickable="true"
-                android:background="@drawable/input_field">
+                android:background="@drawable/input_field"
+                android:clickable="true">
 
                 <TextView
                     android:id="@+id/search_content_search_text"
@@ -51,6 +51,7 @@
                     android:textColor="@color/colorGrayDarkSecondary"
                     android:textSize="@dimen/search_content_search_text_size" />
             </RelativeLayout>
+
             <ImageView
                 android:id="@+id/search_content_search_settings"
                 android:layout_width="38dp"
@@ -60,12 +61,57 @@
                 android:src="@mipmap/ayarlar_bar_icon" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/arama_sayfasi_recyclerView"
-                android:layout_width="match_parent"
+
+    <ScrollView
+        android:id="@+id/filename_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:isScrollContainer="false"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aramaSayfasiSorularLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
+            tools:ignore="MissingDefaultResource">
+
+            <TextView
+                android:id="@+id/aramaRecyclerViewTxt"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="Gösterilecek bir şey yok."
+                app:layout_constraintBottom_toBottomOf="@+id/aramaSwipeRefreshLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
-                tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="@+id/aramaSwipeRefreshLayout" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/aramaSwipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="584dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/arama_sayfasi_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
+                    tools:ignore="MissingConstraints" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>

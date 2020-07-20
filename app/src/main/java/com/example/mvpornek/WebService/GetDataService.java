@@ -180,6 +180,7 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("aramaSorulariGetir.php")
     Call<List<SearchQuestionModel>> aramaSorulariGetir(
+            @Field("kullaniciAdi") String kullaniciAdi
     );
 
 }

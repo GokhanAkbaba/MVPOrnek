@@ -71,7 +71,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         profilQuestionPresenter.loadData(mParam1);
         recyclerViewProfilSorularimText=view.findViewById(R.id.recyclerViewProfilSorularimText);
-        profilSorularimRecyclerView=view.findViewById(R.id.profilSorularimRecyclerView);
+
         profilSorularimRecyclerView.setAdapter(adapterProfilQuestion);
         profilSorularimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         profilSorularimRecyclerView.setOnClickListener(this);

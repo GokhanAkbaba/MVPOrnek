@@ -368,7 +368,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     @Override
     public void internetBaglantisi() {
-
+       ////
     }
 
     @Override
