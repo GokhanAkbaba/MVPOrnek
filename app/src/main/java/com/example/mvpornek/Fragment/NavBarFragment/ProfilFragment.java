@@ -1,11 +1,11 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -28,6 +28,7 @@ import com.example.mvpornek.Presenter.KullaniciGetir.UsersGetPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.UsersGetView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
@@ -50,6 +51,9 @@ public class ProfilFragment extends Fragment implements UsersGetView {
     private static final String ARG_PARAM1 = "param1";
     UsersGetPresenterImpl usersGetPresenter;
     NestedScrollView profilNestedView;
+
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
 
     TextView profilKullaniciAdSoyadTxt,profilKullaniciAdiTxt,profilCevapSayi;
 
@@ -89,7 +93,6 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         profilKullaniciAdiTxt=view.findViewById(R.id.profilKullaniciAdiTxt);
         profilCevapSayi=view.findViewById(R.id.profilCevapSayi);
         profilNestedView=view.findViewById(R.id.profilNestedView);
-
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
 
         if (getArguments() != null) {

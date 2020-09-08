@@ -72,11 +72,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:text="#Adres #Tatil"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
+                app:layout_constraintTop_toBottomOf="@+id/soruPaylasmaZamani" />
 
             <TextView
                 android:id="@+id/kullaniciAdiTxt"
@@ -92,7 +92,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="384dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/jost"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
@@ -103,11 +103,11 @@
 
             <ImageView
                 android:id="@+id/soruYorumIcon"
-                android:layout_width="43dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:src="@mipmap/yorum_icon"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_comment_svg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -115,9 +115,10 @@
                 android:id="@+id/yorumSayisiTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
                 android:text="155"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 

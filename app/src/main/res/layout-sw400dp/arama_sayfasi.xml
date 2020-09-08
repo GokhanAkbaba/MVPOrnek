@@ -65,7 +65,8 @@
     <ScrollView
         android:id="@+id/filename_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="63dp"
         android:fillViewport="true"
         android:isScrollContainer="false"
         android:scrollbars="none"
@@ -77,7 +78,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/aramaSayfasiSorularLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
@@ -97,7 +98,7 @@
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/aramaSwipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="584dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -106,7 +107,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/arama_sayfasi_recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"

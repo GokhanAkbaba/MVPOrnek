@@ -103,11 +103,11 @@
 
             <ImageView
                 android:id="@+id/aramaSoruYorumIcon"
-                android:layout_width="43dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:src="@mipmap/yorum_icon"
+                android:src="@drawable/ic_comment_svg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/aramaSoruAlanı" />
 
@@ -115,7 +115,8 @@
                 android:id="@+id/aramaYorumSayisiTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
                 android:text="155"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/aramaSoruYorumIcon"
