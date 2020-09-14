@@ -1,9 +1,7 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -20,7 +18,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.CevaplarimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.SorularimFragment;
-import com.example.mvpornek.Fragment.ViewPagerAdapter;
+import com.example.mvpornek.Fragment.PagerAdapter.ViewPagerAdapter;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.KullaniciGetir;
@@ -30,8 +28,6 @@ import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.UsersGetView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

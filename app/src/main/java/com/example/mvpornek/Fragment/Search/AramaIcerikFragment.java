@@ -34,14 +34,13 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     SearchView searchView;
-    ImageView imageView;
     List<SearchListResponse> searchListResponseList;
     Button geriButon;
     SearchUsersPresenterImpl searchUsersPresenter;
+    SearchAdapter.ItemClickListener itemClickListener;
     RecyclerView aramaRecyclerView;
     SearchAdapter searchAdapter;
 
-    String [] aranan_terim={"Gökhan","Akbaba","Araba","Ev","Bina","CNN Türk"};
     private String mParam1;
     private String mParam2;
 
@@ -95,6 +94,10 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
                 return false;
             }
         });
+
+        itemClickListener =((vw,position)-> {
+
+        });
         return view;
     }
 
@@ -117,7 +120,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onGetResult(List<SearchListResponse> data) {
-        searchAdapter=new SearchAdapter(data,getActivity());
+        searchAdapter=new SearchAdapter(data,getActivity(),itemClickListener);
         searchAdapter.notifyDataSetChanged();
         aramaRecyclerView.setAdapter(searchAdapter);
         searchListResponseList=data;

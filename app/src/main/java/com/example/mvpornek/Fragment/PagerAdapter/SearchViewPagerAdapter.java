@@ -1,4 +1,4 @@
-package com.example.mvpornek.Fragment;
+package com.example.mvpornek.Fragment.PagerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,13 +9,14 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class SearchViewPagerAdapter extends FragmentStatePagerAdapter {
     private final List<Fragment> fragmentList =new ArrayList<>();
     private final List<String> listTitle = new ArrayList<>();
-    public ViewPagerAdapter(FragmentManager fm) {
+
+    public SearchViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);

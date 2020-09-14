@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/aramaSayfasiIcerikGeriBtn"
+            android:id="@+id/aramaSayfasiAyrintiIcerikGeriBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="43dp"
             android:layout_height="35dp"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView_page"
+            android:id="@+id/kullaniciIcerikSearchView"
             android:layout_width="@dimen/search_bar_background_width"
             android:layout_height="@dimen/search_bar_height"
             android:layout_marginStart="48dp"
@@ -34,16 +34,34 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/aramaRecyclerView"
-        android:layout_width="409dp"
-        android:layout_height="661dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/white"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/kullaniciIceriktabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchContentToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/searchContentToolbar">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/kullanicilar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kullanıcılar" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/sorular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SoRular" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/kullaniciIcerikViewPager"
+        android:layout_width="409dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kullaniciIceriktabLayout"
         tools:ignore="MissingConstraints" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,12 +15,6 @@ public class QuestionDetailActivity extends Activity implements View.OnClickList
         setContentView(R.layout.soru_ayrinti_ekrani);
         soruAyrintiGeriButon=findViewById(R.id.soruAyrintiGeriBtn);
         soruAyrintiGeriButon.setOnClickListener(this);
-        /*Intent intent=getIntent();
-        if(intent.getExtras()!= null)
-        {
-            SearchModel searchModel=(SearchModel) intent.getExtras().getSerializable("data");
-            denemeTxt.setText(searchModel.getKullaniciAdi());
-        }*/
 
     }
 

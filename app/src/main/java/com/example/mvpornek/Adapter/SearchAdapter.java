@@ -9,10 +9,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Fragment.KullaniciIcerikFragment;
+import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
+import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.R;
 import com.example.mvpornek.Response.SearchListResponse;
@@ -22,17 +26,19 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerViewAdapter> {
     private List<SearchListResponse> searchListResponses;
     private Context context;
+    private ItemClickListener itemClickListener;
 
-    public SearchAdapter(List<SearchListResponse> searchListResponses, Context context) {
+    public SearchAdapter(List<SearchListResponse> searchListResponses, Context context,ItemClickListener itemClickListener) {
         this.searchListResponses = searchListResponses;
         this.context = context;
+        this.itemClickListener=itemClickListener;
     }
 
     @NonNull
     @Override
     public SearchAdapter.RecyclerViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.kullanici_arama_icerik, parent, false);
-        return new SearchAdapter.RecyclerViewAdapter(view);
+        return new SearchAdapter.RecyclerViewAdapter(view,itemClickListener);
     }
 
     @Override
@@ -47,12 +53,27 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
         return searchListResponses.size();
     }
 
-    public class RecyclerViewAdapter extends RecyclerView.ViewHolder{
+    public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
+        ItemClickListener itemClickListener;
         TextView adSoyad;
-        RecyclerViewAdapter(View itemView) {
+        RecyclerViewAdapter(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
+            this.itemClickListener=itemClickListener;
             adSoyad=itemView.findViewById(R.id.textView28);
+            adSoyad.setOnClickListener(this::onClick);
         }
 
+        @Override
+        public void onClick(View view) {
+            Fragment fragment=null;
+            fragment=new KullaniciIcerikFragment();
+            //ProfilFragment profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
+            ((HomeActivity)context).loadFragment(fragment,"AramaAyrintiIcerik");
+            itemClickListener.onItemClick(view,getAdapterPosition());
+        }
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(View view, int position);
     }
 }
