@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchViewPagerAdapter extends FragmentStatePagerAdapter {
-    private final List<Fragment> fragmentList =new ArrayList<>();
+    private final List<Fragment> fragmentList;
     private final List<String> listTitle = new ArrayList<>();
 
     public SearchViewPagerAdapter(FragmentManager fm) {
         super(fm);
+        this.fragmentList =new ArrayList<>();
     }
     @NonNull
     @Override

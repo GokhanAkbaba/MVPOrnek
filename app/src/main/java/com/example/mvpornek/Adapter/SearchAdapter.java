@@ -65,10 +65,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
 
         @Override
         public void onClick(View view) {
-            Fragment fragment=null;
-            fragment=new KullaniciIcerikFragment();
-            //ProfilFragment profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
-            ((HomeActivity)context).loadFragment(fragment,"AramaAyrintiIcerik");
+            KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi());
+            ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik");
             itemClickListener.onItemClick(view,getAdapterPosition());
         }
     }

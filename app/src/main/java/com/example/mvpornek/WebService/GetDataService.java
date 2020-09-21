@@ -16,6 +16,7 @@ import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.SifreResponse;
 import com.example.mvpornek.Response.SoruKaydetResponse;
 import com.example.mvpornek.Response.SoruSilResponse;
+import com.example.mvpornek.Response.UserSearchListResponse;
 
 
 import java.util.ArrayList;
@@ -181,6 +182,18 @@ public interface GetDataService {
     @POST("aramaSorulariGetir.php")
     Call<List<SearchQuestionModel>> aramaSorulariGetir(
             @Field("kullaniciAdi") String kullaniciAdi
+    );
+
+    @FormUrlEncoded
+    @POST("aramaKullanicilariGetir.php")
+    Call<List<UserSearchListResponse>> aramaKullanicilariGetir(
+            @Field("kullaniciAdi") String kullaniciAdi
+    );
+
+    @FormUrlEncoded
+    @POST("aramaSoruGetir.php")
+    Call<List<SearchQuestionModel>> aramaSoruGetir(
+            @Field("ifade") String ifade
     );
 
 }

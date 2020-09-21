@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textBoxPadding">10dp</dimen>
+    <dimen name="navigation_icon_size">24dp</dimen>
 
 </resources>

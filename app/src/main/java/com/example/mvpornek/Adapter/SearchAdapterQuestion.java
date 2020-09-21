@@ -18,6 +18,7 @@ import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.R;
 
+import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +28,7 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
     private List<SearchQuestionModel> searchQuestionModels;
     private Context context;
     private SearchAdapterQuestion.ItemClickListener itemClickListener;
+
 
     public SearchAdapterQuestion(List<SearchQuestionModel> searchQuestionModels, Context context, SearchAdapterQuestion.ItemClickListener itemClickListener) {
         this.searchQuestionModels = searchQuestionModels;
@@ -54,6 +56,18 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
         int yorumSayisi = searchQuestionModel.getYorum_sayisi();
         String kullaniciProfilResmi = searchQuestionModel.getProfil_foto();
         String etiket = searchQuestionModel.getEtiket();
+        String date=searchQuestionModel.getZaman();
+        SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date newDate= null;
+        try {
+            newDate = spf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spf= new SimpleDateFormat("dd MMM yyyy");
+        if (zaman == "s"){
+            zaman= spf.format(newDate);
+        }
         holder.adSoyad.setText(kullaniciAdSoyad);
         holder.kullanicAdi.setText(kullaniciAdi);
         holder.etiket.setText(etiket);
@@ -140,7 +154,12 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
             long num = 0;
             if (days > 0) {
                 num = days;
-                friendly = days + " gn";
+                if(days > 7 ){
+                    friendly="s";
+                }else{
+                    friendly = days + " gn";
+                }
+
             }
             else if (hours > 0) {
                 num = hours;

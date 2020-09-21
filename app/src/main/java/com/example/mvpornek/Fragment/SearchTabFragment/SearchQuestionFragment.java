@@ -3,46 +3,51 @@ package com.example.mvpornek.Fragment.SearchTabFragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mvpornek.Adapter.SearchAdapterQuestion;
+import com.example.mvpornek.Models.SearchQuestionModel;
+import com.example.mvpornek.Presenter.QuestionSearchFragmentPresenterImpl;
 import com.example.mvpornek.R;
+import com.example.mvpornek.View.QuestionSearchFragmentView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SearchQuestionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchQuestionFragment extends Fragment {
+public class SearchQuestionFragment extends Fragment  implements View.OnClickListener, QuestionSearchFragmentView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    private RecyclerView searchQuestionFragmentRecyclerView;
+    SearchAdapterQuestion searchAdapterQuestion;
+    SearchAdapterQuestion.ItemClickListener itemClickListener;
+    List<SearchQuestionModel> searchQuestionModels;
+
+    QuestionSearchFragmentPresenterImpl questionSearchFragmentPresenter;
+    SwipeRefreshLayout swipeRefreshLayout;
+
+
     private String mParam1;
-    private String mParam2;
 
     public SearchQuestionFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchQuestionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchQuestionFragment newInstance(String param1, String param2) {
+    public static SearchQuestionFragment newInstance(String param1) {
         SearchQuestionFragment fragment = new SearchQuestionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,14 +57,59 @@ public class SearchQuestionFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_question, container, false);
+        View view=inflater.inflate(R.layout.fragment_search_question, container, false);
+        searchQuestionFragmentRecyclerView=view.findViewById(R.id.searchQuestionRecycView);
+        questionSearchFragmentPresenter=new QuestionSearchFragmentPresenterImpl(this);
+        questionSearchFragmentPresenter.loadData(mParam1);
+        searchQuestionFragmentRecyclerView.setAdapter(searchAdapterQuestion);
+        searchQuestionFragmentRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        swipeRefreshLayout=view.findViewById(R.id.aramaSwipeRefreshLayout);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.uygulamaMavisi));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                questionSearchFragmentPresenter.loadData(mParam1);
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onGetResult(List<SearchQuestionModel> data) {
+        searchAdapterQuestion=new SearchAdapterQuestion(data,getActivity(),itemClickListener);
+        searchAdapterQuestion.notifyDataSetChanged();
+        searchQuestionFragmentRecyclerView.setAdapter(searchAdapterQuestion);
+        searchQuestionModels=data;
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        System.out.println("Bağlantı Hatası(SearchQuestionFragment) "+message);
+
+    }
+
+    @Override
+    public void showLoading() {
+        if (swipeRefreshLayout != null) {
+            swipeRefreshLayout.setRefreshing(true);
+        }
+
+    }
+
+    @Override
+    public void hideLoading() {
+        swipeRefreshLayout.setRefreshing(false);
     }
 }

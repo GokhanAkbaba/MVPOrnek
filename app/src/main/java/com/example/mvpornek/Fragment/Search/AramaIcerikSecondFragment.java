@@ -2,27 +2,19 @@ package com.example.mvpornek.Fragment.Search;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Adapter.AdapterProfilQuestion;
 import com.example.mvpornek.Adapter.SearchAdapter;
 import com.example.mvpornek.Fragment.KullaniciIcerikFragment;
-import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Presenter.SearchUsersPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.Response.SearchListResponse;
@@ -30,8 +22,15 @@ import com.example.mvpornek.View.SearchUsersView;
 
 import java.util.List;
 
-public class AramaIcerikFragment extends Fragment implements View.OnClickListener, SearchUsersView {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link AramaIcerikSecondFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class AramaIcerikSecondFragment extends Fragment implements View.OnClickListener, SearchUsersView {
 
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     SearchView searchView;
@@ -42,15 +41,16 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     RecyclerView aramaRecyclerView;
     SearchAdapter searchAdapter;
 
+    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public AramaIcerikFragment() {
-
+    public AramaIcerikSecondFragment() {
+        // Required empty public constructor
     }
 
-    public static AramaIcerikFragment newInstance() {
-        AramaIcerikFragment fragment = new AramaIcerikFragment();
+    public static AramaIcerikSecondFragment newInstance() {
+        AramaIcerikSecondFragment fragment = new AramaIcerikSecondFragment();
         Bundle args = new Bundle();
         /*args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);*/
@@ -60,20 +60,18 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.GONE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.arama_sayfasi_icerik, container, false);
-        searchView=(SearchView) view.findViewById(R.id.searchView_page);
+        View view=inflater.inflate(R.layout.fragment_arama_icerik_second, container, false);
+                searchView=(SearchView) view.findViewById(R.id.searchView_page);
         aramaRecyclerView=view.findViewById(R.id.aramaRecyclerView);
         aramaRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaRecyclerView.setAdapter(searchAdapter);
@@ -85,7 +83,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
             @Override
             public boolean onQueryTextSubmit(String query) {
                 KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query);
-                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik");
+                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik1");
                 return false;
             }
 
@@ -103,19 +101,12 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
     public void onClick(View view) {
-
         switch (view.getId())
         {
             case R.id.aramaSayfasiIcerikGeriBtn:
                 getActivity().getSupportFragmentManager().popBackStack();
-            break;
+                break;
         }
     }
 
@@ -125,7 +116,6 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         searchAdapter.notifyDataSetChanged();
         aramaRecyclerView.setAdapter(searchAdapter);
         searchListResponseList=data;
-
     }
 
     @Override

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:id="@+id/anaSayfaLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,8 +29,10 @@
         android:id="@+id/anaSayfaMenuFrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/anaSayfaLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="NotSibling">
 
         <HorizontalScrollView
             android:id="@+id/anasayfa_horizontalview"
@@ -226,21 +228,19 @@
         android:text="Gösterilecek bir şey yok"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshAnasayfa"
+        android:layout_below="@id/anaSayfaMenuFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/anaSayfaMenuFrameLayout"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,NotSibling"
         tools:layout_editor_absoluteX="4dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSoruAlani"
-            android:layout_width="390dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/anasayfa_horizontalview" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
     </ScrollView>
 
     <include layout="@layout/yorumlar_bottom_sheet" />

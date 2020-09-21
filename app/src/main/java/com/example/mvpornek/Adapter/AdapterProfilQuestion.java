@@ -18,6 +18,7 @@ import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.R;
 
+import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -55,6 +56,18 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
         int yorumSayisi = questionModel.getCevapSayisi();
         String kullaniciProfilResmi = questionModel.getProfilFoto();
         String etiket = questionModel.getEtiketAdi();
+        String date=questionModel.getZaman();
+        SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date newDate= null;
+        try {
+            newDate = spf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spf= new SimpleDateFormat("dd MMM yyyy");
+        if (zaman == "s"){
+            zaman= spf.format(newDate);
+        }
         holder.adSoyad.setText(kullaniciAdSoyad);
         holder.kullanicAdi.setText(kullaniciAdi);
         holder.etiket.setText(etiket);
@@ -134,7 +147,6 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
             ParsePosition pos = new ParsePosition(0);
             long then = simpleDateFormat.parse(zaman, pos).getTime();
             long now = new Date().getTime();
-
             long seconds = (now - then) / 1000;
             long minutes = seconds / 60;
             long hours = minutes / 60;
@@ -143,7 +155,11 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
             long num = 0;
             if (days > 0) {
                 num = days;
-                friendly = days + " gn";
+                if(days > 7 ){
+                    friendly="s";
+                }else{
+                    friendly = days + " gn";
+                }
             }
             else if (hours > 0) {
                 num = hours;

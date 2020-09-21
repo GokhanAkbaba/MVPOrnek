@@ -22,7 +22,7 @@
         android:id="@+id/imageView9"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_search_svg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"

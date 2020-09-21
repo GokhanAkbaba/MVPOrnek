@@ -4,22 +4,22 @@
 
     <item
         android:id="@+id/anaSayfaItem"
-        android:icon="@mipmap/ana_sayfa_bar_icon"
+        android:icon="@drawable/ic_home_svg"
         android:title="" />
     <item
         android:id="@+id/aramaItem"
-        android:icon="@mipmap/arama_bar_icon"
+        android:icon="@drawable/ic_search_svg"
         android:title="" />
     <item
         android:id="@+id/bildirimItem"
-        android:icon="@mipmap/bildirim_bar_icon"
+        android:icon="@drawable/ic_notification_svg"
         android:title="" />
     <item
         android:id="@+id/profilItem"
-        android:icon="@mipmap/profil_bar_icon"
+        android:icon="@drawable/ic_user_svg"
         android:title="" />
     <item
         android:id="@+id/ayarlarItem"
-        android:icon="@mipmap/ayarlar_bar_icon"
+        android:icon="@drawable/ic_settings_svg"
         android:title="" />
 </menu>

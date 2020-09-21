@@ -20,10 +20,14 @@ import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.R;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapterActivity.RecyclerViewAdapter>{
 
@@ -57,6 +61,18 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             String kullaniciAdi = questionModel.getKullaniciAdi();
             String soru = questionModel.getSoru();
             String zaman = zamanDonusumu(questionModel.getZaman());
+            String date=questionModel.getZaman();
+            SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date newDate= null;
+            try {
+                newDate = spf.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            spf= new SimpleDateFormat("dd MMM yyyy");
+            if (zaman == "s"){
+                zaman= spf.format(newDate);
+            }
             int yorumSayisi = questionModel.getCevapSayisi();
             String kullaniciProfilResmi = questionModel.getProfilFoto();
             String etiket = questionModel.getEtiketAdi();
@@ -152,7 +168,12 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             long num = 0;
             if (days > 0) {
                 num = days;
-                friendly = days + " gn";
+                if(days > 7 ){
+                    friendly="s";
+                }else{
+                    friendly = days + " gn";
+                }
+
             }
             else if (hours > 0) {
                 num = hours;

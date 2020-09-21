@@ -1,9 +1,12 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -26,8 +29,11 @@ import com.example.mvpornek.Presenter.KullaniciGetir.UsersGetPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.UsersGetView;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,11 +53,19 @@ public class ProfilFragment extends Fragment implements UsersGetView {
     private static final String ARG_PARAM1 = "param1";
     UsersGetPresenterImpl usersGetPresenter;
     NestedScrollView profilNestedView;
-
     CollapsingToolbarLayout collapsingToolbarLayout;
 
+    String title;
 
-    TextView profilKullaniciAdSoyadTxt,profilKullaniciAdiTxt,profilCevapSayi;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    TextView profilKullaniciAdSoyadTxt,profilKullaniciAdiTxt,profilCevapSayi,toolbar;
 
     // TODO: Rename and change types of parameters
     private int mParam1;
@@ -71,6 +85,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
@@ -90,6 +105,31 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         profilCevapSayi=view.findViewById(R.id.profilCevapSayi);
         profilNestedView=view.findViewById(R.id.profilNestedView);
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
+        toolbar=view.findViewById(R.id.textView31);
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.profilCollapsing);
+        AppBarLayout appBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                    System.out.println("1");
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    toolbar.setText(getTitle());
+                    tabLayout.setBackgroundColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    isShow = true;
+                } else if(isShow) {
+                    toolbar.setText(" ");//careful there should a space between double quote otherwise it wont work
+                    tabLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                    isShow = false;
+                }
+            }
+        });
+
 
         if (getArguments() != null) {
             usersGetPresenter.loadUsersData(mParam1);
@@ -100,6 +140,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    setTitle(kullaniciGetir.getAdSoyad());
                     profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
                     profilKullaniciAdiTxt.setText(kullaniciGetir.getKullaniciAdi());
                     profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
@@ -113,6 +154,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
             profilKullaniciAdSoyadTxt.setText(kullanici.getAdSoyad());
             profilKullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
+            setTitle(kullanici.getAdSoyad());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
         }
         return view;
@@ -134,4 +176,5 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
 }
