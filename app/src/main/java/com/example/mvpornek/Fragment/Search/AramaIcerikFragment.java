@@ -85,7 +85,7 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
             @Override
             public boolean onQueryTextSubmit(String query) {
                 KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query);
-                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik");
+                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAsama-2");
                 return false;
             }
 

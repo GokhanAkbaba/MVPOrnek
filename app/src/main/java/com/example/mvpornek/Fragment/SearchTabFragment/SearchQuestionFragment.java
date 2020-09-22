@@ -10,8 +10,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mvpornek.Adapter.SearchAdapterQuestion;
+import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Presenter.QuestionSearchFragmentPresenterImpl;
 import com.example.mvpornek.R;
@@ -36,6 +38,8 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
 
     QuestionSearchFragmentPresenterImpl questionSearchFragmentPresenter;
     SwipeRefreshLayout swipeRefreshLayout;
+    TextView controlTxt;
+
 
 
     private String mParam1;
@@ -64,6 +68,7 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_search_question, container, false);
+        controlTxt=view.findViewById(R.id.searchQuestionTxt);
         searchQuestionFragmentRecyclerView=view.findViewById(R.id.searchQuestionRecycView);
         questionSearchFragmentPresenter=new QuestionSearchFragmentPresenterImpl(this);
         questionSearchFragmentPresenter.loadData(mParam1);
@@ -76,6 +81,10 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
             public void onRefresh() {
                 questionSearchFragmentPresenter.loadData(mParam1);
             }
+        });
+        itemClickListener =((vw,position)-> {
+            int soruId=searchQuestionModels.get(position).getSoru_id();
+            showBottomSheet(soruId);
         });
 
         return view;
@@ -92,6 +101,7 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         searchAdapterQuestion.notifyDataSetChanged();
         searchQuestionFragmentRecyclerView.setAdapter(searchAdapterQuestion);
         searchQuestionModels=data;
+        controlTxt.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -111,5 +121,17 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
     @Override
     public void hideLoading() {
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onGetResultControl() {
+        controlTxt.setVisibility(View.VISIBLE);
+    }
+
+    public void showBottomSheet(int soruId) {
+        CommentBottomDialogFragment commentBottomDialogFragment =
+                CommentBottomDialogFragment.newInstance(soruId);
+        commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+                CommentBottomDialogFragment.TAG);
     }
 }

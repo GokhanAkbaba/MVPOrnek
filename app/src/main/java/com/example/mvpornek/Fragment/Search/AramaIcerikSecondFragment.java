@@ -79,11 +79,11 @@ public class AramaIcerikSecondFragment extends Fragment implements View.OnClickL
         geriButon=(Button) view.findViewById(R.id.aramaSayfasiIcerikGeriBtn);
         geriButon.setOnClickListener(this);
         searchView.onActionViewExpanded();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query);
-                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik1");
+                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAsama-4");
                 return false;
             }
 

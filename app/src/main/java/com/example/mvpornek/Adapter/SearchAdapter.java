@@ -66,7 +66,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
         @Override
         public void onClick(View view) {
             KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi());
-            ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAyrintiIcerik");
+            ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAsamaTık-2");
             itemClickListener.onItemClick(view,getAdapterPosition());
         }
     }

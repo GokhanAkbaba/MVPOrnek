@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -78,28 +79,34 @@ public class KullaniciIcerikFragment extends Fragment implements View.OnClickLis
         searchQuestionFragment=SearchQuestionFragment.newInstance(mParam1);
         setTabLayout(searchUsersFragment,searchQuestionFragment);
         searchView.clearFocus();
-       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        //searchView.setIconified(false);
+       searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
            @Override
-           public boolean onQueryTextSubmit(String query) {
-               return false;
-           }
+           public void onFocusChange(View view, boolean b) {
+               if (b){
 
-           @Override
-           public boolean onQueryTextChange(String newText) {
-               AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
-               ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaIcerikSecond");
-               return false;
+                   AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
+                   ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaAsama-3");
+                   searchView.clearFocus();
+               }
+
            }
        });
+        /*AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
+        ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaAsama-3");*/
+
+
+
 
         ImageView closeButton = (ImageView)searchView.findViewById(R.id.search_close_btn);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
-                ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaIcerikSecond");
+                ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaAsama-3");
             }
         });
+
         return view;
     }
     public void setTabLayout(Fragment kullanicilar, Fragment sorular){

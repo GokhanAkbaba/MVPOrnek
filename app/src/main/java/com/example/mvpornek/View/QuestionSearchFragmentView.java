@@ -9,4 +9,5 @@ public interface QuestionSearchFragmentView {
     void onErrorLoading(String message);
     void showLoading();
     void hideLoading();
+    void onGetResultControl();
 }

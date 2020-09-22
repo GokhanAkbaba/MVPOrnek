@@ -1,5 +1,6 @@
 package com.example.mvpornek.Presenter.SearchUser;
 
+import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.UserSearchListResponse;
 import com.example.mvpornek.View.SearchUser;
@@ -30,6 +31,10 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
             public void onResponse(Call<List<UserSearchListResponse>> call, Response<List<UserSearchListResponse>> response) {
                 if (response.isSuccessful() && response.body() !=null) {
                     searchUser.onGetResult(response.body());
+                }
+                List<UserSearchListResponse> data=response.body();
+                if(data == null || data.isEmpty() ){
+                    searchUser.onGetResultControl();
                 }
             }
             @Override

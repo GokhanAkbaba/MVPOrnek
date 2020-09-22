@@ -2,6 +2,7 @@ package com.example.mvpornek.Presenter;
 
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Models.SearchQuestionModel;
+import com.example.mvpornek.Response.UserSearchListResponse;
 import com.example.mvpornek.View.QuestionSearchFragmentView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
@@ -32,6 +33,10 @@ public class QuestionSearchFragmentPresenterImpl implements QuestionSearchFragme
                 questionSearchFragmentView.hideLoading();
                 if (response.isSuccessful() && response.body() !=null) {
                     questionSearchFragmentView.onGetResult(response.body());
+                }
+                List<SearchQuestionModel> data=response.body();
+                if(data == null || data.isEmpty() ){
+                    questionSearchFragmentView.onGetResultControl();
                 }
             }
             @Override

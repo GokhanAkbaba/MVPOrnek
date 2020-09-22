@@ -28,6 +28,7 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
     private List<SearchQuestionModel> searchQuestionModels;
     private Context context;
     private SearchAdapterQuestion.ItemClickListener itemClickListener;
+    ProfilFragment profilFragment;
 
 
     public SearchAdapterQuestion(List<SearchQuestionModel> searchQuestionModels, Context context, SearchAdapterQuestion.ItemClickListener itemClickListener) {
@@ -114,18 +115,26 @@ public class SearchAdapterQuestion extends RecyclerView.Adapter<SearchAdapterQue
             soruYorumIcon=itemView.findViewById(R.id.aramaSoruYorumIcon);
             soruYorumIcon.setOnClickListener(this::onClick);
             adSoyad.setOnClickListener(this::onClick);
+            kullanicAdi.setOnClickListener(this::onClick);
+            profilResmi.setOnClickListener(this::onClick);
         }
 
         @Override
         public void onClick(View view) {
             switch (view.getId()){
-                case R.id.kullaniciAdSoyad:
-                    ProfilFragment profilFragment = ProfilFragment.newInstance(searchQuestionModels.get(getAdapterPosition()).getKullanici_id());
+                case R.id.aramaKullaniciAdSoyad:
+                    profilFragment = ProfilFragment.newInstance(searchQuestionModels.get(getAdapterPosition()).getKullanici_id());
                     ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
-                    ((HomeActivity)context).menuDurum(3);
-
                     break;
-                case R.id.soruYorumIcon:
+                case R.id.aramaKullaniciAdiTxt:
+                    profilFragment = ProfilFragment.newInstance(searchQuestionModels.get(getAdapterPosition()).getKullanici_id());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    break;
+                case R.id.aramaRoundedKullaniciResmi:
+                    profilFragment = ProfilFragment.newInstance(searchQuestionModels.get(getAdapterPosition()).getKullanici_id());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    break;
+                case R.id.aramaSoruYorumIcon:
                     itemClickListener.onItemClick(view,getAdapterPosition());
                     break;
             }

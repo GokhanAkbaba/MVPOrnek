@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right|center"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="85dp"
+                        android:layout_marginBottom="45dp"
                         android:backgroundTint="@color/uygulamaMavisiTwo"
                         android:backgroundTintMode="src_in"
                         android:clickable="true"

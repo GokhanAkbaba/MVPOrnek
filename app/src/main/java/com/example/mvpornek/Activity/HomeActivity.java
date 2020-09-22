@@ -375,7 +375,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         if(count == 0){
             super.onBackPressed();
         } else if(count >1){
-           getSupportFragmentManager().popBackStack();
+            if(entry.getName() == "AramaAsama-4" || entry.getName() == "AramaAsamaTık-2"){
+                getSupportFragmentManager().popBackStack("Fragment", 0);
+            }else{
+                getSupportFragmentManager().popBackStack();
+            }
+
+
        }else if (count == 1){
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);

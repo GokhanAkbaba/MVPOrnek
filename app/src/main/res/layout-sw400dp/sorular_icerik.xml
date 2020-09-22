@@ -37,7 +37,7 @@
                 app:layout_constraintVertical_bias="0.103">
 
                 <ImageView
-                    android:id="@+id/roundedKullaniciResmi"
+                    android:id="@+id/sorularIcerikKullaniciResmi"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@color/white"

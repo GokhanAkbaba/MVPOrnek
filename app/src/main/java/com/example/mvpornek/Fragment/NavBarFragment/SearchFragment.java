@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 
 import com.example.mvpornek.Adapter.SearchAdapterQuestion;
+import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Models.SearchQuestionModel;
@@ -66,6 +67,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -76,6 +78,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
         View view=inflater.inflate(R.layout.arama_sayfasi, container, false);
         RelativeLayout relativeLayoutSearchBar=view.findViewById(R.id.search_content_search_bar);
         relativeLayoutSearchBar.setOnClickListener(this);
@@ -102,6 +105,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
             }
         });
 
+        itemClickListener =((vw,position)-> {
+            int soruId=searchQuestionModels.get(position).getSoru_id();
+            showBottomSheet(soruId);
+        });
+
 
         return view;
     }
@@ -114,7 +122,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
         {
             case R.id.search_content_search_bar:
                 fragment=new AramaIcerikFragment();
-                loadFragment(fragment,"AramaIcerik");
+                loadFragment(fragment,"AramaAsama-1");
                 break;
             case R.id.search_content_search_text:
 
@@ -174,5 +182,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
     @Override
     public void internetBaglantisi() {
 
+    }
+    public void showBottomSheet(int soruId) {
+        CommentBottomDialogFragment commentBottomDialogFragment =
+                CommentBottomDialogFragment.newInstance(soruId);
+        commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+                CommentBottomDialogFragment.TAG);
     }
 }

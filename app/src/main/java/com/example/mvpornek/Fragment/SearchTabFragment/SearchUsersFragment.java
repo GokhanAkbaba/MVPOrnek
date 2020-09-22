@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mvpornek.Adapter.AdapterSearchUsers;
 import com.example.mvpornek.Presenter.SearchUser.SearchUserPresenterImpl;
@@ -31,6 +32,7 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
     AdapterSearchUsers adapterSearchUsers;
     AdapterSearchUsers.ItemClickListener itemClickListener;
     SearchUserPresenterImpl searchUserPresenter;
+    TextView controlText;
 
     public SearchUsersFragment() {
         // Required empty public constructor
@@ -56,6 +58,7 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_search_users, container, false);
+        controlText=view.findViewById(R.id.searchUsersControlTxt);
         searchUserFragmentRecyclerView=view.findViewById(R.id.searchUserFragmentRecyclerView);
         searchUserPresenter= new SearchUserPresenterImpl(this);
         searchUserPresenter.loadData(mParam1);
@@ -69,11 +72,17 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
         adapterSearchUsers.notifyDataSetChanged();
         searchUserFragmentRecyclerView.setAdapter(adapterSearchUsers);
         userSearchListResponseList=data;
+        controlText.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void onErrorLoading(String message) {
         System.out.println("Bağlantı Hatası(SearchUsersFragment) "+message);
+    }
+
+    @Override
+    public void onGetResultControl() {
+        controlText.setVisibility(View.VISIBLE);
     }
 
     @Override

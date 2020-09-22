@@ -30,6 +30,7 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
     private Context context;
     private AdapterProfilQuestion.ItemClickListener itemClickListener;
     private AdapterProfilQuestion.ItemClickListener itemLongClickListener;
+    ProfilFragment profilFragment;
 
     public AdapterProfilQuestion(List<QuestionModel> questionModels, Context context, AdapterProfilQuestion.ItemClickListener itemClickListener, AdapterProfilQuestion.ItemClickListener itemLongClickListener) {
         this.questionModels = questionModels;
@@ -103,23 +104,34 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
             yorum_sayisi=itemView.findViewById(R.id.yorumSayisiTxt);
             sorular=itemView.findViewById(R.id.textView12);
             zaman=itemView.findViewById(R.id.soruPaylasmaZamani);
-            profilResmi=itemView.findViewById(R.id.roundedKullaniciResmi);
+            profilResmi=itemView.findViewById(R.id.sorularIcerikKullaniciResmi);
             sorularIcerik=itemView.findViewById(R.id.sorularIcerikLayout);
             soruId=itemView.findViewById(R.id.soruIdTxt);
             soruYorumIcon=itemView.findViewById(R.id.soruYorumIcon);
             sorularIcerik.setOnLongClickListener(this::onLongClick);
             soruYorumIcon.setOnClickListener(this::onClick);
             adSoyad.setOnClickListener(this::onClick);
+            kullanicAdi.setOnClickListener(this::onClick);
+            profilResmi.setOnClickListener(this::onClick);
         }
 
         @Override
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.kullaniciAdSoyad:
-                    ProfilFragment profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
+                    profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
                     ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
                     ((HomeActivity)context).menuDurum(3);
-
+                    break;
+                case R.id.kullaniciAdiTxt:
+                    profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    ((HomeActivity)context).menuDurum(3);
+                    break;
+                case R.id.sorularIcerikKullaniciResmi:
+                    profilFragment = ProfilFragment.newInstance(questionModels.get(getAdapterPosition()).getKullaniciId());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    ((HomeActivity)context).menuDurum(3);
                     break;
                 case R.id.soruYorumIcon:
                     itemClickListener.onItemClick(view,getAdapterPosition());

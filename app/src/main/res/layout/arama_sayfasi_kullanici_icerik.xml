@@ -29,8 +29,11 @@
             android:id="@+id/kullaniciIcerikSearchView"
             android:layout_width="@dimen/search_bar_background_width"
             android:layout_height="@dimen/search_bar_height"
-            android:layout_marginStart="48dp"
-            android:background="@drawable/input_field" />
+            android:background="@drawable/input_field"
+            android:clickable="true"
+            android:iconifiedByDefault="false"
+            tools:layout_editor_absoluteX="91dp"
+            tools:layout_editor_absoluteY="15dp" />
 
     </androidx.appcompat.widget.Toolbar>
 
