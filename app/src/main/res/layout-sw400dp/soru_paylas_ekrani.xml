@@ -51,10 +51,11 @@
         <EditText
             android:id="@+id/soruAlaniText"
             android:layout_width="311dp"
-            android:layout_height="82dp"
+            android:layout_height="100dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="19dp"
+            android:maxLength="250"
             android:background="@drawable/soru_paylas_text_sekil"
             android:ems="10"
             android:gravity="start|top"
@@ -579,6 +580,28 @@
             </LinearLayout>
 
         </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/soruLimitTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="2dp"
+            android:text="0"
+            app:layout_constraintBottom_toTopOf="@+id/filmDiziEtiketBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soruAlaniText"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text=" /250"
+            app:layout_constraintBottom_toTopOf="@+id/filmDiziEtiketBtn"
+            app:layout_constraintStart_toEndOf="@+id/soruLimitTxt"
+            app:layout_constraintTop_toTopOf="@+id/soruLimitTxt" />
     </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

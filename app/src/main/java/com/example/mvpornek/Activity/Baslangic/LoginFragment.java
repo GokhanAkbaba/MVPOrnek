@@ -110,6 +110,8 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
                 loginPresenter.loginValideCredentals(girisKullanici,girisSifre);
                 break;
             case R.id.sifreUnuttumText:
+                fragment=new ForgotPasswordFragment();
+                loadFragment(fragment,"ForgotPasswordFragment");
                 break;
             case R.id.kayitOlSecenekBtn:
                 fragment=new RegisterFragment();
@@ -140,12 +142,17 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
     }
 
     @Override
+    public void setGirisKontrol(String message) {
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void navigateToGiris() {
         epostaInputLayout.setError(null);
         sifreTextInputLayout.setError(null);
-        hideProgress();
         Toast.makeText(getActivity(),"Giriş İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+        hideProgress();
 
     }
     @Override

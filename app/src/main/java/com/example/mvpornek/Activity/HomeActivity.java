@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
@@ -52,11 +54,14 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     Button soruPaylasButon;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
+    private boolean tutorialUsed;
+    private int tutorialPage;
     int item ;
     FloatingActionButton birineSorBtn;
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     ProgressBar progressBar;
+    TextView soruLimit;
     ArrayList<Integer> illerList=new ArrayList<Integer>();
     ArrayList<Integer> etiketList=new ArrayList<Integer>();
     Boolean checkAdanaEtiket=false,checkArtvinEtiket=false;
@@ -75,7 +80,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         bottomNavigationView=findViewById(R.id.anasayfa_nav_view);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
-      
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -139,6 +143,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 Button sporButon=layoutView.findViewById(R.id.sporEtiketBtn);
                 Button adanaButon=layoutView.findViewById(R.id.il_01);
                 Button artvinButon=layoutView.findViewById(R.id.il_02);
+                soruLimit=layoutView.findViewById(R.id.soruLimitTxt);
                 soruPaylasButon=layoutView.findViewById(R.id.soruPaylasBtn);
                 Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
                 soruPaylasButon.setEnabled(false);
@@ -157,6 +162,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                             soruPaylasButon.setEnabled(true);
                             soruPaylasButon.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
                         }
+                        soruLimit.setText(String.valueOf(charSequence.length()));
                     }
 
                     @Override
@@ -460,5 +466,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     public void menuDurum(int durum){
         bottomNavigationView.getMenu().getItem(durum).setChecked(true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

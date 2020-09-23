@@ -14,6 +14,7 @@ import com.example.mvpornek.Response.KullaniciResponse;
 import com.example.mvpornek.Response.LikeModel;
 import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.SifreResponse;
+import com.example.mvpornek.Response.SifremiUnuttumResponse;
 import com.example.mvpornek.Response.SoruKaydetResponse;
 import com.example.mvpornek.Response.SoruSilResponse;
 import com.example.mvpornek.Response.UserSearchListResponse;
@@ -195,5 +196,12 @@ public interface GetDataService {
     Call<List<SearchQuestionModel>> aramaSoruGetir(
             @Field("ifade") String ifade
     );
+
+    @FormUrlEncoded
+    @POST("sifremiUnuttum.php")
+    Call<SifremiUnuttumResponse> sifremiUnuttum(
+            @Field("eposta") String ePosta
+    );
+
 
 }

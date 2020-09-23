@@ -55,8 +55,7 @@ public class LoginInteractorImpl implements LoginInteractor {
                                             .kullaniciKayit(kullaniciGirisResponse.getKullanici());
                                     listener.onSuccess();
                                 }else{
-                                    Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
-                                    loginView.hideProgress();
+                                    listener.onGirisKontrol(response.body().getMessage());
                                 }
                             }
                         }

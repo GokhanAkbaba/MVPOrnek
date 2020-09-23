@@ -29,7 +29,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.QuestionDetailActivity" />
-        <activity android:name=".Activity.ForgotPasswordActivity" />
         <activity android:name=".Activity.HomeActivity"
             android:windowSoftInputMode="stateVisible"
             />

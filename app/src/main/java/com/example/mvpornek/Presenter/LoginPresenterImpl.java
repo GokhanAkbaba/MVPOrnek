@@ -28,6 +28,16 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
             loginView.hideProgress();
         }
     }
+
+    @Override
+    public void onGirisKontrol(String message) {
+        if(loginView != null)
+        {
+            loginView.setGirisKontrol(message);
+            loginView.hideProgress();
+        }
+    }
+
     @Override
     public void onSuccess() {
         if(loginView != null)

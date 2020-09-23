@@ -70,6 +70,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="galeriden_sec_txt">Mevcut fotoğraflardan seç</string>
     <string name="hesabınYokMuTxt">Birine Sor\'a kaydol.</string>
     <string name="sifreniMiUnuttunTxt">Şifreni mi unuttun?</string>
+    <string name="sifreMiUnuttunTxt">Şifremi Unuttum</string>
 
     <string-array name="kullanici_isimleri">
         <item>Gökhan Akbaba</item>
