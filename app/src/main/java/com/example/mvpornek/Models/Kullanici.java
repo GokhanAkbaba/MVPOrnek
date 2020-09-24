@@ -28,8 +28,11 @@ public class Kullanici {
     @SerializedName("kullanici_eposta")
     @Expose
     private String kullaniciEposta;
+    @SerializedName("secim")
+    @Expose
+    private int secim;
 
-    public Kullanici(int id, String adSoyad, String kullaniciAdi, String kullaniciSifre, String salt, String kapakFoto, String profilFoto, String kullaniciEposta) {
+    public Kullanici(int id, String adSoyad, String kullaniciAdi, String kullaniciSifre, String salt, String kapakFoto, String profilFoto, String kullaniciEposta, int secim) {
         this.id = id;
         this.adSoyad = adSoyad;
         this.kullaniciAdi = kullaniciAdi;
@@ -38,6 +41,7 @@ public class Kullanici {
         this.kapakFoto = kapakFoto;
         this.profilFoto = profilFoto;
         this.kullaniciEposta = kullaniciEposta;
+        this.secim=secim;
     }
 
     public int getId() {
@@ -102,5 +106,12 @@ public class Kullanici {
 
     public void setKullaniciEposta(String kullaniciEposta) {
         this.kullaniciEposta = kullaniciEposta;
+    }
+    public int getSecim() {
+        return secim;
+    }
+
+    public void setSecim(int secim) {
+        this.secim = secim;
     }
 }

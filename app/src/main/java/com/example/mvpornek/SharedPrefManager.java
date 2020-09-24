@@ -45,6 +45,10 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getInt("id",-1) != -1;
     }
+    public  boolean secim(){
+        SharedPreferences sharedPreferences =mCtx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("secim",0) != 0;
+    }
 
     public Kullanici getKullanici()
     {
@@ -57,7 +61,8 @@ public class SharedPrefManager {
                 sharedPreferences.getString("salt",null),
                 sharedPreferences.getString("kapakFoto",null),
                 sharedPreferences.getString("profilFoto",null),
-                sharedPreferences.getString("kullaniciEposta",null)
+                sharedPreferences.getString("kullaniciEposta",null),
+                sharedPreferences.getInt("secim",0)
         );
     }
 

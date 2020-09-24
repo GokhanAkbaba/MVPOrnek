@@ -23,6 +23,7 @@ public class SplashScreeenFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    Fragment fragment=null;
 
     public SplashScreeenFragment()
     {
@@ -57,7 +58,7 @@ public class SplashScreeenFragment extends Fragment {
 
 
         final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
-        System.out.println(isLoged);
+        final boolean iSecim=SharedPrefManager.getInstance(getActivity()).secim();
         Thread thread= new Thread(){
             @Override
             public void run() {
@@ -67,9 +68,16 @@ public class SplashScreeenFragment extends Fragment {
                     e.printStackTrace();
                 }finally {
                     if(isLoged == false){
-                        getStartFragment();
+                        fragment=new StartFragment();
+                        loadFragment(fragment,"Start1");
                     }else{
-                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                        if(iSecim == false){
+                            fragment=new BeginingFragment();
+                            loadFragment(fragment,"BeginingFragment");
+                        }else{
+                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                        }
+
                     }
                 }
                 super.run();
@@ -78,18 +86,18 @@ public class SplashScreeenFragment extends Fragment {
         thread.start();
         return view;
     }
-    public void getStartFragment()
-    {
-        StartFragment startFragment=new StartFragment();
-        callFragment(startFragment);
-    }
 
-    public void callFragment(Fragment fragment)
+    private boolean loadFragment(Fragment fragment,String fragmentTag)
     {
-        FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        fragmentTransaction.replace(R.id.startActivityLayout,fragment);
-        fragmentTransaction.commit();
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(fragmentTag)
+                    .replace(R.id.startActivityLayout, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }
 
