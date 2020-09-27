@@ -23,6 +23,7 @@ import com.example.mvpornek.Adapter.CommentAdapter;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Presenter.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.Response.LikeModel;
 import com.example.mvpornek.Presenter.YorumSil.CommentDeletePresenterImpl;
 import com.example.mvpornek.Presenter.Yorum.CommentPresenterImpl;
@@ -32,11 +33,12 @@ import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentDeleteView;
 import com.example.mvpornek.View.CommentView;
 import com.example.mvpornek.View.LikesView;
+import com.example.mvpornek.View.NotificaitonPostView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
 
-public class CommentBottomDialogFragment extends BottomSheetDialogFragment implements View.OnClickListener, LikesView, CommentView, CommentDeleteView {
+public class CommentBottomDialogFragment extends BottomSheetDialogFragment implements View.OnClickListener, NotificaitonPostView, LikesView, CommentView, CommentDeleteView {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -55,6 +57,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     CommentAdapter.ItemClickListener itemClickListener;
     CommentAdapter.ItemClickListener begeniClickListener;
     CommentDeletePresenterImpl commentDeletePresenter;
+    NotificaitonPostPresenterImpl notificaitonPostPresenter;
 
 
     CommentFieldFragment addPhotoBottomDialogFragment;
@@ -84,6 +87,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
         commentPresenter=new CommentPresenterImpl(this);
         dataLoad(mParam1);
         commentDeletePresenter=new CommentDeletePresenterImpl(this);
+        notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
         likesPresenter=new LikesPresenterImpl(this);
 
     }
@@ -106,6 +110,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
             if(durum == "secilmedi") {
                 begeniButonu.setColorFilter(Color.argb(255, 255, 172, 51));
                 likesPresenter.loadLikes(commentModels.get(position).getCevap_id(),kullanici.getId(),1,1);
+                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ " adlı kullanıcı cevabınızı beğendi.",11,commentModels.get(position).getCevap());
                new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -234,5 +239,15 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     public void onGetLike(LikeModel items) {
         this.likeModel=items;
         likeModel=items;
+    }
+
+    @Override
+    public void showNotificaitonSuccesMessage() {
+        ///
+    }
+
+    @Override
+    public void showNotificaitonFailedMessage() {
+////
     }
 }

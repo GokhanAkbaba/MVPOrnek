@@ -11,11 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Models.SelectionControlModel;
+import com.example.mvpornek.Presenter.SelectionControlPresenter;
+import com.example.mvpornek.Presenter.SelectionControlPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.SelectionControl;
 
 
-public class SplashScreeenFragment extends Fragment {
+public class SplashScreeenFragment extends Fragment implements SelectionControl {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -23,7 +28,13 @@ public class SplashScreeenFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
     Fragment fragment=null;
+
+    SelectionControlPresenter selectionControlPresenter;
+
+    SelectionControlModel durum;
+
 
     public SplashScreeenFragment()
     {
@@ -53,12 +64,12 @@ public class SplashScreeenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_baslangic, container, false);
-
+        Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
-
-
+        selectionControlPresenter= new SelectionControlPresenterImpl(this);
+        selectionControlPresenter.loadData(kullanici.getId());
         final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
-        final boolean iSecim=SharedPrefManager.getInstance(getActivity()).secim();
+
         Thread thread= new Thread(){
             @Override
             public void run() {
@@ -67,6 +78,7 @@ public class SplashScreeenFragment extends Fragment {
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {
+                    final boolean iSecim=durum.getSecim();
                     if(isLoged == false){
                         fragment=new StartFragment();
                         loadFragment(fragment,"Start1");
@@ -98,6 +110,11 @@ public class SplashScreeenFragment extends Fragment {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void showSuccesMessage(SelectionControlModel message) {
+        this.durum=message;
     }
 }
 

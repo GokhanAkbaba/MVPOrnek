@@ -9,461 +9,119 @@
     tools:ignore="MissingDefaultResource">
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/yasadiginizIlAciklamaTxt"
+        android:textSize="11sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ilConstraint"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="24dp"
         android:text="@string/baslarkenTxt"
         android:textColor="@color/uygulamaMavisi"
-        android:textSize="40sp"
+        android:textSize="@dimen/baslarkenBaslikSize400"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView36"
-        android:layout_width="378dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="338dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/baslarkenMetin"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35"
         tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/yasadiginizIlTxt"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="475dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:scrollbars="none"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ilConstraint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37">
+        app:layout_constraintTop_toBottomOf="@+id/textView37"
+        tools:ignore="MissingConstraints">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/ilAutoCompleteTextView"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-            <Button
-                android:id="@+id/il_01"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="01"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
 
-            <Button
-                android:id="@+id/il_02"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="02"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_03"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="03"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_04"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="04"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_05"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="05"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_06"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="06"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_07"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="07"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_08"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="08"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_09"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="09"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_10"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="10"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_11"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="11"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_12"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="12"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_13"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="13"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_14"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="14"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_15"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="15"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_16"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="16"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_17"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="17"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_18"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="18"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_19"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="19"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_20"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="20"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_21"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="21"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_22"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="22"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_23"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="23"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_24"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="24"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_25"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="25"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_26"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="26"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_27"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="27"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_28"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="28"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_29"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="29"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_30"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="30"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_31"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="31"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_32"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="32"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_33"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="33"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_34"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="34"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_35"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="35"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/il_36"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/baslarkenilbuton"
-                android:text="36"
-                android:textColor="@color/uygulamaMavisi"
-                android:textSize="30sp" />
-
-        </LinearLayout>
-
-    </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/ilgiAlaniTxt"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:typeface="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/ilConstraint" />
 
     <TextView
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="488dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="528dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/herKonudaBildirimTxt"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/yirmiDortSaatBildirimButon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/baslarkenilbuton"
         android:drawableLeft="@mipmap/bildirim_icon"
-        android:paddingLeft="7dp"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
         app:layout_constraintStart_toStartOf="parent"
@@ -472,125 +130,289 @@
 
     <Button
         android:id="@+id/baslarkenSonrakiBtn"
-        android:layout_width="174dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="170dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/backgraoundapp"
         android:text="Sonraki"
         android:textColor="@color/profilSekmeBeyaz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon"
-        app:layout_constraintVertical_bias="0.956"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/adresEtiketButon"
-        android:layout_width="111dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/baslarkenetiketbuton"
         android:drawableLeft="@mipmap/ic_launcher_adres"
-        android:paddingLeft="10dp"
+        android:paddingLeft="1dp"
         android:text="Adres"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView38"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/yemekEtiketButon"
-        android:layout_width="111dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/baslarkenetiketbuton"
         android:drawableLeft="@mipmap/yemek_icon"
-        android:paddingLeft="10dp"
+        android:paddingLeft="1dp"
         android:text="Yemek"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toEndOf="@+id/adresEtiketButon"
         app:layout_constraintTop_toBottomOf="@+id/textView38"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/sporEtiketButon"
-        android:layout_width="111dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/baslarkenetiketbuton"
         android:drawableLeft="@mipmap/spor_icon"
-        android:paddingLeft="10dp"
+        android:paddingLeft="1dp"
         android:text="Spor"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toEndOf="@+id/yemekEtiketButon"
         app:layout_constraintTop_toBottomOf="@+id/textView38"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/tatilEtiketButon"
-        android:layout_width="111dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/baslarkenetiketbuton"
         android:drawableLeft="@mipmap/tatil_icon"
-        android:paddingLeft="10dp"
+        android:paddingLeft="1dp"
         android:text="Tatil"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adresEtiketButon"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/alisverisEtiketButon"
-        android:layout_width="122dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/baslarkenetiketbuton"
         android:drawableLeft="@mipmap/alisveris_icon"
-        android:paddingLeft="10dp"
         android:text="Alışveriş"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toEndOf="@+id/tatilEtiketButon"
         app:layout_constraintTop_toBottomOf="@+id/yemekEtiketButon"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/sanatEtiketButon"
-        android:layout_width="111dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/film_icon"
-        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_tv_svg"
+        android:paddingLeft="12dp"
         android:text="Sanat"
-
+        android:drawableTint="@color/uygulamaMavisi"
         android:textAllCaps="false"
         android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
         app:layout_constraintStart_toEndOf="@+id/alisverisEtiketButon"
         app:layout_constraintTop_toBottomOf="@+id/sporEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/yazilimEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_engineer"
+        android:paddingLeft="12dp"
+        android:text="Yazılım"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tatilEtiketButon"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/otoEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_auto_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Oto"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/yazilimEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/alisverisEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/modaEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_moda_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Moda"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/otoEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/sanatEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/tarihEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_moda_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Tarih"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yazilimEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/egitimEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_moda_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Eğitim"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tarihEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/muzikEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_auto_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Müzik"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/egitimEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/saglikEtiketButon"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/saglikEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_auto_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Sağlık"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/tarihEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/otoEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/oyunEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_moda_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Oyun"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/saglikEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/modaEtiketButon"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/teknoEtiketButon"
+        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
+        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/baslarkenetiketbuton"
+        android:drawableLeft="@drawable/ic_moda_svg"
+        android:drawableTint="@color/uygulamaMavisi"
+        android:paddingLeft="12dp"
+        android:text="Oyun"
+        android:textAllCaps="false"
+        android:textColor="@color/uygulamaMavisi"
+        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        app:layout_constraintStart_toEndOf="@+id/muzikEtiketButon"
+        app:layout_constraintTop_toBottomOf="@+id/oyunEtiketButon"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="@string/bildirimAciklamaTxt"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

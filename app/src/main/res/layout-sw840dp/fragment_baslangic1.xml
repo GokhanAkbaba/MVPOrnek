@@ -7,10 +7,10 @@
     tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical"
         tools:ignore="MissingDefaultResource">
 
@@ -36,13 +36,13 @@
             android:layout_width="97dp"
             android:layout_height="122dp"
             android:layout_marginBottom="8dp"
+            android:src="@mipmap/question"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             app:layout_constraintEnd_toEndOf="@+id/imageView6"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/imageView6"
-            app:layout_constraintVertical_bias="0.549"
-            android:src="@mipmap/question" />
+            app:layout_constraintVertical_bias="0.549" />
 
         <TextView
             android:id="@+id/textView"
@@ -72,10 +72,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/button"
             android:text="Hesap Oluştur"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:background="@drawable/button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.514"
@@ -87,10 +87,10 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
             android:layout_marginBottom="8dp"
             android:text="Zaten bir hesabın var mı? "
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hesapOlusturBtn"
             app:layout_constraintVertical_bias="0.957" />
@@ -99,15 +99,11 @@
             android:id="@+id/baslangicGirisSecenek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="8dp"
             android:text="Giriş Yap"
             android:textColor="#2196F3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/hesapOlusturBtn"
-            app:layout_constraintVertical_bias="0.957"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="1484dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

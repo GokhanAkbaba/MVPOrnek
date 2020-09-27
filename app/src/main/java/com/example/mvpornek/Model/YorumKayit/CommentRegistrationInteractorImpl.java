@@ -40,7 +40,6 @@ public class CommentRegistrationInteractorImpl implements CommentRegistrationInt
                         {
                             if(hata==false)
                             {
-                                Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
                                 listener.onSuccess();
                             }else{
                                 Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();

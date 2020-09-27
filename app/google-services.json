@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "844016521011",
+    "firebase_url": "https://mvpornek.firebaseio.com",
+    "project_id": "mvpornek",
+    "storage_bucket": "mvpornek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844016521011:android:e1e4aaeda647581d1d3846",
+        "android_client_info": {
+          "package_name": "com.example.mvpornek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844016521011-k7civf7td4n2s0a1vuc1anjvsvn2ovue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe_zLWpWPu3V6sTrWdWERFt8hRW9N6tCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844016521011-k7civf7td4n2s0a1vuc1anjvsvn2ovue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

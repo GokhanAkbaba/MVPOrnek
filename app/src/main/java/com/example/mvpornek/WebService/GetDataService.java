@@ -5,6 +5,7 @@ import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Models.SearchQuestionModel;
+import com.example.mvpornek.Models.SelectionControlModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Response.CevapKaydetResponse;
@@ -12,11 +13,13 @@ import com.example.mvpornek.Response.CevapSilResponse;
 import com.example.mvpornek.Response.EtiketResponse;
 import com.example.mvpornek.Response.KullaniciResponse;
 import com.example.mvpornek.Response.LikeModel;
+import com.example.mvpornek.Response.NotificationResponse;
 import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.SifreResponse;
 import com.example.mvpornek.Response.SifremiUnuttumResponse;
 import com.example.mvpornek.Response.SoruKaydetResponse;
 import com.example.mvpornek.Response.SoruSilResponse;
+import com.example.mvpornek.Response.TokenOlusturResponse;
 import com.example.mvpornek.Response.UserSearchListResponse;
 
 
@@ -119,6 +122,12 @@ public interface GetDataService {
             @Field("soruId") int soruId
 
     );
+    @FormUrlEncoded
+    @POST("kullaniciSecimKontrol.php")
+    Call<SelectionControlModel> secimKontrol(
+            @Field("kullanici_id") int kullanici_id
+
+    );
 
     @FormUrlEncoded
     @POST("cevapSil.php")
@@ -129,6 +138,19 @@ public interface GetDataService {
     @POST("soruSil.php")
     Call<SoruSilResponse> soruSil(
             @Field("soruId") int soruId
+    );
+    @FormUrlEncoded
+    @POST("tokenOlustur.php")
+    Call<TokenOlusturResponse> tokenOlustur(
+            @Field("kullanici_id") int kullaniciID,
+            @Field("token") String token
+    );
+    @FormUrlEncoded
+    @POST("sendSinglePush.php")
+    Call<NotificationResponse> bildirimGonder(
+            @Field("hedefID") int hedefID,
+            @Field("kullaniciAdi") String kullaniciAdi,
+            @Field("message") String mesa
     );
 
 

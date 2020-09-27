@@ -2,14 +2,19 @@ package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Editable;
@@ -49,6 +54,9 @@ import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 public class HomeActivity extends FragmentActivity implements View.OnClickListener, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
+    private static final String CHANNEL_ID ="birine_sor";
+    private static final String CHANNEL_NAME ="Birine_Sor";
+    private static final String CHANNEL_DESC ="Birine_Sor_Notifications";
 
     BottomNavigationView bottomNavigationView;
     Button soruPaylasButon;
@@ -115,6 +123,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         });
 
     }
+
     public void init(int value){
     progressBar.setVisibility(value);
     }

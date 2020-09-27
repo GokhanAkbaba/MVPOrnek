@@ -16,16 +16,20 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import androidx.fragment.app.DialogFragment;
+
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Model.YorumKayit.CommentRegistrationInteractorImpl;
+import com.example.mvpornek.Presenter.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.Presenter.YorumKayit.CommentRegistrationPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentRegistrationView;
+import com.example.mvpornek.View.NotificaitonPostView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener, CommentRegistrationView {
+public class CommentFieldFragment extends BottomSheetDialogFragment implements View.OnClickListener, CommentRegistrationView, NotificaitonPostView {
 
     public static final String TAG = "CommentFieldFragment";
     private static final String ARG_PARAM1 = "param1";
@@ -33,7 +37,9 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
     ScrollView klavyeAlani;
     EditText editText;
     ImageButton yorumGonderBtn;
+
     CommentRegistrationPresenterImpl commentRegistrationPresenter;
+    NotificaitonPostPresenterImpl notificaitonPostPresenter;
 
     public CommentFieldFragment() {
         // Required empty public constructor
@@ -54,6 +60,8 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
         }
+        setStyle(DialogFragment.STYLE_NORMAL,R.style.DialogStyle);
+        notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
         commentRegistrationPresenter=new CommentRegistrationPresenterImpl(this,new CommentRegistrationInteractorImpl(getActivity()));
     }
 
@@ -66,12 +74,10 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
         yorumGonderBtn=view.findViewById(R.id.yorumGonderBtn);
         yorumGonderBtn.setOnClickListener(this);
-
+        yorumGonderBtn.setEnabled(false);
+        yorumGonderBtn.setBackground(getActivity().getDrawable(R.drawable.yorum_gonder_buton));
+        yorumGonderBtn.setColorFilter(getResources().getColor(R.color.ayarlarGrisi));
         klavyeAlani=view.findViewById(R.id.klavyeAlani);
-        ViewGroup.LayoutParams params=klavyeAlani.getLayoutParams();
-        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
-
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -80,7 +86,7 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.toString().trim().length()==0){
+                if(charSequence.length()==0){
                     yorumGonderBtn.setEnabled(false);
                     yorumGonderBtn.setBackground(getActivity().getDrawable(R.drawable.yorum_gonder_buton));
                     yorumGonderBtn.setColorFilter(getResources().getColor(R.color.ayarlarGrisi));
@@ -121,7 +127,14 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
     public void onClick(View view) {
         String soru = editText.getText().toString();
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
-        commentRegistrationPresenter.commentRegistrationValideCredentals(mParam1,kullanici.getId(),soru);
+        switch(view.getId()){
+            case R.id.yorumGonderBtn:
+                commentRegistrationPresenter.commentRegistrationValideCredentals(mParam1,kullanici.getId(),soru);
+                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ " adlı kullanıcı sorunuza cevap verdi",11,soru);
+
+                break;
+        }
+
 
     }
 
@@ -143,4 +156,13 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
     }
 
+    @Override
+    public void showNotificaitonSuccesMessage() {
+
+    }
+
+    @Override
+    public void showNotificaitonFailedMessage() {
+
+    }
 }

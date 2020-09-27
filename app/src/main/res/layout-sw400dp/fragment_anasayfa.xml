@@ -216,16 +216,6 @@
         </HorizontalScrollView>
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/recyclerViewSoruAlaniText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Gösterilecek bir şey yok"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshAnasayfa"
         android:layout_below="@id/anaSayfaMenuFrameLayout"
@@ -251,4 +241,18 @@
     </ScrollView>
 
     <include layout="@layout/yorumlar_bottom_sheet" />
+
+    <TextView
+        android:id="@+id/recyclerViewSoruAlaniText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="Gösterilecek bir şey yok"
+        android:visibility="invisible"
+        app:layout_anchor="@+id/filename_scroll"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
