@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mvpornek.Adapter.SearchAdapterQuestion;
-import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
+import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Presenter.QuestionSearchFragmentPresenterImpl;
 import com.example.mvpornek.R;

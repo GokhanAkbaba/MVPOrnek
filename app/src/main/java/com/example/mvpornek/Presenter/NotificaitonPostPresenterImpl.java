@@ -18,11 +18,11 @@ class NotificaitonPostPresenterImpl implements NotificaitonPostPresenter {
     }
 
     @Override
-    public void postNotification(String kullaniciAdi, int hedefID, String token) {
+    public void postNotification(String kullaniciAdi, int hedefID, String token,int icerikID) {
         Call<NotificationResponse> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
-                .bildirimGonder(hedefID,kullaniciAdi,token);
+                .bildirimGonder(hedefID,kullaniciAdi,token,icerikID);
 
         call.enqueue(new Callback<NotificationResponse>() {
             @Override

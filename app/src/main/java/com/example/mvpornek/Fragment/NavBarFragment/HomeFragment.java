@@ -1,16 +1,11 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -28,7 +23,7 @@ import android.widget.Toast;
 
 import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Adapter.QuestionAdapterActivity;
-import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
+import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
@@ -36,24 +31,17 @@ import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnection
 import com.example.mvpornek.Presenter.QuestionMenuPresenterImpl;
 import com.example.mvpornek.Presenter.Soru.QuestionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionsDeletePresenterImpl;
-import com.example.mvpornek.Presenter.TokenCreatePresenter;
-import com.example.mvpornek.Presenter.TokenCreatePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionMenuView;
 import com.example.mvpornek.View.QuestionView;
 import com.example.mvpornek.View.QuestionsDeleteView;
-import com.example.mvpornek.View.TokenCreateView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.List;
 
-public class HomeFragment extends BottomSheetDialogFragment implements View.OnClickListener, TokenCreateView, QuestionMenuView, QuestionView, InternetConnectionView, QuestionsDeleteView {
+public class HomeFragment extends BottomSheetDialogFragment implements View.OnClickListener, QuestionMenuView, QuestionView, InternetConnectionView, QuestionsDeleteView {
 
     private static final int Adres = 1;
     private static final int Yemek = 2;
@@ -87,7 +75,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     InternetConnectionPresenterImpl internetConnectionPresenter;
     QuestionsDeletePresenterImpl questionsDeletePresenter;
-    TokenCreatePresenterImpl tokenCreatePresenter;
+
 
     TextView textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,soruAlaniTextView;
 
@@ -113,7 +101,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         questionMenuPresenter=new QuestionMenuPresenterImpl(this);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
         questionsDeletePresenter=new QuestionsDeletePresenterImpl(this);
-        tokenCreatePresenter=new TokenCreatePresenterImpl(this);
+
 
         itemClickListener =((vw,position)-> {
                     int soruId=questionModels.get(position).getId();
@@ -179,6 +167,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             public void onRefresh() {
                 internetConnectionPresenter.internetBaglantiKontrolu();
                 questionPresenter.loadData(kullanici.getId());
+                System.out.println("dfsdf"+kullanici.getId());
 
             }
         });
@@ -190,17 +179,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         return view;
     }
 
-    private void createFirebaseInstanceId() {
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if(task.isSuccessful()){
-                            tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
-                        }
-                    }
-                });
-    }
 
     public void showBottomSheet(int soruId) {
         CommentBottomDialogFragment commentBottomDialogFragment =
@@ -208,16 +186,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }
-    public void loadData(int id){
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                internetConnectionPresenter.internetBaglantiKontrolu();
-                questionMenuPresenter.loadData(id);
 
-            }
-        });
-    }
     @Override
     public void onClick(View view) {
         switch (view.getId())
@@ -230,7 +199,14 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(yemekButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGizle(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek);
                     questionMenuPresenter.loadData(Alisveris);
-                    loadData(Alisveris);
+                    swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                        @Override
+                        public void onRefresh() {
+                            internetConnectionPresenter.internetBaglantiKontrolu();
+                            questionMenuPresenter.loadData(Alisveris);
+
+                        }
+                    });
                     checkAlisverisEtiket = true;
                 }
                 else
@@ -239,7 +215,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(yemekButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGoster(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
+
                     checkAlisverisEtiket=false;
                 }
                 break;
@@ -250,7 +226,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(alisverisButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGizle(textViewYemek,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewAlisveris);
                     questionMenuPresenter.loadData(Yemek);
-                    loadData(Yemek);
                     checkYemekEtiket = true;
                 }
                 else
@@ -259,7 +234,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(alisverisButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGoster(textViewYemek,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
                     checkYemekEtiket=false;
                 }
                 break;
@@ -270,7 +244,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(alisverisButon,adresButon,filmDiziButon,sporButon,yemekButon);
                     anaSayfaTextRenkGizle(textViewTatil,textViewAdres,textViewFilmDizi,textViewSpor,textViewYemek,textViewAlisveris);
                     questionMenuPresenter.loadData(Tatil);
-                    loadData(Tatil);
                     checkTatilEtiket = true;
                 }
                 else
@@ -279,7 +252,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(alisverisButon,adresButon,filmDiziButon,sporButon,yemekButon);
                     anaSayfaTextRenkGoster(textViewTatil,textViewAdres,textViewFilmDizi,textViewSpor,textViewYemek,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
                     checkTatilEtiket=false;
                 }
                 break;
@@ -290,7 +262,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewFilmDizi,textViewSpor,textViewYemek,textViewAlisveris);
                     anaSayfaButonGizle(alisverisButon,filmDiziButon,sporButon,yemekButon,tatilButon);
                     questionMenuPresenter.loadData(Adres);
-                    loadData(Adres);
                     checkAdresEtiket = true;
                 }
                 else
@@ -299,7 +270,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(alisverisButon,filmDiziButon,sporButon,yemekButon,tatilButon);
                     anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewFilmDizi,textViewSpor,textViewYemek,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
                     checkAdresEtiket=false;
                 }
                 break;
@@ -310,7 +280,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(alisverisButon,filmDiziButon,adresButon,yemekButon,tatilButon);
                     anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewFilmDizi,textViewYemek,textViewAlisveris);
                     questionMenuPresenter.loadData(Spor);
-                    loadData(Spor);
                     checkSporEtiket = true;
                 }
                 else
@@ -319,7 +288,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(alisverisButon,filmDiziButon,adresButon,yemekButon,tatilButon);
                     anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewFilmDizi,textViewYemek,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
                     checkSporEtiket=false;
                 }
                 break;
@@ -330,7 +298,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
                     anaSayfaTextRenkGizle(textViewFilmDizi,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
                     questionMenuPresenter.loadData(FilmDizi);
-                    loadData(FilmDizi);
                     checkFilmDiziEtiket = true;
                 }
                 else
@@ -339,7 +306,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
                     anaSayfaTextRenkGoster(textViewFilmDizi,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
-                    loadData(kullanici.getId());
                     checkFilmDiziEtiket=false;
                 }
                 break;
@@ -391,7 +357,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         questionModels=data;
         soruAlaniTextView.setVisibility(View.INVISIBLE);
-        ((HomeActivity)getActivity()).init(View.INVISIBLE);
+        HomeActivity.getInstance().init(View.INVISIBLE);
     }
 
     @Override
@@ -438,13 +404,5 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         questionPresenter.loadData(kullanici.getId());
     }
 
-    @Override
-    public void showTokenSuccesMessage() {
-        System.out.println("Token Başarılı Bir Şekilde Oluştu");
-    }
 
-    @Override
-    public void showTokenFailedMessage() {
-        System.out.println("Token HATA");
-    }
 }

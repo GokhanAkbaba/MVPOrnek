@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.CevaplarimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.SorularimFragment;
@@ -31,6 +32,7 @@ import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.UsersGetView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -137,16 +139,15 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             cevaplarimFragment= CevaplarimFragment.newInstance(mParam1);
             begendiklerimFragment=BegendiklerimFragment.newInstance(mParam1);
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
-            new Handler().postDelayed(new Runnable() {
+            /*new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    setTitle(kullaniciGetir.getAdSoyad());
                     profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
                     profilKullaniciAdiTxt.setText(kullaniciGetir.getKullaniciAdi());
                     profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
                     GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
                 }
-            }, 400);
+            }, 400);*/
         }else{
             sorularimFragment = SorularimFragment.newInstance(kullanici.getId());
             cevaplarimFragment= CevaplarimFragment.newInstance(kullanici.getId());
@@ -157,12 +158,20 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             setTitle(kullanici.getAdSoyad());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
         }
+
+
         return view;
     }
 
     @Override
     public void onGetResult(KullaniciGetir kullaniciGetir) {
-       this.kullaniciGetir=kullaniciGetir;
+        this.kullaniciGetir=kullaniciGetir;
+        setTitle(kullaniciGetir.getAdSoyad());
+        profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
+        profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
+        profilKullaniciAdiTxt.setText(kullaniciGetir.getKullaniciAdi());
+        profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
+        GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
     }
     @Override
     public void onErrorLoading(String message) {

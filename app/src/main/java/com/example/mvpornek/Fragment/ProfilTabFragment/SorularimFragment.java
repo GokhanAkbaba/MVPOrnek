@@ -16,10 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.Adapter.AdapterProfilQuestion;
-import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
+import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.QuestionModel;
-import com.example.mvpornek.Presenter.ProfilQuestionPresenterImpl;
+import com.example.mvpornek.Presenter.ProfilQuestion.ProfilQuestionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionsDeletePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;

@@ -4,6 +4,7 @@ package com.example.mvpornek.WebService;
 import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.LikesModel;
+import com.example.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Models.SelectionControlModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
@@ -113,7 +114,7 @@ public interface GetDataService {
 
             @Field("kullanici_id") int kullaniciId,
             @Field("soru_id") int soruId,
-            @Field("cevap") String soru
+            @Field("cevap") String cevap
     );
 
     @FormUrlEncoded
@@ -150,9 +151,16 @@ public interface GetDataService {
     Call<NotificationResponse> bildirimGonder(
             @Field("hedefID") int hedefID,
             @Field("kullaniciAdi") String kullaniciAdi,
-            @Field("message") String mesa
+            @Field("message") String message,
+            @Field("icerikID") int icerikIDList
     );
 
+    @FormUrlEncoded
+    @POST("notificationCommentAndQuestion.php")
+    Call<List<NotificationCommetAndQuestionModel>> bildirimYorumIcerikGetir(
+            @Field("soruID") int soruID
+
+    );
 
     @FormUrlEncoded
     @POST("begenislemleri.php")

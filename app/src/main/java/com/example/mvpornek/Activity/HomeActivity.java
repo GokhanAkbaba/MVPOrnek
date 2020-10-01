@@ -11,14 +11,18 @@ import androidx.fragment.app.FragmentManager;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,11 +32,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.request.RequestOptions;
+import com.example.mvpornek.BildirimFonksiyonları;
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
+import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.SoruKayit.QuestionRegistrationInteractorImpl;
@@ -44,11 +51,17 @@ import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionRegistrationView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+
 import java.util.ArrayList;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
 public class HomeActivity extends FragmentActivity implements View.OnClickListener, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
@@ -59,26 +72,39 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private static final String CHANNEL_DESC ="Birine_Sor_Notifications";
 
     BottomNavigationView bottomNavigationView;
+
     Button soruPaylasButon;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
-    private boolean tutorialUsed;
-    private int tutorialPage;
+    public static HomeActivity instance;
     int item ;
     FloatingActionButton birineSorBtn;
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     ProgressBar progressBar;
     TextView soruLimit;
+    Button tv;
+    View notificationBadge;
+    BottomNavigationMenuView menuView;
+    BottomNavigationItemView itemView;
+    BildirimFonksiyonları bildirimFonksiyonları;
     ArrayList<Integer> illerList=new ArrayList<Integer>();
     ArrayList<Integer> etiketList=new ArrayList<Integer>();
     Boolean checkAdanaEtiket=false,checkArtvinEtiket=false;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,checkGeziEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false,checkYazilimEtiket = false;
+
+    public static HomeActivity getInstance() {
+        return instance;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
+
+        instance=this;
+        bildirimFonksiyonları=new BildirimFonksiyonları(this);
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         birineSorBtn=findViewById(R.id.soruPaylasimButon);
@@ -89,6 +115,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -100,6 +127,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                     case R.id.anaSayfaItem:
                         fragment=new HomeFragment();
                         loadFragment(fragment,"AnaSayfaFragment");
+
                         break;
                     case R.id.profilItem:
                         fragment=new ProfilFragment();
@@ -108,6 +136,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                     case R.id.bildirimItem:
                         fragment=new BildirimlerFragment();
                         loadFragment(fragment,"Fragment");
+                        refreshBadgeView(bildirimFonksiyonları.getCount());
+                        bildirimFonksiyonları.setCount(0);
                         break;
                     case R.id.aramaItem:
                         fragment=new SearchFragment();
@@ -122,9 +152,41 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             }
         });
 
+        addBadgeView();
+
+        notificationBadge.setVisibility(View.INVISIBLE);
+        if(NotificationCommentActivity.getBildirimAcilis() != null){
+            notificationView(bildirimFonksiyonları.getCount());
+        }
+
+
+    }
+    protected void refreshBadgeView(int count){
+        System.out.println("NotificationBadgeDurum-2"+notificationBadge.getVisibility());
+        if(count != 0){
+            boolean badgeIsVisible = notificationBadge.getVisibility() != VISIBLE;
+            notificationBadge.setVisibility(badgeIsVisible ? VISIBLE : GONE);
+        }
+        System.out.println("NotificationBadgeDurum-2-çıkış"+notificationBadge.getVisibility());
+    }
+    public void addBadgeView(){
+
+        menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        itemView = (BottomNavigationItemView) menuView.getChildAt(2);
+        notificationBadge = LayoutInflater.from(this).inflate(R.layout.component_tabbar_badge, menuView, false);
+        tv = notificationBadge.findViewById(R.id.notification_badge);
+        itemView.addView(notificationBadge);
     }
 
-    public void init(int value){
+    public void notificationView(int count){
+        System.out.println("NotificationBadgeDurum-3"+notificationBadge.getVisibility());
+        tv.setText(String.valueOf(count));
+        notificationBadge.setVisibility(VISIBLE);
+        System.out.println("NotificationBadgeDurum-3-çıkış"+notificationBadge.getVisibility());
+
+    }
+
+   public void init(int value){
     progressBar.setVisibility(value);
     }
 
@@ -376,7 +438,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                     .beginTransaction()
                     .addToBackStack(fragmentTag)
                     .replace(R.id.anaSayfaFrameLayout, fragment)
-                    .commit();
+                    .commitAllowingStateLoss();
             return true;
         }
         return false;
@@ -421,7 +483,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         int count=getSupportFragmentManager().getBackStackEntryCount();
         if(count <= 2)
         {
-            bottomNavigationView.setVisibility(View.VISIBLE);
+            bottomNavigationView.setVisibility(VISIBLE);
         }
         for (int i=count - 1;i>=0;i--){
             FragmentManager.BackStackEntry entry=getSupportFragmentManager().getBackStackEntryAt(i);
@@ -480,5 +542,11 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+   @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

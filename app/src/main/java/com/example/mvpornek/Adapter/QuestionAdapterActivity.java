@@ -9,25 +9,20 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.R;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapterActivity.RecyclerViewAdapter>{
 

@@ -6,5 +6,5 @@ public interface CommentRegistrationInteractor {
     interface onCommentRegistrationInteractor{
         void onSuccess();
     }
-    void QuestionRegistration (int kullaniciId,int id, String soru, onCommentRegistrationInteractor listener);
+    void CommentRegistration (int kullaniciId,int soruId, String cevap, onCommentRegistrationInteractor listener);
 }

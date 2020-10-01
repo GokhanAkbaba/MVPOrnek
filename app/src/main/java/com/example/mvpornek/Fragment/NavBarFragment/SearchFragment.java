@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 
 import com.example.mvpornek.Adapter.SearchAdapterQuestion;
-import com.example.mvpornek.Fragment.CommentBottomDialogFragment;
+import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Models.SearchQuestionModel;

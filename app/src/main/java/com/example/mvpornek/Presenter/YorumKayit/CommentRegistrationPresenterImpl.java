@@ -15,12 +15,12 @@ public class CommentRegistrationPresenterImpl implements CommentRegistrationPres
     }
 
     @Override
-    public void commentRegistrationValideCredentals(int kullaniciId,int id, String soru) {
+    public void commentRegistrationValideCredentals(int kullaniciId,int soruId, String cevap) {
         if(commentRegistrationView != null)
         {
             commentRegistrationView.showProgress();
         }
-        commentRegistrationInteractor.QuestionRegistration(id,kullaniciId,soru,this );
+        commentRegistrationInteractor.CommentRegistration(kullaniciId,soruId,cevap,this );
     }
 
     @Override

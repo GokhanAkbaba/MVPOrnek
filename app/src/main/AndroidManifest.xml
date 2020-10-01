@@ -13,11 +13,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Ayarlar.SifreDuzenleActivity"/>
+        <activity android:name=".Activity.NotificationCommentActivity"
+            android:parentActivityName=".Activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"></activity>
+        <activity android:name=".Activity.Ayarlar.SifreDuzenleActivity" />
         <activity android:name=".Activity.ImagePickerActivity" />
         <activity
             android:name=".Activity.Ayarlar.ProfilDuzenleActivity"
@@ -30,17 +35,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.QuestionDetailActivity" />
-        <activity android:name=".Activity.HomeActivity"
-            android:windowSoftInputMode="stateVisible"
-            />
+        <activity
+            android:name=".Activity.HomeActivity"
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

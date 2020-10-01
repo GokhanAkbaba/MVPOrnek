@@ -21,7 +21,7 @@ public class CommentRegistrationInteractorImpl implements CommentRegistrationInt
     }
 
     @Override
-    public void QuestionRegistration(int kullaniciId, int id, String soru, onCommentRegistrationInteractor listener) {
+    public void CommentRegistration(int kullaniciId, int soruId, String cevap, onCommentRegistrationInteractor listener) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -29,7 +29,7 @@ public class CommentRegistrationInteractorImpl implements CommentRegistrationInt
                 Call<CevapKaydetResponse> call= RetrofitClientInstance
                         .getInstance()
                         .getDataService()
-                        .cevapKaydet(kullaniciId,id,soru);
+                        .cevapKaydet(kullaniciId,soruId,cevap);
 
                 call.enqueue(new Callback<CevapKaydetResponse>() {
                     @Override

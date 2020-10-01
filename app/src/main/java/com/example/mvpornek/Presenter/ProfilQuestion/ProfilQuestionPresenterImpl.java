@@ -1,7 +1,7 @@
-package com.example.mvpornek.Presenter;
+package com.example.mvpornek.Presenter.ProfilQuestion;
 
-import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Models.QuestionModel;
+import com.example.mvpornek.Presenter.ProfilQuestion.ProfilQuestionPresenter;
 import com.example.mvpornek.View.ProfilQuestionView;
 import com.example.mvpornek.WebService.RetrofitClientInstance;
 
@@ -11,7 +11,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfilQuestionPresenterImpl implements ProfilQuestionPresenter{
+public class ProfilQuestionPresenterImpl implements ProfilQuestionPresenter {
 
     ProfilQuestionView profilQuestionView;
 

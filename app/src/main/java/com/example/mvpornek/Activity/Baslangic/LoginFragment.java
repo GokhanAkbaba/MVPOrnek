@@ -18,8 +18,8 @@ import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInte
 import com.example.mvpornek.Model.Giris.LoginInteractorImpl;
 import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
 import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
-import com.example.mvpornek.Presenter.LoginPresenter;
-import com.example.mvpornek.Presenter.LoginPresenterImpl;
+import com.example.mvpornek.Presenter.Login.LoginPresenter;
+import com.example.mvpornek.Presenter.Login.LoginPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.LoginView;

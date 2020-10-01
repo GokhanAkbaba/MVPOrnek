@@ -1,4 +1,4 @@
-package com.example.mvpornek.Fragment;
+package com.example.mvpornek.Fragment.Comment;
 
 
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -125,12 +124,12 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
     @Override
     public void onClick(View view) {
-        String soru = editText.getText().toString();
+        String cevap = editText.getText().toString();
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         switch(view.getId()){
             case R.id.yorumGonderBtn:
-                commentRegistrationPresenter.commentRegistrationValideCredentals(mParam1,kullanici.getId(),soru);
-                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ " adlı kullanıcı sorunuza cevap verdi",11,soru);
+                commentRegistrationPresenter.commentRegistrationValideCredentals(kullanici.getId(),mParam1,cevap);
+                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ "adlı kullanıcı sorunuza cevap verdi",11,cevap,mParam1);
 
                 break;
         }

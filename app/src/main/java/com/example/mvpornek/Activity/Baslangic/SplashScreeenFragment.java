@@ -3,6 +3,7 @@ package com.example.mvpornek.Activity.Baslangic;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,12 +16,18 @@ import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.SelectionControlModel;
 import com.example.mvpornek.Presenter.SelectionControlPresenter;
 import com.example.mvpornek.Presenter.SelectionControlPresenterImpl;
+import com.example.mvpornek.Presenter.TokenCreatePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.SelectionControl;
+import com.example.mvpornek.View.TokenCreateView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 
-public class SplashScreeenFragment extends Fragment implements SelectionControl {
+public class SplashScreeenFragment extends Fragment implements SelectionControl, TokenCreateView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -32,8 +39,11 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
     Fragment fragment=null;
 
     SelectionControlPresenter selectionControlPresenter;
+    TokenCreatePresenterImpl tokenCreatePresenter;
 
     SelectionControlModel durum;
+
+    Kullanici kullanici;
 
 
     public SplashScreeenFragment()
@@ -66,8 +76,11 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
         View view = inflater.inflate(R.layout.fragment_baslangic, container, false);
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
+
         selectionControlPresenter= new SelectionControlPresenterImpl(this);
         selectionControlPresenter.loadData(kullanici.getId());
+        tokenCreatePresenter=new TokenCreatePresenterImpl(this);
+
         final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
 
         Thread thread= new Thread(){
@@ -78,16 +91,17 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }finally {
-                    final boolean iSecim=durum.getSecim();
                     if(isLoged == false){
                         fragment=new StartFragment();
                         loadFragment(fragment,"Start1");
                     }else{
+                        final boolean iSecim=durum.getSecim();
                         if(iSecim == false){
                             fragment=new BeginingFragment();
                             loadFragment(fragment,"BeginingFragment");
                         }else{
                             startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                            createFirebaseInstanceId();
                         }
 
                     }
@@ -97,6 +111,18 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
         };
         thread.start();
         return view;
+    }
+    private void createFirebaseInstanceId() {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if(task.isSuccessful()){
+                            kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
+                            tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
+                        }
+                    }
+                });
     }
 
     private boolean loadFragment(Fragment fragment,String fragmentTag)
@@ -110,6 +136,15 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
             return true;
         }
         return false;
+    }
+    @Override
+    public void showTokenSuccesMessage() {
+        System.out.println("Token Başarılı Bir Şekilde Oluştu");
+    }
+
+    @Override
+    public void showTokenFailedMessage() {
+        System.out.println("Token HATA");
     }
 
     @Override

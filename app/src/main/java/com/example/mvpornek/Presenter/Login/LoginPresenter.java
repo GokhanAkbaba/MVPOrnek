@@ -1,4 +1,4 @@
-package com.example.mvpornek.Presenter;
+package com.example.mvpornek.Presenter.Login;
 
 public interface LoginPresenter {
     void  loginValideCredentals(String ePosta,String sifre);
