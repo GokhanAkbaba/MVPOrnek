@@ -171,7 +171,7 @@
 
         <RelativeLayout
             android:id="@+id/adresEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/baslarkenetiketbuton"
@@ -189,7 +189,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher_adres" />
+                android:src="@drawable/ic_location" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -207,7 +207,7 @@
 
         <RelativeLayout
             android:id="@+id/yemekEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/baslarkenetiketbuton"
@@ -226,7 +226,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/yemek_icon" />
+                android:src="@drawable/ic_yemek" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -244,7 +244,7 @@
 
         <RelativeLayout
             android:id="@+id/sporEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/baslarkenetiketbuton"
@@ -263,7 +263,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/spor_icon" />
+                android:src="@drawable/ic_trophy" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -281,7 +281,7 @@
 
         <RelativeLayout
             android:id="@+id/tatilEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -301,7 +301,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/tatil_icon" />
+                android:src="@drawable/ic_tatil" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -319,7 +319,7 @@
 
         <RelativeLayout
             android:id="@+id/alisverisEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -329,17 +329,17 @@
             tools:ignore="MissingConstraints,NotSibling">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="27dp"
+                android:layout_height="22dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="11dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="1dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/alisveris_icon" />
+                android:layout_marginBottom="2dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_alisveris" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -357,7 +357,7 @@
 
         <RelativeLayout
             android:id="@+id/sanatEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -396,7 +396,7 @@
 
         <RelativeLayout
             android:id="@+id/yazilimEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -435,7 +435,7 @@
 
         <RelativeLayout
             android:id="@+id/otoEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -474,7 +474,7 @@
 
         <RelativeLayout
             android:id="@+id/modaEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -506,14 +506,14 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="34dp"
                 android:gravity="center"
-                android:text="Oto"
+                android:text="Moda"
                 android:textColor="@color/uygulamaMavisi"
                 android:textSize="11sp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/tarihEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -534,7 +534,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_tarih_svg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -552,7 +552,7 @@
 
         <RelativeLayout
             android:id="@+id/egitimEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -573,7 +573,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_book" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -591,7 +591,7 @@
 
         <RelativeLayout
             android:id="@+id/muzikEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -612,7 +612,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_muzik_svg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -629,7 +629,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/saglikEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -650,7 +650,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_saglik_svg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -667,7 +667,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/oyunEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -688,7 +688,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_oyun_svg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -705,7 +705,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/teknoEtiketButon"
-            android:layout_width="80dp"
+            android:layout_width="86dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -726,7 +726,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_moda_svg" />
+                android:src="@drawable/ic_teknoloji_svg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -753,6 +753,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/bildirimAciklamaTxt"
         android:textSize="11sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
