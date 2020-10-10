@@ -84,7 +84,8 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         });
         itemClickListener =((vw,position)-> {
             int soruId=searchQuestionModels.get(position).getSoru_id();
-            showBottomSheet(soruId);
+            int soruSoranKullaniciID=searchQuestionModels.get(position).getKullanici_id();
+            showBottomSheet(soruId,soruSoranKullaniciID);
         });
 
         return view;
@@ -128,9 +129,9 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         controlTxt.setVisibility(View.VISIBLE);
     }
 
-    public void showBottomSheet(int soruId) {
+    public void showBottomSheet(int soruId,int soruSoranKullaniciID) {
         CommentBottomDialogFragment commentBottomDialogFragment =
-                CommentBottomDialogFragment.newInstance(soruId);
+                CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciID);
         commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }

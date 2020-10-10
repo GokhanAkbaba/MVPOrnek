@@ -1,7 +1,6 @@
 package com.example.mvpornek.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Activity.NotificationCommentActivity;
+import com.example.mvpornek.Activity.Notification.NotificationCommentActivity;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.Kullanici;

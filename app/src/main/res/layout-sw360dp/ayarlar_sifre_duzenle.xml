@@ -55,7 +55,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button"
                 android:text="Güncelle"
-                android:fontFamily="@font/jost"
+
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
@@ -110,7 +110,7 @@
                     android:layout_marginEnd="1dp"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
+
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +136,6 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
                     app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +161,6 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
                     app:layout_constraintStart_toStartOf="parent"

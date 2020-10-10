@@ -198,7 +198,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="17dp"
-                    android:fontFamily="@font/jost_medium"
                     android:text="Tüm İller"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"

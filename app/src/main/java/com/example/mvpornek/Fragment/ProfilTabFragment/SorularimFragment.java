@@ -32,6 +32,7 @@ import java.util.List;
 public class SorularimFragment extends Fragment implements ProfilQuestionView,View.OnClickListener, QuestionsDeleteView {
 
     private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param1";
 
 
     private RecyclerView profilSorularimRecyclerView;
@@ -87,7 +88,8 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
 
         itemClickListener =((vw,position)-> {
             int soruId=questionModels.get(position).getId();
-            showBottomSheet(soruId);
+            int soruSoranKullaniciID=questionModels.get(position).getId();
+            showBottomSheet(soruId,soruSoranKullaniciID);
         });
 
         itemLongClickListener =((vw,position)-> {
@@ -119,9 +121,9 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         });
         return view;
     }
-    public void showBottomSheet(int soruId) {
+    public void showBottomSheet(int soruId,int soruSoranKullaniciID) {
         CommentBottomDialogFragment commentBottomDialogFragment =
-                CommentBottomDialogFragment.newInstance(soruId);
+                CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciID);
         commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }

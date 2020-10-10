@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:fontFamily="@font/jost_medium"
+
                 android:text="Profil Düzenle"
                 android:textColor="@color/uygulamaMavisi"
                 android:textSize="15sp" />
@@ -57,7 +57,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button"
                 android:text="Güncelle"
-                android:fontFamily="@font/jost"
+
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
@@ -132,7 +132,7 @@
                     android:layout_marginEnd="1dp"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
+
                     android:inputType="textPersonName"
                     android:text="Gökhan Akbaba"
                     android:textCursorDrawable="@drawable/color_curse"
@@ -159,7 +159,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt320"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
+
                     android:inputType="textPersonName"
                     android:text="\@GokhanAkbaba"
                     android:textCursorDrawable="@drawable/color_curse"
@@ -186,7 +186,6 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt320"
                     android:ems="10"
                     android:enabled="true"
-                    android:fontFamily="@font/jost"
                     android:inputType="textPersonName"
                     android:text="gokhanakbaba1907@gmail.com"
                     android:textCursorDrawable="@drawable/color_curse"

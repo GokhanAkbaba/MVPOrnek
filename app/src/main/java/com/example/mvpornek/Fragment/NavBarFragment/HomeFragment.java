@@ -105,7 +105,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
         itemClickListener =((vw,position)-> {
                     int soruId=questionModels.get(position).getId();
-                    showBottomSheet(soruId);
+                    int soruSoranKullaniciId=questionModels.get(position).getKullaniciId();
+                    showBottomSheet(soruId,soruSoranKullaniciId);
         });
 
         itemLongClickListener =((vw,position)-> {
@@ -167,7 +168,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             public void onRefresh() {
                 internetConnectionPresenter.internetBaglantiKontrolu();
                 questionPresenter.loadData(kullanici.getId());
-                System.out.println("dfsdf"+kullanici.getId());
 
             }
         });
@@ -180,9 +180,9 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     }
 
 
-    public void showBottomSheet(int soruId) {
+    public void showBottomSheet(int soruId,int soruSoranKullaniciId) {
         CommentBottomDialogFragment commentBottomDialogFragment =
-                CommentBottomDialogFragment.newInstance(soruId);
+                CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciId);
         commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }

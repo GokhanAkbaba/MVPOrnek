@@ -7,6 +7,7 @@ public interface RegisterView {
     void setAdSoyadHatasi();
     void setSifeHatasi();
     void setEpostaHatasi(String error);
+    void setEpostaOnay();
     void setSifreTekrarHatasi();
     void setSifreKontrol();
     void navigateToHome();

@@ -12,7 +12,7 @@
     <dimen name="kayitOlEditText">40dp</dimen>
 
     <dimen name="kayitOlTextInputLayoutWidth320">220dp</dimen>
-    <dimen name="kayitOlTextInputLayoutHeight320">50dp</dimen>
+    <dimen name="kayitOlTextInputLayoutHeight320">40dp</dimen>
     <dimen name="girisYapTextInputLayoutWidth320">220dp</dimen>
     <dimen name="girisYapTextInputLayoutHeight320">58dp</dimen>
     <dimen name="girisYapEditTextPadding320">5dp</dimen>

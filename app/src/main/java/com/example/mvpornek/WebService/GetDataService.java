@@ -1,12 +1,16 @@
 package com.example.mvpornek.WebService;
 
 
+import android.media.session.MediaSession;
+
 import com.example.mvpornek.Models.AnswersModel;
+import com.example.mvpornek.Models.BildirimlerBegenilerModel;
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Models.SelectionControlModel;
+import com.example.mvpornek.Response.BildirimlerCevaplarModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
 import com.example.mvpornek.Response.CevapKaydetResponse;
@@ -14,6 +18,7 @@ import com.example.mvpornek.Response.CevapSilResponse;
 import com.example.mvpornek.Response.EtiketResponse;
 import com.example.mvpornek.Response.KullaniciResponse;
 import com.example.mvpornek.Response.LikeModel;
+import com.example.mvpornek.Response.NotificationCommentAndLikeModel;
 import com.example.mvpornek.Response.NotificationResponse;
 import com.example.mvpornek.Response.SearchListResponse;
 import com.example.mvpornek.Response.SifreResponse;
@@ -21,6 +26,7 @@ import com.example.mvpornek.Response.SifremiUnuttumResponse;
 import com.example.mvpornek.Response.SoruKaydetResponse;
 import com.example.mvpornek.Response.SoruSilResponse;
 import com.example.mvpornek.Response.TokenOlusturResponse;
+import com.example.mvpornek.Response.TokenSilResponse;
 import com.example.mvpornek.Response.UserSearchListResponse;
 
 
@@ -124,6 +130,18 @@ public interface GetDataService {
 
     );
     @FormUrlEncoded
+    @POST("bildirimlerCevaplariGetir.php")
+    Call<List<BildirimlerCevaplarModel>> bildirimCevaplarGetir(
+            @Field("kullaniciID") int kullaniciID
+
+    );
+    @FormUrlEncoded
+    @POST("bildirimlerBegenileriGetir.php")
+    Call<List<BildirimlerBegenilerModel>> bildirimBegenileriGetir(
+            @Field("kullaniciID") int kullaniciID
+
+    );
+    @FormUrlEncoded
     @POST("kullaniciSecimKontrol.php")
     Call<SelectionControlModel> secimKontrol(
             @Field("kullanici_id") int kullanici_id
@@ -135,6 +153,14 @@ public interface GetDataService {
     Call<CevapSilResponse> cevapSil(
             @Field("cevap_id") int cevapId
     );
+
+
+    @FormUrlEncoded
+    @POST("tokenSil.php")
+    Call<TokenSilResponse> tokenSil(
+            @Field("kullaniciID") int kullaniciID
+    );
+
     @FormUrlEncoded
     @POST("soruSil.php")
     Call<SoruSilResponse> soruSil(
@@ -149,16 +175,26 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("sendSinglePush.php")
     Call<NotificationResponse> bildirimGonder(
-            @Field("hedefID") int hedefID,
-            @Field("kullaniciAdi") String kullaniciAdi,
-            @Field("message") String message,
-            @Field("icerikID") int icerikIDList
+            @Field("bildirimYapanKullaniciID") int bildirimYapanKullaniciID,
+            @Field("bildirimYapılanKullaniciID") int bildirimYapılanKullaniciID,
+            @Field("bildirimYapılanCevapID") int bildirimYapılanCevapID,
+            @Field("bildirimYapılanSoruID") int bildirimYapılanSoruID,
+            @Field("ileti") String ileti,
+            @Field("durum") String durum,
+            @Field("bildirimTuru") int bildirimTuru
     );
 
     @FormUrlEncoded
     @POST("notificationCommentAndQuestion.php")
     Call<List<NotificationCommetAndQuestionModel>> bildirimYorumIcerikGetir(
             @Field("soruID") int soruID
+
+    );
+    @FormUrlEncoded
+    @POST("notificationCommentAndLike.php")
+    Call<List<NotificationCommentAndLikeModel>> bildirimBegeniIcerikGetir(
+            @Field("soruID") int soruID,
+            @Field("cevapID") int cevapID
 
     );
 

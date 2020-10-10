@@ -107,7 +107,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
 
         itemClickListener =((vw,position)-> {
             int soruId=searchQuestionModels.get(position).getSoru_id();
-            showBottomSheet(soruId);
+            int soruSoranKullanciId=searchQuestionModels.get(position).getKullanici_id();
+            showBottomSheet(soruId,soruSoranKullanciId);
         });
 
 
@@ -183,9 +184,9 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Se
     public void internetBaglantisi() {
 
     }
-    public void showBottomSheet(int soruId) {
+    public void showBottomSheet(int soruId,int soruSoranKullaniciID) {
         CommentBottomDialogFragment commentBottomDialogFragment =
-                CommentBottomDialogFragment.newInstance(soruId);
+                CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciID);
         commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
     }

@@ -11,7 +11,9 @@
         android:fillViewport="true"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentLayout400dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -24,24 +26,22 @@
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:text="@string/hosGeldinizTxt"
                 android:textColor="@color/renkSiyah"
                 android:textSize="@dimen/girisYapTxtTextSize360"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.071" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <RelativeLayout
                 android:id="@+id/rightPanel"
                 android:layout_width="160dp"
                 android:layout_height="520dp"
+                android:layout_marginTop="120dp"
                 android:background="@drawable/shape_right_panel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
-                app:layout_constraintVertical_bias="0.289"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout400dp"
+                app:layout_constraintTop_toTopOf="@+id/contentLayout400dp"
                 tools:ignore="MissingConstraints">
 
                 <TextView
@@ -60,30 +60,33 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
-                android:layout_width="340dp"
+                android:layout_width="match_parent"
                 android:layout_height="420dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="73dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/shape_login_panel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rightPanel"
-                app:layout_constraintVertical_bias="0.014"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout400dp"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout400dp"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/adSoyadTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/adSoyadTextInputHint"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="36"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.466"
@@ -91,13 +94,13 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/adSoyadText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:nextFocusDown="@+id/kullaniciAdiText"
-                        android:paddingTop="@dimen/kayitOlEditTextPadding360"
+                        android:paddingBottom="-12dp"
                         android:singleLine="true"
                         android:textCursorDrawable="@drawable/color_curse"
                         android:textSize="@dimen/kayitOlEditTextSize360" />
@@ -106,25 +109,29 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/kullaniciAdiTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/kullaniciAdiTextInputHint"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="36"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/adSoyadTextInputLayout">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/kullaniciAdiText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:nextFocusDown="@+id/ePostaText"
-                        android:paddingTop="@dimen/kayitOlEditTextPadding360"
+                        android:paddingBottom="-12dp"
                         android:singleLine="true"
                         android:textSize="@dimen/kayitOlEditTextSize360" />
 
@@ -133,8 +140,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ePostaTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/ePostaTextInputHint"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
@@ -145,13 +154,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/kullaniciAdiTextInputLayout">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ePostaText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:nextFocusDown="@+id/sifreText"
-                        android:paddingTop="@dimen/kayitOlEditTextPadding360"
+                        android:paddingBottom="-12dp"
                         android:singleLine="true"
                         android:textSize="@dimen/kayitOlEditTextSize360" />
 
@@ -161,27 +170,29 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/sifreTextInputHint"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
-
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout"
+                    app:passwordToggleEnabled="true">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sifreText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:inputType="textPassword"
                         android:nextFocusDown="@+id/sifreTekrariText"
-                        android:paddingTop="@dimen/kayitOlEditTextPadding360"
+                        android:paddingBottom="-12dp"
                         android:singleLine="true"
                         android:textSize="@dimen/kayitOlEditTextSize360" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -189,27 +200,30 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTekrarTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:hint="@string/sifreTekrarTextInputHint"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
-
                     android:textColorHint="@color/colorGreyPrimary"
+
                     app:boxStrokeColor="@color/uygulamaMavisi"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sifreTextInputLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/sifreTextInputLayout"
+                    app:passwordToggleEnabled="true">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sifreTekrariText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:nextFocusDown="@+id/kayitYapBtn"
-                        android:paddingTop="@dimen/kayitOlEditTextPadding360"
+                        android:paddingBottom="-12dp"
                         android:singleLine="true"
                         android:textSize="@dimen/kayitOlEditTextSize360" />
 
@@ -219,7 +233,7 @@
                     android:id="@+id/kayitYapBtn"
                     android:layout_width="57dp"
                     android:layout_height="56dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/circle"
                     android:src="@mipmap/ico"
                     app:layout_constraintBottom_toBottomOf="parent"

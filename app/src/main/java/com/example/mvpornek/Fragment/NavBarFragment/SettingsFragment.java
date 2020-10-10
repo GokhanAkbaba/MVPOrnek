@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +15,17 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.example.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
-import com.example.mvpornek.Activity.Baslangic.IntroActivity;
+import com.example.mvpornek.Baslangic.IntroActivity;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.example.mvpornek.Models.Kullanici;
+import com.example.mvpornek.Presenter.TokenSil.TokenDeletePresenter;
+import com.example.mvpornek.Presenter.TokenSil.TokenDeletePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.TokenDeleteView;
 
 
-public class SettingsFragment extends Fragment implements View.OnClickListener {
+public class SettingsFragment extends Fragment implements View.OnClickListener, TokenDeleteView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -29,7 +34,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
+    TokenDeletePresenter tokenDeletePresenter;
+
     Toolbar toolbar;
+
+    private Kullanici kullanici;
 
     public SettingsFragment() {
 
@@ -57,6 +66,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.ayarlar, container, false);
+        kullanici=SharedPrefManager.getInstance(getActivity()).getKullanici();
         toolbar=(Toolbar) view.findViewById(R.id.ayarlarToolbar);
         RelativeLayout profilRelativeLayout=(RelativeLayout) view.findViewById(R.id.profilDuzenleLayout);
         profilRelativeLayout.setOnClickListener(this);
@@ -64,6 +74,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         cikisRelativeLayout.setOnClickListener(this);
         RelativeLayout sifreRelativeDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
         sifreRelativeDegistirLayout.setOnClickListener(this);
+
+        tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         return view;
 
     }
@@ -78,6 +90,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.cikisYapLayout:
                 SharedPrefManager.getInstance(getActivity()).clear();
                 startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
+                tokenDeletePresenter.deleteToken(kullanici.getId());
                 BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
                 break;
             case R.id.sifreDegistirLayout:
@@ -85,5 +98,15 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
         }
+    }
+
+    @Override
+    public void showTokenDeleteSuccesMessage() {
+        Log.d("Token Delete Success","Token Başarı ile Silindi");
+    }
+
+    @Override
+    public void showTokenDeleteFailedMessage(String failedMessage) {
+        Log.d("Token Delete Failed",failedMessage);
     }
 }

@@ -11,10 +11,9 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.Fragment;
 
 import com.example.mvpornek.Activity.HomeActivity;
-import com.example.mvpornek.Activity.NotificationCommentActivity;
+import com.example.mvpornek.Activity.Notification.NotificationCommentActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,32 +49,32 @@ public class BildirimFonksiyonları {
     }
 
     public void displayNotification(JSONObject json){
-
-
-
-
         try {
             JSONObject data = json.getJSONObject("data");
-            String title = data.getString("hedefID");
-            String message = data.getString("message");
-            String kullaniciAdi = data.getString("kullaniciAdi");
-            String icerikID = data.getString("icerikID");
+            String bildirimYapanKullaniciID = data.getString("bildirimYapanKullaniciID");
+            String bildirimYapılanKullaniciID = data.getString("bildirimYapılanKullaniciID");
+            String bildirimYapılanCevapID = data.getString("bildirimYapılanCevapID");
+            String bildirimYapılanSoruID = data.getString("bildirimYapılanSoruID");
+            String ileti = data.getString("ileti");
+            String durum = data.getString("durum");
+            String bildirimTuru = data.getString("bildirimTuru");
 
             Intent resultIntent = new Intent(context, NotificationCommentActivity.class);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
             stackBuilder.addNextIntentWithParentStack(resultIntent);
             resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                     | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            resultIntent.putExtra("icerikID",icerikID);
+            resultIntent.putExtra("bildirimYapılanSoruID",bildirimYapılanSoruID);
             PendingIntent resultPendingIntent =
                     PendingIntent.getActivity(context,0, resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                     .setSmallIcon(R.mipmap.ic_launcher)
-                    .setContentTitle(kullaniciAdi)
+                    .setContentTitle(durum)
                     .setContentIntent(resultPendingIntent)
-                    .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(ileti))
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true);
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             int uniqID = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
             notificationManager.notify(uniqID, builder.build());

@@ -58,6 +58,15 @@ public class RegisterPresenterImpl implements RegisterPresenter, RegisterInterac
     }
 
     @Override
+    public void onEpostaOnay() {
+        if(registerView != null)
+        {
+            registerView.setEpostaOnay();
+            registerView.hideProgress();
+        }
+    }
+
+    @Override
     public void onSifreKontrol() {
         if(registerView != null)
         {

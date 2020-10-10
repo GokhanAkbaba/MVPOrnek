@@ -3,29 +3,27 @@ package com.example.mvpornek.Fragment.NavBarFragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mvpornek.Adapter.NotificationAdapter;
+import com.example.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerBegenilerFragment;
+import com.example.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerCevaplarFragment;
+import com.example.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerFragmentViewPagerAdapter;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
-import com.example.mvpornek.Models.NotificationModel;
 import com.example.mvpornek.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.material.tabs.TabLayout;
 
 public class BildirimlerFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    RecyclerView recyclerViewBildirimler;
-    List<NotificationModel> notificationModelList =new ArrayList<>();
-    NotificationAdapter notificationAdapter;
+    private TabLayout tabLayout;
+    private ViewPager bildirimlerViewPager;
+    private BildirimlerFragmentViewPagerAdapter bildirimlerFragmentViewPagerAdapter;
     private String mParam1;
     private String mParam2;
 
@@ -51,19 +49,22 @@ public class BildirimlerFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        notificationModelList.add(new NotificationModel("Gökhan Akbaba","3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.","size bir soru sordu.","5dk",R.drawable.man));
-        notificationModelList.add(new NotificationModel("Aykut Erdal","Şahinbey Belediyesinin arkasındaki lokanta güzel.","sorunuza cevap verdi","3dk",R.drawable.man1));
-        notificationAdapter=new NotificationAdapter(notificationModelList);
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bildirimler_sayfasi, container, false);
 
-        recyclerViewBildirimler=(RecyclerView) view.findViewById(R.id.bildirimleRecyclerView);
-        recyclerViewBildirimler.setAdapter(notificationAdapter);
-        recyclerViewBildirimler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        tabLayout=view.findViewById(R.id.bildirimCevaplarTabLayout);
+        bildirimlerViewPager=view.findViewById(R.id.bildirimlerViewPager);
+        bildirimlerFragmentViewPagerAdapter=new BildirimlerFragmentViewPagerAdapter(getActivity().getSupportFragmentManager());
+
+        bildirimlerFragmentViewPagerAdapter.AddFragment(new BildirimlerCevaplarFragment(),"Cevaplar");
+        bildirimlerFragmentViewPagerAdapter.AddFragment(new BildirimlerBegenilerFragment(),"Beğeniler");
+
+        bildirimlerViewPager.setAdapter(bildirimlerFragmentViewPagerAdapter);
+        tabLayout.setupWithViewPager(bildirimlerViewPager);
+
         return view;
     }
 

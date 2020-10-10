@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.example.mvpornek.Adapter.AdapterProfilAnswers;
 import com.example.mvpornek.Models.AnswersModel;
 import com.example.mvpornek.Models.Kullanici;
-import com.example.mvpornek.Presenter.LikesPresenterImpl;
+import com.example.mvpornek.Presenter.Like.LikesPresenterImpl;
 import com.example.mvpornek.Presenter.ProfilCevaplarim.ProfilAnswersPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.Response.LikeModel;

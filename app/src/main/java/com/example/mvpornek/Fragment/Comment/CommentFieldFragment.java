@@ -20,7 +20,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Model.YorumKayit.CommentRegistrationInteractorImpl;
-import com.example.mvpornek.Presenter.NotificaitonPostPresenterImpl;
+import com.example.mvpornek.Presenter.NotificationPost.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.Presenter.YorumKayit.CommentRegistrationPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
@@ -32,7 +32,9 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
 
     public static final String TAG = "CommentFieldFragment";
     private static final String ARG_PARAM1 = "param1";
-    private int mParam1;
+    private static final String ARG_PARAM2 = "param2";
+    private int soruID;
+    private int soruSoranKullaniciID;
     ScrollView klavyeAlani;
     EditText editText;
     ImageButton yorumGonderBtn;
@@ -45,10 +47,11 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
     }
 
 
-    public static CommentFieldFragment newInstance(int param1) {
+    public static CommentFieldFragment newInstance(int soruID,int soruSoranKullaniciID) {
         CommentFieldFragment fragment = new CommentFieldFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM1, soruID);
+        args.putInt(ARG_PARAM2, soruSoranKullaniciID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,7 +60,8 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getInt(ARG_PARAM1);
+            soruID = getArguments().getInt(ARG_PARAM1);
+            soruSoranKullaniciID=getArguments().getInt(ARG_PARAM2);
         }
         setStyle(DialogFragment.STYLE_NORMAL,R.style.DialogStyle);
         notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
@@ -128,8 +132,11 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         switch(view.getId()){
             case R.id.yorumGonderBtn:
-                commentRegistrationPresenter.commentRegistrationValideCredentals(kullanici.getId(),mParam1,cevap);
-                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ "adlı kullanıcı sorunuza cevap verdi",11,cevap,mParam1);
+                commentRegistrationPresenter.commentRegistrationValideCredentals(kullanici.getId(),soruID,cevap);
+                String durumTxt=kullanici.getKullaniciAdi()+ "adlı kullanıcı sorunuza cevap verdi";
+                if(kullanici.getId() != soruSoranKullaniciID) {
+                    notificaitonPostPresenter.postNotification(kullanici.getId(), soruSoranKullaniciID, -1, soruID, cevap, durumTxt, 0);
+                }
 
                 break;
         }

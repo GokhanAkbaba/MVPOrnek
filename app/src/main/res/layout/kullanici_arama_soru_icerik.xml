@@ -93,7 +93,6 @@
                 android:layout_width="384dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/jost"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
                 android:textSize="17sp"

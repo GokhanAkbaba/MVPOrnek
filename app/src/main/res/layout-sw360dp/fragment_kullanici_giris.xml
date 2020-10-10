@@ -11,73 +11,74 @@
         android:fillViewport="true"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            tools:ignore="InvalidId,MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/hosGeldinizTxt"
-        android:textColor="@color/renkSiyah"
-        android:textSize="@dimen/girisYapTxtTextSize360"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/hosGeldinizTxt"
+                android:textColor="@color/renkSiyah"
+                android:textSize="@dimen/girisYapTxtTextSize360"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
-        android:id="@+id/leftPanel"
-        android:layout_width="160dp"
-        android:layout_height="460dp"
-        android:background="@drawable/shape_left_panel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        app:layout_constraintVertical_bias="0.289"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+            <RelativeLayout
+                android:id="@+id/leftPanel"
+                android:layout_width="160dp"
+                android:layout_height="460dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/shape_left_panel"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/kayitOlSecenekBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="19dp"
-            android:text="@string/kayitOlTxt"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/kayitOlSecenekBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="19dp"
+                    android:text="@string/kayitOlTxt"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
-                android:layout_width="290dp"
-                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/shape_login_panel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/leftPanel"
-                app:layout_constraintVertical_bias="0.216"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toTopOf="@+id/contentLayout"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ePostaTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/girisYapTextInputLayoutWidth360"
-                    android:layout_height="@dimen/girisYapTextInputLayoutHeight360"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="45dp"
+                    android:layout_marginEnd="5dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
@@ -87,11 +88,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisKullaniciText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText360"
-                        android:ems="10"
+                        android:layout_height="wrap_content"
                         android:hint="e-Posta"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName"
@@ -104,9 +104,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/girisYapTextInputLayoutWidth360"
-                    android:layout_height="@dimen/girisYapTextInputLayoutHeight360"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
@@ -114,13 +115,13 @@
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout"
+                    app:passwordToggleEnabled="true">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisSifreText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText360"
-                        android:ems="10"
+                        android:layout_height="wrap_content"
                         android:hint="Şifre"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
@@ -134,9 +135,11 @@
                     android:layout_width="62dp"
                     android:layout_height="59dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/circle"
                     android:scaleType="centerInside"
                     android:src="@mipmap/ico"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sifreTextInputLayout" />
@@ -144,47 +147,47 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/leftPanel"
-        tools:ignore="MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/leftPanel"
+                tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/kayitOlSecenekTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hesabınYokMuTxt" />
+                <TextView
+                    android:id="@+id/kayitOlSecenekTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hesabınYokMuTxt" />
 
-        <TextView
-            android:id="@+id/sifreUnuttumText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/sifreniMiUnuttunTxt" />
+                <TextView
+                    android:id="@+id/sifreUnuttumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/sifreniMiUnuttunTxt" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="247dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/girisYapTxt"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/leftPanel"
-        app:layout_constraintTop_toTopOf="@+id/leftPanel" />
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="247dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="48dp"
+                android:text="@string/girisYapTxt"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/leftPanel"
+                app:layout_constraintTop_toTopOf="@+id/leftPanel" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

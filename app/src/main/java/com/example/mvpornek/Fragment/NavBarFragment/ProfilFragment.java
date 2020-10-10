@@ -139,15 +139,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
             cevaplarimFragment= CevaplarimFragment.newInstance(mParam1);
             begendiklerimFragment=BegendiklerimFragment.newInstance(mParam1);
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
-            /*new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
-                    profilKullaniciAdiTxt.setText(kullaniciGetir.getKullaniciAdi());
-                    profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
-                    GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
-                }
-            }, 400);*/
+
         }else{
             sorularimFragment = SorularimFragment.newInstance(kullanici.getId());
             cevaplarimFragment= CevaplarimFragment.newInstance(kullanici.getId());

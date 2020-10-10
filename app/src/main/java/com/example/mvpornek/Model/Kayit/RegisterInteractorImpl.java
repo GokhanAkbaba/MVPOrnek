@@ -45,6 +45,8 @@ Context context;
         if (TextUtils.isEmpty(ePosta)) {
             listener.onEpostaHatasi("e-Posta Boş Bırakmayınız");
             return;
+        }else{
+            listener.onEpostaOnay();
         }
 
         if (!TextUtils.equals(sifre, sifreTekrar)) {

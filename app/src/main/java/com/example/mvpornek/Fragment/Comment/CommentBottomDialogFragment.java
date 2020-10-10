@@ -9,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +18,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Adapter.CommentAdapter;
 
 import com.example.mvpornek.Models.CommentModel;
 import com.example.mvpornek.Models.Kullanici;
-import com.example.mvpornek.Presenter.NotificaitonPostPresenterImpl;
+import com.example.mvpornek.Presenter.NotificationPost.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.Response.LikeModel;
 import com.example.mvpornek.Presenter.YorumSil.CommentDeletePresenterImpl;
 import com.example.mvpornek.Presenter.Yorum.CommentPresenterImpl;
-import com.example.mvpornek.Presenter.LikesPresenterImpl;
+import com.example.mvpornek.Presenter.Like.LikesPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.CommentDeleteView;
@@ -42,11 +40,13 @@ import java.util.List;
 public class CommentBottomDialogFragment extends BottomSheetDialogFragment implements View.OnClickListener, NotificaitonPostView, LikesView, CommentView, CommentDeleteView {
 
 
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "soruID";
+    private static final String ARG_PARAM2 = "soruSoranKullaniciId";
     public static final String TAG = "CommentBottomDialogFragment";
     public static CommentBottomDialogFragment instance;
 
-    private int mParam1;
+    private int soruID;
+    private int soruSoranKullaniciId;
     private TextView begeniSayisiTxt;
     private  Object durum;
     public static  Boolean kutuDurum=false;
@@ -72,10 +72,11 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
         // Required empty public constructor
     }
 
-    public static CommentBottomDialogFragment newInstance(int param1) {
+    public static CommentBottomDialogFragment newInstance(int soruID,int soruSoranKullaniciId) {
         CommentBottomDialogFragment commentBottomDialogFragment = new CommentBottomDialogFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM1, soruID);
+        args.putInt(ARG_PARAM2,soruSoranKullaniciId);
         commentBottomDialogFragment.setArguments(args);
         return commentBottomDialogFragment;
     }
@@ -85,11 +86,12 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getInt(ARG_PARAM1);
+            soruID = getArguments().getInt(ARG_PARAM1);
+            soruSoranKullaniciId = getArguments().getInt(ARG_PARAM2);
         }
         instance=this;
         commentPresenter=new CommentPresenterImpl(this);
-        dataLoad(mParam1);
+        dataLoad(soruID);
         commentDeletePresenter=new CommentDeletePresenterImpl(this);
         notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
         likesPresenter=new LikesPresenterImpl(this);
@@ -114,8 +116,14 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
             begeniSayisiTxt=textViever.findViewById(R.id.begeniSayisiTxt);
             if(durum == "secilmedi") {
                 begeniButonu.setColorFilter(Color.argb(255, 255, 172, 51));
-                likesPresenter.loadLikes(commentModels.get(position).getCevap_id(),kullanici.getId(),1,1);
-                notificaitonPostPresenter.postNotification(kullanici.getKullaniciAdi()+ "adlı kullanıcı cevabınızı beğendi.",11,commentModels.get(position).getCevap(),mParam1);
+                int cevapID=commentModels.get(position).getCevap_id();
+                int cevapSahibiID=commentModels.get(position).getKullaniciId();
+                String cevapTxt=commentModels.get(position).getCevap();
+                String durumTxt=kullanici.getAdSoyad()+" adlı kullanıcı yorumunuzu beğendi";
+                likesPresenter.loadLikes(cevapID,kullanici.getId(),1,1);
+                if(kullanici.getId() != cevapSahibiID) {
+                    notificaitonPostPresenter.postNotification(kullanici.getId(), cevapSahibiID, cevapID, soruID, cevapTxt, durumTxt, 1);
+                }
                 begeniButonu.setTag("secildi");
             } else if(durum == "secildi"){
                 begeniButonu.setColorFilter(Color.argb(255, 223, 225, 229));
@@ -140,7 +148,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
                             Toast.makeText(getActivity().getApplicationContext(), "Kopyalandı", Toast.LENGTH_SHORT).show();
                         } else {
                             commentDeletePresenter.deleteOptions(commentModels.get(position).getId());
-                            dataLoad(mParam1);
+                            dataLoad(soruID);
                         }
                     }
                 });
@@ -185,13 +193,13 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
                 kutuDurum=false;
                 break;
             case R.id.yorumAlani:
-                showBottomSheet(mParam1);
+                showBottomSheet(soruID);
                 break;
         }
     }
     public void showBottomSheet(int soruID) {
         addPhotoBottomDialogFragment =
-                CommentFieldFragment.newInstance(soruID);
+                CommentFieldFragment.newInstance(soruID,soruSoranKullaniciId);
         addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
                 CommentFieldFragment.TAG);
         getActivity().getSupportFragmentManager().executePendingTransactions();

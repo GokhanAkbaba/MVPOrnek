@@ -1,25 +1,15 @@
 package com.example.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -32,14 +22,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.request.RequestOptions;
+import com.example.mvpornek.Activity.Notification.NotificationCommentActivity;
 import com.example.mvpornek.BildirimFonksiyonları;
 import com.example.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.example.mvpornek.Fragment.NavBarFragment.SettingsFragment;
-import com.example.mvpornek.GlideApp;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Model.SoruKayit.QuestionRegistrationInteractorImpl;
@@ -47,15 +36,21 @@ import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnection
 import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenter;
 import com.example.mvpornek.Presenter.QuestionRegistrationPresenterImpl;
+import com.example.mvpornek.Presenter.TokenCreate.TokenCreatePresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
 import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.QuestionRegistrationView;
 
+import com.example.mvpornek.View.TokenCreateView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 
 import java.util.ArrayList;
@@ -64,7 +59,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends FragmentActivity implements View.OnClickListener, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends FragmentActivity implements View.OnClickListener, TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
@@ -76,8 +71,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     Button soruPaylasButon;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
+    TokenCreatePresenterImpl tokenCreatePresenter;
     public static HomeActivity instance;
     int item ;
+    Kullanici kullanici;
     FloatingActionButton birineSorBtn;
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
@@ -102,9 +99,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ana_sayfa);
-
         instance=this;
         bildirimFonksiyonları=new BildirimFonksiyonları(this);
+        tokenCreatePresenter=new TokenCreatePresenterImpl(this);
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         birineSorBtn=findViewById(R.id.soruPaylasimButon);
@@ -156,18 +153,41 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
         notificationBadge.setVisibility(View.INVISIBLE);
         if(NotificationCommentActivity.getBildirimAcilis() != null){
-            notificationView(bildirimFonksiyonları.getCount());
+            if(NotificationCommentActivity.getBildirimAcilis() == true){
+                System.out.println("SONUÇÇÇ"+NotificationCommentActivity.getBildirimAcilis());
+                notificationView(bildirimFonksiyonları.getCount());
+            }
+        }
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if(task.isSuccessful()){
+                            kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
+                            tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
+                            System.out.println("IDD"+kullanici.getId()+"  "+task.getResult().getToken());
+                        }
+                        else{
+                            System.out.println("İşlem Başarısız");
+                        }
+                    }
+                });
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            int soruID=extras.getInt("soruID");
+             ProfilFragment profilFragment = ProfilFragment.newInstance(soruID);
+             loadFragment(profilFragment,"Fragment");
+
         }
 
 
     }
     protected void refreshBadgeView(int count){
-        System.out.println("NotificationBadgeDurum-2"+notificationBadge.getVisibility());
         if(count != 0){
             boolean badgeIsVisible = notificationBadge.getVisibility() != VISIBLE;
             notificationBadge.setVisibility(badgeIsVisible ? VISIBLE : GONE);
         }
-        System.out.println("NotificationBadgeDurum-2-çıkış"+notificationBadge.getVisibility());
     }
     public void addBadgeView(){
 
@@ -179,10 +199,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     }
 
     public void notificationView(int count){
-        System.out.println("NotificationBadgeDurum-3"+notificationBadge.getVisibility());
         tv.setText(String.valueOf(count));
         notificationBadge.setVisibility(VISIBLE);
-        System.out.println("NotificationBadgeDurum-3-çıkış"+notificationBadge.getVisibility());
 
     }
 
@@ -548,5 +566,14 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     protected void onDestroy() {
         super.onDestroy();
 
+    }
+    @Override
+    public void showTokenSuccesMessage() {
+        System.out.println("Token Başarılı Bir Şekilde Oluştu");
+    }
+
+    @Override
+    public void showTokenFailedMessage() {
+        System.out.println("Token HATA");
     }
 }

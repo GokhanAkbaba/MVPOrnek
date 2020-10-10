@@ -36,7 +36,7 @@
     <RelativeLayout
         android:id="@+id/leftPanel"
         android:layout_width="160dp"
-        android:layout_height="440dp"
+        android:layout_height="420dp"
         android:background="@drawable/shape_left_panel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,10 +58,11 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_height="300dp"
                 android:layout_alignParentBottom="true"
-
                 android:background="@drawable/shape_login_panel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -73,9 +74,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ePostaTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/girisYapTextInputLayoutWidth320"
-                    android:layout_height="@dimen/girisYapTextInputLayoutHeight320"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="55dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
@@ -86,54 +88,54 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisKullaniciText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/girisYapEditText320"
-                        android:ems="10"
+                        android:layout_height="wrap_content"
                         android:hint="e-Posta"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName"
                         android:nextFocusDown="@+id/kullaniciAdiText"
                         android:singleLine="true"
                         android:textCursorDrawable="@drawable/color_curse"
-                        android:textSize="@dimen/kayitOlEditTextSize320" />
+                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/girisYapTextInputLayoutWidth320"
-                    android:layout_height="@dimen/girisYapTextInputLayoutHeight320"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
                     app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisSifreText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/girisYapEditText320"
-                        android:ems="10"
+                        android:layout_height="wrap_content"
                         android:hint="Şifre"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:nextFocusDown="@+id/girisYapBtn"
                         android:textCursorDrawable="@drawable/color_curse"
-                        android:textSize="@dimen/kayitOlEditTextSize320" />
+                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
                     android:id="@+id/girisYapBtn"
                     android:layout_width="62dp"
                     android:layout_height="59dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/circle"
                     android:scaleType="centerInside"
                     android:src="@mipmap/ico"
