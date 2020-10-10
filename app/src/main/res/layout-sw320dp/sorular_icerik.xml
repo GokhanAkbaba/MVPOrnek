@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/sorularIcerikKullaniciResmi"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -50,10 +50,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="24dp"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1sa"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdiTxt" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
                 android:text="#Adres #Tatil"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/soruPaylasmaZamani" />
 
@@ -84,28 +84,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="\@GokhanAkbaba"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="384dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <ImageView
                 android:id="@+id/soruYorumIcon"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="14dp"
                 android:src="@drawable/ic_comment_svg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -115,9 +117,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="13dp"
                 android:text="155"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 

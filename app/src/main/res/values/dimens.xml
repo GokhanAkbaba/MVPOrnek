@@ -28,7 +28,7 @@
     <dimen name="baslarkenEtiketButonWidth400">112dp</dimen>
     <dimen name="baslarkenEtiketButonHeight400">40dp</dimen>
     <dimen name="baslarkenEtiketTextSize400">15sp</dimen>
-    <dimen name="baslarkenBaslikSize400">30sp</dimen>
+    <dimen name="baslarkenBaslikSize400">34sp</dimen>
 
     <dimen name="ayarlarSayfaTextSize400">18sp</dimen>
     <dimen name="ayarlarSayfaLayoutHeight400">55dp</dimen>
@@ -60,8 +60,9 @@
     <dimen name="soruPaylasIlBtnText320">15sp</dimen>
     <dimen name="soruPaylasEtiketBtnLayoutMarginTop320">10dp</dimen>
 
-    <dimen name="fragmentAnaSayfaEtiketButonHeight320">38dp</dimen>
-    <dimen name="fragmentAnaSayfaEtiketButonWidth320">38dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonHeight320">45dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonWidth320">45dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketTextSize320">9sp</dimen>
     <dimen name="girisYapTxtTextSize320">28sp</dimen>
 
     <dimen name="girisYapTxtTextSize360">38sp</dimen>

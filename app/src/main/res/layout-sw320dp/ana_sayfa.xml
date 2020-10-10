@@ -33,18 +33,20 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/soruPaylasimButon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="bottom|right|center"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="45dp"
+                    android:layout_marginBottom="35dp"
                     android:backgroundTint="@color/uygulamaMavisiTwo"
                     android:backgroundTintMode="src_in"
                     android:clickable="true"
                     android:src="@mipmap/soru_gonder_icon"
                     android:tint="@color/profilSekmeBeyaz"
                     app:backgroundTint="#FFFFFF"
-                    app:fabSize="normal"
+                    android:scaleType="centerInside"
+                    app:fabSize="mini"
+                    app:fabCustomSize="45dp"
                     tools:ignore="MissingConstraints" />
 
                 <ProgressBar
@@ -61,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded"
-                app:itemIconSize="25dp"
+                app:itemIconSize="20dp"
                 app:itemIconTint="@color/nav_color"
                 app:itemTextColor="@color/nav_color"
                 app:layout_constraintBottom_toBottomOf="parent"
