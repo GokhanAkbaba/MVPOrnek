@@ -88,7 +88,9 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
                         fragment=new StartFragment();
                         loadFragment(fragment,"Start1");
                     }else{
+                        System.out.println("Seçim - "+iSecim);
                         iSecim=durum.getSecim();
+                        System.out.println("Seçim - 2"+durum.getSecim());
                         if(iSecim == false){
                             fragment=new BeginingFragment();
                             loadFragment(fragment,"BeginingFragment");

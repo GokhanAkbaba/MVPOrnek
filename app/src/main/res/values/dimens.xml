@@ -28,7 +28,7 @@
     <dimen name="baslarkenEtiketButonWidth400">112dp</dimen>
     <dimen name="baslarkenEtiketButonHeight400">40dp</dimen>
     <dimen name="baslarkenEtiketTextSize400">15sp</dimen>
-    <dimen name="baslarkenBaslikSize400">45sp</dimen>
+    <dimen name="baslarkenBaslikSize400">30sp</dimen>
 
     <dimen name="ayarlarSayfaTextSize400">18sp</dimen>
     <dimen name="ayarlarSayfaLayoutHeight400">55dp</dimen>

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,12 +30,13 @@ import java.util.ArrayList;
 
 public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener {
 
-    Button adres,yemek,spor,tatil,alisveris,sanat,yrmDrtBildirim,secimOnay;
+    RelativeLayout adres,yemek,spor, tatil,alisveris,sanat,yrmDrtBildirim,secimOnay;
     Spinner spinner;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false;
     String selectedIl;
     int selectedIlPlaka;
+
 
     int kullaniciId;
 
@@ -150,9 +152,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.add("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    adres.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //adres.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    //adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkAdresEtiket = true;
 
                 }
@@ -160,9 +162,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.remove("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    adres.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //adres.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.ic_launcher_adres);
-                    adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    ///adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkAdresEtiket=false;
 
                 }
@@ -175,9 +177,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    yemek.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //yemek.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
+                    //yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
                     checkYemekEtiket = true;
                 }
                 else
@@ -185,9 +187,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.remove("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    yemek.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //yemek.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.yemek_icon);
-                    yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
+                    //yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
                     checkYemekEtiket=false;
                 }
 
@@ -197,9 +199,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    spor.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //spor.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
+                    //spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
                     checkSporEtiket = true;
                 }
                 else
@@ -207,9 +209,9 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.remove("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    spor.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //spor.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.spor_icon);
-                    spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
+                    //spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
                     checkSporEtiket=false;
                 }
 
@@ -219,18 +221,18 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    alisveris.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //alisveris.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
+                   // alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
                     checkAlisverisEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    alisveris.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //alisveris.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.alisveris_icon);
-                    alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
+                    //alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
                     checkAlisverisEtiket=false;
                 }
                 break;
@@ -239,18 +241,18 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    tatil.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //tatil.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                   // tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkTatilEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    tatil.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //tatil.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.tatil_icon);
-                    tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    //tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
                     checkTatilEtiket=false;
                 }
                 break;
@@ -259,18 +261,18 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    sanat.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    //sanat.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
+                    //sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
                     checkSanatEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    sanat.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    //sanat.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
                     Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.film_icon);
-                    sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
+                    //sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
                     checkSanatEtiket=false;
                 }
                 break;
@@ -279,14 +281,14 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilonaybuton));
                     Drawable imgyrmDrtBildirim =yrmDrtBildirim.getContext().getResources().getDrawable(R.mipmap.onay_beyaz_icon);
-                    yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
+                   // yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
                     checkYirmiDortBildirim = true;
                 }
                 else
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilbuton));
                     Drawable imgyrmDrtBildirim =yrmDrtBildirim.getContext().getResources().getDrawable(R.mipmap.bildirim_icon);
-                    yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
+                    //yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
                     checkYirmiDortBildirim=false;
                 }
                 break;

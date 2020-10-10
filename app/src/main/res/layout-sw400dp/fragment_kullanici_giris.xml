@@ -14,6 +14,7 @@
         tools:layout_editor_absoluteY="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,12 +39,11 @@
                 android:id="@+id/leftPanel"
                 android:layout_width="160dp"
                 android:layout_height="490dp"
+                android:layout_marginTop="120dp"
                 android:background="@drawable/shape_left_panel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
-                app:layout_constraintVertical_bias="0.289"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:id="@+id/kayitOlSecenekBtn"
@@ -60,25 +60,27 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
-                android:layout_width="340dp"
-                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="200dp"
                 android:layout_alignParentBottom="true"
-
                 android:background="@drawable/shape_login_panel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/contentLayout"
                 app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/leftPanel"
+                app:layout_constraintStart_toStartOf="@id/contentLayout"
+                app:layout_constraintTop_toTopOf="@id/contentLayout"
                 app:layout_constraintVertical_bias="0.241"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ePostaTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="45dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
@@ -89,10 +91,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisKullaniciText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="e-Posta"
                         android:imeOptions="actionNext"
@@ -106,22 +108,24 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTextInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
-                    android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
-                    android:layout_marginLeft="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="5dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
                     app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ePostaTextInputLayout">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/girisSifreText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Şifre"
                         android:imeOptions="actionDone"
@@ -136,9 +140,11 @@
                     android:layout_width="62dp"
                     android:layout_height="59dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/circle"
                     android:scaleType="centerInside"
                     android:src="@mipmap/ico"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sifreTextInputLayout" />
@@ -167,8 +173,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textSize="15dp"
-                    android:text="@string/sifreniMiUnuttunTxt" />
+                    android:text="@string/sifreniMiUnuttunTxt"
+                    android:textSize="15dp" />
             </LinearLayout>
 
             <TextView

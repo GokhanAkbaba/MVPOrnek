@@ -10,11 +10,11 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/yasadiginizIlAciklamaTxt"
         android:textSize="11sp"
-        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ilConstraint"
         tools:ignore="MissingConstraints" />
@@ -23,7 +23,7 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="@string/baslarkenTxt"
         android:textColor="@color/uygulamaMavisi"
         android:textSize="@dimen/baslarkenBaslikSize400"
@@ -51,12 +51,12 @@
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/yasadiginizIlTxt"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
@@ -64,9 +64,9 @@
         android:id="@+id/ilConstraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37"
         tools:ignore="MissingConstraints">
@@ -74,7 +74,7 @@
         <Spinner
             android:id="@+id/ilAutoCompleteTextView"
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="10dp"
@@ -90,13 +90,13 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/ilgiAlaniTxt"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ilConstraint" />
 
@@ -104,315 +104,661 @@
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="528dp"
         android:fontFamily="sans-serif-light"
+        android:layout_marginTop="4dp"
         android:text="@string/herKonudaBildirimTxt"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
         tools:ignore="MissingConstraints" />
 
-    <Button
+
+    <RelativeLayout
         android:id="@+id/yirmiDortSaatBildirimButon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/baslarkenilbuton"
-        android:drawableLeft="@mipmap/bildirim_icon"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,NotSibling"
+        tools:layout_editor_absoluteY="114dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:scaleType="center"
+            android:src="@mipmap/bildirim_icon" />
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/baslarkenSonrakiBtn"
-        android:layout_width="170dp"
-        android:layout_height="46dp"
+        android:layout_width="150dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/backgraoundapp"
         android:text="Sonraki"
         android:textColor="@color/profilSekmeBeyaz"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.194"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/adresEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="16dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/ic_launcher_adres"
-        android:paddingLeft="1dp"
-        android:text="Adres"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView38">
 
-    <Button
-        android:id="@+id/yemekEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/yemek_icon"
-        android:paddingLeft="1dp"
-        android:text="Yemek"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/adresEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints" />
+        <RelativeLayout
+            android:id="@+id/adresEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/sporEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/spor_icon"
-        android:paddingLeft="1dp"
-        android:text="Spor"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/yemekEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/textView38"
-        tools:ignore="MissingConstraints" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher_adres" />
 
-    <Button
-        android:id="@+id/tatilEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/tatil_icon"
-        android:paddingLeft="1dp"
-        android:text="Tatil"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adresEtiketButon"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Adres"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/alisverisEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@mipmap/alisveris_icon"
-        android:text="Alışveriş"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/tatilEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/yemekEtiketButon"
-        tools:ignore="MissingConstraints" />
+        <RelativeLayout
+            android:id="@+id/yemekEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/adresEtiketButon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/sanatEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_tv_svg"
-        android:paddingLeft="12dp"
-        android:text="Sanat"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/alisverisEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/sporEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/yazilimEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_engineer"
-        android:paddingLeft="12dp"
-        android:text="Yazılım"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tatilEtiketButon"
-        tools:ignore="MissingConstraints" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/yemek_icon" />
 
-    <Button
-        android:id="@+id/otoEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="23dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_auto_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Oto"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/yazilimEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/alisverisEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/modaEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="23dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_moda_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Moda"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/otoEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/sanatEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/tarihEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_moda_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Tarih"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yazilimEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/egitimEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_moda_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Eğitim"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tarihEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/muzikEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_auto_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Müzik"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/egitimEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/saglikEtiketButon"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Yemek"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/saglikEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_auto_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Sağlık"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/tarihEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/otoEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/oyunEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="23dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_moda_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Oyun"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/saglikEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/modaEtiketButon"
-        tools:ignore="MissingConstraints" />
-    <Button
-        android:id="@+id/teknoEtiketButon"
-        android:layout_width="@dimen/baslarkenEtiketButonWidth400"
-        android:layout_height="@dimen/baslarkenEtiketButonHeight400"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="23dp"
-        android:background="@drawable/baslarkenetiketbuton"
-        android:drawableLeft="@drawable/ic_moda_svg"
-        android:drawableTint="@color/uygulamaMavisi"
-        android:paddingLeft="12dp"
-        android:text="Oyun"
-        android:textAllCaps="false"
-        android:textColor="@color/uygulamaMavisi"
-        android:textSize="@dimen/baslarkenEtiketTextSize400"
-        app:layout_constraintStart_toEndOf="@+id/muzikEtiketButon"
-        app:layout_constraintTop_toBottomOf="@+id/oyunEtiketButon"
-        tools:ignore="MissingConstraints" />
+        <RelativeLayout
+            android:id="@+id/sporEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/yemekEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/spor_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Spor"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tatilEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adresEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/tatil_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Tatil"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alisverisEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/tatilEtiketButon"
+            app:layout_constraintTop_toBottomOf="@+id/yemekEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/alisveris_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Alışveriş"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sanatEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintTop_toBottomOf="@id/sporEtiketButon"
+            app:layout_constraintStart_toEndOf="@+id/alisverisEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="38dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_tv_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Sanat"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/yazilimEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tatilEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="38dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_engineer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Yazılım"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/otoEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/yazilimEtiketButon"
+            app:layout_constraintTop_toBottomOf="@+id/alisverisEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="38dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_auto_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Oto"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/modaEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintTop_toBottomOf="@id/sanatEtiketButon"
+            app:layout_constraintStart_toEndOf="@+id/otoEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="76dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Oto"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tarihEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yazilimEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="76dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Tarih"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/egitimEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/tarihEtiketButon"
+            app:layout_constraintTop_toBottomOf="@+id/otoEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="76dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Eğitim"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/muzikEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintTop_toBottomOf="@id/otoEtiketButon"
+            app:layout_constraintStart_toEndOf="@+id/egitimEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="114dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Müzik"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/saglikEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tarihEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="114dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Sağlık"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/oyunEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/saglikEtiketButon"
+            app:layout_constraintTop_toBottomOf="@+id/egitimEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="114dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Oyun"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/teknoEtiketButon"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baslarkenetiketbuton"
+            app:layout_constraintStart_toEndOf="@+id/oyunEtiketButon"
+            app:layout_constraintTop_toBottomOf="@+id/muzikEtiketButon"
+            tools:ignore="MissingConstraints,NotSibling"
+            tools:layout_editor_absoluteY="114dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_moda_svg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="34dp"
+                android:gravity="center"
+                android:text="Teknoloji"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="350dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/bildirimAciklamaTxt"
         android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon" />
+        app:layout_constraintTop_toBottomOf="@+id/yirmiDortSaatBildirimButon"
+        app:layout_constraintVertical_bias="0.125" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
