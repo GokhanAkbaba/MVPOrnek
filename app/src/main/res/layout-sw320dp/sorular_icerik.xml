@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/sorularIcerikKullaniciResmi"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -47,13 +47,16 @@
 
             <TextView
                 android:id="@+id/kullaniciAdSoyad"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="20dp"
                 android:text="Gökhan AKBABA"
+                android:layout_marginEnd="10dp"
                 android:textColor="#000"
-                android:textSize="15sp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,17 +77,19 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
                 android:text="#Adres #Tatil"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/soruPaylasmaZamani" />
 
             <TextView
                 android:id="@+id/kullaniciAdiTxt"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="10dp"
                 android:text="\@GokhanAkbaba"
-                android:textSize="10sp"
+                android:textSize="9sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
 
@@ -94,18 +99,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="3dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
-                android:textSize="14sp"
+                android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <ImageView
                 android:id="@+id/soruYorumIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="14dp"
                 android:src="@drawable/ic_comment_svg"
@@ -117,11 +122,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="13dp"
                 android:text="155"
-                android:textSize="15sp"
+                android:textSize="11sp"
                 app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toTopOf="@+id/soruYorumIcon" />
 
             <View
                 android:id="@+id/divider3"

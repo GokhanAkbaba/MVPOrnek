@@ -51,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="19dp"
-
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
                 android:textSize="15sp"
@@ -95,7 +94,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
                 android:textSize="16sp"

@@ -47,13 +47,15 @@
 
             <TextView
                 android:id="@+id/kullaniciAdSoyad"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="73dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="26dp"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,11 +82,13 @@
 
             <TextView
                 android:id="@+id/kullaniciAdiTxt"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="73dp"
+                android:layout_marginEnd="10dp"
                 android:text="\@GokhanAkbaba"
                 android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
 
@@ -92,8 +96,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="384dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-
+                android:layout_marginTop="5dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
                 android:textSize="17sp"
@@ -106,7 +109,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="9dp"
                 android:src="@drawable/ic_comment_svg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />

@@ -6,16 +6,20 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -232,7 +236,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 Button sporButon=layoutView.findViewById(R.id.sporEtiketBtn);
                 Button adanaButon=layoutView.findViewById(R.id.il_01);
                 Button artvinButon=layoutView.findViewById(R.id.il_02);
-                soruLimit=layoutView.findViewById(R.id.soruLimitTxt);
                 soruPaylasButon=layoutView.findViewById(R.id.soruPaylasBtn);
                 Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
                 soruPaylasButon.setEnabled(false);
@@ -251,7 +254,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                             soruPaylasButon.setEnabled(true);
                             soruPaylasButon.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
                         }
-                        soruLimit.setText(String.valueOf(charSequence.length()));
                     }
 
                     @Override
