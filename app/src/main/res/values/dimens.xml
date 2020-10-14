@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="search_content_search_text_size">16dp</dimen>
+    <dimen name="search_content_search_text_size">17sp</dimen>
+    <dimen name="search_content_search_text_size320">12sp</dimen>
     <dimen name="toolbar_size">68dp</dimen>
+    <dimen name="toolbar_size320">45dp</dimen>
     <dimen name="search_bar_height">38dp</dimen>
+    <dimen name="search_bar_height320">28dp</dimen>
     <dimen name="search_bar_background_width">300dp</dimen>
     <dimen name="search_bar_background_width_320dp">250dp</dimen>
     <dimen name="search_bar_width_320dp">250dp</dimen>
@@ -86,6 +89,19 @@
     <dimen name="soruPaylasIlBtnHeight360">38dp</dimen>
     <dimen name="soruPaylasIlBtnWidth360">38dp</dimen>
     <dimen name="soruPaylasIlBtnText360">16sp</dimen>
+
+    <dimen name="layoutProfilResmiIcerikYukseklik320">35dp</dimen>
+    <dimen name="layoutProfilResmiIcerikGenislik320">35dp</dimen>
+    <dimen name="layoutProfilAdSoyadTextSize320">12sp</dimen>
+    <dimen name="layoutProfilKullaniciAdiTextSize320">9sp</dimen>
+    <dimen name="layoutProfilSoruZamanTextSize320">9sp</dimen>
+    <dimen name="layoutProfilEtiketTextSize320">10sp</dimen>
+    <dimen name="layoutProfilSoruTextSize320">12sp</dimen>
+    <dimen name="layoutProfilYorumSayisiTextSize320">11sp</dimen>
+    <dimen name="layoutProfilBegenButonYukseklik320">30dp</dimen>
+    <dimen name="layoutProfilBegenButonGenislik320">30dp</dimen>
+
+
 
 
 

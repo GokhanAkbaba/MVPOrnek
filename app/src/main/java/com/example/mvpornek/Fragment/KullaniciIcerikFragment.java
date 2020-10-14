@@ -79,7 +79,8 @@ public class KullaniciIcerikFragment extends Fragment implements View.OnClickLis
         searchQuestionFragment=SearchQuestionFragment.newInstance(mParam1);
         setTabLayout(searchUsersFragment,searchQuestionFragment);
         searchView.clearFocus();
-        //searchView.setIconified(false);
+        EditText searchEditText = (EditText) searchView.findViewById(R.id.search_src_text);
+        searchEditText.setTextSize(14);
        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
            @Override
            public void onFocusChange(View view, boolean b) {
@@ -92,11 +93,6 @@ public class KullaniciIcerikFragment extends Fragment implements View.OnClickLis
 
            }
        });
-        /*AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
-        ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaAsama-3");*/
-
-
-
 
         ImageView closeButton = (ImageView)searchView.findViewById(R.id.search_close_btn);
         closeButton.setOnClickListener(new View.OnClickListener() {

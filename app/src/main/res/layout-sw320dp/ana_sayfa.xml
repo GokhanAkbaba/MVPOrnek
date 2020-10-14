@@ -23,11 +23,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:ignore="MissingDefaultResource">
+
             <FrameLayout
                 android:id="@+id/anaSayfaFrameLayout"
-                android:layout_above="@id/anasayfa_nav_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_above="@id/anasayfa_nav_view"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
                 app:layout_constraintBottom_toTopOf="@+id/anasayfa_nav_view"
                 tools:ignore="MissingConstraints">
 
@@ -41,12 +44,12 @@
                     android:backgroundTint="@color/uygulamaMavisiTwo"
                     android:backgroundTintMode="src_in"
                     android:clickable="true"
+                    android:scaleType="centerInside"
                     android:src="@mipmap/soru_gonder_icon"
                     android:tint="@color/profilSekmeBeyaz"
                     app:backgroundTint="#FFFFFF"
-                    android:scaleType="centerInside"
-                    app:fabSize="mini"
                     app:fabCustomSize="45dp"
+                    app:fabSize="mini"
                     tools:ignore="MissingConstraints" />
 
                 <ProgressBar

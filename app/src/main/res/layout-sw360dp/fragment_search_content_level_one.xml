@@ -29,9 +29,9 @@
                 android:src="@mipmap/search_content_level_one_back_icon" />
 
             <RelativeLayout
-                android:layout_width="@dimen/search_bar_background_width_320dp"
+                android:layout_width="@dimen/search_bar_background_width"
                 android:layout_height="@dimen/search_bar_height"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="50dp"
                 android:background="@drawable/input_field">
 
                 <TextView
@@ -60,11 +60,11 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/searchContentLevelOneViewPager"
             android:layout_width="match_parent"
-            android:layout_height="462dp"
+            android:layout_height="661dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints" >
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/searchContentLevelOneTabLayout"

@@ -56,7 +56,7 @@ public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnsw
         int begeniSayisi=answersModel.getBegeni_sayisi();
         holder.profilCevaplananKisiTxt.setText(cevaplananKisi);
         holder.profilCevapKullaniciAdSoyad.setText(kullaniciAdSoyad);
-        holder.profilCevapKullaniciAdiTxt.setText(kullaniciAdi);
+        holder.profilCevapKullaniciAdiTxt.setText("@"+kullaniciAdi);
         holder.cevap.setText(cevap);
         holder.profilCevapPaylasmaZamani.setText(zaman);
         holder.yorumCevapBegeniSayisiTxt.setText(String.valueOf(begeniSayisi));

@@ -5,21 +5,27 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mvpornek.Activity.HomeActivity;
+import com.example.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.SelectionControlModel;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
+import com.example.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
 import com.example.mvpornek.Presenter.SelectionControlPresenter;
 import com.example.mvpornek.Presenter.SelectionControlPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.SharedPrefManager;
+import com.example.mvpornek.View.InternetConnectionView;
 import com.example.mvpornek.View.SelectionControl;
 
 
-public class SplashScreeenFragment extends Fragment implements SelectionControl {
+public class SplashScreeenFragment extends Fragment implements SelectionControl, InternetConnectionView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -27,9 +33,9 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
 
     private String mParam1;
     private String mParam2;
-
+    private InternetConnectionPresenter internetConnectionPresenter;
     Fragment fragment=null;
-    boolean iSecim;
+    boolean isLoged;
 
 
 
@@ -71,40 +77,12 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
         View view = inflater.inflate(R.layout.fragment_baslangic, container, false);
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
-
+        isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
         selectionControlPresenter= new SelectionControlPresenterImpl(this);
         selectionControlPresenter.loadData(kullanici.getId());
 
-
-        final boolean isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
-
-        Thread thread= new Thread(){
-            @Override
-            public void run() {
-                try {
-                    sleep(2000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }finally {
-                    if(isLoged == false){
-                        fragment=new StartFragment();
-                        loadFragment(fragment,"Start1");
-                    }else{
-                        System.out.println("Sonuç - 3 "+getDurum().getSecim());
-                         iSecim=getDurum().getSecim();
-                        if(iSecim == false){
-                            fragment=new BeginingFragment();
-                            loadFragment(fragment,"BeginingFragment");
-                        }else{
-                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                        }
-
-                    }
-                }
-                super.run();
-            }
-        };
-        thread.start();
+        internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
+        internetConnectionPresenter.internetBaglantiKontrolu();
         return view;
     }
 
@@ -125,6 +103,7 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
         this.durum=message;
         setDurum(message);
 
+
     }
     public SelectionControlModel getDurum() {
         return durum;
@@ -132,6 +111,44 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl 
 
     public void setDurum(SelectionControlModel durum) {
         this.durum = durum;
+    }
+
+    @Override
+    public void internetBaglantiHatasi() {
+        uygulamaBasla(isLoged,true);
+    }
+
+    @Override
+    public void internetBaglantisi() {
+
+        uygulamaBasla(isLoged,false);
+
+
+    }
+    public void uygulamaBasla(Boolean isLoged,Boolean kontrol){
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(isLoged == false){
+                    fragment=new StartFragment();
+                    loadFragment(fragment,"Start1");
+                }else{
+                    if(kontrol==false){
+                        final boolean iSecim =getDurum().getSecim();
+                        if(iSecim == false){
+                            fragment=new BeginingFragment();
+                            loadFragment(fragment,"BeginingFragment");
+                        }else{
+                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                        }
+                    }else{
+                        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                    }
+                }
+            }
+        },2000);
     }
 }
 

@@ -38,7 +38,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
     @Override
     public SearchAdapter.RecyclerViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.kullanici_arama_icerik, parent, false);
-        return new SearchAdapter.RecyclerViewAdapter(view,itemClickListener);
+        return new RecyclerViewAdapter(view,itemClickListener);
     }
 
     @Override

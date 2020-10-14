@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Notification.NotificationLikeActivity">
+    <RelativeLayout
+        android:id="@+id/notificationLikeRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notificationLikeCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/notificationLikeSorularIcerikLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/notificationLikeKullaniciResmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="6dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103">
+
+                <ImageView
+                    android:id="@+id/notificationLikeSorularIcerikKullaniciResmi"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rumeli" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/notificationLikeKullaniciAdSoyad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="23dp"
+                android:text="Gökhan AKBABA"
+                android:textColor="#000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/notificationLikeKullaniciResmi"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/notificationLikeSoruPaylasmaZamani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="1sa"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/notificationLikeKullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeKullaniciAdiTxt" />
+
+            <TextView
+                android:id="@+id/notificationLikeSoruEtiketleri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:text="#Adres #Tatil"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeSoruPaylasmaZamani" />
+
+            <TextView
+                android:id="@+id/notificationLikeKullaniciAdiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="\@GokhanAkbaba"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/notificationLikeKullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeKullaniciAdSoyad" />
+
+            <TextView
+                android:id="@+id/notificationLikeSoruTxt"
+                android:layout_width="384dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+
+                android:text="@string/denemeSoru1Txt"
+                android:textColor="#000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeSoruEtiketleri" />
+
+            <ImageView
+                android:id="@+id/notificationLikeSoruYorumIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_comment_svg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeSoruTxt" />
+
+            <TextView
+                android:id="@+id/notificationLikeYorumSayiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:text="155"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/notificationLikeSoruYorumIcon"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeSoruTxt" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="453dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="13.6dp"
+                android:background="@color/ayarlarGrisi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationLikeYorumSayiTxt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notificationLikeYorumlarIcerikLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_below="@+id/notificationLikeCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/notificationLikeYorumKullaniciResmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="6dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103">
+
+            <ImageView
+                android:id="@+id/notificationYorumRoundedKullaniciResmi"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rumeli"
+                tools:ignore="MissingConstraints" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/notificationLikeYorumKullaniciAdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="@color/renkSiyah"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/notificationLikeYorumBegeniButon"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toEndOf="@+id/notificationLikeYorumKullaniciResmi"
+            app:layout_constraintTop_toTopOf="@+id/notificationLikeYorumKullaniciResmi" />
+
+        <TextView
+            android:id="@+id/notificationLikeYorumTxt"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="@color/renkSiyah"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/notificationLikeYorumKullaniciResmi"
+            app:layout_constraintTop_toBottomOf="@+id/notificationLikeYorumKullaniciAdi"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/notificationLikeYorumBegeniButon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:src="@mipmap/guven_oyu"
+            android:tint="@color/ayarlarGrisi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/notificationLikeYorumTxt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/notificationLikeYorumBegeniSayisiTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:text="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintStart_toEndOf="@+id/notificationLikeYorumTxt"
+            app:layout_constraintTop_toBottomOf="@+id/notificationLikeYorumBegeniButon" />
+
+        <TextView
+            android:id="@+id/notificationLikeYorumZaman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/notificationLikeYorumBegeniButon"
+            app:layout_constraintTop_toBottomOf="@+id/notificationLikeYorumTxt" />
+
+        <View
+            android:id="@+id/divider11"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

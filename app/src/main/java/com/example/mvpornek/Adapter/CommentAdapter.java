@@ -55,7 +55,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
         String kullaniciProfilResmi=commentModel.getProfilFoto();
         String begeniSayisi=commentModel.getBegeniSayisi();
         holder.yorum.setText(yorum);
-        holder.kullaniciAdi.setText(kullaniciAdi);
+        holder.kullaniciAdi.setText("@"+kullaniciAdi);
         holder.begeniSayisi.setText(begeniSayisi);
         GlideApp.with(context).load(kullaniciProfilResmi).apply( new RequestOptions().centerCrop()).into(holder.profilResmi);
         Kullanici kullanici= SharedPrefManager.getInstance(context).getKullanici();

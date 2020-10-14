@@ -29,8 +29,10 @@ class SelectionControlPresenterImpl implements SelectionControlPresenter {
         call.enqueue(new Callback<SelectionControlModel>() {
             @Override
             public void onResponse(Call<SelectionControlModel> call, Response<SelectionControlModel> response) {
+                System.out.println("DEĞERIDDDDD");
                 if (response.isSuccessful() && response.body() !=null) {
                     selectionControl.showSuccesMessage(response.body());
+                    System.out.println("DEĞER"+response.body().getSecim());
                 }
             }
             @Override

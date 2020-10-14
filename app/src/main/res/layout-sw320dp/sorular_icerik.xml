@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/sorularIcerikKullaniciResmi"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+                    android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -54,7 +54,7 @@
                 android:text="Gökhan AKBABA"
                 android:layout_marginEnd="10dp"
                 android:textColor="#000"
-                android:textSize="12sp"
+                android:textSize="@dimen/layoutProfilAdSoyadTextSize320"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1sa"
-                android:textSize="9sp"
+                android:textSize="@dimen/layoutProfilSoruZamanTextSize320"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdiTxt" />
 
@@ -77,7 +77,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
                 android:text="#Adres #Tatil"
-                android:textSize="10sp"
+                android:textSize="@dimen/layoutProfilEtiketTextSize320"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/soruPaylasmaZamani" />
 
@@ -88,7 +88,7 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="10dp"
                 android:text="\@GokhanAkbaba"
-                android:textSize="9sp"
+                android:textSize="@dimen/layoutProfilKullaniciAdiTextSize320"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciAdSoyad" />
@@ -102,7 +102,7 @@
                 android:layout_marginTop="3dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
-                android:textSize="11sp"
+                android:textSize="@dimen/layoutProfilSoruTextSize320"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:text="155"
-                android:textSize="11sp"
+                android:textSize="@dimen/layoutProfilYorumSayisiTextSize320"
                 app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
                 app:layout_constraintTop_toTopOf="@+id/soruYorumIcon" />
 

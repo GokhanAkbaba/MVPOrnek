@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -81,6 +82,8 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         geriButon=(Button) view.findViewById(R.id.aramaSayfasiIcerikGeriBtn);
         geriButon.setOnClickListener(this);
         searchView.onActionViewExpanded();
+        EditText searchEditText = (EditText) searchView.findViewById(R.id.search_src_text);
+        searchEditText.setTextSize(14);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

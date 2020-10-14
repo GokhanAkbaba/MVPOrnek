@@ -24,7 +24,6 @@ public class InternetConnectionPresenterImpl implements InternetConnectionPresen
         {
             internetConnectionView.internetBaglantiHatasi();
         }
-
     }
 
     @Override
@@ -33,6 +32,5 @@ public class InternetConnectionPresenterImpl implements InternetConnectionPresen
         {
             internetConnectionView.internetBaglantisi();
         }
-
     }
 }

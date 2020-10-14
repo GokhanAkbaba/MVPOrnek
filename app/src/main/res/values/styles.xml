@@ -44,6 +44,14 @@
         <item name="android:background">@drawable/ana_sayfa_alisveris_buton</item>
 
     </style>
+    <style name="TabLayoutStyle" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+        <item name="android:textSize">20sp</item>
+
+    </style>
 
 
 </resources>

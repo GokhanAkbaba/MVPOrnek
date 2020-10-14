@@ -8,7 +8,7 @@
     tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/begeniRoundedKullaniciResmi"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+                    android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -53,7 +53,7 @@
                 android:layout_marginTop="19dp"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
-                android:textSize="14sp"
+                android:textSize="@dimen/layoutProfilAdSoyadTextSize320"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,10 +63,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1sa"
-                android:textSize="11sp"
+                android:textSize="@dimen/layoutProfilSoruZamanTextSize320"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/begeniKullaniciAdiTxt" />
-
 
 
             <TextView
@@ -76,35 +75,69 @@
                 android:layout_marginStart="8dp"
 
                 android:text="\@GokhanAkbaba"
-                android:textSize="11sp"
+                android:textSize="@dimen/layoutProfilKullaniciAdiTextSize320"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/begeniKullaniciAdSoyad" />
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="298dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/denemeSoru1Txt"
+                android:textAlignment="gravity"
                 android:textColor="#000"
-                android:textSize="14sp"
+                android:textSize="@dimen/layoutProfilSoruTextSize320"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/begeniPaylasmaZamani" />
+                app:layout_constraintTop_toBottomOf="@+id/begeniPaylasmaZamani"
+                app:layout_constraintVertical_bias="0.216" />
+
+
+            <ImageView
+                android:id="@+id/profilBegeniImageButton"
+                android:layout_width="@dimen/layoutProfilBegenButonGenislik320"
+                android:layout_height="@dimen/layoutProfilBegenButonYukseklik320"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="215dp"
+                android:clickable="true"
+                android:src="@mipmap/guven_oyu"
+                android:tag="seçilmedi"
+                android:tint="@color/ayarlarGrisi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/yorumCevapBegeniSayisiTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="278dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginTop="9dp"
+                android:textSize="@dimen/layoutProfilYorumSayisiTextSize320"
+                android:text="54654"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="@+id/profilBegeniImageButton"
+                app:layout_constraintStart_toEndOf="@+id/profilBegeniImageButton"
+                app:layout_constraintTop_toTopOf="@+id/profilBegeniImageButton" />
 
             <View
                 android:id="@+id/divider3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="6dp"
                 android:background="@color/ayarlarGrisi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/yorumCevapBegeniSayisiTxt" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

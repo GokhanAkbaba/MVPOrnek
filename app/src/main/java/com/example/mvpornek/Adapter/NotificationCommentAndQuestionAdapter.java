@@ -64,7 +64,7 @@ class NotificationCommentAndQuestionAdapter extends RecyclerView.Adapter<Notific
         }
         spf= new SimpleDateFormat("dd MMM yyyy HH:mm");
         yorumZaman = spf.format(newDate);
-        holder.notificatioYorumKullaniciAdi.setText(yorumKullaniniciAdi);
+        holder.notificatioYorumKullaniciAdi.setText("@"+yorumKullaniniciAdi);
     holder.notificationYorumTxt.setText(yorumTxt);
     holder.notificationYorumZaman.setText(yorumZaman);
     holder.notificationYorumBegeniSayisiTxt.setText(String.valueOf(begeniSayisi));

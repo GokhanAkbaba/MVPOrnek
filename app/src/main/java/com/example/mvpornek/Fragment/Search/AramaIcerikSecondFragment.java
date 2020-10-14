@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.mvpornek.Activity.HomeActivity;
 import com.example.mvpornek.Adapter.SearchAdapter;
@@ -73,12 +76,15 @@ public class AramaIcerikSecondFragment extends Fragment implements View.OnClickL
         View view=inflater.inflate(R.layout.fragment_arama_icerik_second, container, false);
                 searchView=(SearchView) view.findViewById(R.id.searchView_page);
         aramaRecyclerView=view.findViewById(R.id.aramaRecyclerView);
-        aramaRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         aramaRecyclerView.setAdapter(searchAdapter);
+        aramaRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         searchUsersPresenter=new SearchUsersPresenterImpl(this);
         geriButon=(Button) view.findViewById(R.id.aramaSayfasiIcerikGeriBtn);
         geriButon.setOnClickListener(this);
         searchView.onActionViewExpanded();
+        EditText searchEditText = (EditText) searchView.findViewById(R.id.search_src_text);
+        searchEditText.setTextSize(14);
        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

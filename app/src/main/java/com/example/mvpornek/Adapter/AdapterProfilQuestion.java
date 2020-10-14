@@ -70,7 +70,7 @@ public class AdapterProfilQuestion extends RecyclerView.Adapter<AdapterProfilQue
             zaman= spf.format(newDate);
         }
         holder.adSoyad.setText(kullaniciAdSoyad);
-        holder.kullanicAdi.setText(kullaniciAdi);
+        holder.kullanicAdi.setText("@"+kullaniciAdi);
         holder.etiket.setText(etiket);
         holder.sorular.setText(soru);
         holder.zaman.setText(zaman);
