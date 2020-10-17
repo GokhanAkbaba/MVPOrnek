@@ -10,6 +10,8 @@
     <dimen name="search_bar_background_width">300dp</dimen>
     <dimen name="search_bar_background_width_320dp">250dp</dimen>
     <dimen name="search_bar_width_320dp">250dp</dimen>
+    <dimen name="toolbarTitleSize320">16sp</dimen>
+    <dimen name="ayarlarSecenekTitleSize320">14sp</dimen>
 
     <dimen name="kayitOlTextInputLayoutHeight">60dp</dimen>
     <dimen name="kayitOlEditText">40dp</dimen>
@@ -100,6 +102,7 @@
     <dimen name="layoutProfilYorumSayisiTextSize320">11sp</dimen>
     <dimen name="layoutProfilBegenButonYukseklik320">30dp</dimen>
     <dimen name="layoutProfilBegenButonGenislik320">30dp</dimen>
+    <dimen name="ayarlarSayfaLayoutHeight320">45dp</dimen>
 
 
 

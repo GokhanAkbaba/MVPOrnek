@@ -7,8 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/searchContentAppbar"
+        android:id="@+id/settingsContentAppbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +22,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/ayarlarToolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_size"
+            android:layout_height="@dimen/toolbar_size320"
             android:background="@drawable/content_level_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +37,7 @@
                 android:text="@string/ayarlarTxt"
                 android:textColor="@color/uygulamaMavisi"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="21sp"
+                android:textSize="@dimen/toolbarTitleSize320"
                 />
 
         </androidx.appcompat.widget.Toolbar>
@@ -45,33 +48,30 @@
     <LinearLayout
         android:id="@+id/linearLayout17"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
+        android:layout_height="45dp"
         android:background="@color/colorGrayPrimay"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar">
+        android:layout_below="@+id/settingsContentAppbar"
+        >
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="11dp"
             android:fontFamily="@string/font_family_mediumSans"
             android:text="@string/ayarlarSayfaHesapTxt"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/profilDuzenleLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight320"
         android:background="@drawable/ripple"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout17"
+        android:layout_below="@+id/linearLayout17"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -80,21 +80,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="12.5dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="19dp"
             android:fontFamily="sans-serif"
             android:text="@string/ayarlarSayfaProfilDuzenleTxt"
             android:textColor="@color/renkSiyah"
-            android:textSize="@dimen/ayarlarSayfaTextSize400" />
+            android:textSize="@dimen/ayarlarSecenekTitleSize320" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+            android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
-            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
             android:tint="@color/ayarlarGrisi"
             android:src="@mipmap/search_content_level_one_back_icon" />
 
@@ -105,7 +107,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="44dp"
             android:background="@color/ayarlarGrisi"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
@@ -113,22 +115,23 @@
     <RelativeLayout
         android:id="@+id/sifreDegistirLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight320"
         android:background="@drawable/ripple"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilDuzenleLayout"
+        android:layout_below="@+id/profilDuzenleLayout"
         tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+            android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+
             android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
-            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
             android:src="@mipmap/search_content_level_one_back_icon"
             android:tint="@color/ayarlarGrisi" />
 
@@ -139,11 +142,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="12.5dp"
             android:fontFamily="sans-serif"
             android:text="@string/ayarlarSayfaSifreDegistir"
             android:textColor="@color/renkSiyah"
-            android:textSize="@dimen/ayarlarSayfaTextSize400" />
+            android:textSize="@dimen/ayarlarSecenekTitleSize320" />
 
         <View
             android:id="@+id/divider3"
@@ -153,28 +156,29 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="44dp"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/bildirimlerLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight320"
         android:background="@drawable/ripple"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sifreDegistirLayout"
+        android:layout_below="@+id/sifreDegistirLayout"
         tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+            android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
-            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
             android:src="@mipmap/search_content_level_one_back_icon"
             android:tint="@color/ayarlarGrisi" />
 
@@ -185,11 +189,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="12.5dp"
             android:fontFamily="sans-serif"
             android:text="@string/ayarlarSayfaBildirimler"
             android:textColor="@color/renkSiyah"
-            android:textSize="@dimen/ayarlarSayfaTextSize400" />
+            android:textSize="@dimen/ayarlarSecenekTitleSize320" />
         <View
             android:id="@+id/divider4"
             android:layout_width="match_parent"
@@ -198,28 +202,30 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="44dp"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/cikisYapLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
+        android:layout_height="@dimen/ayarlarSayfaLayoutHeight320"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/ripple"
         android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bildirimlerLayout"
+        android:layout_below="@+id/bildirimlerLayout"
         tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+            android:layout_width="@dimen/layoutProfilResmiIcerikGenislik320"
+            android:layout_height="@dimen/layoutProfilResmiIcerikYukseklik320"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
-            android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
             android:src="@mipmap/search_content_level_one_back_icon"
             android:tint="@color/ayarlarGrisi" />
 
@@ -230,14 +236,15 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="12.5dp"
             android:fontFamily="sans-serif"
             android:text="@string/ayarlarSayfaCikisYap"
             android:textColor="@color/renkSiyah"
-            android:textSize="@dimen/ayarlarSayfaTextSize400"/>
+            android:textSize="@dimen/ayarlarSecenekTitleSize320"/>
 
 
 
+    </RelativeLayout>
     </RelativeLayout>
 
 
