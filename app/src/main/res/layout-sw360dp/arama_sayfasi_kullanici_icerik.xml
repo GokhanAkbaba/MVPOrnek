@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/searchContentToolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_size"
+        android:layout_height="@dimen/toolbarHeight360"
         android:background="@drawable/content_level_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,18 +19,19 @@
         <Button
             android:id="@+id/aramaSayfasiAyrintiIcerikGeriBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="43dp"
-            android:layout_height="35dp"
+            android:layout_width="37dp"
+            android:layout_height="30dp"
             android:background="@drawable/ic_back_arrow"
             android:clickable="true"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/kullaniciIcerikSearchView"
-            android:layout_width="@dimen/search_bar_background_width"
-            android:layout_height="@dimen/search_bar_height"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/searchBarHeight360"
             android:background="@drawable/input_field"
             android:clickable="true"
+            android:layout_marginEnd="25dp"
             android:iconifiedByDefault="false"
             tools:layout_editor_absoluteX="91dp"
             tools:layout_editor_absoluteY="15dp" />
@@ -62,9 +63,9 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/kullaniciIcerikViewPager"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="103dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kullaniciIceriktabLayout"

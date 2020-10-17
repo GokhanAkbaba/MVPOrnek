@@ -172,7 +172,7 @@ public class ProfilFragment extends Fragment implements UsersGetView {
     public void setTabLayout(Fragment sorularim, Fragment begendiklerim,Fragment cevaplarim){
         viewPagerAdapter=new ViewPagerAdapter(getActivity().getSupportFragmentManager());
         viewPagerAdapter.AddFragment(sorularim,"Sorularım");
-        viewPagerAdapter.AddFragment(begendiklerim,"Beğendiklerim");
+        viewPagerAdapter.AddFragment(begendiklerim,"Beğenilerim");
         viewPagerAdapter.AddFragment(cevaplarim,"Cevaplarim");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

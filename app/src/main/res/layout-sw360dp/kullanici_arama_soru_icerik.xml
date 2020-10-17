@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/aramaRoundedKullaniciResmi"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -50,10 +50,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="20dp"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/aramaKullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1sa"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 app:layout_constraintStart_toEndOf="@+id/aramaKullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/aramaKullaniciAdiTxt" />
 
@@ -72,11 +72,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:text="#Adres #Tatil"
-                android:textSize="14sp"
+                android:textSize="11sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/aramaKullaniciResmi" />
+                app:layout_constraintTop_toBottomOf="@+id/aramaSoruPaylasmaZamani" />
 
             <TextView
                 android:id="@+id/aramaKullaniciAdiTxt"
@@ -84,26 +83,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="\@GokhanAkbaba"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/aramaKullaniciResmi"
                 app:layout_constraintTop_toBottomOf="@+id/aramaKullaniciAdSoyad" />
 
             <TextView
                 android:id="@+id/aramaSoruAlanı"
-                android:layout_width="384dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="16dp"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/aramaSoruEtiket" />
 
             <ImageView
                 android:id="@+id/aramaSoruYorumIcon"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_comment_svg"
@@ -115,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:text="155"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/aramaSoruYorumIcon"
