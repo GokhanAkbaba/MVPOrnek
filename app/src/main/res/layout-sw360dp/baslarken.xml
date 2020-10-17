@@ -130,6 +130,7 @@
         tools:ignore="MissingConstraints,NotSibling">
 
         <ImageView
+            android:id="@+id/yirmiDortSaatImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -176,6 +177,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
+                android:id="@+id/adresImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -189,6 +191,7 @@
                 android:src="@drawable/ic_location" />
 
             <TextView
+                android:id="@+id/adresBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -213,6 +216,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
+                android:id="@+id/yemekImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -226,6 +230,7 @@
                 android:src="@drawable/ic_yemek" />
 
             <TextView
+                android:id="@+id/yemekBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -250,6 +255,7 @@
             tools:ignore="MissingConstraints,NotSibling">
 
             <ImageView
+                android:id="@+id/sporImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -263,6 +269,7 @@
                 android:src="@drawable/ic_trophy" />
 
             <TextView
+                android:id="@+id/sporBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -288,6 +295,7 @@
             tools:ignore="MissingConstraints,NotSibling">
 
             <ImageView
+                android:id="@+id/tatilImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -301,6 +309,7 @@
                 android:src="@drawable/ic_tatil" />
 
             <TextView
+                android:id="@+id/tatilBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -326,6 +335,7 @@
             tools:ignore="MissingConstraints,NotSibling">
 
             <ImageView
+                android:id="@+id/alisverisImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -339,6 +349,7 @@
                 android:src="@drawable/ic_alisveris" />
 
             <TextView
+                android:id="@+id/alisverisBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -365,6 +376,7 @@
             tools:layout_editor_absoluteY="38dp">
 
             <ImageView
+                android:id="@+id/sanatImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -378,6 +390,7 @@
                 android:src="@drawable/ic_tv_svg" />
 
             <TextView
+                android:id="@+id/sanatBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -404,6 +417,7 @@
             tools:layout_editor_absoluteY="38dp">
 
             <ImageView
+                android:id="@+id/yazilimImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -417,6 +431,7 @@
                 android:src="@drawable/ic_engineer" />
 
             <TextView
+                android:id="@+id/yazilimBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -443,6 +458,7 @@
             tools:layout_editor_absoluteY="38dp">
 
             <ImageView
+                android:id="@+id/otoImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -456,6 +472,7 @@
                 android:src="@drawable/ic_auto_svg" />
 
             <TextView
+                android:id="@+id/otoBaslarkenTxt"
                 android:layout_width="64dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
@@ -484,6 +501,7 @@
             tools:layout_editor_absoluteY="76dp">
 
             <ImageView
+                android:id="@+id/modaImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -497,6 +515,7 @@
                 android:src="@drawable/ic_moda_svg" />
 
             <TextView
+                android:id="@+id/modaBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -523,6 +542,7 @@
             tools:layout_editor_absoluteY="76dp">
 
             <ImageView
+                android:id="@+id/tarihImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -536,6 +556,7 @@
                 android:src="@drawable/ic_tarih_svg" />
 
             <TextView
+                android:id="@+id/tarihBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -562,6 +583,7 @@
             tools:layout_editor_absoluteY="76dp">
 
             <ImageView
+                android:id="@+id/egitimImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -575,6 +597,7 @@
                 android:src="@drawable/ic_book" />
 
             <TextView
+                android:id="@+id/egitimBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -601,6 +624,7 @@
             tools:layout_editor_absoluteY="114dp">
 
             <ImageView
+                android:id="@+id/muzikImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -614,6 +638,7 @@
                 android:src="@drawable/ic_muzik_svg" />
 
             <TextView
+                android:id="@+id/muzikBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -640,6 +665,7 @@
             tools:layout_editor_absoluteY="114dp">
 
             <ImageView
+                android:id="@+id/saglikImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -653,6 +679,7 @@
                 android:src="@drawable/ic_saglik_svg" />
 
             <TextView
+                android:id="@+id/saglikBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -679,6 +706,7 @@
             tools:layout_editor_absoluteY="114dp">
 
             <ImageView
+                android:id="@+id/oyunImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -692,6 +720,7 @@
                 android:src="@drawable/ic_oyun_svg" />
 
             <TextView
+                android:id="@+id/oyunBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -718,6 +747,7 @@
             tools:layout_editor_absoluteY="114dp">
 
             <ImageView
+                android:id="@+id/teknoImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -731,6 +761,7 @@
                 android:src="@drawable/ic_teknoloji_svg" />
 
             <TextView
+                android:id="@+id/teknolojiBaslarkenTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"

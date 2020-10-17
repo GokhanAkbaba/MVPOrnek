@@ -12,8 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mvpornek.Activity.HomeActivity;
@@ -30,12 +32,22 @@ import java.util.ArrayList;
 
 public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener {
 
-    RelativeLayout adres,yemek,spor, tatil,alisveris,sanat,yrmDrtBildirim,secimOnay;
+    RelativeLayout adres,yemek,spor, tatil,alisveris,sanat,yrmDrtBildirim,teknoEtiketButon,muzikEtiketButon,egitimEtiketButon;
+    RelativeLayout modaEtiketButon,otoEtiketButon,saglikEtiketButon,tarihEtiketButon,yazilimEtiketButon,oyunEtiketButon;
     Spinner spinner;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false;
+    Boolean checkSaglikEtiket=false,checkOyunEtiket=false,checkTeknoEtiket=false,checkMuzikEtiket=false,checkModaEtiket=false;
+    Boolean checkEgitimEtiket=false,checkTarihEtiket=false,checkOtoEtiket=false,checkYazilimEtiket=false;
     String selectedIl;
     int selectedIlPlaka;
+
+    TextView adresBaslarkenTxt,yemekBaslarkenTxt,sporBaslarkenTxt,sanatBaslarkenTxt,alisverisBaslarkenTxt,tatilBaslarkenTxt;
+    TextView yazilimBaslarkenTxt,otoBaslarkenTxt,modaBaslarkenTxt,egitimBaslarkenTxt,tarihBaslarkenTxt,saglikBaslarkenTxt;
+    TextView oyunBaslarkenTxt,teknolojiBaslarkenTxt,muzikBaslarkenTxt;
+
+    ImageView teknoImage,muzikImage,modaImage,sanatImage,sporImage,yemekImage,alisverisImage,otoImage;
+    ImageView egitimImage,oyunImage,saglikImage,tarihImage,yazilimImage,tatilImage,adresImage,yirmiDortSaatImage;
 
 
     int kullaniciId;
@@ -92,8 +104,59 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         alisveris.setOnClickListener(this);
         sanat=view.findViewById(R.id.sanatEtiketButon);
         sanat.setOnClickListener(this);
+        teknoEtiketButon=view.findViewById(R.id.teknoEtiketButon);
+        teknoEtiketButon.setOnClickListener(this);
+        muzikEtiketButon=view.findViewById(R.id.muzikEtiketButon);
+        muzikEtiketButon.setOnClickListener(this);
+        modaEtiketButon=view.findViewById(R.id.modaEtiketButon);
+        modaEtiketButon.setOnClickListener(this);
         yrmDrtBildirim=view.findViewById(R.id.yirmiDortSaatBildirimButon);
         yrmDrtBildirim.setOnClickListener(this);
+        otoEtiketButon=view.findViewById(R.id.otoEtiketButon);
+        otoEtiketButon.setOnClickListener(this);
+        saglikEtiketButon=view.findViewById(R.id.saglikEtiketButon);
+        saglikEtiketButon.setOnClickListener(this);
+        tarihEtiketButon=view.findViewById(R.id.tarihEtiketButon);
+        tarihEtiketButon.setOnClickListener(this);
+        yazilimEtiketButon=view.findViewById(R.id.yazilimEtiketButon);
+        yazilimEtiketButon.setOnClickListener(this);
+        oyunEtiketButon=view.findViewById(R.id.oyunEtiketButon);
+        oyunEtiketButon.setOnClickListener(this);
+        egitimEtiketButon=view.findViewById(R.id.egitimEtiketButon);
+        egitimEtiketButon.setOnClickListener(this);
+
+        adresBaslarkenTxt=view.findViewById(R.id.adresBaslarkenTxt);
+        yemekBaslarkenTxt=view.findViewById(R.id.yemekBaslarkenTxt);
+        sporBaslarkenTxt=view.findViewById(R.id.sporBaslarkenTxt);
+        sanatBaslarkenTxt=view.findViewById(R.id.sanatBaslarkenTxt);
+        alisverisBaslarkenTxt=view.findViewById(R.id.alisverisBaslarkenTxt);
+        tatilBaslarkenTxt=view.findViewById(R.id.tatilBaslarkenTxt);
+        yazilimBaslarkenTxt=view.findViewById(R.id.yazilimBaslarkenTxt);
+        otoBaslarkenTxt=view.findViewById(R.id.otoBaslarkenTxt);
+        modaBaslarkenTxt=view.findViewById(R.id.modaBaslarkenTxt);
+        egitimBaslarkenTxt=view.findViewById(R.id.egitimBaslarkenTxt);
+        tarihBaslarkenTxt=view.findViewById(R.id.tarihBaslarkenTxt);
+        saglikBaslarkenTxt=view.findViewById(R.id.saglikBaslarkenTxt);
+        oyunBaslarkenTxt=view.findViewById(R.id.oyunBaslarkenTxt);
+        teknolojiBaslarkenTxt=view.findViewById(R.id.teknolojiBaslarkenTxt);
+        muzikBaslarkenTxt=view.findViewById(R.id.muzikBaslarkenTxt);
+        teknoImage=view.findViewById(R.id.teknoImage);
+        muzikImage=view.findViewById(R.id.muzikImage);
+        modaImage=view.findViewById(R.id.modaImage);
+        sanatImage=view.findViewById(R.id.sanatImage);
+        sporImage=view.findViewById(R.id.sporImage);
+        yemekImage=view.findViewById(R.id.yemekImage);
+        alisverisImage=view.findViewById(R.id.alisverisImage);
+        otoImage=view.findViewById(R.id.otoImage);
+        egitimImage=view.findViewById(R.id.egitimImage);
+        oyunImage=view.findViewById(R.id.oyunImage);
+        saglikImage=view.findViewById(R.id.saglikImage);
+        tarihImage=view.findViewById(R.id.tarihImage);
+        yazilimImage=view.findViewById(R.id.yazilimImage);
+        tatilImage=view.findViewById(R.id.tatilImage);
+        adresImage=view.findViewById(R.id.adresImage);
+        yirmiDortSaatImage=view.findViewById(R.id.yirmiDortSaatImage);
+
         Kullanici kullanici= SharedPrefManager.getInstance(getContext()).getKullanici();
         kullaniciId=kullanici.getId();
         beginingPresenter=new BeginingPresenterImpl(this, new BeginingInteractorImpl());
@@ -145,6 +208,204 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 }
 
                 break;
+            case R.id.yazilimEtiketButon:
+
+                if(checkYazilimEtiket == false)
+                {
+
+                    etiketList.add("Yazilim");
+                    yazilimEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    yazilimBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    yazilimImage.setImageResource(R.mipmap.onay_icon);
+                    checkYazilimEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Yazilim");
+                    yazilimEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    yazilimBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    yazilimImage.setImageResource(R.drawable.ic_engineer);
+                    checkYazilimEtiket=false;
+
+                }
+                break;
+            case R.id.otoEtiketButon:
+
+                if(checkOtoEtiket == false)
+                {
+
+                    etiketList.add("Oto");
+                    otoEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    otoBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    otoImage.setImageResource(R.mipmap.onay_icon);
+                    checkOtoEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Oto");
+                    otoEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    otoBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    otoImage.setImageResource(R.drawable.ic_auto_svg);
+                    checkOtoEtiket=false;
+
+                }
+                break;
+            case R.id.tarihEtiketButon:
+
+                if(checkTarihEtiket == false)
+                {
+
+                    etiketList.add("Tarih");
+                    tarihEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    tarihBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    tarihImage.setImageResource(R.mipmap.onay_icon);
+                    checkTarihEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Tarih");
+                    tarihEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    tarihBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    tarihImage.setImageResource(R.drawable.ic_tarih_svg);
+                    checkTarihEtiket=false;
+
+                }
+                break;
+            case R.id.egitimEtiketButon:
+
+                if(checkEgitimEtiket == false)
+                {
+
+                    etiketList.add("Egitim");
+                    egitimEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    egitimBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    egitimImage.setImageResource(R.mipmap.onay_icon);
+                    checkEgitimEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Egitim");
+                    egitimEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    egitimBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    egitimImage.setImageResource(R.drawable.ic_book);
+                    checkEgitimEtiket=false;
+
+                }
+                break;
+            case R.id.modaEtiketButon:
+
+                if(checkModaEtiket == false)
+                {
+
+                    etiketList.add("Moda");
+                    modaEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    modaBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    modaImage.setImageResource(R.mipmap.onay_icon);
+                    checkModaEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Moda");
+                    modaEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    modaBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    modaImage.setImageResource(R.drawable.ic_moda_svg);
+                    checkModaEtiket=false;
+
+                }
+                break;
+            case R.id.muzikEtiketButon:
+
+                if(checkMuzikEtiket == false)
+                {
+
+                    etiketList.add("Muzik");
+                    muzikEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    muzikBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    muzikImage.setImageResource(R.mipmap.onay_icon);
+                    checkMuzikEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Muzik");
+                    muzikEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    muzikBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    muzikImage.setImageResource(R.drawable.ic_muzik_svg);
+                    checkMuzikEtiket=false;
+
+                }
+                break;
+            case R.id.teknoEtiketButon:
+
+                if(checkTeknoEtiket == false)
+                {
+
+                    etiketList.add("Teknoloji");
+                    teknoEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    teknolojiBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    teknoImage.setImageResource(R.mipmap.onay_icon);
+                    checkTeknoEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Teknoloji");
+                    teknoEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    teknolojiBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    teknoImage.setImageResource(R.drawable.ic_teknoloji_svg);
+                    checkTeknoEtiket=false;
+
+                }
+                break;
+            case R.id.oyunEtiketButon:
+
+                if(checkOyunEtiket == false)
+                {
+
+                    etiketList.add("Oyun");
+                    oyunEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    oyunBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    oyunImage.setImageResource(R.mipmap.onay_icon);
+                    checkOyunEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Oyun");
+                    oyunEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    oyunBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    oyunImage.setImageResource(R.drawable.ic_oyun_svg);
+                    checkOyunEtiket=false;
+
+                }
+                break;
+            case R.id.saglikEtiketButon:
+
+                if(checkSaglikEtiket == false)
+                {
+
+                    etiketList.add("Saglik");
+                    saglikEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
+                    saglikBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    saglikImage.setImageResource(R.mipmap.onay_icon);
+                    checkSaglikEtiket = true;
+
+                }
+                else
+                {
+                    etiketList.remove("Saglik");
+                    saglikEtiketButon.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
+                    saglikBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    saglikImage.setImageResource(R.drawable.ic_saglik_svg);
+                    checkSaglikEtiket=false;
+
+                }
+                break;
             case R.id.adresEtiketButon:
 
                 if(checkAdresEtiket == false)
@@ -152,9 +413,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.add("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //adres.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    //adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    adresBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    adresImage.setImageResource(R.mipmap.onay_icon);
                     checkAdresEtiket = true;
 
                 }
@@ -162,14 +422,11 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.remove("Adres");
                     adres.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //adres.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgTatil =adres.getContext().getResources().getDrawable(R.mipmap.ic_launcher_adres);
-                    ///adres.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    adresBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    adresImage.setImageResource(R.drawable.ic_location);
                     checkAdresEtiket=false;
 
                 }
-
-
                 break;
             case R.id.yemekEtiketButon:
 
@@ -177,9 +434,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //yemek.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    //yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
+                    yemekBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    yemekImage.setImageResource(R.mipmap.onay_icon);
                     checkYemekEtiket = true;
                 }
                 else
@@ -187,9 +443,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.remove("Yemek");
                     yemek.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //yemek.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgYemek =yemek.getContext().getResources().getDrawable(R.mipmap.yemek_icon);
-                    //yemek.setCompoundDrawablesWithIntrinsicBounds(imgYemek,null,null,null);
+                    yemekBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    yemekImage.setImageResource(R.drawable.ic_yemek);
                     checkYemekEtiket=false;
                 }
 
@@ -199,9 +454,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //spor.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    //spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
+                    sporBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    sporImage.setImageResource(R.mipmap.onay_icon);
                     checkSporEtiket = true;
                 }
                 else
@@ -209,9 +463,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
                     etiketList.remove("Spor");
                     spor.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //spor.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgSpor =spor.getContext().getResources().getDrawable(R.mipmap.spor_icon);
-                    //spor.setCompoundDrawablesWithIntrinsicBounds(imgSpor,null,null,null);
+                    sporBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    sporImage.setImageResource(R.drawable.ic_trophy);
                     checkSporEtiket=false;
                 }
 
@@ -221,18 +474,16 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //alisveris.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                   // alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
+                    alisverisBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    alisverisImage.setImageResource(R.mipmap.onay_icon);
                     checkAlisverisEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Alışveriş");
                     alisveris.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //alisveris.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgAlisveris =alisveris.getContext().getResources().getDrawable(R.mipmap.alisveris_icon);
-                    //alisveris.setCompoundDrawablesWithIntrinsicBounds(imgAlisveris,null,null,null);
+                    alisverisBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    alisverisImage.setImageResource(R.drawable.ic_alisveris);
                     checkAlisverisEtiket=false;
                 }
                 break;
@@ -241,18 +492,16 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //tatil.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                   // tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    tatilBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    tatilImage.setImageResource(R.mipmap.onay_icon);
                     checkTatilEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //tatil.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgTatil =tatil.getContext().getResources().getDrawable(R.mipmap.tatil_icon);
-                    //tatil.setCompoundDrawablesWithIntrinsicBounds(imgTatil,null,null,null);
+                    tatilBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    tatilImage.setImageResource(R.drawable.ic_tatil);
                     checkTatilEtiket=false;
                 }
                 break;
@@ -261,18 +510,16 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     etiketList.add("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
-                    //sanat.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
-                    Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.onay_icon);
-                    //sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
+                    sanatBaslarkenTxt.setTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    sanatImage.setImageResource(R.mipmap.onay_icon);
                     checkSanatEtiket = true;
                 }
                 else
                 {
                     etiketList.remove("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketbuton));
-                    //sanat.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
-                    Drawable imgSanat =sanat.getContext().getResources().getDrawable(R.mipmap.film_icon);
-                    //sanat.setCompoundDrawablesWithIntrinsicBounds(imgSanat,null,null,null);
+                    sanatBaslarkenTxt.setTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    sanatImage.setImageResource(R.drawable.ic_tv_svg);
                     checkSanatEtiket=false;
                 }
                 break;
@@ -280,15 +527,13 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 if(checkYirmiDortBildirim == false)
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilonaybuton));
-                    Drawable imgyrmDrtBildirim =yrmDrtBildirim.getContext().getResources().getDrawable(R.mipmap.onay_beyaz_icon);
-                   // yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
+                    yirmiDortSaatImage.setImageResource(R.mipmap.onay_icon);
                     checkYirmiDortBildirim = true;
                 }
                 else
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilbuton));
-                    Drawable imgyrmDrtBildirim =yrmDrtBildirim.getContext().getResources().getDrawable(R.mipmap.bildirim_icon);
-                    //yrmDrtBildirim.setCompoundDrawablesWithIntrinsicBounds(imgyrmDrtBildirim,null,null,null);
+                    yirmiDortSaatImage.setImageResource(R.mipmap.bildirim_icon);
                     checkYirmiDortBildirim=false;
                 }
                 break;
