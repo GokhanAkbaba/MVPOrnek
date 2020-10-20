@@ -60,6 +60,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkFilmDiziEtiket = false;
     Boolean checkSoruAlani=false;
+    int refreshControl;
 
 
     SwipeRefreshLayout swipeRefreshLayout;
@@ -166,9 +167,14 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                internetConnectionPresenter.internetBaglantiKontrolu();
-                questionPresenter.loadData(kullanici.getId());
-
+                if(refreshControl != -1){
+                    internetConnectionPresenter.internetBaglantiKontrolu();
+                    questionMenuPresenter.loadData(refreshControl);
+                }else{
+                    internetConnectionPresenter.internetBaglantiKontrolu();
+                    questionPresenter.loadData(kullanici.getId());
+                    
+                }
             }
         });
 
@@ -177,6 +183,17 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewSoruAlani.setOnClickListener(this);
         return view;
+    }
+
+    public void refreshMenuData(SwipeRefreshLayout swipeRefreshLayout, int valueId){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                internetConnectionPresenter.internetBaglantiKontrolu();
+                questionMenuPresenter.loadData(valueId);
+
+            }
+        });
     }
 
 
@@ -199,15 +216,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(yemekButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGizle(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek);
                     questionMenuPresenter.loadData(Alisveris);
-                    swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                        @Override
-                        public void onRefresh() {
-                            internetConnectionPresenter.internetBaglantiKontrolu();
-                            questionMenuPresenter.loadData(Alisveris);
-
-                        }
-                    });
                     checkAlisverisEtiket = true;
+                    refreshControl=Alisveris;
                 }
                 else
                 {
@@ -215,8 +225,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGoster(yemekButon,tatilButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGoster(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek);
                     questionPresenter.loadData(kullanici.getId());
-
                     checkAlisverisEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_yemek_btn:
@@ -227,6 +237,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(textViewYemek,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewAlisveris);
                     questionMenuPresenter.loadData(Yemek);
                     checkYemekEtiket = true;
+                    refreshControl=Yemek;
                 }
                 else
                 {
@@ -235,6 +246,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(textViewYemek,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
                     checkYemekEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_tatil_btn:

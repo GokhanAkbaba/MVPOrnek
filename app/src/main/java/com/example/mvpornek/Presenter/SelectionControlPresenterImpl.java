@@ -21,15 +21,14 @@ class SelectionControlPresenterImpl implements SelectionControlPresenter {
 
     @Override
     public void loadData(int kullaniciId) {
+        System.out.println("DEĞERIDDDDD");
         Call<SelectionControlModel> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
                 .secimKontrol(kullaniciId);
-
         call.enqueue(new Callback<SelectionControlModel>() {
             @Override
             public void onResponse(Call<SelectionControlModel> call, Response<SelectionControlModel> response) {
-                System.out.println("DEĞERIDDDDD");
                 if (response.isSuccessful() && response.body() !=null) {
                     selectionControl.showSuccesMessage(response.body());
                     System.out.println("DEĞER"+response.body().getSecim());

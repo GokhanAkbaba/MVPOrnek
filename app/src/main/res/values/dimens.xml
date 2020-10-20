@@ -82,8 +82,8 @@
 
 
 
-    <dimen name="fragmentAnaSayfaEtiketButonWidth360">44dp</dimen>
-    <dimen name="fragmentAnaSayfaEtiketButonHeight360">44dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonWidth360">46dp</dimen>
+    <dimen name="fragmentAnaSayfaEtiketButonHeight360">46dp</dimen>
     <dimen name="fragmentAnaSayfaEtiketButonMarginLeft360">10dp</dimen>
     <dimen name="soruPaylasEtiketBtnWidth360">50dp</dimen>
     <dimen name="soruPaylasEtiketBtnHeight360">22dp</dimen>
@@ -108,9 +108,12 @@
 
     <dimen name="fragmentAnaSayfaButonWidth360">50dp</dimen>
     <dimen name="fragmentAnaSayfaButonHeight360">50dp</dimen>
+    <dimen name="fragmentAnaSayfaButonWidth400">65dp</dimen>
+    <dimen name="fragmentAnaSayfaButonHeight400">65dp</dimen>
     <dimen name="fragmentAnaSayfaButonTextSize360">10sp</dimen>
     <dimen name="toolbarHeight360">55dp</dimen>
     <dimen name="searchBarHeight360">35dp</dimen>
+
 
 
 

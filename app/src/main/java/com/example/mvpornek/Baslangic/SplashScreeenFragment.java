@@ -44,15 +44,6 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
 
     SelectionControlModel durum;
 
-
-
-
-    public SplashScreeenFragment()
-    {
-
-    }
-
-
     public static SplashScreeenFragment newInstance(String param1, String param2) {
         SplashScreeenFragment fragment = new SplashScreeenFragment();
         Bundle args = new Bundle();
@@ -102,6 +93,7 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
     public void showSuccesMessage(SelectionControlModel message) {
         this.durum=message;
         setDurum(message);
+        System.out.println("seçim"+message.getSecim());
 
 
     }
@@ -134,7 +126,7 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
                     fragment=new StartFragment();
                     loadFragment(fragment,"Start1");
                 }else{
-                    if(kontrol==false){
+                    /*if(kontrol==false){
                         final boolean iSecim =getDurum().getSecim();
                         if(iSecim == false){
                             fragment=new BeginingFragment();
@@ -145,7 +137,8 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
                     }else{
                         Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                    }
+                    }*/
+                    startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
                 }
             }
         },2000);
