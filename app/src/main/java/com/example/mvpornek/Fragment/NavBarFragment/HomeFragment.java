@@ -310,6 +310,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Tatil);
                     checkTatilEtiket = true;
+                    refreshControl=Tatil;
                 }
                 else
                 {
@@ -318,6 +319,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkTatilEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_adres_btn:
@@ -328,6 +330,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaButonGizle(alisverisButon,filmDiziButon,sporButon,yemekButon,tatilButon);
                     questionMenuPresenter.loadData(Adres);
                     checkAdresEtiket = true;
+                    refreshControl=Adres;
                 }
                 else
                 {
@@ -336,6 +339,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkAdresEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_spor_btn:
@@ -346,6 +350,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Spor);
                     checkSporEtiket = true;
+                    refreshControl=Spor;
                 }
                 else
                 {
@@ -354,6 +359,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkSporEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_tekno_btn:
@@ -364,6 +370,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Teknoloji);
                     checkTeknoEtiket = true;
+                    refreshControl=Teknoloji;
                 }
                 else
                 {
@@ -372,6 +379,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkTeknoEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_filmDizi_btn:
@@ -382,6 +390,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(FilmDizi);
                     checkFilmDiziEtiket = true;
+                    refreshControl=FilmDizi;
                 }
                 else
                 {
@@ -390,6 +399,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkFilmDiziEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_oyun_btn:
@@ -400,6 +410,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Oyun);
                     checkOyunEtiket = true;
+                    refreshControl=Oyun;
                 }
                 else
                 {
@@ -408,6 +419,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkOyunEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_saglik_btn:
@@ -419,6 +431,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Saglik);
                     checkSaglikEtiket = true;
+                    refreshControl=Saglik;
                 }
                 else
                 {
@@ -427,6 +440,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkSaglikEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_muzik_btn:
@@ -437,6 +451,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Muzik);
                     checkMuzikEtiket = true;
+                    refreshControl=Muzik;
                 }
                 else
                 {
@@ -445,6 +460,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkMuzikEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_egitim_btn:
@@ -455,6 +471,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Egitim);
                     checkEgitimEtiket = true;
+                    refreshControl=Egitim;
                 }
                 else
                 {
@@ -463,6 +480,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkEgitimEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_tarih_btn:
@@ -473,6 +491,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Tarih);
                     checkTarihEtiket = true;
+                    refreshControl=Tarih;
                 }
                 else
                 {
@@ -481,6 +500,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkTarihEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_moda_btn:
@@ -491,6 +511,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Moda);
                     checkModaEtiket = true;
+                    refreshControl=Moda;
                 }
                 else
                 {
@@ -499,6 +520,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkModaEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_oto_btn:
@@ -509,6 +531,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Oto);
                     checkOtoEtiket = true;
+                    refreshControl=Oto;
                 }
                 else
                 {
@@ -517,6 +540,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkOtoEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
             case R.id.anasayfa_yazilim_btn:
@@ -527,6 +551,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGizle(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
                     questionMenuPresenter.loadData(Yazilim);
                     checkYazilimEtiket = true;
+                    refreshControl=Yazilim;
                 }
                 else
                 {
@@ -535,6 +560,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     anaSayfaTextRenkGoster(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
                     questionPresenter.loadData(kullanici.getId());
                     checkYazilimEtiket=false;
+                    refreshControl=-1;
                 }
                 break;
         }

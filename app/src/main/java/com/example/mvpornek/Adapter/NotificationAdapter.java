@@ -41,7 +41,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         String bildirimNeden=notificationModel.getBildirimNeden();
         String bildirimZaman=notificationModel.getBildirimZaman();
         int kullaniciResimi=notificationModel.getKullaniciResimleri();
-        holder.bildirimKisi.setText(kullaniciAdi);
+        holder.bildirimKisi.setText("@"+kullaniciAdi);
         holder.bildirimAciklama.setText(bildirimAciklama);
         holder.bildirimNedenTxt.setText(bildirimNeden);
         holder.bildirimZamani.setText(bildirimZaman);

@@ -55,7 +55,7 @@ public class AdapterProfilLikes extends RecyclerView.Adapter<AdapterProfilLikes.
         String profilFoto=likesModel.getProfilFoto();
         int begeniSayisi=likesModel.getBegeni_sayisi();
         holder.begeniKullaniciAdSoyad.setText(kullaniciAdSoyad);
-        holder.begeniKullaniciAdiTxt.setText(kullaniciAdi);
+        holder.begeniKullaniciAdiTxt.setText("@"+kullaniciAdi);
         holder.cevap.setText(cevap);
         holder.begeniPaylasmaZamani.setText(zaman);
         holder.yorumCevapBegeniSayisiTxt.setText(String.valueOf(begeniSayisi));

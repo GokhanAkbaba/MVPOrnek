@@ -45,8 +45,8 @@ public class AdapterSearchUsers  extends RecyclerView.Adapter<AdapterSearchUsers
         String kullaniciAdSoyad = searchListResponse.getAdSoyad();
         String kullaniciAdi=searchListResponse.getKullanici_adi();
         String kullaniciProfilResmi = searchListResponse.getProfil_foto();
-        holder.adSoyad.setText(kullaniciAdi);
-        holder.kullaniciAdi.setText(kullaniciAdSoyad);
+        holder.adSoyad.setText(kullaniciAdSoyad);
+        holder.kullaniciAdi.setText("@"+kullaniciAdi);
         GlideApp.with(context).load(kullaniciProfilResmi).apply(new RequestOptions().centerCrop()).into(holder.profilResmi);
     }
 

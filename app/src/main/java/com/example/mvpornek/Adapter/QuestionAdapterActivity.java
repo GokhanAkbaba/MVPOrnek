@@ -73,7 +73,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             String kullaniciProfilResmi = questionModel.getProfilFoto();
             String etiket = questionModel.getEtiketAdi();
             holder.adSoyad.setText(kullaniciAdSoyad);
-            holder.kullanicAdi.setText(kullaniciAdi);
+            holder.kullanicAdi.setText("@"+kullaniciAdi);
             holder.etiket.setText(etiket);
             holder.sorular.setText(soru);
             holder.zaman.setText(zaman);
