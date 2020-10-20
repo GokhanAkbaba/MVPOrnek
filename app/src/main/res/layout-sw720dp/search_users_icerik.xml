@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
+            android:fontFamily="@font/source_sans_pro"
             android:textStyle="bold"
             android:text="TextView"
             android:textColor="@color/renkSiyah"
@@ -55,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="20dp"
+            android:fontFamily="@font/source_sans_pro"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aramaKullaniciResmi"
