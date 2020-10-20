@@ -83,7 +83,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     ProgressBar progressBar;
-    TextView soruLimit;
+
     Button tv;
     View notificationBadge;
     BottomNavigationMenuView menuView;
@@ -91,7 +91,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     BildirimFonksiyonları bildirimFonksiyonları;
     ArrayList<Integer> illerList=new ArrayList<Integer>();
     ArrayList<Integer> etiketList=new ArrayList<Integer>();
-    Boolean checkAdanaEtiket=false,checkArtvinEtiket=false;
+    Boolean checkAdanaEtiket=false,checkArtvinEtiket=false,checkTeknoEtiket=false,checkSaglikEtiket=false;
+    Boolean checkMuzikEtiket=false,checkEgitimEtiket=false,checkTarihEtiket=false,checkOtoEtiket=false,checkModaEtiket=false,checkOyunEtiket=false;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,checkGeziEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false,checkYazilimEtiket = false;
 
@@ -158,7 +159,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         notificationBadge.setVisibility(View.INVISIBLE);
         if(NotificationCommentActivity.getBildirimAcilis() != null){
             if(NotificationCommentActivity.getBildirimAcilis() == true){
-                System.out.println("SONUÇÇÇ"+NotificationCommentActivity.getBildirimAcilis());
                 notificationView(bildirimFonksiyonları.getCount());
             }
         }
@@ -170,7 +170,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         if(task.isSuccessful()){
                             kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
                             tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
-                            System.out.println("IDD"+kullanici.getId()+"  "+task.getResult().getToken());
                         }
                         else{
                             System.out.println("İşlem Başarısız");
@@ -234,6 +233,14 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 Button geziButon=layoutView.findViewById(R.id.geziEtiketBtn);
                 Button yazilimButon=layoutView.findViewById(R.id.yazilimEtiketBtn);
                 Button sporButon=layoutView.findViewById(R.id.sporEtiketBtn);
+                Button oyunEtiketBtn=layoutView.findViewById(R.id.oyunEtiketBtn);
+                Button otoEtiketBtn=layoutView.findViewById(R.id.otoEtiketBtn);
+                Button teknoEtiketBtn=layoutView.findViewById(R.id.teknoEtiketBtn);
+                Button saglikEtiketBtn=layoutView.findViewById(R.id.saglikEtiketBtn);
+                Button modaEtiketBtn=layoutView.findViewById(R.id.modaEtiketBtn);
+                Button tarihEtiketBtn=layoutView.findViewById(R.id.tarihEtiketBtn);
+                Button egitimEtiketBtn=layoutView.findViewById(R.id.egitimEtiketBtn);
+                Button muzikEtiketBtn=layoutView.findViewById(R.id.muzikEtiketBtn);
                 Button adanaButon=layoutView.findViewById(R.id.il_01);
                 Button artvinButon=layoutView.findViewById(R.id.il_02);
                 soruPaylasButon=layoutView.findViewById(R.id.soruPaylasBtn);
@@ -326,7 +333,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         }
                     }
                 });
-
                 yazilimButon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -340,6 +346,42 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                             yazilimButon.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
                             yazilimButon.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
                             checkYazilimEtiket=false;
+                        }
+                    }
+                });
+
+
+                teknoEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkTeknoEtiket == false) {
+                            etiketList.add(10);
+                            teknoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            teknoEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkTeknoEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(10));
+                            teknoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            teknoEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkTeknoEtiket=false;
+                        }
+                    }
+                });
+
+                saglikEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkSaglikEtiket == false) {
+                            etiketList.add(12);
+                            saglikEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            saglikEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkSaglikEtiket = true;
+
+                        }else{
+                            etiketList.remove(new Integer(12));
+                            saglikEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            saglikEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkSaglikEtiket=false;
                         }
                     }
                 });
@@ -442,6 +484,107 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                             tatilButon.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
                             tatilButon.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
                             checkTatilEtiket=false;
+                        }
+                    }
+                });
+                oyunEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkOyunEtiket == false) {
+                            etiketList.add(11);
+                            oyunEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            oyunEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkOyunEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(11));
+                            oyunEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            oyunEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkOyunEtiket=false;
+
+                        }
+                    }
+                });
+                modaEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkModaEtiket == false) {
+                            etiketList.add(16);
+                            modaEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            modaEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkModaEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(16));
+                            modaEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            modaEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkModaEtiket=false;
+
+                        }
+                    }
+                });
+                otoEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkOtoEtiket == false) {
+                            etiketList.add(16);
+                            otoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            otoEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkOtoEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(16));
+                            otoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            otoEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkOtoEtiket=false;
+
+
+                        }
+                    }
+                });
+                tarihEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkTarihEtiket == false) {
+                            etiketList.add(15);
+                            tarihEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            tarihEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkTarihEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(15));
+                            tarihEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            tarihEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkTarihEtiket=false;
+
+                        }
+                    }
+                });
+                egitimEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkEgitimEtiket == false) {
+                            etiketList.add(14);
+                            egitimEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            egitimEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkEgitimEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(14));
+                            egitimEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            egitimEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkEgitimEtiket=false;
+                        }
+                    }
+                });
+                muzikEtiketBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(checkMuzikEtiket == false) {
+                            etiketList.add(13);
+                            muzikEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                            muzikEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                            checkMuzikEtiket = true;
+                        }else{
+                            etiketList.remove(new Integer(13));
+                            muzikEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                            muzikEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                            checkMuzikEtiket=false;
                         }
                     }
                 });

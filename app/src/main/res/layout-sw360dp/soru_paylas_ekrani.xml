@@ -54,6 +54,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/soruAlaniText"
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/source_sans_pro"
                         android:layout_height="72dp"
                         android:layout_marginTop="15dp"
                         android:gravity="start|top"

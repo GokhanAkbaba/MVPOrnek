@@ -1,6 +1,7 @@
 package com.example.mvpornek.Baslangic;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -33,9 +34,10 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
 
     private String mParam1;
     private String mParam2;
+    boolean iSecim;
     private InternetConnectionPresenter internetConnectionPresenter;
     Fragment fragment=null;
-    boolean isLoged;
+    boolean isLoged,deger;
 
 
 
@@ -71,9 +73,31 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
         isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
         selectionControlPresenter= new SelectionControlPresenterImpl(this);
         selectionControlPresenter.loadData(kullanici.getId());
-
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
         internetConnectionPresenter.internetBaglantiKontrolu();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(isLoged == false){
+                    fragment=new StartFragment();
+                    loadFragment(fragment,"Start1");
+                }else{
+                    if(deger==false){
+                        iSecim=getDurum().getSecim();
+                        if(iSecim == false){
+                            fragment=new BeginingFragment();
+                            loadFragment(fragment,"BeginingFragment");
+                        }else{
+                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                        }
+                    }else{
+                        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+                    }
+                }
+            }
+        },2500);
+
         return view;
     }
 
@@ -93,55 +117,20 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
     public void showSuccesMessage(SelectionControlModel message) {
         this.durum=message;
         setDurum(message);
-        System.out.println("seçim"+message.getSecim());
-
-
     }
     public SelectionControlModel getDurum() {
         return durum;
     }
-
     public void setDurum(SelectionControlModel durum) {
         this.durum = durum;
     }
-
     @Override
     public void internetBaglantiHatasi() {
-        uygulamaBasla(isLoged,true);
+        deger=true;
     }
-
     @Override
     public void internetBaglantisi() {
-
-        uygulamaBasla(isLoged,false);
-
-
-    }
-    public void uygulamaBasla(Boolean isLoged,Boolean kontrol){
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(isLoged == false){
-                    fragment=new StartFragment();
-                    loadFragment(fragment,"Start1");
-                }else{
-                    /*if(kontrol==false){
-                        final boolean iSecim =getDurum().getSecim();
-                        if(iSecim == false){
-                            fragment=new BeginingFragment();
-                            loadFragment(fragment,"BeginingFragment");
-                        }else{
-                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                        }
-                    }else{
-                        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                    }*/
-                    startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                }
-            }
-        },2000);
+        deger=false;
     }
 }
 

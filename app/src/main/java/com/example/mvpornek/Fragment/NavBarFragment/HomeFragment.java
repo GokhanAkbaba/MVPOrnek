@@ -208,6 +208,15 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         anaSayfaSaglikButonIamge=view.findViewById(R.id.anaSayfaSaglikButonIamge);
         anaSayfaOyunButonIamge=view.findViewById(R.id.anaSayfaOyunButonIamge);
         anaSayfaTeknoButonIamge=view.findViewById(R.id.anaSayfaTeknoButonIamge);
+        teknoAnaSayfaTxt=view.findViewById(R.id.teknoAnaSayfaTxt);
+        oyunAnaSayfaTxt=view.findViewById(R.id.oyunAnaSayfaTxt);
+        saglikAnaSayfaTxt=view.findViewById(R.id.saglikAnaSayfaTxt);
+        muzikAnaSayfaTxt=view.findViewById(R.id.muzikAnaSayfaTxt);
+        egitimAnaSayfaTxt=view.findViewById(R.id.egitimAnaSayfaTxt);
+        tarihAnaSayfaTxt=view.findViewById(R.id.tarihAnaSayfaTxt);
+        modaAnaSayfaTxt=view.findViewById(R.id.modaAnaSayfaTxt);
+        otoAnaSayfaTxt=view.findViewById(R.id.otoAnaSayfaTxt);
+        yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

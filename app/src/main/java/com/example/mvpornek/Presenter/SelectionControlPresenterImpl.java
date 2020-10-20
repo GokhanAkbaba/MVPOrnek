@@ -21,7 +21,6 @@ class SelectionControlPresenterImpl implements SelectionControlPresenter {
 
     @Override
     public void loadData(int kullaniciId) {
-        System.out.println("DEĞERIDDDDD");
         Call<SelectionControlModel> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
@@ -31,7 +30,6 @@ class SelectionControlPresenterImpl implements SelectionControlPresenter {
             public void onResponse(Call<SelectionControlModel> call, Response<SelectionControlModel> response) {
                 if (response.isSuccessful() && response.body() !=null) {
                     selectionControl.showSuccesMessage(response.body());
-                    System.out.println("DEĞER"+response.body().getSecim());
                 }
             }
             @Override
