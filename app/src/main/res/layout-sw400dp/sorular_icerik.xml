@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="73dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="22dp"
                 android:textAppearance="@style/customfontstyle"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
@@ -124,12 +124,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
-                android:textAppearance="@style/customfontstyle"
                 android:text="155"
-                android:textSize="17sp"
+                android:layout_marginBottom="2dp"
+                android:textAppearance="@style/customfontstyle"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="@+id/soruYorumIcon"
                 app:layout_constraintStart_toEndOf="@+id/soruYorumIcon"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toTopOf="@+id/soruYorumIcon" />
 
             <View
                 android:id="@+id/divider3"

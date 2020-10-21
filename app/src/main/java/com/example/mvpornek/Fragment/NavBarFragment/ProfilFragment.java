@@ -1,5 +1,6 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -18,6 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
+import com.example.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
+import com.example.mvpornek.Baslangic.IntroActivity;
+import com.example.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
 import com.example.mvpornek.Fragment.ProfilTabFragment.CevaplarimFragment;
@@ -42,11 +47,11 @@ import java.util.Objects;
  * Use the {@link ProfilFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfilFragment extends Fragment implements UsersGetView {
+public class ProfilFragment extends Fragment implements UsersGetView,View.OnClickListener {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     Kullanici kullanici;
-    ImageView profilRoundedImage;
+    ImageView profilRoundedImage,ayarlarButon;
     private ViewPagerAdapter viewPagerAdapter;
     SorularimFragment sorularimFragment;
     CevaplarimFragment cevaplarimFragment;
@@ -106,6 +111,8 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         profilKullaniciAdiTxt=view.findViewById(R.id.profilKullaniciAdiTxt);
         profilCevapSayi=view.findViewById(R.id.profilCevapSayi);
         profilNestedView=view.findViewById(R.id.profilNestedView);
+        ayarlarButon=view.findViewById(R.id.search_content_search_settings);
+        ayarlarButon.setOnClickListener(this);
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         toolbar=view.findViewById(R.id.textView31);
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.profilCollapsing);
@@ -178,4 +185,13 @@ public class ProfilFragment extends Fragment implements UsersGetView {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.search_content_search_settings:
+                startActivity(new Intent(getActivity().getApplicationContext(), ProfilDuzenleActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
+        }
+    }
 }

@@ -217,16 +217,18 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         modaAnaSayfaTxt=view.findViewById(R.id.modaAnaSayfaTxt);
         otoAnaSayfaTxt=view.findViewById(R.id.otoAnaSayfaTxt);
         yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if(refreshControl != -1){
-                    internetConnectionPresenter.internetBaglantiKontrolu();
-                    questionMenuPresenter.loadData(refreshControl);
-                }else{
+                Toast.makeText(getActivity(),""+refreshControl+"",Toast.LENGTH_SHORT).show();
+                if(refreshControl==0){
+                    Toast.makeText(getActivity(),"ÇÇ"+refreshControl+"ÇÇ",Toast.LENGTH_SHORT).show();
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     questionPresenter.loadData(kullanici.getId());
-
+                }else if (refreshControl != -1){
+                    internetConnectionPresenter.internetBaglantiKontrolu();
+                    questionMenuPresenter.loadData(refreshControl);
                 }
             }
         });

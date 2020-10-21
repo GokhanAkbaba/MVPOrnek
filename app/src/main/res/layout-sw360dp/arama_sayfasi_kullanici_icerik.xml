@@ -28,7 +28,7 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/kullaniciIcerikSearchView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/searchBarHeight360"
+            android:layout_height="58dp"
             android:background="@drawable/input_field"
             android:clickable="true"
             android:layout_marginEnd="25dp"
