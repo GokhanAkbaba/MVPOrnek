@@ -221,9 +221,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getActivity(),""+refreshControl+"",Toast.LENGTH_SHORT).show();
                 if(refreshControl==0){
-                    Toast.makeText(getActivity(),"ÇÇ"+refreshControl+"ÇÇ",Toast.LENGTH_SHORT).show();
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     questionPresenter.loadData(kullanici.getId());
                 }else if (refreshControl != -1){
