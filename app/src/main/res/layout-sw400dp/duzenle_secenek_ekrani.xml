@@ -37,6 +37,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="84dp"
             android:text="@string/baglantiKopyalaTxt"
+            android:textAppearance="@style/customfontstyle"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView22" />
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:text="@string/kisiyiEngelleTxt"
+            android:textAppearance="@style/customfontstyle"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/divider12"
             app:layout_constraintTop_toBottomOf="@+id/imageView30" />

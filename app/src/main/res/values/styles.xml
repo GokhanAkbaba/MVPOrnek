@@ -52,6 +52,9 @@
         <item name="android:textSize">20sp</item>
 
     </style>
+    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+    </style>
 
 
 </resources>

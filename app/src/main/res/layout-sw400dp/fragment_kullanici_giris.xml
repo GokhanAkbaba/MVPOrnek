@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
+                android:textAppearance="@style/customfontstyle"
                 android:text="@string/hosGeldinizTxt"
                 android:textColor="@color/renkSiyah"
                 android:textSize="@dimen/girisYapTxtTextSize400"
@@ -50,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:textAppearance="@style/customfontstyle"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="19dp"
@@ -95,6 +97,7 @@
                         android:id="@+id/girisKullaniciText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/customfontstyle"
                         android:ems="10"
                         android:hint="e-Posta"
                         android:imeOptions="actionNext"
@@ -126,6 +129,7 @@
                         android:id="@+id/girisSifreText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/customfontstyle"
                         android:ems="10"
                         android:hint="Şifre"
                         android:imeOptions="actionDone"
@@ -165,6 +169,7 @@
                 <TextView
                     android:id="@+id/kayitOlSecenekTxt"
                     android:layout_width="wrap_content"
+                    android:textAppearance="@style/customfontstyle"
                     android:layout_height="wrap_content"
                     android:text="@string/hesabınYokMuTxt" />
 
@@ -172,6 +177,7 @@
                     android:id="@+id/sifreUnuttumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="@style/customfontstyle"
                     android:layout_marginLeft="10dp"
                     android:text="@string/sifreniMiUnuttunTxt"
                     android:textSize="15dp" />
@@ -184,6 +190,7 @@
                 android:layout_marginStart="247dp"
                 android:layout_marginTop="19dp"
                 android:layout_marginEnd="48dp"
+                android:textAppearance="@style/customfontstyle"
                 android:text="@string/girisYapTxt"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"

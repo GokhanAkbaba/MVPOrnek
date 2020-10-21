@@ -13,6 +13,7 @@
         android:layout_marginTop="18dp"
         android:layout_marginStart="10dp"
         android:textColor="@color/renkSiyah"
+        android:textAppearance="@style/customfontstyle"
         android:textSize="16sp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView9"

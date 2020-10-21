@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/yasadiginizIlAciklamaTxt"
             android:textSize="11sp"
+            android:textAppearance="@style/customfontstyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ilConstraint"
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/baslarkenTxt"
+            android:textAppearance="@style/customfontstyle"
             android:textColor="@color/uygulamaMavisi"
             android:textSize="@dimen/baslarkenBaslikSize400"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +47,7 @@
             android:id="@+id/textView36"
             android:layout_width="match_parent"
             android:layout_height="46dp"
+            android:textAppearance="@style/customfontstyle"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
@@ -65,6 +68,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-light"
             android:text="@string/yasadiginizIlTxt"
+            android:textAppearance="@style/customfontstyle"
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +92,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="1dp"
+                android:textAppearance="@style/customfontstyle"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:fontFamily="sans-serif-light"
+            android:textAppearance="@style/customfontstyle"
             android:text="@string/ilgiAlaniTxt"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -115,7 +120,7 @@
             android:id="@+id/textView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
+            android:textAppearance="@style/customfontstyle"
             android:layout_marginTop="4dp"
             android:text="@string/herKonudaBildirimTxt"
             android:textColor="#000000"
@@ -161,6 +166,7 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/backgraoundapp"
             android:text="Sonraki"
+            android:textAppearance="@style/customfontstyle"
             android:textColor="@color/profilSekmeBeyaz"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -215,6 +221,7 @@
                     android:layout_marginStart="34dp"
                     android:gravity="center"
                     android:text="Adres"
+                    android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -254,6 +261,7 @@
                     android:layout_marginStart="34dp"
                     android:gravity="center"
                     android:text="Yemek"
+                    android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -292,6 +300,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Spor"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -333,6 +342,7 @@
                     android:layout_marginStart="34dp"
                     android:gravity="center"
                     android:text="Tatil"
+                    android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -373,6 +383,7 @@
                     android:layout_marginStart="34dp"
                     android:gravity="center"
                     android:text="Alışveriş"
+                    android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -412,6 +423,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
+                    android:textAppearance="@style/customfontstyle"
                     android:gravity="center"
                     android:text="Sanat"
                     android:textColor="@color/uygulamaMavisi"
@@ -454,6 +466,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Yazılım"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -495,6 +508,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Oto"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -536,6 +550,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Moda"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -577,6 +592,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Tarih"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -618,6 +634,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Eğitim"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -659,6 +676,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
                     android:gravity="center"
+                    android:textAppearance="@style/customfontstyle"
                     android:text="Müzik"
                     android:textColor="@color/uygulamaMavisi"
                     android:textSize="11sp" />
@@ -698,6 +716,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
+                    android:textAppearance="@style/customfontstyle"
                     android:gravity="center"
                     android:text="Sağlık"
                     android:textColor="@color/uygulamaMavisi"
@@ -738,6 +757,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
+                    android:textAppearance="@style/customfontstyle"
                     android:gravity="center"
                     android:text="Oyun"
                     android:textColor="@color/uygulamaMavisi"
@@ -778,6 +798,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="34dp"
+                    android:textAppearance="@style/customfontstyle"
                     android:gravity="center"
                     android:text="Teknoloji"
                     android:textColor="@color/uygulamaMavisi"
@@ -795,6 +816,7 @@
             android:layout_marginEnd="8dp"
             android:text="@string/bildirimAciklamaTxt"
             android:textSize="11sp"
+            android:textAppearance="@style/customfontstyle"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

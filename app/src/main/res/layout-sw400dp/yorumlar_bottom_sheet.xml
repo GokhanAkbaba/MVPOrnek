@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textAppearance="@style/customfontstyle"
         android:text="Yorum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Yorum Ekleyin"
+            android:textAppearance="@style/customfontstyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

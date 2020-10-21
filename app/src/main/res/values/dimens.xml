@@ -111,8 +111,10 @@
     <dimen name="fragmentAnaSayfaButonWidth400">65dp</dimen>
     <dimen name="fragmentAnaSayfaButonHeight400">65dp</dimen>
     <dimen name="fragmentAnaSayfaButonTextSize360">10sp</dimen>
+    <dimen name="fragmentAnaSayfaButonTextSize400">11sp</dimen>
     <dimen name="toolbarHeight360">55dp</dimen>
-    <dimen name="searchBarHeight360">35dp</dimen>
+
+
 
 
 

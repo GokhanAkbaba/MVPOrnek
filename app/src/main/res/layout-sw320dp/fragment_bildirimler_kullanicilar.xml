@@ -4,7 +4,6 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.BildirimlerTabFragment.BildirimlerKullanicilarFragment"
 tools:ignore="MissingDefaultResource">
 
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -23,6 +22,7 @@ tools:ignore="MissingDefaultResource">
 <TextView
     android:id="@+id/bildirimlerKullanicilarTxt"
     android:layout_width="wrap_content"
+    android:textAppearance="@style/customfontstyle"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:text="Sonuç Bulunamadı" />

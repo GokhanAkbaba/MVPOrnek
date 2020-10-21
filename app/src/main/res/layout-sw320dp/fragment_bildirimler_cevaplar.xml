@@ -23,6 +23,7 @@
     <TextView
         android:id="@+id/bildirimlerSorularTxt"
         android:layout_width="wrap_content"
+        android:textAppearance="@style/customfontstyle"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Sonuç Bulunamadı" />

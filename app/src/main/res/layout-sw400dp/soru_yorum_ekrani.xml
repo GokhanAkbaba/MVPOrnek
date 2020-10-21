@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/yorumlarIcerikLayout"
         android:layout_width="411dp"
@@ -48,7 +47,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="6dp"
             android:text="TextView"
-            android:fontFamily="@font/source_sans_pro"
+            android:textAppearance="@style/customfontstyle"
             android:textColor="@color/renkSiyah"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
@@ -62,7 +61,7 @@
             android:text="TextView"
             android:textColor="@color/renkSiyah"
             android:textSize="16sp"
-            android:fontFamily="@font/source_sans_pro"
+            android:textAppearance="@style/customfontstyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.157"
@@ -89,6 +88,7 @@
             android:id="@+id/begeniSayisiTxt"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
+            android:textAppearance="@style/customfontstyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.777"
             app:layout_constraintStart_toEndOf="@+id/yorumTxt"

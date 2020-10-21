@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:fontFamily="sans-serif-medium"
+                android:textAppearance="@style/customfontstyle"
                 android:text="Profil Düzenle"
                 android:textColor="@color/uygulamaMavisi"
                 android:textSize="21sp" />
@@ -129,7 +129,7 @@
                     android:layout_marginEnd="1dp"
                     android:ems="10"
                     android:enabled="true"
-
+                    android:textAppearance="@style/customfontstyle"
                     android:inputType="textPersonName"
                     android:text="Gökhan Akbaba"
                     android:textCursorDrawable="@drawable/color_curse"
@@ -156,7 +156,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-
+                    android:textAppearance="@style/customfontstyle"
                     android:inputType="textPersonName"
                     android:text="\@GokhanAkbaba"
                     android:textCursorDrawable="@drawable/color_curse"
@@ -183,7 +183,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-
+                    android:textAppearance="@style/customfontstyle"
                     android:inputType="textPersonName"
                     android:text="gokhanakbaba1907@gmail.com"
                     android:textCursorDrawable="@drawable/color_curse"

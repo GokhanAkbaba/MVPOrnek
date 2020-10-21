@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="19dp"
-
+                android:textAppearance="@style/customfontstyle"
                 android:text="Gökhan AKBABA"
                 android:textColor="#000"
                 android:textSize="18sp"
@@ -63,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textAppearance="@style/customfontstyle"
                 android:text="1sa"
                 android:textSize="11sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
@@ -74,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
+                android:textAppearance="@style/customfontstyle"
                 android:text="dfsdfs"
                 android:textColor="@color/uygulamaMavisi"
                 android:textSize="14sp"
@@ -85,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-
+                android:textAppearance="@style/customfontstyle"
                 android:text="\@GokhanAkbaba"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
@@ -98,7 +100,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp"
-
+                android:textAppearance="@style/customfontstyle"
                 android:text="@string/denemeSoru1Txt"
                 android:textColor="#000"
                 android:textSize="17sp"
@@ -125,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginLeft="5dp"
+                android:textAppearance="@style/customfontstyle"
                 android:textSize="14sp"
                 android:text="sorusuna yanıt olarak"
                 app:layout_constraintStart_toEndOf="@+id/profilCevaplananKisiTxt"
@@ -149,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_marginTop="5dp"
+                android:textAppearance="@style/customfontstyle"
                 app:layout_constraintEnd_toEndOf="@+id/profilCevapImageButton"
                 app:layout_constraintStart_toStartOf="@+id/profilCevapImageButton"
                 app:layout_constraintTop_toBottomOf="@+id/profilCevapImageButton" />

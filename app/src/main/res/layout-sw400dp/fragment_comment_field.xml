@@ -27,6 +27,7 @@
                 android:id="@+id/edt"
                 android:layout_width="330dp"
                 android:layout_marginLeft="5dp"
+                android:textAppearance="@style/customfontstyle"
                 android:layout_marginTop="4dp"
                 android:layout_height="45dp"
                 android:paddingLeft="10dp"

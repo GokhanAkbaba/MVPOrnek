@@ -31,6 +31,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:textAppearance="@style/customfontstyle"
                 android:background="@drawable/ripple_back_button"
                 android:clickable="true"
                 android:drawableLeft="@mipmap/ayarlar_geri_donus"
@@ -42,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
-                android:fontFamily="sans-serif-medium"
+                android:textAppearance="@style/customfontstyle"
                 android:text="Şifre Düzenle"
                 android:textColor="@color/uygulamaMavisi"
                 android:textSize="21sp" />
@@ -55,7 +56,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button"
                 android:text="Güncelle"
-
+                android:textAppearance="@style/customfontstyle"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
@@ -109,6 +110,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:layout_marginEnd="1dp"
                     android:ems="10"
+                    android:textAppearance="@style/customfontstyle"
                     android:enabled="true"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
@@ -135,7 +137,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-
+                    android:textAppearance="@style/customfontstyle"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
                     app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +163,7 @@
                     android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
                     android:ems="10"
                     android:enabled="true"
-
+                    android:textAppearance="@style/customfontstyle"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/color_curse"
                     app:layout_constraintStart_toStartOf="parent"

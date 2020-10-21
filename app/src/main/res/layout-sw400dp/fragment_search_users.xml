@@ -16,6 +16,7 @@
         android:id="@+id/searchUsersControlTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/customfontstyle"
         android:layout_gravity="center"
         android:text="Kullanıcı Bulunamadı" />
 
