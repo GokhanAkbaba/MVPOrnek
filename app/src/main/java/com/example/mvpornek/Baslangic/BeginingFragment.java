@@ -201,6 +201,24 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,5);
                         }else if("Sanat"==etiketList.get(i)){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,6);
+                        }else if("Yazilim"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,7);
+                        }else if("Oto"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,17);
+                        }else if("Tarih"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,15);
+                        }else if("Egitim"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,14);
+                        }else if("Moda"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,16);
+                        }else if("Muzik"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,13);
+                        }else if("Teknoloji"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,10);
+                        }else if("Oyun"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,11);
+                        }else if("Saglik"==etiketList.get(i)){
+                            beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,12);
                         }
                     }
                 }else{

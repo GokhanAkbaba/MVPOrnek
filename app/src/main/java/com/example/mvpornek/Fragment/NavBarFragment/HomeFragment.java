@@ -306,7 +306,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 if(checkTatilEtiket == false)
                 {
                     tatilButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
-                    anaSayfaButonGizle(alisverisButon,adresButon,filmDiziButon,sporButon,yemekButon);
+                    anaSayfaButonGizle(alisverisButon,yemekButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGizle(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Tatil);
                     checkTatilEtiket = true;
@@ -315,7 +315,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 else
                 {
                     tatilButon.setImageDrawable(getActivity().getDrawable(R.mipmap.tatil_icon));
-                    anaSayfaButonGoster(alisverisButon,adresButon,filmDiziButon,sporButon,yemekButon);
+                    anaSayfaButonGoster(alisverisButon,yemekButon,adresButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGoster(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkTatilEtiket=false;
@@ -327,7 +327,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     adresButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    anaSayfaButonGizle(alisverisButon,filmDiziButon,sporButon,yemekButon,tatilButon);
+                    anaSayfaButonGizle(alisverisButon,yemekButon,tatilButon,filmDiziButon,sporButon);
                     questionMenuPresenter.loadData(Adres);
                     checkAdresEtiket = true;
                     refreshControl=Adres;
@@ -335,7 +335,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 else
                 {
                     adresButon.setImageDrawable(getActivity().getDrawable(R.mipmap.adres_icon));
-                    anaSayfaButonGoster(alisverisButon,filmDiziButon,sporButon,yemekButon,tatilButon);
+                    anaSayfaButonGoster(alisverisButon,yemekButon,tatilButon,filmDiziButon,sporButon);
                     anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkAdresEtiket=false;
@@ -346,7 +346,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 if(checkSporEtiket == false)
                 {
                     sporButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
-                    anaSayfaButonGizle(alisverisButon,filmDiziButon,adresButon,yemekButon,tatilButon);
+                    anaSayfaButonGizle(alisverisButon,yemekButon,tatilButon,filmDiziButon,adresButon);
                     anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionMenuPresenter.loadData(Spor);
                     checkSporEtiket = true;
@@ -355,7 +355,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 else
                 {
                     sporButon.setImageDrawable(getActivity().getDrawable(R.mipmap.spor_icon));
-                    anaSayfaButonGoster(alisverisButon,filmDiziButon,adresButon,yemekButon,tatilButon);
+                    anaSayfaButonGoster(alisverisButon,yemekButon,tatilButon,filmDiziButon,adresButon);
                     anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
                     questionPresenter.loadData(kullanici.getId());
                     checkSporEtiket=false;
@@ -572,14 +572,18 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         button3.setEnabled(false);
         button4.setEnabled(false);
         button5.setEnabled(false);
+
+
     }
     public void anaSayfaButonGoster(ImageButton button1,ImageButton button2,ImageButton button3,ImageButton button4,ImageButton button5){
-        button1.setEnabled(true);
-        button2.setEnabled(true);
-        button3.setEnabled(true);
-        button4.setEnabled(true);
-        button5.setEnabled(true);
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+        button3.setEnabled(false);
+        button4.setEnabled(false);
+        button5.setEnabled(false);
+
     }
+
     public void anaSayfaTextRenkGizle(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15){
         textView1.setTextColor(getResources().getColor(R.color.renkSiyah));
         textView2.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
