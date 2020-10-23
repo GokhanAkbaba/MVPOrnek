@@ -114,6 +114,10 @@
     <dimen name="fragmentAnaSayfaButonTextSize400">11sp</dimen>
     <dimen name="toolbarHeight360">55dp</dimen>
 
+    <dimen name="soruPaylasIlBtnWidth400">44dp</dimen>
+    <dimen name="soruPaylasIlBtnHeight400">43dp</dimen>
+    <dimen name="soruPaylasIlBtnTextSize400">20sp</dimen>
+
 
 
 

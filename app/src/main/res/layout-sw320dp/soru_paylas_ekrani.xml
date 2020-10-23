@@ -340,7 +340,7 @@
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:background="@drawable/baslarkenilbuton"
-                            android:hint="01"
+                            android:hint="@string/il01"
                             android:textColor="@color/uygulamaMavisi"
                             android:textColorHint="@color/uygulamaMavisi"
                             android:textSize="@dimen/soruPaylasIlBtnText320" />
@@ -351,7 +351,7 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:hint="02"
+                            android:hint="@string/il02"
                             android:textColor="@color/uygulamaMavisi"
                             android:textColorHint="@color/uygulamaMavisi"
                             android:textSize="@dimen/soruPaylasIlBtnText320" />
@@ -362,9 +362,10 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="03"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il03"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_04"
@@ -372,9 +373,10 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="04"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il04"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_05"
@@ -382,9 +384,10 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="05"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il05"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_06"
@@ -392,9 +395,10 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="06"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il06"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_07"
@@ -402,9 +406,10 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="07"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il07"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_08"
@@ -412,715 +417,807 @@
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
                             android:background="@drawable/baslarkenilbuton"
-                            android:text="08"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il08"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_09"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/baslarkenilbuton"
-                            android:text="09"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il09"
+                             />
 
                         <Button
                             android:id="@+id/il_10"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="10"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il10"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_11"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="11"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il11"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_12"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="12"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il12"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_13"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="13"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il13"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_14"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="14"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il14"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_15"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="15"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il15"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_16"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="16"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il16"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_17"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="17"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il17"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_18"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="18"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il18"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_19"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="19"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il19"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_20"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="20"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il20"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_21"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="21"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il21"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_22"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="22"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il22"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_23"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="23"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il23"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_24"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="24"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il24"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_25"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="25"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il25"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_26"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="26"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il26"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_27"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="27"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il27"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_28"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="28"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il28"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_29"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="29"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il29"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_30"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="30"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il30"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_31"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="31"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il31"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_32"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="32"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il32"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_33"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="33"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il33"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_34"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="34"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il34"/>
 
                         <Button
                             android:id="@+id/il_35"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="35"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il35"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
+                        <Button
+                            android:id="@+id/il_36"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il36"
+                            android:textColor="@color/uygulamaMavisi"
+                             />
 
                         <Button
                             android:id="@+id/il_37"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="37"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il37"/>
                         <Button
                             android:id="@+id/il_38"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="38"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il38"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_39"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="39"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il39"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_40"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="40"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il40"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_41"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="41"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il41"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_42"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="42"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il42"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_43"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="43"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il43"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_44"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="44"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il44"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_45"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="45"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il45"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_46"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="46"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il46"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_47"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="47"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il47"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_48"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="48"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il48"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_49"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="49"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il49"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_50"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="50"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il50"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_51"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="51"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il51"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_52"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="52"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il52"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_53"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="53"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il53"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_54"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="54"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il54"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_55"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="55"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il55"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
                         <Button
                             android:id="@+id/il_56"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="56"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il56"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
                         <Button
                             android:id="@+id/il_57"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="57"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il57"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_58"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="58"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il58"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_59"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="59"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il59"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_60"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="60"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il60"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_61"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="61"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il61"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_62"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="62"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il62"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_63"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="63"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il63"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_64"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="64"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il64"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_65"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="65"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il65"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_66"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="66"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il66"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_67"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="67"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il67"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_68"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="68"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il68"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_69"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="69"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il69"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_70"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="71"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il70"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
+
+                        <Button
+                            android:id="@+id/il_71"
+                            android:layout_width="@dimen/soruPaylasIlBtnHeight320"
+                            android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il71"
+                            android:textColor="@color/uygulamaMavisi"
+                             />
+
 
                         <Button
                             android:id="@+id/il_72"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="72"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il72"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_73"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="73"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il73"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_74"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="74"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il74"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_75"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="75"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il75"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
                         <Button
                             android:id="@+id/il_76"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="76"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il76"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_77"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="77"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il77"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_78"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="78"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il78"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_79"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="79"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il79"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                             />
 
                         <Button
                             android:id="@+id/il_80"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="80"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il80"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                         <Button
                             android:id="@+id/il_81"
                             android:layout_width="@dimen/soruPaylasIlBtnHeight320"
                             android:layout_height="@dimen/soruPaylasIlBtnWidth320"
                             android:layout_marginStart="5dp"
-                            android:background="@drawable/il_soru_paylas_arka_plan"
-                            android:text="81"
+                            android:background="@drawable/baslarkenilbuton"
+                            android:textSize="@dimen/soruPaylasIlBtnText320"
+                            android:text="@string/il81"
                             android:textColor="@color/uygulamaMavisi"
-                            android:textSize="@dimen/soruPaylasIlBtnText320" />
+                            />
 
                     </LinearLayout>
 
