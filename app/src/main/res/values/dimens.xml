@@ -4,6 +4,7 @@
     <dimen name="search_content_search_text_size">17sp</dimen>
     <dimen name="search_content_search_text_size320">12sp</dimen>
     <dimen name="toolbar_size">68dp</dimen>
+    <dimen name="toolbar_size360">50dp</dimen>
     <dimen name="toolbar_size320">45dp</dimen>
     <dimen name="search_bar_height">38dp</dimen>
     <dimen name="search_bar_height320">28dp</dimen>
@@ -88,8 +89,6 @@
     <dimen name="soruPaylasEtiketBtnWidth360">50dp</dimen>
     <dimen name="soruPaylasEtiketBtnHeight360">22dp</dimen>
     <dimen name="soruPaylasEtiketBtnTextSize360">10sp</dimen>
-    <dimen name="soruPaylasIlBtnHeight360">38dp</dimen>
-    <dimen name="soruPaylasIlBtnWidth360">38dp</dimen>
     <dimen name="soruPaylasIlBtnText360">16sp</dimen>
 
     <dimen name="layoutProfilResmiIcerikYukseklik320">35dp</dimen>
@@ -117,6 +116,11 @@
     <dimen name="soruPaylasIlBtnWidth400">44dp</dimen>
     <dimen name="soruPaylasIlBtnHeight400">43dp</dimen>
     <dimen name="soruPaylasIlBtnTextSize400">20sp</dimen>
+    <dimen name="soruPaylasIlBtnTextSize360">20sp</dimen>
+
+    <dimen name="soruPaylasIlBtnWidth360">44dp</dimen>
+    <dimen name="soruPaylasIlBtnHeight360">43dp</dimen>
+
 
 
 

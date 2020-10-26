@@ -93,10 +93,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sifremiUnuttumText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/kayitOlEditText400"
+                        android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="e-Posta"
                         android:textAppearance="@style/customfontstyle"

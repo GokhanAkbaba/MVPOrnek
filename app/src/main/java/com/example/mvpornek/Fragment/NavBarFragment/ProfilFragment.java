@@ -153,7 +153,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
             begendiklerimFragment=BegendiklerimFragment.newInstance(kullanici.getId());
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
             profilKullaniciAdSoyadTxt.setText(kullanici.getAdSoyad());
-            profilKullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
+            profilKullaniciAdiTxt.setText("@"+kullanici.getKullaniciAdi());
             setTitle(kullanici.getAdSoyad());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
         }

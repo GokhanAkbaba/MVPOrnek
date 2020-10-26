@@ -84,69 +84,71 @@
                     app:layout_constraintTop_toBottomOf="@+id/profilKullaniciAdSoyadTxt"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/textView45"
+                <RelativeLayout
+                    android:id="@+id/profilSorularContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/customfontstyle"
-                    android:text="170"
-                    android:textAlignment="center"
-                    android:textColor="@color/renkSiyah"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/textView46"
-                    app:layout_constraintStart_toStartOf="@+id/textView46"
-                    app:layout_constraintTop_toBottomOf="@+id/profilKullaniciAdiTxt" />
-
-                <TextView
-                    android:id="@+id/textView46"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="230dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="80dp"
-                    android:layout_marginBottom="8dp"
-                    android:textAppearance="@style/customfontstyle"
-                    android:text="Sorular"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="26dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.544"
                     app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView45" />
+                    app:layout_constraintTop_toBottomOf="@+id/profilKullaniciAdiTxt">
 
-                <TextView
-                    android:id="@+id/profilCevapSayi"
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="170"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/customfontstyle"
+                        android:textColor="@color/renkSiyah"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textView45"
+                        android:layout_centerHorizontal="true"
+                        android:text="Sorular"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/customfontstyle"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/profilCevaplarContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:textAppearance="@style/customfontstyle"
-                    android:text="256"
-                    android:textAlignment="center"
-                    android:textColor="@color/renkSiyah"
-                    android:textSize="16sp"
+                    android:layout_marginTop="26dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.802"
-                    app:layout_constraintStart_toEndOf="@+id/textView45"
-                    app:layout_constraintTop_toBottomOf="@+id/profilKullaniciAdiTxt" />
+                    app:layout_constraintHorizontal_bias="0.483"
+                    app:layout_constraintStart_toEndOf="@+id/profilSorularContent"
+                    app:layout_constraintTop_toBottomOf="@+id/profilKullaniciAdiTxt">
 
-                <TextView
-                    android:id="@+id/textView48"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="4dp"
-                    android:textAppearance="@style/customfontstyle"
-                    android:layout_marginBottom="8dp"
-                    android:text="Cevaplar"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.583"
-                    app:layout_constraintStart_toEndOf="@+id/textView46"
-                    app:layout_constraintTop_toBottomOf="@+id/profilCevapSayi"
-                    app:layout_constraintVertical_bias="0.571" />
+                    <TextView
+                        android:id="@+id/profilCevapSayi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="256"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/customfontstyle"
+                        android:textColor="@color/renkSiyah"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/profilCevapSayi"
+                        android:layout_centerHorizontal="true"
+                        android:text="Cevaplar"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/customfontstyle"
+                        android:textSize="14sp" />
+                </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.appcompat.widget.Toolbar

@@ -6,20 +6,14 @@
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
 
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/searchContentAppbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
+        <RelativeLayout
             android:id="@+id/ayarlarToolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_size"
+            android:layout_height="@dimen/toolbar_size360"
             app:layout_collapseMode="pin"
             android:background="@drawable/content_level_one"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,75 +23,72 @@
             <Button
                 android:id="@+id/sifreGuncelleGeriBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@drawable/ripple_back_button"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_back_arrow"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
                 android:clickable="true"
                 android:textAppearance="@style/customfontstyle"
-                android:drawableLeft="@mipmap/ayarlar_geri_donus"
-                android:drawableTint="@color/uygulamaMavisi"
-                app:layout_constraintStart_toStartOf="parent" />
+              />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:textAppearance="@style/customfontstyle"
-                android:fontFamily="sans-serif-medium"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/sifreGuncelleGeriBtn"
                 android:text="Şifre Düzenle"
+                android:textAppearance="@style/customfontstyle"
                 android:textColor="@color/uygulamaMavisi"
-                android:textSize="21sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/sifreGuncelleButon"
                 android:layout_width="100dp"
                 android:layout_height="25dp"
-                android:textAppearance="@style/customfontstyle"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/button"
                 android:text="Güncelle"
-
                 android:textAllCaps="false"
+                android:textAppearance="@style/customfontstyle"
                 android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                tools:layout_editor_absoluteX="82dp"
-                tools:layout_editor_absoluteY="608dp" />
+                android:textSize="15sp" />
 
 
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+        </RelativeLayout>
 
     <ScrollView
-        android:layout_width="403dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="55dp"
-        app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
+        android:layout_below="@+id/ayarlarToolbar"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout"
-            android:layout_width="404dp"
-            android:layout_height="661dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
             tools:ignore="MissingConstraints">
 
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ayarlarMevcutSifreTextField"
                 android:layout_width="321dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="45dp"
                 android:hint="Mevcut Şifre"
                 app:boxStrokeColor="@color/uygulamaMavisi"
                 app:errorEnabled="true"
@@ -175,4 +166,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
