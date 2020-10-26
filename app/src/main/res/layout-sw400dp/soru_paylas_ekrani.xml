@@ -972,8 +972,8 @@
                     tools:ignore="ButtonStyle"/>
                 <Button
                     android:id="@+id/il_56"
-                    android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                    android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                    android:layout_width="@dimen/soruPaylasIlBtnWidth400"
+                    android:layout_height="@dimen/soruPaylasIlBtnHeight400"
                     android:layout_marginStart="5dp"
                     android:background="@drawable/baslarkenilbuton"
                     android:text="@string/il56"
@@ -982,8 +982,8 @@
                     tools:ignore="ButtonStyle"/>
                 <Button
                     android:id="@+id/il_57"
-                    android:layout_width="@dimen/soruPaylasIlBtnHeight320"
-                    android:layout_height="@dimen/soruPaylasIlBtnWidth320"
+                    android:layout_width="@dimen/soruPaylasIlBtnWidth400"
+                    android:layout_height="@dimen/soruPaylasIlBtnHeight400"
                     android:layout_marginStart="5dp"
                     android:background="@drawable/baslarkenilbuton"
                     android:text="@string/il57"
@@ -1249,6 +1249,7 @@
                     android:layout_width="@dimen/soruPaylasIlBtnWidth400"
                     android:layout_height="@dimen/soruPaylasIlBtnHeight400"
                     android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:background="@drawable/baslarkenilbuton"
                     android:text="@string/il81"
                     android:textColor="@color/uygulamaMavisi"

@@ -167,8 +167,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         this.kullaniciGetir=kullaniciGetir;
         setTitle(kullaniciGetir.getAdSoyad());
         profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
-        profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
-        profilKullaniciAdiTxt.setText(kullaniciGetir.getKullaniciAdi());
+        profilKullaniciAdiTxt.setText("@"+kullaniciGetir.getKullaniciAdi());
         profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
         GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
     }
