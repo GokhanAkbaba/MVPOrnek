@@ -1,5 +1,6 @@
 package com.example.mvpornek.Fragment.NavBarFragment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -76,7 +77,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     checkYazilimEtiket=false;
     ImageView anaSayfaYazilimButonIamge,anaSayfaOtoButonIamge,anaSayfaModaButonIamge,anaSayfaTarihButonIamge,anaSayfaEgitimButonIamge;
     ImageView anaSayfaMuzikButonIamge,anaSayfaSaglikButonIamge,anaSayfaOyunButonIamge,anaSayfaTeknoButonIamge;
-    int refreshControl;
+    int refreshControl=0;
 
 
     SwipeRefreshLayout swipeRefreshLayout;
@@ -104,8 +105,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     }
 
     public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
+        HomeFragment homeFragment = new HomeFragment();
+        return homeFragment;
     }
 
     @Override
@@ -130,7 +131,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         itemLongClickListener =((vw,position)-> {
             ConstraintLayout sorularIcerik=vw.findViewById(R.id.sorularIcerikLayout);
             if(kullanici.getId() == questionModels.get(position).getKullaniciId()) {
-                if(checkSoruAlani == false) {
+                if(!checkSoruAlani) {
                     sorularIcerik.setBackgroundColor(getResources().getColor(R.color.colorGrayPrimay));
                     checkSoruAlani = true;
                 }
@@ -144,7 +145,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        if(checkSoruAlani == true) {
+                        if(checkSoruAlani) {
                             sorularIcerik.setBackgroundColor(getResources().getColor(R.color.white));
                             checkSoruAlani=false;
                         }
@@ -218,16 +219,15 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         otoAnaSayfaTxt=view.findViewById(R.id.otoAnaSayfaTxt);
         yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if(refreshControl==0){
-                    internetConnectionPresenter.internetBaglantiKontrolu();
-                    questionPresenter.loadData(kullanici.getId());
-                }else if (refreshControl != -1){
-                    internetConnectionPresenter.internetBaglantiKontrolu();
-                    questionMenuPresenter.loadData(refreshControl);
-                }
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            if(refreshControl==0 || refreshControl==-1){
+                internetConnectionPresenter.internetBaglantiKontrolu();
+                questionPresenter.loadData(kullanici.getId());
+            }else if (refreshControl != -1){
+
+                internetConnectionPresenter.internetBaglantiKontrolu();
+                questionMenuPresenter.loadData(refreshControl);
             }
         });
 
@@ -238,18 +238,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         return view;
     }
 
-    public void refreshMenuData(SwipeRefreshLayout swipeRefreshLayout, int valueId){
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                internetConnectionPresenter.internetBaglantiKontrolu();
-                questionMenuPresenter.loadData(valueId);
-
-            }
-        });
-    }
-
-
     public void showBottomSheet(int soruId,int soruSoranKullaniciId) {
         CommentBottomDialogFragment commentBottomDialogFragment =
                 CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciId);
@@ -257,13 +245,14 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 CommentBottomDialogFragment.TAG);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId())
         {
 
             case R.id.anasayfa_alisveris_btn:
-                if(checkAlisverisEtiket == false)
+                if(!checkAlisverisEtiket)
                 {
                     alisverisButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaButonGizle(yemekButon,tatilButon,adresButon,filmDiziButon,sporButon);
@@ -283,7 +272,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_yemek_btn:
-                if(checkYemekEtiket == false)
+                if(!checkYemekEtiket)
                 {
                     yemekButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaButonGizle(alisverisButon,tatilButon,adresButon,filmDiziButon,sporButon);
@@ -303,7 +292,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_tatil_btn:
-                if(checkTatilEtiket == false)
+                if(!checkTatilEtiket)
                 {
                     tatilButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaButonGizle(alisverisButon,yemekButon,adresButon,filmDiziButon,sporButon);
@@ -323,7 +312,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_adres_btn:
-                if(checkAdresEtiket == false)
+                if(!checkAdresEtiket)
                 {
                     adresButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
@@ -343,7 +332,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_spor_btn:
-                if(checkSporEtiket == false)
+                if(!checkSporEtiket)
                 {
                     sporButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaButonGizle(alisverisButon,yemekButon,tatilButon,filmDiziButon,adresButon);
@@ -363,7 +352,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_tekno_btn:
-                if(checkTeknoEtiket == false)
+                if(!checkTeknoEtiket)
                 {
                     anaSayfaTeknoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -383,7 +372,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_filmDizi_btn:
-                if(checkFilmDiziEtiket == false)
+                if(!checkFilmDiziEtiket)
                 {
                     filmDiziButon.setImageDrawable(getActivity().getDrawable(R.mipmap.mavi_kapat_icon));
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -403,7 +392,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_oyun_btn:
-                if(checkOyunEtiket == false)
+                if(!checkOyunEtiket)
                 {
                     anaSayfaOyunButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -423,7 +412,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_saglik_btn:
-                if(checkSaglikEtiket == false)
+                if(!checkSaglikEtiket)
                 {
 
                     anaSayfaSaglikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
@@ -444,7 +433,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_muzik_btn:
-                if(checkMuzikEtiket == false)
+                if(!checkMuzikEtiket)
                 {
                     anaSayfaMuzikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -464,7 +453,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_egitim_btn:
-                if(checkEgitimEtiket == false)
+                if(!checkEgitimEtiket)
                 {
                     anaSayfaEgitimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -484,7 +473,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_tarih_btn:
-                if(checkTarihEtiket == false)
+                if(!checkTarihEtiket)
                 {
                     anaSayfaTarihButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -504,7 +493,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_moda_btn:
-                if(checkModaEtiket == false)
+                if(!checkModaEtiket)
                 {
                     anaSayfaModaButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -524,7 +513,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_oto_btn:
-                if(checkOtoEtiket == false)
+                if(!checkOtoEtiket)
                 {
                     anaSayfaOtoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -544,7 +533,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
                 break;
             case R.id.anasayfa_yazilim_btn:
-                if(checkYazilimEtiket == false)
+                if(!checkYazilimEtiket)
                 {
                     anaSayfaYazilimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(alisverisButon,sporButon,adresButon,yemekButon,tatilButon);
@@ -576,11 +565,11 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     }
     public void anaSayfaButonGoster(ImageButton button1,ImageButton button2,ImageButton button3,ImageButton button4,ImageButton button5){
-        button1.setEnabled(false);
-        button2.setEnabled(false);
-        button3.setEnabled(false);
-        button4.setEnabled(false);
-        button5.setEnabled(false);
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
+        button4.setEnabled(true);
+        button5.setEnabled(true);
 
     }
 
@@ -654,6 +643,11 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         swipeRefreshLayout.setRefreshing(false);
     }
 
+    @Override
+    public void onGetQuestionResultControl(String string) {
+        soruAlaniTextView.setVisibility(View.VISIBLE);
+        soruAlaniTextView.setText(string);
+    }
     @Override
     public void onGetResultControl() {
         soruAlaniTextView.setVisibility(View.VISIBLE);
