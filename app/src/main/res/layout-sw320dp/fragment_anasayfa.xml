@@ -50,25 +50,30 @@
                         android:id="@+id/anaSayfaMenuLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
-
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_alisveris_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
-                            android:background="@drawable/ana_sayfa_alisveris_buton"
-                            android:paddingLeft="7dip"
-                            android:paddingRight="7dip"
                             android:layout_marginLeft="15dp"
-                            android:src="@drawable/ic_alisveris"
-                            android:textSize="8sp"
-                            android:scaleType="fitCenter"
-                            android:tint="@color/white"
+                            android:background="@drawable/ana_sayfa_alisveris_buton"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/anaSayfaAlisverisButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:paddingLeft="7dip"
+                                android:paddingRight="7dip"
+                                android:src="@drawable/ic_alisveris"
+                                android:textSize="8sp"
+                                android:scaleType="fitCenter"
+                                android:tint="@color/white"
+                                tools:ignore="ContentDescription" />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/alisverisAnaSayfaTxt"
@@ -85,17 +90,24 @@
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_alisveris_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_alisveris_btn" />
 
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_yemek_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_marginLeft="35dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ana_sayfa_yemek_buton"
-                            android:scaleType="center"
-                            android:src="@mipmap/yemek_icon"
-                            android:tint="@color/white"
                             app:layout_constraintLeft_toRightOf="@+id/anasayfa_alisveris_btn"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent">
+                            <ImageView
+                                android:id="@+id/anaSayfaYemekButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:scaleType="center"
+                                android:src="@mipmap/yemek_icon"
+                                android:tint="@color/white"
+                               />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/yemekAnaSayfaTxt"
@@ -110,18 +122,25 @@
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_yemek_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_yemek_btn" />
 
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_tatil_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_marginLeft="35dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ana_sayfa_tatil_buton"
-                            android:scaleType="center"
-                            android:src="@mipmap/tatil_icon"
-                            android:tint="@color/white"
                             app:layout_constraintLeft_toRightOf="@+id/anasayfa_yemek_btn"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent">
 
+                            <ImageView
+                                android:id="@+id/anaSayfaTatilButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:scaleType="center"
+                                android:src="@mipmap/tatil_icon"
+                                android:tint="@color/white"
+                                android:contentDescription="TODO" />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/tatilAnaSayfaTxt"
@@ -136,17 +155,23 @@
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_tatil_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_tatil_btn" />
 
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_adres_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_marginLeft="35dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ana_sayfa_adres_buton"
-                            android:src="@mipmap/adres_icon"
-                            android:tint="@color/white"
                             app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="MissingConstraints" />
+                            app:layout_constraintTop_toTopOf="parent">
+                            <ImageView
+                                android:id="@+id/anaSayfaAdresButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:src="@mipmap/adres_icon"
+                                android:tint="@color/white"
+                                tools:ignore="MissingConstraints" />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/adresAnaSayfaTxt"
@@ -161,18 +186,25 @@
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_adres_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_adres_btn" />
 
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_spor_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_marginLeft="35dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ana_sayfa_spor_buton"
-                            android:scaleType="center"
-                            android:src="@mipmap/spor_icon"
-                            android:tint="@color/white"
                             app:layout_constraintLeft_toRightOf="@+id/anasayfa_adres_btn"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="MissingConstraints" />
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/anaSayfaSporButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:scaleType="center"
+                                android:src="@mipmap/spor_icon"
+                                android:tint="@color/white"
+                                tools:ignore="MissingConstraints" />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/sporAnaSayfaTxt"
@@ -190,19 +222,28 @@
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_spor_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_spor_btn" />
 
-                        <ImageButton
+                        <RelativeLayout
                             android:id="@+id/anasayfa_filmDizi_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
                             android:layout_marginLeft="35dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ana_sayfa_film_dizi"
-                            android:scaleType="center"
-                            android:src="@mipmap/film_icon"
-                            android:tint="@color/white"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_spor_btn"
                             app:layout_constraintStart_toEndOf="@+id/anasayfa_spor_btn"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="MissingConstraints" />
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/anaSayfaFilmDiziButonIamge"
+                                android:layout_width="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:layout_height="@dimen/fragmentAnaSayfaEtiketButonHeight320"
+                                android:scaleType="center"
+                                android:src="@mipmap/film_icon"
+                                android:tint="@color/white"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingConstraints" />
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/filmDiziAnaSayfaTxt"
@@ -216,6 +257,7 @@
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_filmDizi_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_filmDizi_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_filmDizi_btn" />
+
 
                         <RelativeLayout
                             android:id="@+id/anasayfa_tekno_btn"

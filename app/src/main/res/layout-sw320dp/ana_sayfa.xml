@@ -64,7 +64,7 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/anasayfa_nav_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/rounded"
                 app:itemIconSize="20dp"
                 app:itemIconTint="@color/nav_color"

@@ -33,6 +33,11 @@ public class QuestionModel {
     @Expose
     private String profilFoto;
 
+    @SerializedName("cevap_sayisi")
+    @Expose
+
+    private int cevapSayisi;
+
     public Boolean getError() {
         return error;
     }
@@ -40,11 +45,6 @@ public class QuestionModel {
     public void setError(Boolean error) {
         this.error = error;
     }
-
-    @SerializedName("cevap_sayisi")
-    @Expose
-
-    private int cevapSayisi;
 
     public int getKullaniciId() {
         return kullaniciId;

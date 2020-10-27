@@ -8,7 +8,7 @@ public class SelectionControlModel {
     @Expose
     Boolean secim;
 
-    public void setSecim(Boolean secim) {
+    public SelectionControlModel(Boolean secim) {
         this.secim = secim;
     }
 

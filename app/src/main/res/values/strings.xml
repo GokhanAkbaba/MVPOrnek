@@ -153,6 +153,22 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="il80">80</string>
     <string name="il81">81</string>
 
+    <string name="alisverisText">Alışveriş</string>
+    <string name="yemekText">Yemek</string>
+    <string name="tatilText">Tatil</string>
+    <string name="adresText">Adres</string>
+    <string name="sporText">Spor</string>
+    <string name="filmDiziText">Film/Dizi</string>
+    <string name="teknolojiText">Teknoloji</string>
+    <string name="oyunText">Oyun</string>
+    <string name="saglikText">Sağlık</string>
+    <string name="muzikText">Muzik</string>
+    <string name="egitimText">Eğitim</string>
+    <string name="tarihText">Tarih</string>
+    <string name="modaText">Moda</string>
+    <string name="otoText">Oto</string>
+    <string name="yazilimText">Yazilim</string>
+
 
 
 

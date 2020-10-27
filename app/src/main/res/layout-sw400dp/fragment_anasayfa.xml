@@ -21,7 +21,7 @@
 <RelativeLayout
     android:id="@+id/anaSayfaLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
@@ -44,38 +44,52 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv">
+            app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv"
+            tools:ignore="UselessParent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/anaSayfaMenuLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_alisveris_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
+                    android:layout_marginStart="15dp"
                     android:background="@drawable/ana_sayfa_alisveris_buton"
-                    android:paddingLeft="7dip"
-                    android:paddingRight="7dip"
-                    android:layout_marginLeft="15dp"
-                    android:src="@mipmap/alisveris_icon"
-                    android:textSize="8sp"
-                    android:tint="@color/white"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/anaSayfaAlisverisButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_alisveris"
+                        android:tint="@color/white"
+                        tools:ignore="ContentDescription" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/alisverisAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:text="ALIŞVERİŞ"
+                    android:text="@string/alisverisText"
+                    android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -84,24 +98,40 @@
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_alisveris_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_alisveris_btn" />
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_yemek_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_yemek_buton"
-                    android:scaleType="center"
-                    android:src="@mipmap/yemek_icon"
-                    android:tint="@color/white"
                     app:layout_constraintLeft_toRightOf="@+id/anasayfa_alisveris_btn"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:id="@+id/anaSayfaYemekButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_yemek"
+                        android:tint="@color/white"
+                        />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/yemekAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="YEMEK"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/yemekText"
+                    android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -109,25 +139,41 @@
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_yemek_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_yemek_btn" />
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_tatil_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_tatil_buton"
-                    android:scaleType="center"
-                    android:src="@mipmap/tatil_icon"
-                    android:tint="@color/white"
                     app:layout_constraintLeft_toRightOf="@+id/anasayfa_yemek_btn"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <ImageView
+                        android:id="@+id/anaSayfaTatilButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_tatil"
+                        android:tint="@color/white"
+                        android:contentDescription="TODO" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tatilAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="TATİL"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tatilText"
+                    android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -135,92 +181,140 @@
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_tatil_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_tatil_btn" />
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_adres_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_adres_buton"
-                    android:src="@mipmap/adres_icon"
-                    android:tint="@color/white"
                     app:layout_constraintLeft_toRightOf="@+id/anasayfa_tatil_btn"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:id="@+id/anaSayfaAdresButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_location"
+                        android:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/adresAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="ADRES"
-                    android:textColor="@color/renkSiyah"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/adresText"
+                    android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
+                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_adres_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_adres_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_adres_btn" />
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_spor_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_spor_buton"
-                    android:scaleType="center"
-                    android:src="@mipmap/spor_icon"
-                    android:tint="@color/white"
                     app:layout_constraintLeft_toRightOf="@+id/anasayfa_adres_btn"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/anaSayfaSporButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_trophy"
+                        android:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/sporAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:text="SPOR"
+                    android:layout_marginTop="8dp"
                     android:textAppearance="@style/customfontstyle"
+                    android:text="@string/sporText"
+                    android:textAllCaps="true"
                     android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_spor_btn"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_spor_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_spor_btn" />
 
-                <ImageButton
+                <RelativeLayout
                     android:id="@+id/anasayfa_filmDizi_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_film_dizi"
-                    android:scaleType="center"
-                    android:src="@mipmap/film_icon"
-                    android:tint="@color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@+id/anasayfa_spor_btn"
                     app:layout_constraintStart_toEndOf="@+id/anasayfa_spor_btn"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/anaSayfaFilmDiziButonIamge"
+                        android:src="@mipmap/film_icon"
+                        android:tint="@color/white"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/filmDiziAnaSayfaTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="FİLM/DİZİ"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/filmDiziText"
+                    android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
                     android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_filmDizi_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_filmDizi_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_filmDizi_btn" />
+
                 <RelativeLayout
                     android:id="@+id/anasayfa_tekno_btn"
                     android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                     android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/ana_sayfa_teknoloji"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@+id/anasayfa_filmDizi_btn"
@@ -250,7 +344,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="TEKNOLOJİ"
+                        android:text="@string/teknolojiText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                         android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -262,8 +357,8 @@
                             android:id="@+id/anasayfa_oyun_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_oyun"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_tekno_btn"
@@ -293,7 +388,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="OYUN"
+                            android:text="@string/oyunText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -305,8 +401,8 @@
                             android:id="@+id/anasayfa_saglik_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_saglik"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_oyun_btn"
@@ -336,7 +432,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="SAĞLIK"
+                            android:text="@string/saglikText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -348,8 +445,8 @@
                             android:id="@+id/anasayfa_muzik_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_muzik"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_saglik_btn"
@@ -371,7 +468,7 @@
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_muzik_svg"
                                 android:tint="@color/white"
-                                tools:ignore="MissingConstraints" />
+                                tools:ignore="ContentDescription,MissingConstraints" />
                         </RelativeLayout>
 
                         <TextView
@@ -379,7 +476,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="MÜZİK"
+                            android:text="@string/muzikText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -391,8 +489,8 @@
                             android:id="@+id/anasayfa_egitim_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_egitim"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_muzik_btn"
@@ -422,7 +520,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="EĞİTİM"
+                            android:text="@string/egitimText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -434,8 +533,8 @@
                             android:id="@+id/anasayfa_tarih_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_tarih"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_egitim_btn"
@@ -465,7 +564,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="TARİH"
+                            android:text="@string/tarihText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -477,8 +577,8 @@
                             android:id="@+id/anasayfa_moda_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_moda"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintLeft_toLeftOf="@+id/anasayfa_tarih_btn"
@@ -500,7 +600,7 @@
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_moda_svg"
                                 android:tint="@color/white"
-                                tools:ignore="MissingConstraints" />
+                                tools:ignore="ContentDescription,MissingConstraints" />
                         </RelativeLayout>
 
                         <TextView
@@ -508,7 +608,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="MODA"
+                            android:text="@string/modaText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -520,8 +621,8 @@
                             android:id="@+id/anasayfa_oto_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_oto"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -552,7 +653,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="OTO"
+                            android:text="@string/otoText"
+                            android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
@@ -564,8 +666,8 @@
                             android:id="@+id/anasayfa_yazilim_btn"
                             android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
                             android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/ana_sayfa_yazilim"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -596,7 +698,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Yazılım"
+                            android:text="@string/yazilimText"
+                            android:textAllCaps="true"
                             android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             android:textAppearance="@style/customfontstyle"
