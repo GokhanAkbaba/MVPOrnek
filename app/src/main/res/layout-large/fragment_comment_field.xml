@@ -18,22 +18,22 @@
         android:isScrollContainer="false"
         android:scrollbars="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/edt"
-                android:layout_width="330dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="55dp"
                 android:textAppearance="@style/customfontstyle"
                 android:layout_marginTop="4dp"
                 android:layout_height="45dp"
                 android:paddingLeft="10dp"
                 android:maxLength="250"
                 android:background="@android:color/white" />
-
             <ImageButton
                 android:id="@+id/yorumGonderBtn"
                 android:layout_width="45dp"
@@ -41,10 +41,13 @@
                 android:scaleType="centerInside"
                 android:layout_height="45dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="-50dp"
+                android:layout_toRightOf="@+id/edt"
                 android:layout_marginBottom="4dp"
                 android:src="@mipmap/soru_gonder_icon" />
 
-        </LinearLayout>
+
+
+        </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
