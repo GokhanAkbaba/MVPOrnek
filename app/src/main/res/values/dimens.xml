@@ -104,6 +104,8 @@
     <dimen name="ayarlarSayfaLayoutHeight320">45dp</dimen>
     <dimen name="baslarkenSayfaLayoutWidth">90dp</dimen>
     <dimen name="baslarkenSayfaLayoutHeight">30dp</dimen>
+    <dimen name="baslarkenSayfaLayoutLeft">8dp</dimen>
+    <dimen name="baslarkenSayfaLayoutTop">8dp</dimen>
 
     <dimen name="fragmentAnaSayfaButonWidth360">50dp</dimen>
     <dimen name="fragmentAnaSayfaButonHeight360">50dp</dimen>
