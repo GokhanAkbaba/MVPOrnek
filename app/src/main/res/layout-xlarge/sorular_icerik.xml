@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sorularIcerikLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/kullaniciResmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.103">
+
+                    <ImageView
+                        android:id="@+id/sorularIcerikKullaniciResmi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rumeli" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/kullaniciAdSoyad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toRightOf="@+id/kullaniciResmi"
+                    android:text="11111111111111111111111111"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/soruPaylasmaZamani"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kullaniciAdiTxt"
+                    android:layout_toRightOf="@+id/kullaniciResmi"
+                    android:layout_marginStart="10dp"
+                    android:text="1sa"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/soruPaylasmaZamani"
+                    android:text="#Adres #Tatil"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/kullaniciAdiTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\@GokhanAkbaba"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toRightOf="@+id/kullaniciResmi"
+                    android:layout_below="@+id/kullaniciAdSoyad"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="12sp"
+                    />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_below="@+id/textView11"
+                    android:text="@string/denemeSoru1Txt"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    />
+
+                <ImageView
+                    android:id="@+id/soruYorumIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/textView12"
+                    android:src="@drawable/ic_comment_svg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                <TextView
+                    android:id="@+id/yorumSayisiTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:text="155"
+                    android:layout_below="@+id/textView12"
+                    android:layout_toRightOf="@+id/soruYorumIcon"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="19sp"
+                    />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="453dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@color/ayarlarGrisi"
+                    android:layout_below="@+id/yorumSayisiTxt"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/soruIdTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/customfontstyle"
+                android:visibility="invisible"
+                tools:layout_editor_absoluteX="223dp"
+                tools:layout_editor_absoluteY="70dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

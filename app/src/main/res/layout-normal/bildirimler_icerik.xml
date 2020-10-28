@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout16"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/bildirimKisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:textAppearance="@style/customfontstyle"
+            android:text="Gökhan Akbaba"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/bildirimKisiResim"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bildirimNedenTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/customfontstyle"
+            android:layout_marginTop="24dp"
+            android:text="@string/sizeBirSoruTxt"
+            android:textSize="15sp"
+            android:textColor="@color/renkSiyah"
+            app:layout_constraintStart_toEndOf="@+id/bildirimKisi"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bildirimAciklama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/customfontstyle"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="@color/renkSiyah"
+            android:textSize="12dp"
+            app:layout_constraintStart_toEndOf="@+id/bildirimKisiResim"
+            app:layout_constraintTop_toBottomOf="@+id/bildirimKisi"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bildirimZamani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/customfontstyle"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@+id/bildirimAciklama"
+            app:layout_constraintTop_toTopOf="@+id/bildirimAciklama" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textAppearance="@style/customfontstyle"
+            android:layout_marginTop="8dp"
+            android:text="@string/onceTxt"
+            android:textSize="12dp"
+            app:layout_constraintStart_toEndOf="@+id/bildirimZamani"
+            app:layout_constraintTop_toBottomOf="@+id/bildirimAciklama" />
+
+        <ImageView
+            android:id="@+id/bildirimKisiResim"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ceo" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="118dp"
+        android:background="@color/ayarlarGrisi"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="61dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

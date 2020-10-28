@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sorularIcerikLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/kullaniciResmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="6dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103">
+
+                <ImageView
+                    android:id="@+id/begeniRoundedKullaniciResmi"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rumeli" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/begeniKullaniciAdSoyad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="19dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="Gökhan AKBABA"
+                android:textColor="#000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/begeniPaylasmaZamani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="1sa"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/begeniKullaniciAdiTxt" />
+
+
+            <TextView
+                android:id="@+id/begeniKullaniciAdiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="\@GokhanAkbaba"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
+                app:layout_constraintTop_toBottomOf="@+id/begeniKullaniciAdSoyad" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="@string/denemeSoru1Txt"
+                android:textAlignment="gravity"
+                android:textColor="#000"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/begeniPaylasmaZamani"
+                app:layout_constraintVertical_bias="0.216" />
+             <RelativeLayout
+                android:id="@+id/begeniIcerikLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/layoutProfilBegenButonYukseklik320"
+                android:layout_marginTop="7dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+            <ImageView
+                android:id="@+id/profilBegeniImageButton"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/yorumCevapBegeniSayisiTxt"
+                android:clickable="true"
+                android:src="@mipmap/guven_oyu"
+                android:tag="seçilmedi"
+                android:tint="@color/ayarlarGrisi"
+                />
+
+            <TextView
+                android:id="@+id/yorumCevapBegeniSayisiTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="3dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="5"
+                android:textAlignment="viewStart"
+                android:textSize="16dp" />
+        </RelativeLayout>
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/ayarlarGrisi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/begeniIcerikLayout" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout13"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/yorumlarIcerikLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/kullaniciResmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="6dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.103">
+
+                <ImageView
+                    android:id="@+id/roundedKullaniciResmi"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rumeli"
+                    tools:ignore="MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/yorumKullaniciAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="50dp"
+                android:layout_toRightOf="@+id/kullaniciResmi"
+                android:text="TextView"
+                android:textAppearance="@style/customfontstyle"
+                android:textColor="@color/renkSiyah"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/yorumTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/yorumKullaniciAdi"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/kullaniciResmi"
+                android:text="TextView"
+                android:textAppearance="@style/customfontstyle"
+                android:textColor="@color/renkSiyah"
+                android:textSize="16sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-40dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@id/yorumKullaniciAdi">
+                <ImageView
+                    android:id="@+id/imageButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:clickable="true"
+                    android:src="@mipmap/guven_oyu"
+                    android:tint="@color/ayarlarGrisi"
+                    android:layout_centerHorizontal="true"
+                    tools:ignore="ContentDescription"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/begeniSayisiTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:text="15"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/imageButton"
+                    android:textAppearance="@style/customfontstyle" />
+        </RelativeLayout>
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

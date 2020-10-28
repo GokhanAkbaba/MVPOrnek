@@ -102,8 +102,8 @@
     <dimen name="layoutProfilBegenButonYukseklik320">30dp</dimen>
     <dimen name="layoutProfilBegenButonGenislik320">30dp</dimen>
     <dimen name="ayarlarSayfaLayoutHeight320">45dp</dimen>
-    <dimen name="baslarkenSayfaLayoutWidth360">105dp</dimen>
-    <dimen name="baslarkenSayfaLayoutHeight360">35dp</dimen>
+    <dimen name="baslarkenSayfaLayoutWidth">90dp</dimen>
+    <dimen name="baslarkenSayfaLayoutHeight">30dp</dimen>
 
     <dimen name="fragmentAnaSayfaButonWidth360">50dp</dimen>
     <dimen name="fragmentAnaSayfaButonHeight360">50dp</dimen>

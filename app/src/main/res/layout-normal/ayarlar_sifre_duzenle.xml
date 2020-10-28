@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/ayarlarToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_size"
+            app:layout_collapseMode="pin"
+            android:background="@drawable/content_level_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/sifreGuncelleGeriBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="43dp"
+                android:layout_height="35dp"
+                android:background="@drawable/ic_back_arrow"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:textAppearance="@style/customfontstyle"
+                />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/sifreGuncelleGeriBtn"
+                android:text="Şifre Düzenle"
+                android:textAppearance="@style/customfontstyle"
+                android:textColor="@color/uygulamaMavisi"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/sifreGuncelleButon"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/button"
+                android:text="Güncelle"
+                android:textAllCaps="false"
+                android:textAppearance="@style/customfontstyle"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:layout_below="@+id/ayarlarToolbar"
+            tools:ignore="MissingConstraints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ayarlarMevcutSifreTextField"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:hint="Mevcut Şifre"
+                    app:boxStrokeColor="@color/uygulamaMavisi"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/ayarlarMevcutSifreTxt"
+                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:layout_marginEnd="1dp"
+                        android:ems="10"
+                        android:enabled="true"
+                        android:textAppearance="@style/customfontstyle"
+                        android:inputType="textPassword"
+                        android:textCursorDrawable="@drawable/color_curse"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ayarlarYeniSifreTextField"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:hint="Yeni Şifre"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ayarlarMevcutSifreTextField"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/ayarlarYeniSifreTxt"
+                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:ems="10"
+                        android:enabled="true"
+                        android:textAppearance="@style/customfontstyle"
+                        android:inputType="textPassword"
+                        android:textCursorDrawable="@drawable/color_curse"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ayarlarYeniSifreTekrarTextField"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:hint="Yeni Şifre Tekrar"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ayarlarYeniSifreTextField"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/ayarlarYeniSifreTekrarTxt"
+                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
+                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:ems="10"
+                        android:textAppearance="@style/customfontstyle"
+                        android:enabled="true"
+                        android:inputType="textPassword"
+                        android:textCursorDrawable="@drawable/color_curse"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19"
+                        tools:ignore="MissingConstraints" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
