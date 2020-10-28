@@ -103,7 +103,7 @@
                         app:layout_constraintHorizontal_bias="0.544">
 
                         <TextView
-                            android:id="@+id/textView45"
+                            android:id="@+id/profilSoruSayisi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
@@ -117,7 +117,7 @@
                             android:id="@+id/textView46"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/textView45"
+                            android:layout_below="@id/profilSoruSayisi"
                             android:layout_centerHorizontal="true"
                             android:text="Sorular"
                             android:textAlignment="center"

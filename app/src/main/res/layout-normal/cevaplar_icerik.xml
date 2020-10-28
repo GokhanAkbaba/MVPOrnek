@@ -116,12 +116,10 @@
                 android:id="@+id/divider3"
                 android:layout_width="453dp"
                 android:layout_height="1dp"
-                android:visibility="gone"
+                android:layout_marginTop="5dp"
                 android:background="@color/ayarlarGrisi"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:layout_constraintVertical_bias="1.0" />
+                android:layout_below="@+id/relativeLayout7"
+               />
 
             <TextView
                 android:id="@+id/textView27"
@@ -137,6 +135,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
 
         <RelativeLayout
+            android:id="@+id/relativeLayout7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView12"

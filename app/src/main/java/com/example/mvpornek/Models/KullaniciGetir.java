@@ -19,13 +19,25 @@ public class KullaniciGetir {
     @SerializedName("cevapSayisi")
     @Expose
     private int cevapSayisi;
+    @SerializedName("soruSayisi")
+    @Expose
+    private int soruSayisi;
 
-    public KullaniciGetir(int id, String adSoyad, String kullaniciAdi, String profilFoto, int cevapSayisi) {
+    public KullaniciGetir(int id, String adSoyad, String kullaniciAdi, String profilFoto, int cevapSayisi,int soruSayisi) {
         this.id = id;
         this.adSoyad = adSoyad;
         this.kullaniciAdi = kullaniciAdi;
         this.profilFoto = profilFoto;
         this.cevapSayisi = cevapSayisi;
+        this.soruSayisi=soruSayisi;
+    }
+
+    public int getSoruSayisi() {
+        return soruSayisi;
+    }
+
+    public void setSoruSayisi(int soruSayisi) {
+        this.soruSayisi = soruSayisi;
     }
 
     public int getId() {

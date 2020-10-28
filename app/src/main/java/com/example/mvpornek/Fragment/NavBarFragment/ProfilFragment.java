@@ -72,7 +72,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         this.title = title;
     }
 
-    TextView profilKullaniciAdSoyadTxt,profilKullaniciAdiTxt,profilCevapSayi,toolbar;
+    TextView profilKullaniciAdSoyadTxt,profilKullaniciAdiTxt,profilCevapSayi,toolbar,profilSoruSayisi;
 
     // TODO: Rename and change types of parameters
     private int mParam1;
@@ -110,6 +110,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         profilRoundedImage=view.findViewById(R.id.profilRoundedImageView);
         profilKullaniciAdiTxt=view.findViewById(R.id.profilKullaniciAdiTxt);
         profilCevapSayi=view.findViewById(R.id.profilCevapSayi);
+        profilSoruSayisi=view.findViewById(R.id.profilSoruSayisi);
         profilNestedView=view.findViewById(R.id.profilNestedView);
         ayarlarButon=view.findViewById(R.id.search_content_search_settings);
         ayarlarButon.setOnClickListener(this);
@@ -148,12 +149,11 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
 
         }else{
+            usersGetPresenter.loadUsersData(kullanici.getId());
             sorularimFragment = SorularimFragment.newInstance(kullanici.getId());
             cevaplarimFragment= CevaplarimFragment.newInstance(kullanici.getId());
             begendiklerimFragment=BegendiklerimFragment.newInstance(kullanici.getId());
             setTabLayout(sorularimFragment,begendiklerimFragment,cevaplarimFragment);
-            profilKullaniciAdSoyadTxt.setText(kullanici.getAdSoyad());
-            profilKullaniciAdiTxt.setText("@"+kullanici.getKullaniciAdi());
             setTitle(kullanici.getAdSoyad());
             GlideApp.with(getActivity()).load(kullanici.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
         }
@@ -169,6 +169,8 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
         profilKullaniciAdiTxt.setText("@"+kullaniciGetir.getKullaniciAdi());
         profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
+        profilSoruSayisi.setText(String.valueOf(kullaniciGetir.getSoruSayisi()));
+
         GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
     }
     @Override
@@ -179,7 +181,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         viewPagerAdapter=new ViewPagerAdapter(getActivity().getSupportFragmentManager());
         viewPagerAdapter.AddFragment(sorularim,"Sorularım");
         viewPagerAdapter.AddFragment(begendiklerim,"Beğenilerim");
-        viewPagerAdapter.AddFragment(cevaplarim,"Cevaplarim");
+        viewPagerAdapter.AddFragment(cevaplarim,"Cevaplarım");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
