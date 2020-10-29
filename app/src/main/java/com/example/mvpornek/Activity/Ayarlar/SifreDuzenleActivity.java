@@ -1,5 +1,6 @@
 package com.example.mvpornek.Activity.Ayarlar;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -84,6 +85,7 @@ public class SifreDuzenleActivity extends Activity implements PasswordUpdate, Vi
         hideProgress();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         kullanici= SharedPrefManager.getInstance(this).getKullanici();

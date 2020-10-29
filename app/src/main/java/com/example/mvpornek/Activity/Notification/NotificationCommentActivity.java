@@ -1,12 +1,6 @@
 package com.example.mvpornek.Activity.Notification;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.NotificationManager;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,14 +8,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mvpornek.Adapter.NotificationCommentAndQuestionAdapter;
 import com.example.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.example.mvpornek.Models.Kullanici;
 import com.example.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.example.mvpornek.Presenter.Like.LikesPresenterImpl;
-import com.example.mvpornek.Presenter.NotificationPost.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.Presenter.NotificationCommetAndQuestionPresenter;
 import com.example.mvpornek.Presenter.NotificationCommetAndQuestionPresenterImpl;
+import com.example.mvpornek.Presenter.NotificationPost.NotificaitonPostPresenterImpl;
 import com.example.mvpornek.R;
 import com.example.mvpornek.Response.LikeModel;
 import com.example.mvpornek.SharedPrefManager;
@@ -35,17 +34,16 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
     TextView txtView;
     RecyclerView notificationCommentRecyclerView;
     LikeModel likeModel;
+    @SuppressLint("StaticFieldLeak")
     public static TextView begeniSayisiTxt;
     public static Boolean bildirimAcilis;
     public int soruID;
-    private int bildirimdenGelenSoruID;
     public Object durum;
     NotificationCommetAndQuestionPresenter notificationCommetAndQuestionPresenter;
     LikesPresenterImpl likesPresenter;
     NotificaitonPostPresenterImpl notificaitonPostPresenter;
     List<NotificationCommetAndQuestionModel>  notificationCommetAndQuestionModel;
 
-    NotificationCommentAndQuestionAdapter.ItemClickListener itemClickListener;
     NotificationCommentAndQuestionAdapter.ItemClickListener begeniClickListener;
     NotificationCommentAndQuestionAdapter notificationCommentAndQuestionAdapter;
 
@@ -54,7 +52,7 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_comment);
         Bundle extras = getIntent().getExtras();
-        if(CommentBottomDialogFragment.kutuDurum == true){
+        if(CommentBottomDialogFragment.kutuDurum){
             CommentBottomDialogFragment.instance.dialogCancel();
         }
         txtView = (TextView) findViewById(R.id.notificationCommentQuestionText);
@@ -116,6 +114,7 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
         NotificationCommentActivity.bildirimAcilis = bildirimAcilis;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onGetResult(List<NotificationCommetAndQuestionModel> data) {
         notificationCommentAndQuestionAdapter=new NotificationCommentAndQuestionAdapter(data,this,begeniClickListener);
@@ -164,11 +163,6 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-
-                break;
-        }
         return super.onOptionsItemSelected(item);
     }
 }

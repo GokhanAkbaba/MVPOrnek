@@ -78,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
                 android:text="#Adres #Tatil"
                 android:textAppearance="@style/customfontstyle"
                 android:textSize="14sp"
@@ -118,8 +119,9 @@
                     android:layout_below="@+id/notificationLikeSoruTxt">
                     <ImageView
                         android:id="@+id/notificationLikeSoruYorumIcon"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="2dp"
                         android:src="@drawable/ic_comment_svg" />
 
                     <TextView
@@ -128,7 +130,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/customfontstyle"
                         android:text="155"
-                        android:layout_marginTop="-3dp"
+                        android:layout_marginTop="2dp"
                         android:layout_marginStart="4dp"
                         android:layout_toEndOf="@+id/notificationLikeSoruYorumIcon"
                         android:textSize="17sp" />
@@ -205,6 +207,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-40dp"
+                android:layout_marginTop="10dp"
                 android:layout_toEndOf="@+id/notificationLikeYorumKullaniciAdi"
                 tools:ignore="MissingConstraints">
                 <ImageView

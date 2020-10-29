@@ -97,7 +97,6 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
         notificationLikeYorumBegeniButon.setTag("secilmedi");
         int gelenCevapID = getIntent().getExtras().getInt("cevapID");
         int gelenSoruID = getIntent().getExtras().getInt("soruID");
-        System.out.println("gelenCevapID "+gelenCevapID+" gelenSoruID "+gelenSoruID);
         kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
         notificationLikeAndQuestionPresenter.loadDataNotificationLike(gelenSoruID,gelenCevapID);
         notificationLikeSorularIcerikKullaniciResmi.setOnClickListener(this);
@@ -108,7 +107,7 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
     @Override
     public void onNotificationCommetAndLikeGetResult(List<NotificationCommentAndLikeModel> data) {
         this.notificationCommentAndLikeModel=data;
-        notificationLikeKullaniciAdiTxt.setText(data.get(0).getSoruSoranKullaniciAdi());
+        notificationLikeKullaniciAdiTxt.setText("@"+data.get(0).getSoruSoranKullaniciAdi());
         notificationLikeKullaniciAdSoyad.setText(data.get(0).getSoruSoranAdSoyad());
         notificationLikeSoruTxt.setText(data.get(0).getSoru());
         notificationLikeYorumSayisiTxt.setText(String.valueOf(data.get(0).getYorumSayisi()));
@@ -117,7 +116,7 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
         GlideApp.with(getApplicationContext()).load(data.get(0).getCevapVerenKullaniciProfilFoto()).apply(new RequestOptions().centerCrop()).into(notificationYorumRoundedKullaniciResmi);
         notificationLikeYorumBegeniSayisiTxt.setText(String.valueOf(data.get(0).getCevapBegeniSayisi()));
         notificationLikeYorumTxt.setText(data.get(0).getCevap());
-        notificationLikeYorumKullaniciAdiTxt.setText(data.get(0).getCevapVerenKullaniciAdi());
+        notificationLikeYorumKullaniciAdiTxt.setText("@"+data.get(0).getCevapVerenKullaniciAdi());
         String soruZaman = zamanDonusumu(data.get(0).getSoruZaman());
         String cevapZaman= zamanDonusumu(data.get(0).getCevapZaman());
         SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

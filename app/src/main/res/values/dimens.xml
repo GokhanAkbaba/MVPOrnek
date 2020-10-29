@@ -17,10 +17,8 @@
     <dimen name="kayitOlTextInputLayoutHeight">60dp</dimen>
     <dimen name="kayitOlEditText">40dp</dimen>
 
-    <dimen name="kayitOlTextInputLayoutWidth320">220dp</dimen>
-    <dimen name="kayitOlTextInputLayoutHeight320">40dp</dimen>
-    <dimen name="girisYapTextInputLayoutWidth320">220dp</dimen>
-    <dimen name="girisYapTextInputLayoutHeight320">58dp</dimen>
+    <dimen name="bildirimlerTextTitleSize">22sp</dimen>
+    <dimen name="anlikBildirTextTitleSize">19sp</dimen>
     <dimen name="girisYapEditTextPadding320">5dp</dimen>
     <dimen name="girisYapEditText320">35dp</dimen>
     <dimen name="kayitOlEditText320">30dp</dimen>

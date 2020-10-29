@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity;
 import com.example.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.example.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
 import com.example.mvpornek.Baslangic.IntroActivity;
@@ -74,6 +75,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         cikisRelativeLayout.setOnClickListener(this);
         RelativeLayout sifreRelativeDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
         sifreRelativeDegistirLayout.setOnClickListener(this);
+        RelativeLayout bildirimlerLayout=(RelativeLayout) view.findViewById(R.id.bildirimlerLayout);
+        bildirimlerLayout.setOnClickListener(this);
 
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         return view;
@@ -95,6 +98,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.sifreDegistirLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), SifreDuzenleActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
+            case R.id.bildirimlerLayout:
+                startActivity(new Intent(getActivity().getApplicationContext(), BildirimlerDuzenleActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
         }

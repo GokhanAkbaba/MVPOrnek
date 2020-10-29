@@ -1,6 +1,7 @@
 package com.example.mvpornek.Activity.Ayarlar;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -89,6 +90,7 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
         overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         String ePosta,kullaniciAdi,adSoyad;
@@ -107,7 +109,7 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
                 break;
             case R.id.profilGuncelleButon:
 
-                 if(fotoKontrol==true){
+                 if(fotoKontrol){
                      String profilResim=convertToString();
                      profilUpdatePresenter.updateValideCredentals(kullanici.getId(),adSoyad,kullaniciAdi,ePosta,profilResim);
                      fotoKontrol=false;
@@ -121,11 +123,6 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
 
     private void loadProfile(String url) {
         GlideApp.with(this).load(url)
-                .into(imageView);
-    }
-
-    private void loadProfileDefault() {
-        GlideApp.with(this).load(R.drawable.rumeli)
                 .into(imageView);
     }
 

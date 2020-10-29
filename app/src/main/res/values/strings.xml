@@ -18,6 +18,11 @@
     <string name="hesapProfilDuzenleTxt">Profil Düzenle</string>
     <string name="hesapSifreDegistirTxt">Şifre Değiştir</string>
     <string name="bildirimlerTxt">Bildirimler</string>
+    <string name="bildirimDuzenleTxt">Bildirim Düzenle</string>
+    <string name="anlikBildirimlerTxt">Anlık Bildirimler</string>
+    <string name="anlikBildirimAciklamaTxt">Yorumların ve beğenilerin hakkında bildirimler</string>
+    <string name="bildirimIlgiAlanlariTxt">İlgi Alanları</string>
+    <string name="bildirimIlgiAlanlariAciklamaTxt">Birine Sor etiket bidirimleri</string>
     <string name="cikisYapTxt">Çıkış Yap</string>
     <string name="iptalTxt">İptal</string>
     <string name="adSoyadTxt">Ad Soyad</string>
@@ -168,8 +173,6 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="modaText">Moda</string>
     <string name="otoText">Oto</string>
     <string name="yazilimText">Yazilim</string>
-
-
 
 
     <string-array name="kullanici_isimleri">
