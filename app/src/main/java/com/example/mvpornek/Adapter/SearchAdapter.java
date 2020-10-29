@@ -46,6 +46,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
         SearchListResponse searchListResponse=searchListResponses.get(position);
         String kullaniciAdSoyad = searchListResponse.getAdSoyad();
         holder.adSoyad.setText(kullaniciAdSoyad);
+        if(searchListResponse.getDurum()){
+            holder.imageView.setVisibility(View.INVISIBLE);
+        }else{
+            holder.imageView.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -55,19 +61,29 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
 
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
         ItemClickListener itemClickListener;
+        ImageView imageView;
         TextView adSoyad;
         RecyclerViewAdapter(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
             this.itemClickListener=itemClickListener;
             adSoyad=itemView.findViewById(R.id.textView28);
             adSoyad.setOnClickListener(this::onClick);
+            imageView=itemView.findViewById(R.id.kullaniciAramaIcerikSilmeIcon);
+            imageView.setOnClickListener(this::onClick);
         }
 
         @Override
         public void onClick(View view) {
-            KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi());
-            ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAsamaTık-2");
-            itemClickListener.onItemClick(view,getAdapterPosition());
+            switch (view.getId()){
+                case R.id.textView28:
+                    KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi());
+                    ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAsamaTık-2");
+                    break;
+                case R.id.kullaniciAramaIcerikSilmeIcon:
+                    itemClickListener.onItemClick(view,getAdapterPosition());
+                    break;
+            }
+
         }
     }
 

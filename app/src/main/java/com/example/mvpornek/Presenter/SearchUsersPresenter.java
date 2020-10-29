@@ -1,5 +1,5 @@
 package com.example.mvpornek.Presenter;
 
 public interface SearchUsersPresenter {
-    void loadData(String soruId);
+    void loadData(int kullaniciId,String kullaniciAdi,int secim);
 }

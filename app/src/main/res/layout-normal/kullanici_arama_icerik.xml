@@ -15,11 +15,13 @@
 
         <TextView
             android:id="@+id/textView28"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
-            android:layout_toRightOf="@+id/imageView9"
+            android:layout_marginEnd="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView9"
             android:text="TextView"
             android:textAppearance="@style/customfontstyle"
             android:textColor="@color/renkSiyah"
@@ -30,7 +32,16 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_search_svg" />
+        <ImageView
+            android:id="@+id/kullaniciAramaIcerikSilmeIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="-35dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/mavi_kapat_icon"
+            android:layout_toEndOf="@+id/textView28"/>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

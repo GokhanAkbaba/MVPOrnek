@@ -10,6 +10,8 @@ import com.example.mvpornek.Models.LikesModel;
 import com.example.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.example.mvpornek.Models.SearchQuestionModel;
 import com.example.mvpornek.Models.SelectionControlModel;
+import com.example.mvpornek.Response.AramaArsivKayitResponse;
+import com.example.mvpornek.Response.AramaGecmisSilResponse;
 import com.example.mvpornek.Response.BildirimlerCevaplarModel;
 import com.example.mvpornek.Response.KullaniciGetirResponse;
 import com.example.mvpornek.Models.QuestionModel;
@@ -162,6 +164,12 @@ public interface GetDataService {
     );
 
     @FormUrlEncoded
+    @POST("aramaGecmisSil.php")
+    Call<AramaGecmisSilResponse> aramaGecmisSil(
+            @Field("kayitId") int kayitId
+    );
+
+    @FormUrlEncoded
     @POST("soruSil.php")
     Call<SoruSilResponse> soruSil(
             @Field("soruId") int soruId
@@ -242,7 +250,16 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("aramaKullaniciGetir.php")
     Call<List<SearchListResponse>> aramaKullaniciGetir(
-            @Field("kullaniciAdi") String kullaniciAdi
+            @Field("kullaniciId") int kullaniciId,
+            @Field("kullaniciAdi") String kullaniciAdi,
+            @Field("secim") int secim
+    );
+
+    @FormUrlEncoded
+    @POST("aramaArsivKayit.php")
+    Call<AramaArsivKayitResponse> aramaArsivKayit(
+            @Field("kullaniciId") int kullaniciId,
+            @Field("arananIcerik") String arananIcerik
     );
 
     @FormUrlEncoded

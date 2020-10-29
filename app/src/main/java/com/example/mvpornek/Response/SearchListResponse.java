@@ -13,6 +13,11 @@ public class SearchListResponse {
     @SerializedName("kullanici_adi")
     @Expose
     public String kullanici_adi;
+    @SerializedName("durum")
+    @Expose
+    public Boolean durum;
+
+
 
     public int getKullaniciId() {
         return kullaniciId;
@@ -24,5 +29,9 @@ public class SearchListResponse {
 
     public String getKullanici_adi() {
         return kullanici_adi;
+    }
+
+    public Boolean getDurum() {
+        return durum;
     }
 }
