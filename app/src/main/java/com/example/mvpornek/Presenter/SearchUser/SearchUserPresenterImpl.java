@@ -39,6 +39,7 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
             }
             @Override
             public void onFailure(Call<List<UserSearchListResponse>> call, Throwable t) {
+                System.out.println("Hata");
                 searchUser.onErrorLoading(t.getMessage());
             }
         });

@@ -88,7 +88,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
 
         itemClickListener =((vw,position)-> {
             int soruId=questionModels.get(position).getId();
-            int soruSoranKullaniciID=questionModels.get(position).getId();
+            int soruSoranKullaniciID=questionModels.get(position).getKullaniciId();
             showBottomSheet(soruId,soruSoranKullaniciID);
         });
 

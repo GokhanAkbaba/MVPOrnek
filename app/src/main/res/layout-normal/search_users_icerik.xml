@@ -19,9 +19,9 @@
                 android:id="@+id/aramaKullaniciResmi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 app:cardCornerRadius="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,8 @@
 
                 <ImageView
                     android:id="@+id/kullaniciResimAlani"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/rumeli" />
@@ -41,14 +41,14 @@
                 android:id="@+id/textView29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="22dp"
                 android:layout_marginEnd="15dp"
                 android:textAppearance="@style/customfontstyle"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
                 android:text="TextView"
                 android:textColor="@color/renkSiyah"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:layout_toRightOf="@+id/aramaKullaniciResmi"
                 />
 

@@ -98,6 +98,7 @@ public class AramaIcerikSecondFragment extends Fragment implements View.OnClickL
         searchView.onActionViewExpanded();
         EditText searchEditText = (EditText) searchView.findViewById(R.id.search_src_text);
         searchEditText.setTextSize(14);
+        searchUsersPresenter.loadData(kullanici.getId(),"newText",-1);
        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

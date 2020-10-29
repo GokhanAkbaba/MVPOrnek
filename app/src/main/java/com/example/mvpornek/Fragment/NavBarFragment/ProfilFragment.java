@@ -126,7 +126,6 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (scrollRange == -1) {
                     scrollRange = appBarLayout.getTotalScrollRange();
-                    System.out.println("1");
                 }
                 if (scrollRange + verticalOffset == 0) {
                     toolbar.setText(getTitle());

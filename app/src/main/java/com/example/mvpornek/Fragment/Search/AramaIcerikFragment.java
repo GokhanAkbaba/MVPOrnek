@@ -107,18 +107,6 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         EditText searchEditText = (EditText) searchView.findViewById(R.id.search_src_text);
         searchEditText.setTextSize(14);
         searchUsersPresenter.loadData(kullanici.getId(),"newText",-1);
-        /*searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if (b){
-
-                    AramaIcerikSecondFragment aramaIcerikFragment=AramaIcerikSecondFragment.newInstance();
-                    ((HomeActivity)getActivity()).loadFragment(aramaIcerikFragment,"AramaAsama-3");
-                    searchView.clearFocus();
-                }
-
-            }
-        });*/
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
