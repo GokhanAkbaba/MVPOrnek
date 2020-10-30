@@ -1,5 +1,6 @@
 package com.example.mvpornek.Fragment.Comment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,8 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +36,8 @@ import com.example.mvpornek.View.CommentDeleteView;
 import com.example.mvpornek.View.CommentView;
 import com.example.mvpornek.View.LikesView;
 import com.example.mvpornek.View.NotificaitonPostView;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
@@ -52,7 +57,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
     public static  Boolean kutuDurum=false;
     LikeModel likeModel;
     ImageButton bottomSheetCloseBtn;
-    ConstraintLayout yorumAlani;
+    RelativeLayout yorumAlani;
     Boolean checkYorumAlani = false;
     RecyclerView recyclerViewCevapAlani;
     List<CommentModel> commentModels;
@@ -107,8 +112,15 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
         bottomSheetCloseBtn.setOnClickListener(this);
         yorumAlani=view.findViewById(R.id.yorumAlani);
         yorumAlani.setOnClickListener(this);
-
         Kullanici kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
+        getDialog().setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                BottomSheetDialog dialog = (BottomSheetDialog) dialogInterface;
+                FrameLayout bottomSheet =  dialog .findViewById(R.id.design_bottom_sheet);
+                BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
         begeniClickListener=((vw,position)-> {
             ImageView begeniButonu=vw.findViewById(R.id.imageButton);
             durum=begeniButonu.getTag();
@@ -182,6 +194,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
         recyclerViewCevapAlani.setAdapter(commentAdapter);
         recyclerViewCevapAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+
         return view;
     }
 
@@ -212,6 +225,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
                 kutuDurum=false;
             }
         });
+
 
     }
 

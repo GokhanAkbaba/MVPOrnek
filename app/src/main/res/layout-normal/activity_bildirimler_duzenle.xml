@@ -107,6 +107,7 @@ tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
                         android:layout_height="wrap_content"
                         android:layout_marginStart="-70dp"
                         android:layout_marginEnd="10dp"
+                        android:theme="@style/SCBSwitch"
                         android:layout_centerVertical="true"
                         android:layout_toEndOf="@+id/textView1"/>
                     <View

@@ -24,6 +24,8 @@
     <string name="bildirimIlgiAlanlariTxt">İlgi Alanları</string>
     <string name="bildirimIlgiAlanlariAciklamaTxt">Birine Sor etiket bidirimleri</string>
     <string name="cikisYapTxt">Çıkış Yap</string>
+    <string name="yorumTxt">Yorum</string>
+    <string name="yorumEkleyinTxt">Yorum Ekleyin</string>
     <string name="iptalTxt">İptal</string>
     <string name="adSoyadTxt">Ad Soyad</string>
     <string name="kullaniciAdiTxt">Kullanıcı Adı</string>
