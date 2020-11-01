@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:startColor="#04C66A"
+        android:startColor="@color/uygulamaMavisi"
         android:endColor="#2699FB"/>
 
     <size

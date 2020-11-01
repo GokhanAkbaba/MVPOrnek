@@ -54,18 +54,19 @@
     </style>
     <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:textColor">@color/uygulamaGrisi</item>
     </style>
 
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         <!-- active thumb & track color (30% transparency) -->
-        <item name="colorControlActivated">@color/uygulamaYesili</item>
+        <item name="colorControlActivated">@color/uygulamaMavisi</item>
 
         <!-- inactive thumb color -->
-        <item name="colorSwitchThumbNormal">#f1f1f1
+        <item name="colorSwitchThumbNormal">@color/black
         </item>
 
         <!-- inactive track color (30% transparency) -->
-        <item name="android:colorForeground">#42221f1f
+        <item name="android:colorForeground">@color/gray_50
         </item>
     </style>
 

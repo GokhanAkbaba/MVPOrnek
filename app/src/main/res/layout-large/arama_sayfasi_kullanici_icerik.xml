@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
 
-    <androidx.appcompat.widget.Toolbar
+    <RelativeLayout
         android:id="@+id/searchContentToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_size"
@@ -19,23 +19,27 @@
         <Button
             android:id="@+id/aramaSayfasiAyrintiIcerikGeriBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="43dp"
-            android:layout_height="35dp"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/ic_back_arrow"
             android:clickable="true"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/kullaniciIcerikSearchView"
-            android:layout_width="@dimen/search_bar_background_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/search_bar_height"
             android:background="@drawable/input_field"
             android:clickable="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="55dp"
+            android:layout_centerVertical="true"
             android:iconifiedByDefault="false"
-            tools:layout_editor_absoluteX="91dp"
-            tools:layout_editor_absoluteY="15dp" />
+            />
 
-    </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/kullaniciIceriktabLayout"
@@ -62,7 +66,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/kullaniciIcerikViewPager"
-        android:layout_width="match_parent"
+        android:layout_width="409dp"
         android:layout_height="match_parent"
         android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"

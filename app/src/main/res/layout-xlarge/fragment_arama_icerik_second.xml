@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ana_sayfa_alisveris_color"
     tools:ignore="MissingDefaultResource">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.google.android.material.appbar.AppBarLayout
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+        <RelativeLayout
             android:id="@+id/appbarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,34 +18,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/searchContentToolbar"
+            <Button
+                android:id="@+id/aramaSayfasiIcerikGeriBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_back_arrow"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView_page"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/toolbar_size"
-                android:background="@drawable/content_level_one"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <Button
-                    android:id="@+id/aramaSayfasiIcerikGeriBtn"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="43dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/ic_back_arrow"
-                    android:clickable="true"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/searchView_page"
-                    android:layout_width="@dimen/search_bar_background_width"
-                    android:layout_height="@dimen/search_bar_height"
-                    android:layout_marginStart="48dp"
-                    android:background="@drawable/input_field" />
-
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+                android:layout_height="@dimen/search_bar_height"
+                android:layout_marginStart="55dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/input_field" />
+        </RelativeLayout>
         <ScrollView
             android:id="@+id/filename_scroll"
             android:layout_width="match_parent"

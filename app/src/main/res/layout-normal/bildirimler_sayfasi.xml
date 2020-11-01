@@ -31,11 +31,10 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
             android:textAppearance="@style/customfontstyle"
             android:text="@string/bildirimlerTxt"
-            android:textColor="@color/uygulamaMavisi"
-            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             android:textSize="21sp"
             />
 

@@ -30,11 +30,10 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
+                android:layout_marginStart="35dp"
                 android:text="@string/ayarlarTxt"
+                android:textStyle="bold"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/uygulamaMavisi"
-                android:fontFamily="sans-serif-medium"
                 android:textSize="21sp"
                  />
 
@@ -85,7 +84,6 @@
             android:layout_marginTop="19dp"
             android:textAppearance="@style/customfontstyle"
             android:text="@string/ayarlarSayfaProfilDuzenleTxt"
-            android:textColor="@color/renkSiyah"
             android:textSize="@dimen/ayarlarSayfaTextSize400" />
 
         <ImageView
@@ -139,11 +137,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="14dp"
             android:layout_marginTop="19dp"
-            android:fontFamily="sans-serif"
+            android:textAppearance="@style/customfontstyle"
             android:text="@string/ayarlarSayfaSifreDegistir"
-            android:textColor="@color/renkSiyah"
             android:textSize="@dimen/ayarlarSayfaTextSize400" />
 
         <View
@@ -187,9 +184,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="19dp"
-            android:fontFamily="sans-serif"
             android:text="@string/ayarlarSayfaBildirimler"
-            android:textColor="@color/renkSiyah"
+            android:textAppearance="@style/customfontstyle"
             android:textSize="@dimen/ayarlarSayfaTextSize400" />
         <View
             android:id="@+id/divider4"
@@ -232,9 +228,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="19dp"
-            android:fontFamily="sans-serif"
+            android:textAppearance="@style/customfontstyle"
             android:text="@string/ayarlarSayfaCikisYap"
-            android:textColor="@color/renkSiyah"
             android:textSize="@dimen/ayarlarSayfaTextSize400"/>
 
 

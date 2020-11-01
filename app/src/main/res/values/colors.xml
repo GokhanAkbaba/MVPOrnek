@@ -2,7 +2,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary" tools:ignore="MissingDefaultResource">#3F51B5</color>
     <color name="ayarlarGrisi">#DFE1E5</color>
-    <color name="uygulamaMavisi">#2699FB</color>
+    <color name="uygulamaGrisi">#191925</color>
+    <color name="uygulamaMavisi">#4A5BEA</color>
     <color name="colorPrimaryDark">#383F9F</color>
     <color name="colorAccent">#FF5252</color>
     <color name="colorWhite">#FFFFFF</color>
@@ -12,7 +13,7 @@
     <color name="soruIsaretiCevapladigimRenk">#FE1744</color>
     <color name="renkSiyah">#000</color>
     <color name="uygulamaYesili">#00EF91</color>
-    <color name="uygulamaMavisiTwo">#00A9F1</color>
+    <color name="uygulamaMavisiTwo">#4A5BEA</color>
     <color name="hataRenk">#B00020</color>
     <color name="colorGrayPrimay">#eceff1</color>
     <color name="colorGrayDarkSecondary">#62757f</color>

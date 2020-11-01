@@ -14,7 +14,7 @@ tools:ignore="MissingDefaultResource"
     <RelativeLayout
         android:id="@+id/bildirimDuzenleAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/toolbar_size"
         android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,13 +25,12 @@ tools:ignore="MissingDefaultResource"
             android:id="@+id/bildirimIlgiAlaniGeriBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
-            android:background="@drawable/ripple_back_button"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_back_arrow"
             android:clickable="true"
-            android:drawableStart="@mipmap/ayarlar_geri_donus"
-            android:drawableTint="@color/uygulamaMavisi"
             android:focusable="true"
             tools:ignore="UnusedAttribute" />
 
@@ -40,18 +39,18 @@ tools:ignore="MissingDefaultResource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="18dp"
             android:textAppearance="@style/customfontstyle"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
             android:text="@string/bildirimIlgiAlanlariTxt"
             android:layout_toEndOf="@+id/bildirimIlgiAlaniGeriBtn"
-            android:textColor="@color/uygulamaMavisi"
             android:layout_marginBottom="15dp"
-            android:textSize="21sp" />
+            android:textSize="18sp" />
         <View
             android:id="@+id/divider6"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/textView4"
+            android:layout_below="@+id/bildirimIlgiAlaniGeriBtn"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
     <RelativeLayout
@@ -91,7 +90,7 @@ tools:ignore="MissingDefaultResource"
                         android:textSize="@dimen/anlikBildirTextTitleSize"
                         android:text="@string/adresText"/>
                     <Switch
-                        android:id="@+id/switch1"
+                        android:id="@+id/switchAdres"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="-70dp"
@@ -300,6 +299,7 @@ tools:ignore="MissingDefaultResource"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="-70dp"
                         android:layout_marginEnd="10dp"
+                        android:theme="@style/SCBSwitch"
                         android:layout_centerVertical="true"
                         android:layout_toEndOf="@+id/textViewYazilim"/>
                     <View

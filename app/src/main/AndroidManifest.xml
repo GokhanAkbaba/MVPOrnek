@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mvpornek">
+    package="com.birinesor.mvpornek">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,36 +18,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.Ayarlar.BildirimlerAnlikBildirimActivity"></activity>
-        <activity android:name=".Activity.Ayarlar.BildirimlerDuzenleActivity" />
-        <activity android:name=".Activity.Notification.NotificationLikeActivity" />
+        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerAnlikBildirimActivity"></activity>
+        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity" />
+        <activity android:name="com.birinesor.mvpornek.Activity.Notification.NotificationLikeActivity" />
         <activity
-            android:name=".Activity.Notification.NotificationCommentActivity"
+            android:name="com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
-            android:parentActivityName=".Activity.HomeActivity"
+            android:parentActivityName="com.birinesor.mvpornek.Activity.HomeActivity"
             android:taskAffinity="" />
-        <activity android:name=".Activity.Ayarlar.SifreDuzenleActivity" />
-        <activity android:name=".Activity.ImagePickerActivity" />
+        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity" />
+        <activity android:name="com.birinesor.mvpornek.Activity.ImagePickerActivity" />
         <activity
-            android:name=".Activity.Ayarlar.ProfilDuzenleActivity"
+            android:name="com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".Baslangic.IntroActivity">
+        <activity android:name="com.birinesor.mvpornek.Baslangic.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.QuestionDetailActivity" />
+        <activity android:name="com.birinesor.mvpornek.Activity.QuestionDetailActivity" />
         <activity
-            android:name=".Activity.HomeActivity"
+            android:name="com.birinesor.mvpornek.Activity.HomeActivity"
             android:windowSoftInputMode="stateVisible" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <service android:name=".MyFirebaseMessagingService">
+        <service android:name="com.birinesor.mvpornek.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -55,7 +55,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.mvpornek.fileprovider"
+            android:authorities="com.birinesor.mvpornek.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
