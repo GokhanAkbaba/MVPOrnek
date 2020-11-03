@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener {
 
     RelativeLayout adres,yemek,spor, tatil,alisveris,sanat,yrmDrtBildirim,teknoEtiketButon,muzikEtiketButon,egitimEtiketButon;
-    RelativeLayout modaEtiketButon,otoEtiketButon,saglikEtiketButon,tarihEtiketButon,yazilimEtiketButon,oyunEtiketButon;
+    RelativeLayout modaEtiketButon,otoEtiketButon,saglikEtiketButon,tarihEtiketButon,yazilimEtiketButon,oyunEtiketButon,yirmiDortSaatBildirimButonIc;
     Spinner spinner;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false;
@@ -108,7 +108,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         muzikEtiketButon.setOnClickListener(this);
         modaEtiketButon=view.findViewById(R.id.modaEtiketButon);
         modaEtiketButon.setOnClickListener(this);
-        yrmDrtBildirim=view.findViewById(R.id.yirmiDortSaatBildirimButon);
+        yrmDrtBildirim=view.findViewById(R.id.yirmiDortSaatBildirimButonIc);
         yrmDrtBildirim.setOnClickListener(this);
         otoEtiketButon=view.findViewById(R.id.otoEtiketButon);
         otoEtiketButon.setOnClickListener(this);
@@ -154,7 +154,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         tatilImage=view.findViewById(R.id.tatilImage);
         adresImage=view.findViewById(R.id.adresImage);
         yirmiDortSaatImage=view.findViewById(R.id.yirmiDortSaatImage);
-
+        yirmiDortSaatBildirimButonIc=view.findViewById(R.id.yirmiDortSaatBildirimButonIc);
+        yirmiDortSaatBildirimButonIc.setOnClickListener(this);
         Kullanici kullanici= SharedPrefManager.getInstance(getContext()).getKullanici();
         kullaniciId=kullanici.getId();
         beginingPresenter=new BeginingPresenterImpl(this, new BeginingInteractorImpl());
@@ -539,7 +540,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                     checkSanatEtiket=false;
                 }
                 break;
-            case R.id.yirmiDortSaatBildirimButon:
+            case R.id.yirmiDortSaatBildirimButonIc:
                 if(checkYirmiDortBildirim == false)
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilonaybuton));

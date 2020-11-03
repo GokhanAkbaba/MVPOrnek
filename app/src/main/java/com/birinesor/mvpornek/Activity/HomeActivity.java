@@ -17,11 +17,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity;
+import com.birinesor.mvpornek.AnalyticsApplication;
 import com.birinesor.mvpornek.BildirimFonksiyonları;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.HomeFragment;
@@ -42,6 +45,7 @@ import com.birinesor.mvpornek.View.InternetConnectionView;
 import com.birinesor.mvpornek.View.QuestionRegistrationView;
 
 import com.birinesor.mvpornek.View.TokenCreateView;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -125,7 +129,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
-
+        /*AnalyticsApplication application = (AnalyticsApplication) getApplication();
+       Tracker mTracker = application.getDefaultTracker();*/
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -408,6 +413,16 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 il80.setOnClickListener(this);
                 Button il81=layoutView.findViewById(R.id.il_81);
                 il81.setOnClickListener(this);
+
+                CheckBox ilCheckbox=layoutView.findViewById(R.id.checkBox);
+                ilCheckbox.setOnCheckedChangeListener((compoundButton, b) -> {
+                    if(b){
+                        illerList.add(81);
+                    }else{
+                        illerList.remove(Integer.valueOf(81));
+                    }
+
+                });
 
                 soruPaylasButon=layoutView.findViewById(R.id.soruPaylasBtn);
                 Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
