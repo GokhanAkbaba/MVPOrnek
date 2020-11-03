@@ -58,7 +58,6 @@
                     android:layout_toRightOf="@+id/kullaniciResmi"
                     android:text="11111111111111111111111111"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="#000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -77,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="6dp"
                     android:layout_below="@+id/soruPaylasmaZamani"
                     android:text="#Adres #Tatil"
                     android:textAppearance="@style/customfontstyle"
@@ -105,7 +104,6 @@
                     android:layout_below="@+id/textView11"
                     android:text="@string/denemeSoru1Txt"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="#000"
                     android:textSize="17sp"
                     />
 

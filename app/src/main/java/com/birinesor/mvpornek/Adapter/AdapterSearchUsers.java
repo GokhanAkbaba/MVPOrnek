@@ -73,15 +73,18 @@ public class AdapterSearchUsers  extends RecyclerView.Adapter<AdapterSearchUsers
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.kullaniciResimAlani:
+                    System.out.println("resime tıkla"+searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     profilFragment = ProfilFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
 
                     break;
                 case R.id.textView29:
+                    System.out.println("ad soyad"+searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     profilFragment = ProfilFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
                     break;
                 case R.id.textView30:
+                    System.out.println("kullaniciAdi"+searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     profilFragment = ProfilFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullaniciId());
                     ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
             }

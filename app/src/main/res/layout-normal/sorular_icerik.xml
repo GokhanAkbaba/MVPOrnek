@@ -58,7 +58,6 @@
                     android:layout_toRightOf="@+id/kullaniciResmi"
                     android:text="11111111111111111111111111"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="#000"
                     android:textSize="18sp" />
 
             <TextView
@@ -105,7 +104,6 @@
                 android:layout_below="@+id/textView11"
                 android:text="@string/denemeSoru1Txt"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/uygulamaGrisi"
                 android:textSize="17sp"
                />
 

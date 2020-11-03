@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-30dp"
-                android:layout_toRightOf="@+id/notificationYorumTxt">
+                android:layout_toEndOf="@+id/notificationYorumTxt">
                 <ImageView
                     android:id="@+id/notificationYorumBegeniButon"
                     android:layout_width="30dp"
@@ -98,8 +98,9 @@
                 android:id="@+id/notificationYorumZaman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relativeLayout"
-                android:layout_alignParentRight="true"
+                android:layout_below="@id/notificationYorumTxt"
+                android:layout_marginTop="6dp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
                 android:textAppearance="@style/customfontstyle"
                 android:text="TextView" />
