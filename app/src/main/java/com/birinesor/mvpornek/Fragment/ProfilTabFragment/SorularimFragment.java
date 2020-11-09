@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param1";
 
-
+    SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView profilSorularimRecyclerView;
     List<QuestionModel> questionModels;
     AdapterProfilQuestion adapterProfilQuestion;
@@ -81,7 +82,8 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         profilQuestionPresenter.loadData(mParam1);
         recyclerViewProfilSorularimText=view.findViewById(R.id.recyclerViewProfilSorularimText);
-
+        swipeRefreshLayout=view.findViewById(R.id.swiperefreshFragmentSorularim);
+        swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
         profilSorularimRecyclerView.setAdapter(adapterProfilQuestion);
         profilSorularimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         profilSorularimRecyclerView.setOnClickListener(this);
@@ -119,6 +121,9 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
                 alert.show();
             }
         });
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            profilQuestionPresenter.loadData(mParam1);
+        });
         return view;
     }
     public void showBottomSheet(int soruId,int soruSoranKullaniciID) {
@@ -149,6 +154,18 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
     @Override
     public void onGetResultControl() {
         recyclerViewProfilSorularimText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onProfilQuestionShow() {
+        if (swipeRefreshLayout != null) {
+            swipeRefreshLayout.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void onProfilQuestionHide() {
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override

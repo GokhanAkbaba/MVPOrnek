@@ -18,36 +18,52 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerAnlikBildirimActivity"></activity>
-        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity" />
-        <activity android:name="com.birinesor.mvpornek.Activity.Notification.NotificationLikeActivity" />
+        <activity android:name=".Fragment.Search.AramaAyarlariActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.Ayrıntılar.YorumAyrintiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Ayarlar.BildirimlerAnlikBildirimActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Ayarlar.BildirimlerDuzenleActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Notification.NotificationLikeActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity"
+            android:name=".Activity.Notification.NotificationCommentActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
-            android:parentActivityName="com.birinesor.mvpornek.Activity.HomeActivity"
+            android:parentActivityName=".Activity.HomeActivity"
+            android:screenOrientation="portrait"
             android:taskAffinity="" />
-        <activity android:name="com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity" />
-        <activity android:name="com.birinesor.mvpornek.Activity.ImagePickerActivity" />
+        <activity android:name=".Activity.Ayarlar.SifreDuzenleActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.ImagePickerActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="com.birinesor.mvpornek.Baslangic.IntroActivity">
+            android:name=".Activity.Ayarlar.ProfilDuzenleActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Baslangic.IntroActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.birinesor.mvpornek.Activity.QuestionDetailActivity" />
+        <activity android:name=".Activity.QuestionDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.birinesor.mvpornek.Activity.HomeActivity"
+            android:name=".Activity.HomeActivity"
+            android:configChanges="uiMode"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
 
-        <service android:name="com.birinesor.mvpornek.MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

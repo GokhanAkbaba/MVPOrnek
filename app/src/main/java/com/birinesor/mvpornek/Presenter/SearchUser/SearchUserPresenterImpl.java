@@ -18,11 +18,11 @@ public class SearchUserPresenterImpl implements SearchUserPresenter {
     }
 
     @Override
-    public void loadData(String soruId) {
+    public void loadData(String kullaniciAdi,int etiketID,int secenek) {
         Call<List<UserSearchListResponse>> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
-                .aramaKullanicilariGetir(soruId);
+                .aramaKullanicilariGetir(kullaniciAdi,etiketID,secenek);
 
         call.enqueue(new Callback<List<UserSearchListResponse>>() {
             @Override

@@ -29,8 +29,12 @@ public class NotificationCommetAndQuestionPresenterImpl implements NotificationC
         call.enqueue(new Callback<List<NotificationCommetAndQuestionModel>>() {
             @Override
             public void onResponse(Call<List<NotificationCommetAndQuestionModel>> call, Response<List<NotificationCommetAndQuestionModel>> response) {
-                if (response.isSuccessful() && response.body() !=null) {
-                    notificationCommetAndQuestionView.onGetResult(response.body());
+                if(response.body().size() >0 ){
+                    if (response.isSuccessful() && response.body() !=null) {
+                        notificationCommetAndQuestionView.onGetResult(response.body());
+                    }
+                }else{
+                    notificationCommetAndQuestionView.onGetNotificationCommetAndQuestionKontrol();
                 }
             }
             @Override

@@ -26,7 +26,11 @@ import java.util.List;
  */
 public class SearchUsersFragment extends Fragment implements SearchUser,View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM3 = "param3";
     private String mParam1;
+    private int mParam2;
+    private int mParam3;
     private RecyclerView searchUserFragmentRecyclerView;
     List<UserSearchListResponse> userSearchListResponseList;
     AdapterSearchUsers adapterSearchUsers;
@@ -38,10 +42,12 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
         // Required empty public constructor
     }
 
-    public static SearchUsersFragment newInstance(String param1) {
+    public static SearchUsersFragment newInstance(String param1, int param2, int param3) {
         SearchUsersFragment fragment = new SearchUsersFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM2,param2);
+        args.putInt(ARG_PARAM3,param3);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,6 +57,8 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getInt(ARG_PARAM2);
+            mParam3 = getArguments().getInt(ARG_PARAM3);
         }
     }
 
@@ -61,7 +69,12 @@ public class SearchUsersFragment extends Fragment implements SearchUser,View.OnC
         controlText=view.findViewById(R.id.searchUsersControlTxt);
         searchUserFragmentRecyclerView=view.findViewById(R.id.searchUserFragmentRecyclerView);
         searchUserPresenter= new SearchUserPresenterImpl(this);
-        searchUserPresenter.loadData(mParam1);
+        if(mParam3 == -1){
+            searchUserPresenter.loadData(mParam1,mParam2,-1);
+        }else{
+            searchUserPresenter.loadData(mParam1,mParam2,1);
+        }
+
         searchUserFragmentRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }

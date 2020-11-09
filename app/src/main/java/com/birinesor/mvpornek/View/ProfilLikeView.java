@@ -7,4 +7,6 @@ public interface ProfilLikeView {
     void onGetResult(List<LikesModel> data);
     void onErrorLoading();
     void onGetResultControl();
+    void onProfilLikeHide();
+    void onProfilLikeShow();
 }

@@ -32,6 +32,13 @@ public class LikesModel {
     @SerializedName("cevap_id")
     @Expose
     private int cevap_id;
+    @SerializedName("soru_id")
+    @Expose
+    private int soru_id;
+
+    public int getSoru_id() {
+        return soru_id;
+    }
 
     public int getCevap_id() {
         return cevap_id;

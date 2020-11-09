@@ -210,7 +210,6 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
         }
     }
     public void showBottomSheet(int soruID) {
-        System.out.println("soruID"+soruID+"soruSoranKullanici"+soruSoranKullaniciId);
         addPhotoBottomDialogFragment =
                 CommentFieldFragment.newInstance(soruID,soruSoranKullaniciId);
         addPhotoBottomDialogFragment.show(getActivity().getSupportFragmentManager(),

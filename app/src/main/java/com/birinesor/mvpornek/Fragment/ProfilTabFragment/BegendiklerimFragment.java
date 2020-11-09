@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
     Kullanici kullanici;
     LikeModel likeModel;
     TextView recyclerViewProfilBegendiklerimText;
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     private int mParam1;
@@ -72,6 +74,8 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
         profilLikesPresenter=new ProfilLikesPresenterImpl(this);
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         profilLikesPresenter.loadData(mParam1);
+        swipeRefreshLayout=view.findViewById(R.id.swiperefreshFragmentBegendiklerim);
+        swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
         recyclerViewProfilBegendiklerimText=view.findViewById(R.id.recyclerViewProfilBegendiklerimText);
         profilBegendiklerimRecyclerView=view.findViewById(R.id.profilBegendiklerimRecyclerView);
         profilBegendiklerimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -102,7 +106,11 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
                     }
                 },500);
                 begeniButonu.setTag("secilmedi");
+                profilLikesPresenter.loadData(mParam1);
             }
+        });
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            profilLikesPresenter.loadData(mParam1);
         });
         return view;
     }
@@ -123,6 +131,18 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
     @Override
     public void onGetResultControl() {
         recyclerViewProfilBegendiklerimText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onProfilLikeHide() {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onProfilLikeShow() {
+        if (swipeRefreshLayout != null) {
+            swipeRefreshLayout.setRefreshing(true);
+        }
     }
 
     @Override

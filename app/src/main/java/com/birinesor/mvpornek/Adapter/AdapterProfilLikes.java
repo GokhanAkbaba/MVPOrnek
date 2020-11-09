@@ -1,6 +1,8 @@
 package com.birinesor.mvpornek.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.birinesor.mvpornek.Activity.Ayrıntılar.YorumAyrintiActivity;
+import com.birinesor.mvpornek.Activity.Notification.NotificationLikeActivity;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
@@ -76,12 +81,14 @@ public class AdapterProfilLikes extends RecyclerView.Adapter<AdapterProfilLikes.
         AdapterProfilLikes.ItemClickListener itemClickListener;
         TextView begeniKullaniciAdSoyad,begeniKullaniciAdiTxt,yorumCevapBegeniSayisiTxt,cevap,begeniPaylasmaZamani,soruId;
         ImageView begeniRoundedKullaniciResmi,profilBegeniImageButton;
+        ConstraintLayout sorularIcerikLayout;
         RecyclerViewAdapter(View itemView, AdapterProfilLikes.ItemClickListener itemClickListener) {
             super(itemView);
             this.itemClickListener=itemClickListener;
             profilBegeniImageButton=itemView.findViewById(R.id.profilBegeniImageButton);
             begeniKullaniciAdSoyad=itemView.findViewById(R.id.begeniKullaniciAdSoyad);
             begeniKullaniciAdiTxt=itemView.findViewById(R.id.begeniKullaniciAdiTxt);
+            sorularIcerikLayout=itemView.findViewById(R.id.sorularIcerikLayout);
             yorumCevapBegeniSayisiTxt=itemView.findViewById(R.id.yorumCevapBegeniSayisiTxt);
             cevap=itemView.findViewById(R.id.textView12);
             begeniPaylasmaZamani=itemView.findViewById(R.id.begeniPaylasmaZamani);
@@ -89,6 +96,7 @@ public class AdapterProfilLikes extends RecyclerView.Adapter<AdapterProfilLikes.
             soruId=itemView.findViewById(R.id.soruIdTxt);
             begeniKullaniciAdSoyad.setOnClickListener(this::onClick);
             profilBegeniImageButton.setOnClickListener(this::onClick);
+            sorularIcerikLayout.setOnClickListener(this::onClick);
         }
 
         @Override
@@ -101,6 +109,13 @@ public class AdapterProfilLikes extends RecyclerView.Adapter<AdapterProfilLikes.
                     break;
                 case R.id.profilBegeniImageButton:
                     itemClickListener.onItemClick(view,getAdapterPosition());
+                    break;
+                case R.id.sorularIcerikLayout:
+                    int soruID=likesModels.get(getAdapterPosition()).getSoru_id();
+                    Intent intent = new Intent(context, YorumAyrintiActivity.class);
+                    intent.putExtra("soruID", soruID);
+                    context.startActivity(intent);
+                    ((Activity) context).overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                     break;
             }
         }

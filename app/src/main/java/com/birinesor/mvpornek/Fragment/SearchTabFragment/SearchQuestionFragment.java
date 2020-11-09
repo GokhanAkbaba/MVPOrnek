@@ -30,6 +30,11 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM3 = "param3";
+    private String mParam1;
+    private int mParam2;
+    private int mParam3;
 
     private RecyclerView searchQuestionFragmentRecyclerView;
     SearchAdapterQuestion searchAdapterQuestion;
@@ -42,16 +47,17 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
 
 
 
-    private String mParam1;
 
     public SearchQuestionFragment() {
         // Required empty public constructor
     }
 
-    public static SearchQuestionFragment newInstance(String param1) {
+    public static SearchQuestionFragment newInstance(String param1, int param2, int param3) {
         SearchQuestionFragment fragment = new SearchQuestionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM2,param2);
+        args.putInt(ARG_PARAM3,param3);
         fragment.setArguments(args);
         return fragment;
     }
@@ -61,6 +67,8 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getInt(ARG_PARAM2);
+            mParam3 = getArguments().getInt(ARG_PARAM3);
         }
     }
 
@@ -71,7 +79,12 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         controlTxt=view.findViewById(R.id.searchQuestionTxt);
         searchQuestionFragmentRecyclerView=view.findViewById(R.id.searchQuestionRecycView);
         questionSearchFragmentPresenter=new QuestionSearchFragmentPresenterImpl(this);
-        questionSearchFragmentPresenter.loadData(mParam1);
+        if(mParam3 == -1){
+            questionSearchFragmentPresenter.loadData(mParam1,mParam2,-1);
+        }else{
+            questionSearchFragmentPresenter.loadData(mParam1,mParam2,1);
+        }
+
         searchQuestionFragmentRecyclerView.setAdapter(searchAdapterQuestion);
         searchQuestionFragmentRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         swipeRefreshLayout=view.findViewById(R.id.aramaSwipeRefreshLayout);
@@ -79,7 +92,11 @@ public class SearchQuestionFragment extends Fragment  implements View.OnClickLis
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                questionSearchFragmentPresenter.loadData(mParam1);
+                if(mParam3 == -1){
+                    questionSearchFragmentPresenter.loadData(mParam1,mParam2,-1);
+                }else{
+                    questionSearchFragmentPresenter.loadData(mParam1,mParam2,1);
+                }
             }
         });
         itemClickListener =((vw,position)-> {

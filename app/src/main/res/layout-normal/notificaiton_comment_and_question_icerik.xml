@@ -42,17 +42,30 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/notificatioYorumKullaniciAdi"
+            android:id="@+id/notificatioYorumKullaniciAdSoyad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="40dp"
             android:layout_toRightOf="@+id/kullaniciResmi"
             android:layout_marginStart="10dp"
             android:text="TextView"
             android:textAppearance="@style/customfontstyle"
             android:textColor="@color/renkSiyah"
-            android:textSize="12sp" />
+            android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/notificatioYorumKullaniciAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/notificatioYorumKullaniciAdSoyad"
+                android:layout_marginEnd="40dp"
+                android:layout_toRightOf="@+id/kullaniciResmi"
+                android:layout_marginStart="10dp"
+                android:text="TextView"
+                android:textAppearance="@style/customfontstyle"
+                android:textColor="@color/renkSiyah"
+                android:textSize="12sp" />
 
         <TextView
             android:id="@+id/notificationYorumTxt"
@@ -61,6 +74,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="40dp"
             android:text="TextView"
+            android:autoLink="web"
+            android:textColorLink="@color/uygulamaMavisi"
             android:layout_toRightOf="@+id/kullaniciResmi"
             android:layout_below="@+id/notificatioYorumKullaniciAdi"
             android:textAppearance="@style/customfontstyle"

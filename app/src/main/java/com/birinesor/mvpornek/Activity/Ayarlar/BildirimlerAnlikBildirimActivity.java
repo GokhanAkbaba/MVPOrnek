@@ -283,7 +283,6 @@ public class BildirimlerAnlikBildirimActivity extends Activity implements View.O
         for (int i=0;i<data.size();i++){
             if(data.get(i).getEtiketID()==1){
                 switchAdres.setChecked(true);
-                switchAdres.setTag(String.valueOf(data.get(i).getIl()));
 
             }else if(data.get(i).getEtiketID()==2){
                 switchYemek.setChecked(true);

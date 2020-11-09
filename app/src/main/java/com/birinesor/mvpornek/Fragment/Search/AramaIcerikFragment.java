@@ -53,10 +53,6 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
     private String mParam1;
     private String mParam2;
 
-    public AramaIcerikFragment() {
-
-    }
-
     public static AramaIcerikFragment newInstance() {
         AramaIcerikFragment fragment = new AramaIcerikFragment();
         Bundle args = new Bundle();
@@ -99,8 +95,8 @@ public class AramaIcerikFragment extends Fragment implements View.OnClickListene
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query);
-                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAsama-2");
+                KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query,-1,1);
+                ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAsama-4");
                 aramaArsivKayitPresenter.createAramaArsivKayit(kullanici.getId(),query);
                 return false;
             }

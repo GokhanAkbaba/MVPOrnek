@@ -100,7 +100,7 @@ public class AramaIcerikSecondFragment extends Fragment implements View.OnClickL
        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query);
+                KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(query,-1,1);
                 ((HomeActivity)getActivity()).loadFragment(kullaniciIcerikFragment,"AramaAsama-4");
                 aramaArsivKayitPresenter.createAramaArsivKayit(kullanici.getId(),query);
                 return false;

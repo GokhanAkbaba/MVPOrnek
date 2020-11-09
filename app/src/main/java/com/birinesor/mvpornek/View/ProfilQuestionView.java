@@ -8,4 +8,6 @@ public interface ProfilQuestionView {
     void onGetResult(List<QuestionModel> data);
     void onErrorLoading(String message);
     void onGetResultControl();
+    void onProfilQuestionShow();
+    void onProfilQuestionHide();
 }

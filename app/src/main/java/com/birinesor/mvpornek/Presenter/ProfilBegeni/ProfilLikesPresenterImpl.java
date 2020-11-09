@@ -19,6 +19,7 @@ public class ProfilLikesPresenterImpl implements ProfilLikesPresenter{
 
     @Override
     public void loadData(int kullaniciId) {
+        profilLikeView.onProfilLikeShow();
         Call<List<LikesModel>> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
@@ -27,7 +28,7 @@ public class ProfilLikesPresenterImpl implements ProfilLikesPresenter{
         call.enqueue(new Callback<List<LikesModel>>() {
             @Override
             public void onResponse(Call<List<LikesModel>> call, Response<List<LikesModel>> response) {
-
+                profilLikeView.onProfilLikeHide();
                 if (response.isSuccessful() && response.body() !=null) {
                     profilLikeView.onGetResult(response.body());
                 }
@@ -38,6 +39,7 @@ public class ProfilLikesPresenterImpl implements ProfilLikesPresenter{
             }
             @Override
             public void onFailure(Call<List<LikesModel>> call, Throwable t) {
+                profilLikeView.onProfilLikeHide();
                 profilLikeView.onErrorLoading();
             }
         });

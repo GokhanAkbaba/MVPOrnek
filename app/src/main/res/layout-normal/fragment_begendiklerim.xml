@@ -7,7 +7,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="MissingDefaultResource">
 
-
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefreshFragmentBegendiklerim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints,NotSibling"
+        tools:layout_editor_absoluteX="4dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/profilBegendiklerimRecyclerView"
             android:layout_width="match_parent"
@@ -16,6 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/recyclerViewProfilBegendiklerimText"

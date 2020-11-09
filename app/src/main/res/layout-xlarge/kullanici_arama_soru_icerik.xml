@@ -101,6 +101,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@color/uygulamaMavisi"
                     android:layout_below="@+id/aramaSoruEtiket"
                     android:textAppearance="@style/customfontstyle"
                     android:text="@string/denemeSoru1Txt"

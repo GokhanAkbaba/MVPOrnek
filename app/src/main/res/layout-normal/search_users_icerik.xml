@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 app:cardCornerRadius="15dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,15 +41,13 @@
                 android:id="@+id/textView29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:textAppearance="@style/customfontstyle"
-                android:textStyle="bold"
                 android:layout_marginStart="10dp"
                 android:text="TextView"
-                android:textColor="@color/renkSiyah"
                 android:textSize="18sp"
-                android:layout_toRightOf="@+id/aramaKullaniciResmi"
+                android:layout_toEndOf="@+id/aramaKullaniciResmi"
                 />
 
             <TextView
@@ -61,10 +59,18 @@
                 android:layout_marginEnd="15dp"
                 android:textAppearance="@style/customfontstyle"
                 android:text="TextView"
-                android:textSize="19sp"
+                android:textSize="12sp"
                 android:layout_below="@id/textView29"
                 android:layout_marginTop="4dp"
                 android:layout_toRightOf="@+id/aramaKullaniciResmi" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="453dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/textView30"
+                android:background="@color/ayarlarGrisi" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

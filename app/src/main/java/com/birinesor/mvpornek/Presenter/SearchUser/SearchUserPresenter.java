@@ -1,5 +1,5 @@
 package com.birinesor.mvpornek.Presenter.SearchUser;
 
 public interface SearchUserPresenter {
-    void loadData(String soruId);
+    void loadData(String kullaniciAdi,int etiketID,int secenek);
 }

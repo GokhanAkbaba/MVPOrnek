@@ -7,4 +7,6 @@ import java.util.List;
 public interface ProfilAnswersView {
     void onGetResult(List<AnswersModel> data);
     void onErrorLoading();
+    void onProfilAnswersShow();
+    void onProfilAnswersHide();
 }

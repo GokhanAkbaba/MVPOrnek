@@ -6,6 +6,7 @@
     <color name="uygulamaMavisi">#4A5BEA</color>
     <color name="colorPrimaryDark">#383F9F</color>
     <color name="colorAccent">#FF5252</color>
+    <color name="hesapSilTextColor">#f44336</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="profilSekmeBeyaz">#F9F9F9</color>
     <color name="soruIsaretiCevaplanmamisRenk">#FEB30F</color>

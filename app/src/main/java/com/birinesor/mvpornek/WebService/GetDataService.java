@@ -1,14 +1,18 @@
 package com.birinesor.mvpornek.WebService;
 
 
+import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariGetir.AramaAyarlariGetirModel;
 import com.birinesor.mvpornek.Models.AnswersModel;
 import com.birinesor.mvpornek.Models.BildirimlerBegenilerModel;
 import com.birinesor.mvpornek.Models.CommentModel;
+import com.birinesor.mvpornek.Models.EtiketlerModel;
 import com.birinesor.mvpornek.Models.IlgiAlanlariGetirModel;
 import com.birinesor.mvpornek.Models.LikesModel;
 import com.birinesor.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.birinesor.mvpornek.Models.SearchQuestionModel;
 import com.birinesor.mvpornek.Models.SelectionControlModel;
+import com.birinesor.mvpornek.Models.YorumAyrintiSorusuModel;
+import com.birinesor.mvpornek.Models.YorumAyrintiSorusuYorumlarModel;
 import com.birinesor.mvpornek.Response.AramaArsivKayitResponse;
 import com.birinesor.mvpornek.Response.AramaGecmisSilResponse;
 import com.birinesor.mvpornek.Response.BildirimlerCevaplarModel;
@@ -35,6 +39,7 @@ import com.birinesor.mvpornek.Response.UserSearchListResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariModel;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -138,6 +143,12 @@ public interface GetDataService {
 
     );
     @FormUrlEncoded
+    @POST("aramaAyarlariGetir.php")
+    Call<List<AramaAyarlariGetirModel>> aramaAyarlariGetir(
+            @Field("kullaniciID") int kullaniciID
+
+    );
+    @FormUrlEncoded
     @POST("bildirimlerCevaplariGetir.php")
     Call<List<BildirimlerCevaplarModel>> bildirimCevaplarGetir(
             @Field("kullaniciID") int kullaniciID
@@ -171,6 +182,11 @@ public interface GetDataService {
     Call<CevapSilResponse> cevapSil(
             @Field("cevap_id") int cevapId
     );
+    @FormUrlEncoded
+    @POST("hesabiSil.php")
+    Call<CevapSilResponse> hesapSil(
+            @Field("kullaniciID") int kullaniciID
+    );
 
 
     @FormUrlEncoded
@@ -197,6 +213,13 @@ public interface GetDataService {
             @Field("token") String token
     );
     @FormUrlEncoded
+    @POST("aramaAyarlariKayit.php")
+    Call<AramaAyarlariModel> aramaAyarlariKayit(
+            @Field("kullanici_id") int kullaniciID,
+            @Field("kod_id") int kodID,
+            @Field("secim") int secim
+    );
+    @FormUrlEncoded
     @POST("sendSinglePush.php")
     Call<NotificationResponse> bildirimGonder(
             @Field("bildirimYapanKullaniciID") int bildirimYapanKullaniciID,
@@ -215,13 +238,25 @@ public interface GetDataService {
 
     );
     @FormUrlEncoded
+    @POST("etiketleriGetir.php")
+    Call<List<EtiketlerModel>> etiketleriGetir(
+            @Field("kullaniciID") int kullaniciID
+
+
+    );
+    @FormUrlEncoded
     @POST("notificationCommentAndLike.php")
     Call<List<NotificationCommentAndLikeModel>> bildirimBegeniIcerikGetir(
             @Field("soruID") int soruID,
             @Field("cevapID") int cevapID
 
     );
+    @FormUrlEncoded
+    @POST("yorumAyrintiYorumlariGetir.php")
+    Call<List<YorumAyrintiSorusuYorumlarModel>> yorumAyrintiSorusuYorumlarGetir(
+            @Field("soruId") int soruID
 
+    );
     @FormUrlEncoded
     @POST("begenislemleri.php")
     Call<LikeModel> begeniYap(
@@ -270,6 +305,12 @@ public interface GetDataService {
             @Field("kullaniciAdi") String kullaniciAdi,
             @Field("secim") int secim
     );
+    @FormUrlEncoded
+    @POST("soruAyrintiYorumGetir.php")
+    Call<List<YorumAyrintiSorusuModel>> yorumAyrintiSorusuGetir(
+            @Field("soruId") int soruId
+
+    );
 
     @FormUrlEncoded
     @POST("aramaArsivKayit.php")
@@ -287,13 +328,18 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("aramaKullanicilariGetir.php")
     Call<List<UserSearchListResponse>> aramaKullanicilariGetir(
-            @Field("kullaniciAdi") String kullaniciAdi
+            @Field("kullaniciAdi") String kullaniciAdi,
+            @Field("etiketID") int etiketID,
+            @Field("secenek") int secenek
+
     );
 
     @FormUrlEncoded
     @POST("aramaSoruGetir.php")
     Call<List<SearchQuestionModel>> aramaSoruGetir(
-            @Field("ifade") String ifade
+            @Field("ifade") String ifade,
+            @Field("etiketID") int etiketID,
+            @Field("secenek") int secenek
     );
 
     @FormUrlEncoded

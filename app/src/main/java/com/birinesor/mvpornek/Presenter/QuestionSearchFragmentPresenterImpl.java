@@ -18,12 +18,12 @@ public class QuestionSearchFragmentPresenterImpl implements QuestionSearchFragme
     }
 
     @Override
-    public void loadData(String ifade) {
+    public void loadData(String ifade,int etiketID,int secenek) {
         questionSearchFragmentView.showLoading();
         Call<List<SearchQuestionModel>> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
-                .aramaSoruGetir(ifade);
+                .aramaSoruGetir(ifade,etiketID,secenek);
 
         call.enqueue(new Callback<List<SearchQuestionModel>>() {
             @Override

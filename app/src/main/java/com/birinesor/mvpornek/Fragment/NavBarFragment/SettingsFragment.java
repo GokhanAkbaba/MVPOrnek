@@ -3,6 +3,7 @@ package com.birinesor.mvpornek.Fragment.NavBarFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -18,15 +21,18 @@ import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
 import com.birinesor.mvpornek.Baslangic.IntroActivity;
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.birinesor.mvpornek.Degiskenler;
 import com.birinesor.mvpornek.Models.Kullanici;
+import com.birinesor.mvpornek.Presenter.HesapSil.HesapSilPresenterImpl;
 import com.birinesor.mvpornek.Presenter.TokenSil.TokenDeletePresenter;
 import com.birinesor.mvpornek.Presenter.TokenSil.TokenDeletePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
+import com.birinesor.mvpornek.View.HesapSilView;
 import com.birinesor.mvpornek.View.TokenDeleteView;
 
 
-public class SettingsFragment extends Fragment implements View.OnClickListener, TokenDeleteView {
+public class SettingsFragment extends Fragment implements View.OnClickListener, TokenDeleteView, HesapSilView {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -34,8 +40,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     private String mParam1;
     private String mParam2;
+    RelativeLayout hesabiSilLayout;
+    RelativeLayout bildirimlerLayout;
+    RelativeLayout sifreRelativeDegistirLayout;
+    RelativeLayout cikisRelativeLayout;
+    RelativeLayout profilRelativeLayout;
 
     TokenDeletePresenter tokenDeletePresenter;
+    HesapSilPresenterImpl hesapSilPresenter;
 
     Toolbar toolbar;
 
@@ -69,16 +81,27 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         View view=inflater.inflate(R.layout.ayarlar, container, false);
         kullanici=SharedPrefManager.getInstance(getActivity()).getKullanici();
         toolbar=(Toolbar) view.findViewById(R.id.ayarlarToolbar);
-        RelativeLayout profilRelativeLayout=(RelativeLayout) view.findViewById(R.id.profilDuzenleLayout);
+        profilRelativeLayout=(RelativeLayout) view.findViewById(R.id.profilDuzenleLayout);
         profilRelativeLayout.setOnClickListener(this);
-        RelativeLayout cikisRelativeLayout=(RelativeLayout) view.findViewById(R.id.cikisYapLayout);
+        cikisRelativeLayout=(RelativeLayout) view.findViewById(R.id.cikisYapLayout);
         cikisRelativeLayout.setOnClickListener(this);
-        RelativeLayout sifreRelativeDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
+        sifreRelativeDegistirLayout=(RelativeLayout) view.findViewById(R.id.sifreDegistirLayout);
         sifreRelativeDegistirLayout.setOnClickListener(this);
-        RelativeLayout bildirimlerLayout=(RelativeLayout) view.findViewById(R.id.bildirimlerLayout);
+        bildirimlerLayout=(RelativeLayout) view.findViewById(R.id.bildirimlerLayout);
         bildirimlerLayout.setOnClickListener(this);
-
+        hesabiSilLayout=view.findViewById(R.id.hesabiSilLayout);
+        hesabiSilLayout.setOnClickListener(this);
+        Switch geceSwitch=view.findViewById(R.id.geceModuSwitch);
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
+        hesapSilPresenter=new HesapSilPresenterImpl(this);
+        geceSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                Toast.makeText(getContext(),"Özür Dileriz. En yakın sürede aktif olacak",Toast.LENGTH_SHORT).show();
+            } else {
+
+                Toast.makeText(getContext(),"Özür Dileriz. En yakın sürede aktif olacak",Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
 
     }
@@ -104,6 +127,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 startActivity(new Intent(getActivity().getApplicationContext(), BildirimlerDuzenleActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
+            case R.id.hesabiSilLayout:
+                SharedPrefManager.getInstance(getActivity()).clear();
+                startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
+                hesapSilPresenter.kullaniciSil(kullanici.getId());
+                BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
+                break;
         }
     }
 
@@ -115,5 +144,15 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void showTokenDeleteFailedMessage(String failedMessage) {
         Log.d("Token Delete Failed",failedMessage);
+    }
+
+    @Override
+    public void showSuccesMessage() {
+
+    }
+
+    @Override
+    public void showFailedMessage() {
+
     }
 }

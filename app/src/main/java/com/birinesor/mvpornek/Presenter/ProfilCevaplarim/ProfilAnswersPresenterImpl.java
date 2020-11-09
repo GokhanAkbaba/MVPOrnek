@@ -19,6 +19,7 @@ public class ProfilAnswersPresenterImpl implements ProfilAnswersPresenter {
 
     @Override
     public void loadData(int kullaniciId) {
+        profilAnswersView.onProfilAnswersShow();
         Call<List<AnswersModel>> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
@@ -27,12 +28,14 @@ public class ProfilAnswersPresenterImpl implements ProfilAnswersPresenter {
         call.enqueue(new Callback<List<AnswersModel>>() {
             @Override
             public void onResponse(Call<List<AnswersModel>> call, Response<List<AnswersModel>> response) {
+                profilAnswersView.onProfilAnswersHide();
                 if (response.isSuccessful() && response.body() !=null) {
                     profilAnswersView.onGetResult(response.body());
                 }
             }
             @Override
             public void onFailure(Call<List<AnswersModel>> call, Throwable t) {
+                profilAnswersView.onProfilAnswersHide();
                 profilAnswersView.onErrorLoading();
             }
         });

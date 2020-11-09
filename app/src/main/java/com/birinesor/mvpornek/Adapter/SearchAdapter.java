@@ -70,7 +70,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.RecyclerVi
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.textView28:
-                    KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi());
+                    KullaniciIcerikFragment kullaniciIcerikFragment=KullaniciIcerikFragment.newInstance(searchListResponses.get(getAdapterPosition()).getKullanici_adi(),0,1);
                     ((HomeActivity)context).loadFragment(kullaniciIcerikFragment,"AramaAsamaTık-2");
                     break;
                 case R.id.kullaniciAramaIcerikSilmeIcon:

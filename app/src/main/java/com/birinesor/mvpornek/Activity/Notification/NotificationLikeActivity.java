@@ -52,6 +52,7 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
     private ImageView notificationYorumRoundedKullaniciResmi;
     private ImageView notificationLikeSoruYorumIcon;
     private ImageView notificationLikeSorularIcerikKullaniciResmi;
+    private TextView notificationLikeYorumAdSoyad;
     private RelativeLayout notificationRelativeLayout;
 
     private List<NotificationCommentAndLikeModel> notificationCommentAndLikeModel;
@@ -87,6 +88,7 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
         notificationLikeYorumBegeniButon=(ImageView) findViewById(R.id.notificationLikeYorumBegeniButon);
         notificationYorumRoundedKullaniciResmi=(ImageView) findViewById(R.id.notificationYorumRoundedKullaniciResmi);
         notificationLikeSoruYorumIcon=findViewById(R.id.notificationLikeSoruYorumIcon);
+        notificationLikeYorumAdSoyad=findViewById(R.id.notificationLikeYorumAdSoyad);
         notificationLikeSorularIcerikKullaniciResmi=(ImageView) findViewById(R.id.notificationLikeSorularIcerikKullaniciResmi);
         notificationRelativeLayout=(RelativeLayout) findViewById(R.id.notificationLikeRelativeLayout);
         notificationLikeAndQuestionPresenter=new NotificationLikeAndQuestionPresenterImpl(this);
@@ -115,6 +117,7 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
         notificationLikeYorumBegeniSayisiTxt.setText(String.valueOf(data.get(0).getCevapBegeniSayisi()));
         notificationLikeYorumTxt.setText(data.get(0).getCevap());
         notificationLikeYorumKullaniciAdiTxt.setText("@"+data.get(0).getCevapVerenKullaniciAdi());
+        notificationLikeYorumAdSoyad.setText(data.get(0).getCevapVerenAdSoyad());
         String soruZaman = zamanDonusumu(data.get(0).getSoruZaman());
         String cevapZaman= zamanDonusumu(data.get(0).getCevapZaman());
         SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

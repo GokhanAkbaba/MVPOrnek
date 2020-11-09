@@ -29,19 +29,21 @@ import java.util.List;
 public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnswers.RecyclerViewAdapter>{
     private List<AnswersModel>  answersModels;
     private Context context;
-    private AdapterProfilAnswers.ItemClickListener itemClickListener;
+    private ItemClickListener itemClickListener;
+    private ItemClickListener itemLongClickListener;
 
-    public AdapterProfilAnswers(List<AnswersModel> answersModels, Context context, AdapterProfilAnswers.ItemClickListener itemClickListener) {
+    public AdapterProfilAnswers(List<AnswersModel> answersModels, Context context,ItemClickListener itemClickListener,ItemClickListener itemLongClickListener) {
         this.answersModels = answersModels;
         this.context = context;
         this.itemClickListener = itemClickListener;
+        this.itemLongClickListener =itemLongClickListener;
     }
 
     @NonNull
     @Override
     public AdapterProfilAnswers.RecyclerViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.cevaplar_icerik, parent, false);
-        return new AdapterProfilAnswers.RecyclerViewAdapter(view, itemClickListener);
+        return new AdapterProfilAnswers.RecyclerViewAdapter(view, itemClickListener,itemLongClickListener);
     }
 
     @Override
@@ -75,14 +77,16 @@ public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnsw
     public int getItemCount() {
         return answersModels.size();
     }
-    public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
-        AdapterProfilAnswers.ItemClickListener itemClickListener;
+    public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
+        ItemClickListener itemClickListener;
+        ItemClickListener itemLongClickListener;
         TextView profilCevapKullaniciAdSoyad,profilCevapKullaniciAdiTxt,profilCevaplananKisiTxt,yorumCevapBegeniSayisiTxt,cevap,profilCevapPaylasmaZamani,soruId;
         ImageView profilCevapRoundedKullaniciResmi,profilCevapImageButton;
         ConstraintLayout profilCevaplarIcerikLayout;
-        RecyclerViewAdapter(View itemView, AdapterProfilAnswers.ItemClickListener itemClickListener) {
+        RecyclerViewAdapter(View itemView, ItemClickListener itemClickListener,ItemClickListener itemLongClickListener) {
             super(itemView);
             this.itemClickListener=itemClickListener;
+            this.itemLongClickListener=itemLongClickListener;
             profilCevapImageButton=itemView.findViewById(R.id.profilCevapImageButton);
             profilCevapKullaniciAdSoyad=itemView.findViewById(R.id.profilCevapKullaniciAdSoyad);
             profilCevapKullaniciAdiTxt=itemView.findViewById(R.id.profilCevapKullaniciAdiTxt);
@@ -92,6 +96,7 @@ public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnsw
             profilCevapPaylasmaZamani=itemView.findViewById(R.id.profilCevapPaylasmaZamani);
             profilCevapRoundedKullaniciResmi=itemView.findViewById(R.id.profilCevapRoundedKullaniciResmi);
             profilCevaplarIcerikLayout=itemView.findViewById(R.id.profilCevaplarIcerikLayout);
+            profilCevaplarIcerikLayout.setOnLongClickListener(this);
             soruId=itemView.findViewById(R.id.soruIdTxt);
             profilCevapKullaniciAdSoyad.setOnClickListener(this::onClick);
             profilCevapImageButton.setOnClickListener(this::onClick);
@@ -111,6 +116,12 @@ public class AdapterProfilAnswers extends RecyclerView.Adapter<AdapterProfilAnsw
                     break;
             }
 
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            itemLongClickListener.onItemClick(view,getAdapterPosition());
+            return false;
         }
     }
     public interface ItemClickListener{

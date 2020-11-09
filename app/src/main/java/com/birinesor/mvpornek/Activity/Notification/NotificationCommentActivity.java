@@ -3,10 +3,14 @@ package com.birinesor.mvpornek.Activity.Notification;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +47,7 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
     LikesPresenterImpl likesPresenter;
     NotificaitonPostPresenterImpl notificaitonPostPresenter;
     List<NotificationCommetAndQuestionModel>  notificationCommetAndQuestionModel;
-
+    RelativeLayout relativeLayout;
     NotificationCommentAndQuestionAdapter.ItemClickListener begeniClickListener;
     NotificationCommentAndQuestionAdapter notificationCommentAndQuestionAdapter;
 
@@ -57,7 +61,7 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
         }
         txtView = (TextView) findViewById(R.id.notificationCommentQuestionText);
         notificationCommentRecyclerView=(RecyclerView) findViewById(R.id.notificationCommentRecyclerView);
-
+        relativeLayout=findViewById(R.id.relativeLayout);
         notificationCommetAndQuestionPresenter=new NotificationCommetAndQuestionPresenterImpl(this);
         likesPresenter=new LikesPresenterImpl(this);
         notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
@@ -130,6 +134,18 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
     }
 
     @Override
+    public void onGetNotificationCommetAndQuestionKontrol() {
+        relativeLayout.setVisibility(View.INVISIBLE);
+        Toast.makeText(this,"Soru Silinmiş",Toast.LENGTH_LONG).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        },2000);
+    }
+
+    @Override
     public void onGetLike(LikeModel items) {
         this.likeModel=items;
         if(durum == "secilmedi") {
@@ -143,12 +159,12 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
 
     @Override
     public void showNotificaitonSuccesMessage() {
-        /////
+        Log.d("Bildirim Göderimi","Bildirim Başarı İle Gönderildi");
     }
 
     @Override
     public void showNotificaitonFailedMessage() {
-        /////
+        Log.d("Bildirim Göderimi","Bildirim Gönderimi Başarısız");
     }
 
     @Override

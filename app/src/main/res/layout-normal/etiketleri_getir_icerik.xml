@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/etiketlerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="5dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/etiketAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="150dp"
+                android:text="TextView"
+                android:layout_centerVertical="true"
+                android:textAppearance="@style/customfontstyle"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:id="@+id/etiketSayi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etiketAdi"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="150dp"
+                android:text="99999"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/colorGreyPrimary"
+                android:textAppearance="@style/customfontstyle" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="-50dp"
+               android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/etiketSayi"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_next__1_"
+                android:tint="@color/colorGreyPrimary" />
+
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="52dp"
+                android:layout_below="@+id/etiketAdi"
+                android:background="@color/ayarlarGrisi" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
