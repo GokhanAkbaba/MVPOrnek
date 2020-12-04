@@ -1,10 +1,12 @@
 package com.birinesor.mvpornek.Activity.Notification;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.birinesor.mvpornek.InitApplication;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
@@ -74,6 +77,21 @@ public class NotificationLikeActivity extends AppCompatActivity implements Notif
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.activity_notification_like);
         notificationLikeYorumZamanTxt=(TextView) findViewById(R.id.notificationLikeYorumZaman);
         notificationLikeYorumBegeniSayisiTxt=(TextView) findViewById(R.id.notificationLikeYorumBegeniSayisiTxt);

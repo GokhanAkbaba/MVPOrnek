@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".Activity.Ayarlar.ProfilDuzenleActivity"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@color/colorWhite"
         android:layout_height="match_parent">
         <RelativeLayout
             android:id="@+id/searchContentAppbar"
@@ -45,17 +48,28 @@
                 android:textSize="18sp" />
 
             <Button
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:id="@+id/profilGuncelleButon"
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_marginEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="75dp"
+                android:layout_toEndOf="@+id/textView4"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/button"
                 android:text="Güncelle"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textAlignment="center"
+                android:textAppearance="@style/customfontstyle"
                 android:textSize="15sp" />
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="33dp"
+                android:layout_below="@+id/profilGuncelleButon"
+                android:background="@color/ayarlarGrisi" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -102,8 +116,11 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/adSoyadTextField"
-                        android:layout_width="321dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginStart="35dp"
+                        android:background="@color/textInputColor"
                         android:layout_marginTop="30dp"
                         android:hint="@string/adSoyadTxt"
                         app:boxStrokeColor="@color/uygulamaMavisi"
@@ -113,11 +130,10 @@
                         app:layout_constraintTop_toBottomOf="@+id/profilDuzenleProfilResmi"
                         tools:ignore="MissingConstraints">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/profilDuzenleAdSoyadTxt"
-                            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
-                            android:layout_marginEnd="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:ems="10"
                             android:enabled="true"
                             android:textAppearance="@style/customfontstyle"
@@ -131,8 +147,11 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/kullaniciAdiTextField"
-                        android:layout_width="321dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/textInputColor"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginStart="35dp"
                         android:layout_marginTop="3dp"
                         android:hint="@string/kullaniciAdiTxt"
                         app:errorEnabled="true"
@@ -141,10 +160,10 @@
                         app:layout_constraintTop_toBottomOf="@+id/adSoyadTextField"
                         tools:ignore="MissingConstraints">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/profilDuzenleKullaniciAdiTxt"
-                            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:ems="10"
                             android:enabled="true"
                             android:textAppearance="@style/customfontstyle"
@@ -158,8 +177,11 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ePostaTextField"
-                        android:layout_width="321dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/textInputColor"
+                        android:layout_marginEnd="35dp"
+                        android:layout_marginStart="35dp"
                         android:layout_marginTop="3dp"
                         android:hint="@string/ePostaTxt"
                         app:errorEnabled="true"
@@ -170,8 +192,8 @@
 
                         <EditText
                             android:id="@+id/profilDuzenleEpostaTxt"
-                            android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                            android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:ems="10"
                             android:enabled="true"
                             android:textAppearance="@style/customfontstyle"

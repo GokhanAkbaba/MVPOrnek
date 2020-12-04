@@ -10,6 +10,7 @@
         android:id="@+id/yorumlarAyrintiLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,6 +19,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="5dp"
             tools:ignore="MissingConstraints">
@@ -68,7 +70,6 @@
                 android:layout_toRightOf="@+id/yorumlarAyrintiKullaniciResmi"
                 android:text="TextView"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/renkSiyah"
                 android:textSize="12sp" />
 
             <TextView
@@ -83,7 +84,6 @@
                 android:autoLink="web"
                 android:text="TextView"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/renkSiyah"
                 android:textColorLink="@color/uygulamaMavisi"
                 android:textSize="16sp" />
 
@@ -104,7 +104,7 @@
                     android:clickable="true"
                     android:src="@mipmap/guven_oyu"
                     android:tag="secilmedi"
-                    android:tint="@color/ayarlarGrisi" />
+                    app:tint="@color/ayarlarGrisi" />
 
                 <TextView
                     android:id="@+id/yorumlarAyrintiYorumBegeniSayisiTxt"

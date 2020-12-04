@@ -2,8 +2,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary" tools:ignore="MissingDefaultResource">#3F51B5</color>
     <color name="ayarlarGrisi">#DFE1E5</color>
+    <color name="textInputColor">#FFFFFF</color>
+    <color name="menuArkaPlanColor">#d1c4e9</color>
+    <color name="uygulamaYaziColor">#191925</color>
     <color name="uygulamaGrisi">#191925</color>
     <color name="uygulamaMavisi">#4A5BEA</color>
+    <color name="ayarlarMavisi">#4A5BEA</color>
     <color name="colorPrimaryDark">#383F9F</color>
     <color name="colorAccent">#FF5252</color>
     <color name="hesapSilTextColor">#f44336</color>
@@ -29,6 +33,25 @@
     <color name="ana_sayfa_spor_color">#9e82ff</color>
     <color name="ana_sayfa_tatil_color">#f89aba</color>
     <color name="ana_sayfa_yemek_color">#8dc6e8</color>
+    <color name="ana_sayfa_film_dizi_color">#ff9b54</color>
+    <color name="ana_sayfa_teknoloji_color">#28A15E</color>
+    <color name="ana_sayfa_oyun_color">#0A8791</color>
+    <color name="ana_sayfa_saglik_color">#a5ecd7</color>
+    <color name="ana_sayfa_muzik_color">#ff9a76</color>
+    <color name="ana_sayfa_egitim_color">#ffc7c7</color>
+    <color name="ana_sayfa_tarih_color">#fca652</color>
+    <color name="ana_sayfa_moda_color">#c3aed6</color>
+    <color name="ana_sayfa_oto_color">#7579e7</color>
+    <color name="ana_sayfa_yazilim_color">#e5df88</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="whiteStatus">#FFFFFF</color>
+    <color name="switchArkaPlan">#88888888</color>
+    <color name="anaSayfaImageViewTintColor">#FFFFFF</color>
 
 
 </resources>

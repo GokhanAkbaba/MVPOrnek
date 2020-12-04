@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
@@ -10,6 +11,7 @@
         android:id="@+id/yorumlarIcerikLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +52,8 @@
             android:layout_toRightOf="@+id/kullaniciResmi"
             android:layout_marginStart="10dp"
             android:text="TextView"
+            android:textStyle="bold"
             android:textAppearance="@style/customfontstyle"
-            android:textColor="@color/renkSiyah"
             android:textSize="15sp" />
 
             <TextView
@@ -64,7 +66,6 @@
                 android:layout_marginStart="10dp"
                 android:text="TextView"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/renkSiyah"
                 android:textSize="12sp" />
 
         <TextView
@@ -73,13 +74,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="40dp"
+            android:layout_marginTop="4dp"
             android:text="TextView"
             android:autoLink="web"
             android:textColorLink="@color/uygulamaMavisi"
             android:layout_toRightOf="@+id/kullaniciResmi"
             android:layout_below="@+id/notificatioYorumKullaniciAdi"
             android:textAppearance="@style/customfontstyle"
-            android:textColor="@color/renkSiyah"
             android:textSize="16sp"
             />
     <RelativeLayout
@@ -97,7 +98,7 @@
             android:clickable="true"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/guven_oyu"
-            android:tint="@color/ayarlarGrisi" />
+            app:tint="@color/ayarlarGrisi" />
 
         <TextView
             android:id="@+id/notificationYorumBegeniSayisiTxt"

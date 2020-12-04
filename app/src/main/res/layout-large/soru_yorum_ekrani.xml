@@ -47,7 +47,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/yorumKullaniciAdi"
+                android:id="@+id/yorumAdSoyad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -56,7 +56,17 @@
                 android:layout_toRightOf="@+id/kullaniciResmi"
                 android:text="TextView"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/renkSiyah"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/yorumKullaniciAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="50dp"
+                android:layout_below="@+id/yorumAdSoyad"
+                android:layout_toRightOf="@+id/kullaniciResmi"
+                android:text="TextView"
+                android:textAppearance="@style/customfontstyle"
                 android:textSize="12sp" />
 
             <TextView
@@ -71,7 +81,6 @@
                 android:layout_toRightOf="@+id/kullaniciResmi"
                 android:text="TextView"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="@color/renkSiyah"
                 android:textSize="16sp" />
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -85,10 +94,10 @@
                     android:layout_height="30dp"
                     android:clickable="true"
                     android:src="@mipmap/guven_oyu"
-                    android:tint="@color/ayarlarGrisi"
                     android:layout_centerHorizontal="true"
                     tools:ignore="ContentDescription"
-                    android:focusable="true" />
+                    android:focusable="true"
+                    app:tint="@color/ayarlarGrisi" />
 
                 <TextView
                     android:id="@+id/begeniSayisiTxt"
@@ -99,7 +108,15 @@
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/imageButton"
                     android:textAppearance="@style/customfontstyle" />
-        </RelativeLayout>
+            </RelativeLayout>
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:layout_marginTop="13dp"
+                android:background="@color/ayarlarGrisi"
+                android:layout_below="@+id/yorumTxt"
+                />
 
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

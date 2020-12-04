@@ -29,7 +29,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="355dp"
         android:layout_height="wrap_content"
-
         android:background="@drawable/soru_paylas_arka_plan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="9dp"
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="start|top"
                 android:hint="@string/uygulama_adi_buyuk"
@@ -92,9 +93,8 @@
                     android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/soru_etiket_buton_beyaz"
-                    android:clickable="true"
-                    android:hint="@string/yemekEtiketTxt"
                     android:textColorHint="@color/uygulamaMavisi"
+                    android:hint="@string/yemekEtiketTxt"
                     android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -309,9 +309,11 @@
 
         <CheckBox
             android:id="@+id/checkBox"
+            android:theme="@style/checkBoxStyle"
             android:layout_width="99dp"
             android:layout_height="33dp"
             android:layout_marginEnd="17dp"
+            android:textColor="@color/uygulamaMavisi"
             android:text="Tüm İller"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />

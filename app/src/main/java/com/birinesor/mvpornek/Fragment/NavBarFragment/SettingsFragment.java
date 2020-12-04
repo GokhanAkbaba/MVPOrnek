@@ -1,8 +1,11 @@
 package com.birinesor.mvpornek.Fragment.NavBarFragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
@@ -19,9 +22,11 @@ import androidx.appcompat.widget.Toolbar;
 import com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
+import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Baslangic.IntroActivity;
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.birinesor.mvpornek.Degiskenler;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Presenter.HesapSil.HesapSilPresenterImpl;
 import com.birinesor.mvpornek.Presenter.TokenSil.TokenDeletePresenter;
@@ -94,12 +99,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         Switch geceSwitch=view.findViewById(R.id.geceModuSwitch);
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         hesapSilPresenter=new HesapSilPresenterImpl(this);
+
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+            geceSwitch.setChecked(true);
         geceSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
-                Toast.makeText(getContext(),"Özür Dileriz. En yakın sürede aktif olacak",Toast.LENGTH_SHORT).show();
-            } else {
+                InitApplication.getInstance(getActivity()).setIsNightModeEnabled(true);
+                Intent i=new Intent(getActivity(), HomeActivity.class);
+                startActivity(i);
 
-                Toast.makeText(getContext(),"Özür Dileriz. En yakın sürede aktif olacak",Toast.LENGTH_SHORT).show();
+            } else {
+                InitApplication.getInstance(getActivity()).setIsNightModeEnabled(false);
+                Intent i=new Intent(getActivity(), HomeActivity.class);
+                startActivity(i);
+
             }
         });
         return view;
@@ -128,10 +141,25 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.hesabiSilLayout:
-                SharedPrefManager.getInstance(getActivity()).clear();
-                startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
-                hesapSilPresenter.kullaniciSil(kullanici.getId());
-                BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Birine Sor");
+                    builder.setMessage("Hesabınızı silmek istediğinizden emin misiniz?");
+                    builder.setNegativeButton("Hayır", null);
+                    getActivity().getWindow().setBackgroundDrawableResource(R.color.colorWhite);
+                    builder.setOnDismissListener(dialogInterface -> {
+                    });
+                    builder.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            SharedPrefManager.getInstance(getActivity()).clear();
+                            startActivity(new Intent(getActivity().getApplicationContext(), IntroActivity.class));
+                            hesapSilPresenter.kullaniciSil(kullanici.getId());
+                            BirineSorUtil.getInstanceBirineSorUtil().yükleniyorBaslat(getActivity(),null,"Çıkış İşlemi Gerçekleştiriliyor");
+                        }
+                    });
+                    builder.show();
+
+
                 break;
         }
     }

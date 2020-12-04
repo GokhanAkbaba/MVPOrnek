@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/uygulamaMavisi" android:state_pressed="true" />
-    <item android:color="@color/uygulamaMavisi" android:state_checked="true" />
-    <item android:color="#d1c4e9" />
+    <item android:color="@color/ayarlarMavisi" android:state_pressed="true" />
+    <item android:color="@color/ayarlarMavisi" android:state_checked="true" />
+    <item android:color="@color/menuArkaPlanColor" />
 </selector>

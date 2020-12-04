@@ -2,6 +2,7 @@ package com.birinesor.mvpornek.Activity.Notification;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -14,11 +15,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.birinesor.mvpornek.Adapter.NotificationCommentAndQuestionAdapter;
 import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.birinesor.mvpornek.Presenter.Like.LikesPresenterImpl;
@@ -55,6 +58,21 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_comment);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         Bundle extras = getIntent().getExtras();
         if(CommentBottomDialogFragment.kutuDurum){
             CommentBottomDialogFragment.instance.dialogCancel();

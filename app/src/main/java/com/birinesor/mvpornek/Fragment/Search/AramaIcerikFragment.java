@@ -30,7 +30,7 @@ import com.birinesor.mvpornek.Presenter.SearchUsersPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.Response.SearchListResponse;
 import com.birinesor.mvpornek.SharedPrefManager;
-import com.birinesor.mvpornek.View.AramaArsivKayitView;
+import com.birinesor.mvpornek.Presenter.AramaArsivKayit.AramaArsivKayitView;
 import com.birinesor.mvpornek.View.AramaGecmisSilView;
 import com.birinesor.mvpornek.View.SearchUsersView;
 

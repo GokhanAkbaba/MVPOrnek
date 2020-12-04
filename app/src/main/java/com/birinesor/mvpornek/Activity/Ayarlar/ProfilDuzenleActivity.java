@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -18,11 +19,14 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 
 import com.birinesor.mvpornek.Activity.ImagePickerActivity;
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.birinesor.mvpornek.GlideApp;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Model.ProfilGuncelle.ProfilUpdateInteractorImpl;
 import com.birinesor.mvpornek.Presenter.ProfilUpdatePresenter;
@@ -43,7 +47,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView, View.OnClickListener {
+public class ProfilDuzenleActivity extends AppCompatActivity implements ProfilUpdateView, View.OnClickListener {
     private ProfilUpdatePresenter profilUpdatePresenter;
     ImageView imageView;
     Bitmap bitmap=null;
@@ -56,6 +60,21 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.fragment_profil_duzenle);
         adSoyadInput= findViewById(R.id.adSoyadTextField);
         kullaniciAdiInput=findViewById(R.id.kullaniciAdiTextField);
@@ -198,6 +217,7 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
             return Base64.encodeToString(imgByte,Base64.DEFAULT);
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
@@ -248,13 +268,13 @@ public class ProfilDuzenleActivity extends Activity implements ProfilUpdateView,
     }
 
     @Override
-    public void setGuncelleEPostaAdiHatasi() {
-        ePostaInput.setError("E-postayı Boş Bırakmayınız");
+    public void setGuncelleEPostaAdiHatasi(String message) {
+        ePostaInput.setError(message);
     }
 
     @Override
-    public void setGuncelleKullaniciAdiHatasi() {
-        kullaniciAdiInput.setError("Kullanıcı Adı Boş Bırakmayınız");
+    public void setGuncelleKullaniciAdiHatasi(String message) {
+        kullaniciAdiInput.setError(message);
     }
 
     @Override

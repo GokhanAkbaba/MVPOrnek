@@ -55,7 +55,6 @@
                 android:layout_marginTop="10dp"
                 android:textAppearance="@style/customfontstyle"
                 android:text="Gökhan AKBABA"
-                android:textColor="#000"
                 android:textSize="18sp"
                 android:layout_toEndOf="@+id/kullaniciResmi"
                 />
@@ -81,7 +80,6 @@
                 android:textAppearance="@style/customfontstyle"
                 android:text="dfss"
                 android:layout_marginTop="6dp"
-                android:textColor="@color/uygulamaMavisi"
                 android:textSize="14sp"
                 android:layout_below="@id/profilCevapPaylasmaZamani"
                  />
@@ -111,7 +109,6 @@
                 android:layout_below="@+id/profilCevaplananKisiTxt"
                 android:textAppearance="@style/customfontstyle"
                 android:text="@string/denemeSoru1Txt"
-                android:textColor="#000"
                 android:textSize="17sp"
                  />
 
@@ -152,8 +149,7 @@
                 android:clickable="true"
                 android:tag="seçilmedi"
                 android:src="@mipmap/guven_oyu"
-                android:tint="@color/ayarlarGrisi"
-                />
+                app:tint="@color/ayarlarGrisi" />
 
             <TextView
                 android:id="@+id/yorumCevapBegeniSayisiTxt"

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:background="@color/colorWhite"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -24,7 +26,6 @@
             android:layout_toEndOf="@+id/imageView9"
             android:text="TextView"
             android:textAppearance="@style/customfontstyle"
-            android:textColor="@color/renkSiyah"
             android:textSize="16sp" />
 
         <ImageView
@@ -33,7 +34,8 @@
             android:layout_height="15dp"
             android:layout_marginStart="10dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_search_svg" />
+            android:src="@drawable/ic_search_svg"
+            app:tint="@color/ayarlarMavisi" />
         <ImageView
             android:id="@+id/kullaniciAramaIcerikSilmeIcon"
             android:layout_width="15dp"
@@ -41,6 +43,7 @@
             android:layout_marginStart="-35dp"
             android:layout_centerVertical="true"
             android:src="@mipmap/mavi_kapat_icon"
+            app:tint="@color/ayarlarMavisi"
             android:layout_toEndOf="@+id/textView28"/>
 
     </RelativeLayout>

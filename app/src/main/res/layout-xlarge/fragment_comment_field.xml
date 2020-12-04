@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:behavior_hideable="true"
+    android:background="@color/colorWhite"
     app:behavior_peekHeight="0dp"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
     tools:ignore="MissingDefaultResource">
@@ -15,12 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
+        android:background="@color/colorWhite"
         android:isScrollContainer="false"
         android:scrollbars="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:orientation="horizontal">
 
             <EditText
@@ -45,8 +48,6 @@
                 android:layout_toRightOf="@+id/edt"
                 android:layout_marginBottom="4dp"
                 android:src="@mipmap/soru_gonder_icon" />
-
-
 
         </RelativeLayout>
     </ScrollView>

@@ -10,7 +10,6 @@
         android:id="@+id/searchContentToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_size"
-        android:background="@drawable/content_level_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,7 @@
             android:layout_marginStart="55dp"
             android:layout_centerVertical="true"
             android:iconifiedByDefault="false"
-            />
+             />
 
     </RelativeLayout>
 
@@ -45,7 +44,7 @@
         android:id="@+id/kullaniciIceriktabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/colorWhite"
         app:tabIndicatorColor="@color/uygulamaMavisi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +68,7 @@
         android:layout_width="409dp"
         android:layout_height="match_parent"
         android:layout_marginTop="120dp"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kullaniciIceriktabLayout"

@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
 
         <RelativeLayout
             android:id="@+id/ayarlarToolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_size"
+            android:layout_height="wrap_content"
             app:layout_collapseMode="pin"
-            android:background="@drawable/content_level_one"
+            android:background="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,10 +29,8 @@
                 android:layout_height="30dp"
                 android:background="@drawable/ic_back_arrow"
                 android:layout_centerVertical="true"
-                android:drawableTint="@color/uygulamaMavisi"
                 android:layout_marginBottom="15dp"
                 android:layout_marginStart="10dp"
-                android:clickable="true"
                 android:textAppearance="@style/customfontstyle"
                 />
 
@@ -41,23 +41,33 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/sifreGuncelleGeriBtn"
                 android:text="Şifre Düzenle"
+                android:textStyle="bold"
                 android:layout_marginStart="35dp"
                 android:textAppearance="@style/customfontstyle"
                 android:textSize="18sp" />
 
             <Button
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:id="@+id/sifreGuncelleButon"
-                android:layout_width="100dp"
-                android:layout_height="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="75dp"
                 android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textView4"
                 android:background="@drawable/button"
                 android:text="Güncelle"
                 android:textAllCaps="false"
                 android:textAppearance="@style/customfontstyle"
-                android:textColor="#FFFFFF"
                 android:textSize="15sp" />
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="33dp"
+                android:layout_below="@+id/sifreGuncelleButon"
+                android:background="@color/ayarlarGrisi" />
 
 
         </RelativeLayout>
@@ -75,15 +85,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchContentAppbar"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ayarlarMevcutSifreTextField"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_marginTop="45dp"
+                    android:background="@color/textInputColor"
                     android:hint="Mevcut Şifre"
                     app:boxStrokeColor="@color/uygulamaMavisi"
                     app:errorEnabled="true"
@@ -92,10 +106,10 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="MissingConstraints">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ayarlarMevcutSifreTxt"
-                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="1dp"
                         android:ems="10"
                         android:enabled="true"
@@ -109,9 +123,12 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ayarlarYeniSifreTextField"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_marginTop="3dp"
+                    android:background="@color/textInputColor"
                     android:hint="Yeni Şifre"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -119,10 +136,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/ayarlarMevcutSifreTextField"
                     tools:ignore="MissingConstraints">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ayarlarYeniSifreTxt"
-                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:ems="10"
                         android:enabled="true"
                         android:textAppearance="@style/customfontstyle"
@@ -135,9 +152,12 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ayarlarYeniSifreTekrarTextField"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_marginTop="3dp"
+                    android:background="@color/textInputColor"
                     android:hint="Yeni Şifre Tekrar"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -145,10 +165,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/ayarlarYeniSifreTextField"
                     tools:ignore="MissingConstraints">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ayarlarYeniSifreTekrarTxt"
-                        android:layout_width="@dimen/ayarlarProfilDuzenleEditTextWidth400"
-                        android:layout_height="@dimen/ayarlarProfilDuzenleEditTextHeigt400"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:ems="10"
                         android:textAppearance="@style/customfontstyle"
                         android:enabled="true"

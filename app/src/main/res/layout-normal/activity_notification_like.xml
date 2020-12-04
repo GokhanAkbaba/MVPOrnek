@@ -73,16 +73,16 @@
                 android:layout_toEndOf="@+id/notificationLikeKullaniciResmi"
                />
 
-            <TextView
-                android:id="@+id/notificationLikeSoruEtiketleri"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="3dp"
-                android:text="#Adres #Tatil"
-                android:textAppearance="@style/customfontstyle"
-                android:textSize="14sp"
-                android:layout_below="@+id/notificationLikeSoruPaylasmaZamani"/>
+                <TextView
+                    android:id="@+id/notificationLikeSoruEtiketleri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/notificationLikeSoruPaylasmaZamani"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="3dp"
+                    android:text="#Adres #Tatil"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/notificationLikeKullaniciAdiTxt"

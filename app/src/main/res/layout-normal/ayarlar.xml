@@ -15,6 +15,7 @@
         android:id="@+id/searchContentAppbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_size"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -56,8 +57,8 @@
     <RelativeLayout
         android:id="@+id/profilDuzenleLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-        android:background="@drawable/ripple"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         android:clickable="true"
         android:layout_below="@+id/linearLayout17"
         tools:ignore="MissingConstraints">
@@ -81,16 +82,15 @@
             android:layout_marginEnd="15dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_next__1_"
-            android:tint="@color/colorGreyPrimary" />
+            app:tint="@color/colorGreyPrimary" />
 
         <View
             android:id="@+id/divider2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_height="0.1dp"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="60dp"
+            android:layout_below="@+id/imageView4"
             android:background="@color/ayarlarGrisi"
             app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
@@ -98,8 +98,8 @@
     <RelativeLayout
         android:id="@+id/sifreDegistirLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-        android:background="@drawable/ripple"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         android:clickable="true"
         android:layout_below="@+id/profilDuzenleLayout"
         tools:ignore="MissingConstraints">
@@ -113,7 +113,7 @@
             android:layout_marginEnd="15dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_next__1_"
-            android:tint="@color/colorGreyPrimary" />
+            app:tint="@color/colorGreyPrimary" />
 
         <TextView
             android:id="@+id/textView13"
@@ -128,20 +128,18 @@
         <View
             android:id="@+id/divider3"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/imageView5"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="60dp"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/bildirimlerLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-        android:background="@drawable/ripple"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         android:clickable="true"
        android:layout_below="@+id/sifreDegistirLayout"
         tools:ignore="MissingConstraints">
@@ -155,7 +153,7 @@
             android:layout_marginEnd="15dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_next__1_"
-            android:tint="@color/colorGreyPrimary" />
+            app:tint="@color/colorGreyPrimary" />
 
         <TextView
             android:id="@+id/textView15"
@@ -169,20 +167,18 @@
         <View
             android:id="@+id/divider4"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/imageView7"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="60dp"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/geceModuLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-            android:background="@drawable/ripple"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:layout_below="@+id/bildirimlerLayout"
             android:clickable="true"
             tools:ignore="MissingConstraints">
@@ -190,12 +186,11 @@
             <Switch
                 android:id="@+id/geceModuSwitch"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/ayarlarSayfaImageViewHeght400"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="@dimen/ayarlarSayfaImageViewMarginStart400"
-                android:layout_marginTop="@dimen/ayarlarSayfaImageViewMarginTop400"
+               android:layout_centerVertical="true"
                 android:theme="@style/SCBSwitch"
-                 />
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <TextView
                 android:id="@+id/textView45"
@@ -209,12 +204,10 @@
             <View
                 android:id="@+id/divider5"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
+                android:layout_height="0.1dp"
+                android:layout_below="@+id/geceModuSwitch"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="54dp"
+                android:layout_marginTop="60dp"
                 android:background="@color/ayarlarGrisi" />
 
 
@@ -223,8 +216,8 @@
         <RelativeLayout
             android:id="@+id/hesabiSilLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-            android:background="@drawable/ripple"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:layout_below="@+id/geceModuLayout"
             android:clickable="true"
             tools:ignore="MissingConstraints">
@@ -248,16 +241,14 @@
                 android:layout_marginEnd="15dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_next__1_"
-                android:tint="@color/hesapSilTextColor" />
+                app:tint="@color/hesapSilTextColor" />
             <View
                 android:id="@+id/divider7"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
+                android:layout_height="0.1dp"
+                android:layout_below="@+id/imageView9"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="54dp"
+                android:layout_marginTop="60dp"
                 android:background="@color/ayarlarGrisi" />
 
 
@@ -266,8 +257,8 @@
         <RelativeLayout
             android:id="@+id/cikisYapLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/ayarlarSayfaLayoutHeight400"
-            android:background="@drawable/ripple"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:layout_below="@+id/hesabiSilLayout"
             android:clickable="true"
             tools:ignore="MissingConstraints">
@@ -281,7 +272,7 @@
                 android:layout_marginEnd="15dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_next__1_"
-                android:tint="@color/colorGreyPrimary" />
+                app:tint="@color/colorGreyPrimary" />
 
             <TextView
                 android:id="@+id/textView44"
@@ -296,12 +287,10 @@
             <View
                 android:id="@+id/divider6"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
+                android:layout_height="0.1dp"
+                android:layout_below="@+id/imageView8"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="54dp"
+                android:layout_marginTop="60dp"
                 android:background="@color/ayarlarGrisi" />
 
         </RelativeLayout>

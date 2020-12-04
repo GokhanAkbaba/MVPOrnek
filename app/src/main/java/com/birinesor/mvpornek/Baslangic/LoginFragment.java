@@ -1,8 +1,10 @@
 package com.birinesor.mvpornek.Baslangic;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.birinesor.mvpornek.Model.Giris.LoginInteractorImpl;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
@@ -68,8 +71,10 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kullanici_giris, container, false);
-
-       kayitOlSecenek=view.findViewById(R.id.kayitOlSecenekTxt);
+        if (Build.VERSION.SDK_INT >= 27) {
+            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+        kayitOlSecenek=view.findViewById(R.id.kayitOlSecenekTxt);
         kayitOlSecenek.setOnClickListener(this);
 
         kayitOlSecenekBtn=view.findViewById(R.id.kayitOlSecenekBtn);
@@ -89,7 +94,6 @@ public class LoginFragment extends Fragment implements LoginView, InternetConnec
         loginPresenter=new LoginPresenterImpl(this,new LoginInteractorImpl(getActivity()));
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         return view;
     }
 

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
     <ScrollView
@@ -15,6 +16,7 @@
         android:fillViewport="true"
         android:scrollbars="none"
         android:isScrollContainer="false"
+        android:background="@color/colorWhite"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
             <RelativeLayout
@@ -28,6 +30,7 @@
                     android:layout_above="@id/anasayfa_nav_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
                     app:layout_constraintBottom_toTopOf="@+id/anasayfa_nav_view"
                     tools:ignore="MissingConstraints">
 
@@ -38,13 +41,11 @@
                         android:layout_gravity="bottom|right|center"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="45dp"
-                        android:backgroundTint="@color/uygulamaMavisiTwo"
                         android:backgroundTintMode="src_in"
-                        android:clickable="true"
-                        android:src="@mipmap/soru_gonder_icon"
-                        android:tint="@color/profilSekmeBeyaz"
-                        app:backgroundTint="#FFFFFF"
-                        app:fabSize="normal"
+                        android:background="@color/uygulamaMavisi"
+                        app:maxImageSize="80dp"
+                        app:tint="@color/whiteStatus"
+                        app:srcCompat="@mipmap/ic_launcher_foreground"
                         tools:ignore="MissingConstraints" />
 
                     <ProgressBar
@@ -54,6 +55,7 @@
                         android:layout_gravity="center"
                         android:indeterminate="true"
                         android:indeterminateTint="@color/uygulamaMavisi" />
+
 
                 </FrameLayout>
                 <com.google.android.material.bottomnavigation.BottomNavigationView

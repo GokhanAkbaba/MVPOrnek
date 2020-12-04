@@ -1,6 +1,7 @@
 package com.birinesor.mvpornek.Presenter.ProfilCevaplarim;
 
 import com.birinesor.mvpornek.Models.AnswersModel;
+import com.birinesor.mvpornek.Models.QuestionModel;
 import com.birinesor.mvpornek.View.ProfilAnswersView;
 import com.birinesor.mvpornek.WebService.RetrofitClientInstance;
 
@@ -31,6 +32,10 @@ public class ProfilAnswersPresenterImpl implements ProfilAnswersPresenter {
                 profilAnswersView.onProfilAnswersHide();
                 if (response.isSuccessful() && response.body() !=null) {
                     profilAnswersView.onGetResult(response.body());
+                }
+                List<AnswersModel> data=response.body();
+                if(data == null || data.isEmpty() ){
+                    profilAnswersView.onGetResultControl();
                 }
             }
             @Override

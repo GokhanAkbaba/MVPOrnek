@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
     <ScrollView
@@ -15,6 +16,7 @@
         android:fillViewport="true"
         android:scrollbars="none"
         android:isScrollContainer="false"
+        android:background="@color/colorWhite"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -23,12 +25,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/anaSayfaMenuFrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         android:layout_below="@id/anaSayfaLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +48,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/anasayfa_baslik_tv"
+
             tools:ignore="UselessParent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,8 +81,8 @@
                         android:layout_marginEnd="9.5dp"
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         android:src="@drawable/ic_alisveris"
-                        android:tint="@color/white"
                         tools:ignore="ContentDescription" />
                 </RelativeLayout>
 
@@ -91,7 +95,6 @@
                     android:text="@string/alisverisText"
                     android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_alisveris_btn"
@@ -121,7 +124,7 @@
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/ic_yemek"
-                        android:tint="@color/white"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         />
                 </RelativeLayout>
 
@@ -133,7 +136,6 @@
                     android:text="@string/yemekText"
                     android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_yemek_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_yemek_btn"
@@ -163,7 +165,7 @@
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/ic_tatil"
-                        android:tint="@color/white"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         android:contentDescription="TODO" />
                 </RelativeLayout>
 
@@ -175,7 +177,6 @@
                     android:text="@string/tatilText"
                     android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_tatil_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_tatil_btn"
@@ -203,8 +204,8 @@
                         android:layout_marginEnd="9.5dp"
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         android:src="@drawable/ic_location"
-                        android:tint="@color/white"
                         tools:ignore="MissingConstraints" />
                 </RelativeLayout>
 
@@ -216,7 +217,6 @@
                     android:text="@string/adresText"
                     android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_adres_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_adres_btn"
@@ -245,8 +245,8 @@
                         android:layout_marginEnd="9.5dp"
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         android:src="@drawable/ic_trophy"
-                        android:tint="@color/white"
                         tools:ignore="MissingConstraints" />
                 </RelativeLayout>
 
@@ -258,7 +258,6 @@
                     android:textAppearance="@style/customfontstyle"
                     android:text="@string/sporText"
                     android:textAllCaps="true"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_spor_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_spor_btn"
@@ -279,7 +278,6 @@
                     <ImageView
                         android:id="@+id/anaSayfaFilmDiziButonIamge"
                         android:src="@mipmap/film_icon"
-                        android:tint="@color/white"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_alignParentStart="true"
@@ -292,7 +290,8 @@
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
+                        tools:ignore="MissingConstraints"
+                        app:tint="@color/anaSayfaImageViewTintColor" />
                 </RelativeLayout>
 
                 <TextView
@@ -303,7 +302,6 @@
                     android:text="@string/filmDiziText"
                     android:textAllCaps="true"
                     android:textAppearance="@style/customfontstyle"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_filmDizi_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_filmDizi_btn"
@@ -334,8 +332,8 @@
                         android:layout_marginEnd="9.5dp"
                         android:layout_marginBottom="10dp"
                         android:scaleType="centerInside"
+                        app:tint="@color/anaSayfaImageViewTintColor"
                         android:src="@drawable/ic_teknoloji_svg"
-                        android:tint="@color/white"
                         tools:ignore="MissingConstraints" />
                 </RelativeLayout>
 
@@ -345,10 +343,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/teknolojiText"
-                            android:textAllCaps="true"
-                            android:textAppearance="@style/customfontstyle"
-                        android:textColor="@color/renkSiyah"
-                            android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/customfontstyle"
+                        android:textColor="@color/uygulamaYaziColor"
+                        android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                         app:layout_constraintEnd_toEndOf="@+id/anasayfa_tekno_btn"
                         app:layout_constraintStart_toStartOf="@+id/anasayfa_tekno_btn"
                         app:layout_constraintTop_toBottomOf="@+id/anasayfa_tekno_btn" />
@@ -379,7 +377,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_oyun_svg"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -391,7 +389,6 @@
                             android:text="@string/oyunText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_oyun_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_oyun_btn"
@@ -422,8 +419,8 @@
                                 android:layout_marginEnd="9.5dp"
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 android:src="@drawable/ic_saglik_svg"
-                                android:tint="@color/white"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -435,7 +432,6 @@
                             android:text="@string/saglikText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_saglik_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_saglik_btn"
@@ -467,7 +463,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_muzik_svg"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="ContentDescription,MissingConstraints" />
                         </RelativeLayout>
 
@@ -479,7 +475,6 @@
                             android:text="@string/muzikText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_muzik_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_muzik_btn"
@@ -511,7 +506,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_book"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -523,7 +518,6 @@
                             android:text="@string/egitimText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_egitim_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_egitim_btn"
@@ -555,7 +549,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_tarih_svg"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -567,7 +561,6 @@
                             android:text="@string/tarihText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_tarih_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_tarih_btn"
@@ -599,7 +592,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_moda_svg"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="ContentDescription,MissingConstraints" />
                         </RelativeLayout>
 
@@ -611,7 +604,6 @@
                             android:text="@string/modaText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_moda_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_moda_btn"
@@ -644,7 +636,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_auto_svg"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -656,7 +648,6 @@
                             android:text="@string/otoText"
                             android:textAllCaps="true"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_oto_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_oto_btn"
@@ -689,7 +680,7 @@
                                 android:layout_marginBottom="10dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/ic_engineer"
-                                android:tint="@color/white"
+                                app:tint="@color/anaSayfaImageViewTintColor"
                                 tools:ignore="MissingConstraints" />
                         </RelativeLayout>
 
@@ -700,7 +691,6 @@
                             android:layout_marginTop="8dp"
                             android:text="@string/yazilimText"
                             android:textAllCaps="true"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
                             android:textAppearance="@style/customfontstyle"
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_yazilim_btn"
@@ -710,19 +700,30 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </HorizontalScrollView>
-    </FrameLayout>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_marginTop="119dp"
+            android:background="@color/ayarlarGrisi"
+
+            />
+    </RelativeLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshAnasayfa"
         android:layout_below="@id/anaSayfaMenuFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         app:layout_constraintTop_toBottomOf="@+id/anaSayfaMenuFrameLayout"
         tools:ignore="MissingConstraints,NotSibling"
         tools:layout_editor_absoluteX="4dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSoruAlani"
             android:layout_width="match_parent"
+            android:background="@color/colorWhite"
             android:layout_height="match_parent"
            />
         <ProgressBar
@@ -733,23 +734,40 @@
             android:visibility="gone"
              />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </RelativeLayout>
-    </ScrollView>
 
-    <include layout="@layout/yorumlar_bottom_sheet" />
-
-    <TextView
-        android:id="@+id/recyclerViewSoruAlaniText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:text="Gösterilecek bir şey yok"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/soruAlaniContent"
         android:visibility="invisible"
-        android:textAppearance="@style/customfontstyle"
-        app:layout_anchor="@+id/filename_scroll"
-        app:layout_anchorGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/anaSayfaMenuFrameLayout">
+        <TextView
+            android:id="@+id/recyclerViewSoruAlaniText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/soruYokTxt"
+            android:textSize="21sp"
+            android:textAppearance="@style/customfontstyle"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewSoruAlaniText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_soru_ara" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
+    </ScrollView>
+    <include layout="@layout/yorumlar_bottom_sheet" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

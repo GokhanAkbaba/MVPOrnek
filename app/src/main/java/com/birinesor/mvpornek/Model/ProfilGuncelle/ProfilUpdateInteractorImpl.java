@@ -27,14 +27,26 @@ public class ProfilUpdateInteractorImpl implements ProfilUpdateInteractor {
             @Override
             public void run() {
                 if(TextUtils.isEmpty(kullaniciEposta)){
-                    listener.onGuncelleEPostaHatasi();
+                    listener.onGuncelleEPostaHatasi("E-posta Adresini Boş Bırakmayınız");
+                    return;
+                }
+                if(kullaniciEposta.trim().equals("")){
+                    listener.onGuncelleEPostaHatasi("E-posta Adresini Boş Bırakmayınız");
                     return;
                 }
                 if(TextUtils.isEmpty(kullaniciAdi)){
-                    listener.onGuncelleKullaniciAdiHatasi();
+                    listener.onGuncelleKullaniciAdiHatasi("Kullanıcı Adını Boş Bırakmayınız");
+                    return;
+                }
+                if(kullaniciAdi.trim().equals("")){
+                    listener.onGuncelleKullaniciAdiHatasi("Kullanıcı Adını Boş Bırakmayınız");
                     return;
                 }
                 if(TextUtils.isEmpty(adSoyad)){
+                    listener.onGuncelleKullaniciAdSoyad();
+                    return;
+                }
+                if(adSoyad.trim().equals("")){
                     listener.onGuncelleKullaniciAdSoyad();
                     return;
                 }
@@ -49,9 +61,19 @@ public class ProfilUpdateInteractorImpl implements ProfilUpdateInteractor {
                         KullaniciResponse kullaniciResponse=response.body();
                         if (response.isSuccessful() && response.body() !=null)
                         {
-                            SharedPrefManager.getInstance(context)
-                                    .kullaniciKayit(kullaniciResponse.getKullanici());
-                            listener.onSuccess();
+                            int hata=response.body().getCode();
+                            if(hata==156)
+                            {
+                                listener.onGuncelleEPostaHatasi(response.body().getMessage());
+
+                            }else if(hata==155){
+                                listener.onGuncelleKullaniciAdiHatasi(response.body().getMessage());
+                            }else if(hata==104)
+                            {
+                                SharedPrefManager.getInstance(context)
+                                        .kullaniciKayit(kullaniciResponse.getKullanici());
+                                listener.onSuccess();
+                            }
 
                         }
                         else

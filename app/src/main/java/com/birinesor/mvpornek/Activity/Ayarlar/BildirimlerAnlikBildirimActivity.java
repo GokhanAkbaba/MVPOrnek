@@ -1,13 +1,18 @@
 package com.birinesor.mvpornek.Activity.Ayarlar;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.birinesor.mvpornek.Degiskenler;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.IlgiAlanlariGetirModel;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Presenter.IlgiAlaniKayitPresenterImpl;
@@ -19,7 +24,7 @@ import com.birinesor.mvpornek.View.IlgiAlanıKayitView;
 
 import java.util.List;
 
-public class BildirimlerAnlikBildirimActivity extends Activity implements View.OnClickListener, IlgiAlanlariGetirView, IlgiAlanıKayitView {
+public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implements View.OnClickListener, IlgiAlanlariGetirView, IlgiAlanıKayitView {
     List<IlgiAlanlariGetirModel> data;
     IlgiAlanlariPresenterImpl ilgiAlanlariPresenter;
     IlgiAlaniKayitPresenterImpl ilgiAlaniKayitPresenter;
@@ -28,6 +33,21 @@ public class BildirimlerAnlikBildirimActivity extends Activity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.activity_bildirimler_anlik_bildirim);
         Button bildirimIlgiAlaniGeriBtn=findViewById(R.id.bildirimIlgiAlaniGeriBtn);
         switchAdres=findViewById(R.id.switchAdres);

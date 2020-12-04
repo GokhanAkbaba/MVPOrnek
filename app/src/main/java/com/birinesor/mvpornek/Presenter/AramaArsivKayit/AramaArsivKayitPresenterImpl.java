@@ -1,7 +1,6 @@
 package com.birinesor.mvpornek.Presenter.AramaArsivKayit;
 
 import com.birinesor.mvpornek.Response.AramaArsivKayitResponse;
-import com.birinesor.mvpornek.View.AramaArsivKayitView;
 import com.birinesor.mvpornek.WebService.RetrofitClientInstance;
 
 import retrofit2.Call;

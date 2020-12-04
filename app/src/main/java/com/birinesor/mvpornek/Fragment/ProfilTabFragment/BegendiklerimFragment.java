@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.birinesor.mvpornek.Adapter.AdapterProfilLikes;
@@ -30,8 +31,10 @@ import java.util.List;
 
 public class BegendiklerimFragment extends Fragment implements ProfilLikeView,LikesView {
 
+    private int mParam1;
     private static final String ARG_PARAM1 = "param1";
     RecyclerView profilBegendiklerimRecyclerView;
+    RelativeLayout profilBegendiklerimAlaniContent;
     List<LikesModel> likesModels;
     LikesPresenterImpl likesPresenter;
     AdapterProfilLikes adapterProfilLikes;
@@ -43,13 +46,10 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
     SwipeRefreshLayout swipeRefreshLayout;
 
 
-    private int mParam1;
-
 
     public BegendiklerimFragment() {
 
     }
-
 
     public static BegendiklerimFragment newInstance(int param1) {
         BegendiklerimFragment fragment = new BegendiklerimFragment();
@@ -78,6 +78,7 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
         swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
         recyclerViewProfilBegendiklerimText=view.findViewById(R.id.recyclerViewProfilBegendiklerimText);
         profilBegendiklerimRecyclerView=view.findViewById(R.id.profilBegendiklerimRecyclerView);
+        profilBegendiklerimAlaniContent=view.findViewById(R.id.profilBegendiklerimAlaniContent);
         profilBegendiklerimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         profilBegendiklerimRecyclerView.setAdapter(adapterProfilLikes);
         likesPresenter=new LikesPresenterImpl(this);
@@ -120,6 +121,7 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
         adapterProfilLikes= new AdapterProfilLikes(data,getActivity(),itemClickListener);
         adapterProfilLikes.notifyDataSetChanged();
         profilBegendiklerimRecyclerView.setAdapter(adapterProfilLikes);
+        profilBegendiklerimAlaniContent.setVisibility(View.INVISIBLE);
         likesModels=data;
     }
 
@@ -130,7 +132,7 @@ public class BegendiklerimFragment extends Fragment implements ProfilLikeView,Li
 
     @Override
     public void onGetResultControl() {
-        recyclerViewProfilBegendiklerimText.setVisibility(View.VISIBLE);
+        profilBegendiklerimAlaniContent.setVisibility(View.VISIBLE);
     }
 
     @Override

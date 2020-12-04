@@ -16,7 +16,7 @@
         android:title="" />
     <item
         android:id="@+id/profilItem"
-        android:icon="@drawable/ic_user_svg"
+        android:icon="@drawable/ic_user__1_"
         android:title="" />
     <item
         android:id="@+id/ayarlarItem"

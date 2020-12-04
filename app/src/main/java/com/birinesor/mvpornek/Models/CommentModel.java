@@ -28,6 +28,13 @@ public class CommentModel {
     @SerializedName("kim_begendi")
     @Expose
     private int kimBegendi;
+    @SerializedName("ad_soyad")
+    @Expose
+    private String ad_soyad;
+
+    public String getAd_soyad() {
+        return ad_soyad;
+    }
 
     public int getKimBegendi() {
         return kimBegendi;

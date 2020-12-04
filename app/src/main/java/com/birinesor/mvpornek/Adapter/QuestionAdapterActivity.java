@@ -168,6 +168,9 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             long now = new Date().getTime();
 
             long seconds = (now - then) / 1000;
+            if(seconds < 0){
+                seconds=seconds*-1;
+            }
             long minutes = seconds / 60;
             long hours = minutes / 60;
             long days = hours / 24;

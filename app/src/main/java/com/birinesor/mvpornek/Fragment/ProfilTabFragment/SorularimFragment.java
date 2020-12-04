@@ -13,6 +13,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
     QuestionsDeletePresenterImpl questionsDeletePresenter;
     Boolean checkSoruAlani=false;
     Kullanici kullanici;
+    RelativeLayout sorularimContent;
 
     private int mParam1;
 
@@ -87,7 +89,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         profilSorularimRecyclerView.setAdapter(adapterProfilQuestion);
         profilSorularimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         profilSorularimRecyclerView.setOnClickListener(this);
-
+        sorularimContent=view.findViewById(R.id.profilSorularimAlaniContent);
         itemClickListener =((vw,position)-> {
             int soruId=questionModels.get(position).getId();
             int soruSoranKullaniciID=questionModels.get(position).getKullaniciId();
@@ -143,6 +145,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
         adapterProfilQuestion= new AdapterProfilQuestion(data,getActivity(),itemClickListener,itemLongClickListener);
         adapterProfilQuestion.notifyDataSetChanged();
         profilSorularimRecyclerView.setAdapter(adapterProfilQuestion);
+        sorularimContent.setVisibility(View.INVISIBLE);
         questionModels=data;
     }
 
@@ -153,7 +156,7 @@ public class SorularimFragment extends Fragment implements ProfilQuestionView,Vi
 
     @Override
     public void onGetResultControl() {
-        recyclerViewProfilSorularimText.setVisibility(View.VISIBLE);
+        sorularimContent.setVisibility(View.VISIBLE);
     }
 
     @Override

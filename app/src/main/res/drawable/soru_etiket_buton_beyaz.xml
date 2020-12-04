@@ -6,7 +6,7 @@
         android:bottomRightRadius="50dp"
         />
     <solid android:color="@color/profilSekmeBeyaz"/>
-    <stroke android:color="@color/uygulamaMavisi" android:width="1dp"/>
+    <stroke android:color="@color/ayarlarMavisi" android:width="1dp"/>
     <padding
         android:left="0dp"
         android:top="0dp"

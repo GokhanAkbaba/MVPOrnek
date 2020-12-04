@@ -58,6 +58,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     private static final int Moda = 16;
     private static final int Oto = 17;
 
+    public Boolean internetKontrol=false;
+
 
 
 
@@ -92,6 +94,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     TextView textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,soruAlaniTextView;
     TextView teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt;
 
+    ConstraintLayout soruAlaniLayoutContent;
 
     
     public HomeFragment() {
@@ -108,13 +111,11 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         super.onCreate(savedInstanceState);
         kullanici= SharedPrefManager.getInstance(getActivity()).getKullanici();
         questionPresenter = new QuestionPresenterImpl(this);
-        questionPresenter.loadData(kullanici.getId());
-
         questionMenuPresenter=new QuestionMenuPresenterImpl(this);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
         questionsDeletePresenter=new QuestionsDeletePresenterImpl(this);
 
-
+        internetConnectionPresenter.internetBaglantiKontrolu();
         itemClickListener =((vw,position)-> {
                     int soruId=questionModels.get(position).getId();
                     int soruSoranKullaniciId=questionModels.get(position).getKullaniciId();
@@ -166,6 +167,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         textViewTatil=view.findViewById(R.id.tatilAnaSayfaTxt);
         textViewYemek=view.findViewById(R.id.yemekAnaSayfaTxt);
         soruAlaniTextView=view.findViewById(R.id.recyclerViewSoruAlaniText);
+        soruAlaniLayoutContent=view.findViewById(R.id.soruAlaniContent);
         progressBarAnaSayfa=getActivity().findViewById(R.id.progressBarAnaSayfa);
 
         filmDiziButon=view.findViewById(R.id.anasayfa_filmDizi_btn);
@@ -213,16 +215,19 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         modaAnaSayfaTxt=view.findViewById(R.id.modaAnaSayfaTxt);
         otoAnaSayfaTxt=view.findViewById(R.id.otoAnaSayfaTxt);
         yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
-
+        swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
 
         swipeRefreshLayout.setOnRefreshListener(() -> {
             if(refreshControl==0 || refreshControl==-1){
                 internetConnectionPresenter.internetBaglantiKontrolu();
-                questionPresenter.loadData(kullanici.getId());
+                if(internetKontrol){
+                    questionPresenter.loadData(kullanici.getId());
+                }
             }else if (refreshControl != -1){
-
                 internetConnectionPresenter.internetBaglantiKontrolu();
-                questionMenuPresenter.loadData(refreshControl);
+                if(internetKontrol){
+                    questionMenuPresenter.loadData(refreshControl);
+                }
             }
         });
 
@@ -249,39 +254,53 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_alisveris_btn:
                 if(!checkAlisverisEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAlisverisButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Alisveris);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Alisveris);
+                        refreshControl=Alisveris;
+                    }
                     checkAlisverisEtiket = true;
-                    refreshControl=Alisveris;
+
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAlisverisButonIamge.setImageResource(R.drawable.ic_alisveris);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                        refreshControl=-1;
+                    }
                     checkAlisverisEtiket=false;
-                    refreshControl=-1;
+
                 }
                 break;
             case R.id.anasayfa_yemek_btn:
                 if(!checkYemekEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYemekButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Yemek);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Yemek);
+                    }
                     checkYemekEtiket = true;
                     refreshControl=Yemek;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYemekButonIamge.setImageResource(R.drawable.ic_yemek);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkYemekEtiket=false;
                     refreshControl=-1;
                 }
@@ -289,19 +308,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_tatil_btn:
                 if(!checkTatilEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTatilButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Tatil);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Tatil);
+                    }
                     checkTatilEtiket = true;
                     refreshControl=Tatil;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTatilButonIamge.setImageResource(R.drawable.ic_tatil);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkTatilEtiket=false;
                     refreshControl=-1;
                 }
@@ -309,19 +334,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_adres_btn:
                 if(!checkAdresEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAdresButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon);
                     anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Adres);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Adres);
+                    }
                     checkAdresEtiket = true;
                     refreshControl=Adres;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAdresButonIamge.setImageResource(R.drawable.ic_location);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon);
                     anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkAdresEtiket=false;
                     refreshControl=-1;
                 }
@@ -329,19 +360,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_spor_btn:
                 if(!checkSporEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSporButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon);
                     anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Spor);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Spor);
+                    }
                     checkSporEtiket = true;
                     refreshControl=Spor;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSporButonIamge.setImageResource(R.drawable.ic_trophy);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon);
                     anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkSporEtiket=false;
                     refreshControl=-1;
                 }
@@ -349,19 +386,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_tekno_btn:
                 if(!checkTeknoEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTeknoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Teknoloji);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Teknoloji);
+                    }
                     checkTeknoEtiket = true;
                     refreshControl=Teknoloji;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTeknoButonIamge.setImageResource(R.drawable.ic_teknoloji_svg);
                     anaSayfaButonGoster(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkTeknoEtiket=false;
                     refreshControl=-1;
                 }
@@ -369,19 +412,26 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_filmDizi_btn:
                 if(!checkFilmDiziEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaFilmDiziButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(FilmDizi);
+
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(FilmDizi);
+                    }
                     checkFilmDiziEtiket = true;
                     refreshControl=FilmDizi;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaFilmDiziButonIamge.setImageDrawable(getActivity().getDrawable(R.mipmap.spor_icon));
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkFilmDiziEtiket=false;
                     refreshControl=-1;
                 }
@@ -389,19 +439,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_oyun_btn:
                 if(!checkOyunEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOyunButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Oyun);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Oyun);
+                    }
                     checkOyunEtiket = true;
                     refreshControl=Oyun;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOyunButonIamge.setImageResource(R.drawable.ic_oyun_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkOyunEtiket=false;
                     refreshControl=-1;
                 }
@@ -409,20 +465,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_saglik_btn:
                 if(!checkSaglikEtiket)
                 {
-
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSaglikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Saglik);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Saglik);
+                    }
                     checkSaglikEtiket = true;
                     refreshControl=Saglik;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSaglikButonIamge.setImageResource(R.drawable.ic_saglik_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkSaglikEtiket=false;
                     refreshControl=-1;
                 }
@@ -430,19 +491,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_muzik_btn:
                 if(!checkMuzikEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaMuzikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Muzik);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Muzik);
+                    }
                     checkMuzikEtiket = true;
                     refreshControl=Muzik;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaMuzikButonIamge.setImageResource(R.drawable.ic_muzik_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkMuzikEtiket=false;
                     refreshControl=-1;
                 }
@@ -450,19 +517,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_egitim_btn:
                 if(!checkEgitimEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaEgitimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Egitim);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Egitim);
+                    }
                     checkEgitimEtiket = true;
                     refreshControl=Egitim;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaEgitimButonIamge.setImageResource(R.drawable.ic_book);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkEgitimEtiket=false;
                     refreshControl=-1;
                 }
@@ -470,19 +543,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_tarih_btn:
                 if(!checkTarihEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTarihButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Tarih);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Tarih);
+                    }
                     checkTarihEtiket = true;
                     refreshControl=Tarih;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTarihButonIamge.setImageResource(R.drawable.ic_tarih_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkTarihEtiket=false;
                     refreshControl=-1;
                 }
@@ -490,19 +569,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_moda_btn:
                 if(!checkModaEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaModaButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Moda);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Moda);
+                    }
                     checkModaEtiket = true;
                     refreshControl=Moda;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaModaButonIamge.setImageResource(R.drawable.ic_moda_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkModaEtiket=false;
                     refreshControl=-1;
                 }
@@ -510,19 +595,25 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_oto_btn:
                 if(!checkOtoEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOtoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
-                    questionMenuPresenter.loadData(Oto);
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Oto);
+                    }
                     checkOtoEtiket = true;
                     refreshControl=Oto;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOtoButonIamge.setImageResource(R.drawable.ic_auto_svg);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkOtoEtiket=false;
                     refreshControl=-1;
                 }
@@ -530,19 +621,26 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             case R.id.anasayfa_yazilim_btn:
                 if(!checkYazilimEtiket)
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYazilimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
                     anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGizle(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
-                    questionMenuPresenter.loadData(Yazilim);
+
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Yazilim);
+                    }
                     checkYazilimEtiket = true;
                     refreshControl=Yazilim;
                 }
                 else
                 {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYazilimButonIamge.setImageResource(R.drawable.ic_engineer);
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
                     anaSayfaTextRenkGoster(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
-                    questionPresenter.loadData(kullanici.getId());
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
                     checkYazilimEtiket=false;
                     refreshControl=-1;
                 }
@@ -587,7 +685,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     }
 
     public void anaSayfaTextRenkGizle(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15){
-        textView1.setTextColor(getResources().getColor(R.color.renkSiyah));
+        textView1.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView2.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
         textView3.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
         textView4.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
@@ -605,21 +703,21 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     }
     public void anaSayfaTextRenkGoster(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15){
-        textView1.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView2.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView3.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView4.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView5.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView6.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView7.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView8.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView9.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView10.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView11.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView12.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView13.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView14.setTextColor(getResources().getColor(R.color.renkSiyah));
-        textView15.setTextColor(getResources().getColor(R.color.renkSiyah));
+        textView1.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView2.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView3.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView4.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView5.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView6.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView7.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView8.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView9.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView10.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView11.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView12.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView13.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView14.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView15.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
 
     }
 
@@ -635,7 +733,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         questionAdapterActivity.notifyDataSetChanged();
         recyclerViewSoruAlani.setAdapter(questionAdapterActivity);
         questionModels=data;
-        soruAlaniTextView.setVisibility(View.INVISIBLE);
+        soruAlaniLayoutContent.setVisibility(View.INVISIBLE);
         HomeActivity.getInstance().init(View.INVISIBLE);
     }
 
@@ -658,22 +756,29 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     @Override
     public void onGetQuestionResultControl(String string) {
-        soruAlaniTextView.setVisibility(View.VISIBLE);
-        soruAlaniTextView.setText(string);
+        soruAlaniLayoutContent.setVisibility(View.VISIBLE);
     }
     @Override
     public void onGetResultControl() {
-        soruAlaniTextView.setVisibility(View.VISIBLE);
+        soruAlaniLayoutContent.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void internetBaglantiHatasi() {
         Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
+        internetKontrol=false;
+        hideLoading();
     }
 
     @Override
     public void internetBaglantisi() {
-       ////
+        if(refreshControl==0 || refreshControl==-1){
+                questionPresenter.loadData(kullanici.getId());
+
+        }else if (refreshControl != -1){
+            questionMenuPresenter.loadData(refreshControl);
+        }
+        internetKontrol=true;
     }
 
     @Override

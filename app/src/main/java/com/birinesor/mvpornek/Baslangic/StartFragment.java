@@ -1,7 +1,10 @@
 package com.birinesor.mvpornek.Baslangic;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -51,7 +54,9 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_baslangic1, container, false);
-
+        if (Build.VERSION.SDK_INT >= 27) {
+            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         hesapOlustur=view.findViewById(R.id.hesapOlusturBtn);
         hesapOlustur.setOnClickListener(this);
 
@@ -59,10 +64,11 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         girisYapSecenek.setOnClickListener(this);
 
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
         return view;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
 

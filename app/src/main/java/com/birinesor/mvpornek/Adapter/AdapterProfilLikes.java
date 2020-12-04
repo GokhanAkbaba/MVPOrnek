@@ -1,5 +1,6 @@
 package com.birinesor.mvpornek.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -99,6 +100,7 @@ public class AdapterProfilLikes extends RecyclerView.Adapter<AdapterProfilLikes.
             sorularIcerikLayout.setOnClickListener(this::onClick);
         }
 
+        @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View view) {
             switch (view.getId()){

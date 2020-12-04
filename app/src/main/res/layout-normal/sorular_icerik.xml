@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
@@ -14,12 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorWhite"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/sorularIcerikLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
             <RelativeLayout
@@ -135,8 +138,8 @@
 
             <View
                 android:id="@+id/divider3"
-                android:layout_width="453dp"
-                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
                 android:layout_marginTop="13dp"
                 android:background="@color/ayarlarGrisi"
                 android:layout_below="@+id/yorumSayisiTxt"

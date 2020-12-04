@@ -54,9 +54,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
         String kullaniciAdi=commentModel.getKullaniciAdi();
         String kullaniciProfilResmi=commentModel.getProfilFoto();
         String begeniSayisi=commentModel.getBegeniSayisi();
+        String adSoyad=commentModel.getAd_soyad();
         holder.yorum.setText(yorum);
         holder.kullaniciAdi.setText("@"+kullaniciAdi);
         holder.begeniSayisi.setText(begeniSayisi);
+        holder.adSoyad.setText(adSoyad);
         GlideApp.with(context).load(kullaniciProfilResmi).apply( new RequestOptions().centerCrop()).into(holder.profilResmi);
         Kullanici kullanici= SharedPrefManager.getInstance(context).getKullanici();
         if(commentModel.getKimBegendi()==kullanici.getId()){
@@ -79,7 +81,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
         ItemClickListener begeniClickListener;
         ImageView profilResmi;
         ImageView begeniButonu;
-        TextView kullaniciAdi,yorum,begeniSayisi;
+        TextView kullaniciAdi,yorum,begeniSayisi,adSoyad;
         ConstraintLayout yorumlarIcerik;
         RecyclerViewAdapter(View itemView, ItemClickListener itemClickListener,ItemClickListener begeniClickListener){
             super(itemView);
@@ -90,8 +92,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
             begeniSayisi=itemView.findViewById(R.id.begeniSayisiTxt);
             profilResmi=itemView.findViewById(R.id.roundedKullaniciResmi);
             yorumlarIcerik=itemView.findViewById(R.id.yorumlarIcerikLayout);
+            adSoyad=itemView.findViewById(R.id.yorumAdSoyad);
             begeniButonu=itemView.findViewById(R.id.imageButton);
             begeniButonu.setOnClickListener(this::onClick);
+            adSoyad.setOnClickListener(this);
             yorumlarIcerik.setOnLongClickListener(this::onLongClick);
 
 

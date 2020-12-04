@@ -145,6 +145,7 @@
                 tools:ignore="MissingConstraints,NotSibling">
 
                 <RelativeLayout
+                    android:id="@+id/yirmiDortSaatBildirimButonIc"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"

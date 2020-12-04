@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,6 +22,7 @@
             android:id="@+id/sorularIcerikLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
 
@@ -53,7 +56,6 @@
                 android:layout_marginTop="19dp"
                 android:textAppearance="@style/customfontstyle"
                 android:text="Gökhan AKBABA"
-                android:textColor="#000"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/kullaniciResmi"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +93,6 @@
                 android:textAppearance="@style/customfontstyle"
                 android:text="@string/denemeSoru1Txt"
                 android:textAlignment="gravity"
-                android:textColor="#000"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,8 +118,7 @@
                 android:clickable="true"
                 android:src="@mipmap/guven_oyu"
                 android:tag="seçilmedi"
-                android:tint="@color/ayarlarGrisi"
-                />
+                app:tint="@color/ayarlarGrisi" />
 
             <TextView
                 android:id="@+id/yorumCevapBegeniSayisiTxt"

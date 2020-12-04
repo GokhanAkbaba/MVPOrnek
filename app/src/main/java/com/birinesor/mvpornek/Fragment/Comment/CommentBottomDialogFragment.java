@@ -146,11 +146,11 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
 
         itemClickListener =((vw,position)-> {
             ConstraintLayout yorumlarIcerik=vw.findViewById(R.id.yorumlarIcerikLayout);
-            if(checkYorumAlani == false) {
-                yorumlarIcerik.setBackgroundColor(getResources().getColor(R.color.colorGrayPrimay));
-                checkYorumAlani = true;
-            }
             if(kullanici.getId()==commentModels.get(position).getKullaniciId()) {
+                if(!checkYorumAlani) {
+                    yorumlarIcerik.setBackgroundColor(getResources().getColor(R.color.colorGrayPrimay));
+                    checkYorumAlani = true;
+                }
                 final CharSequence[] items = {"Kopyala", "Sil"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -164,13 +164,10 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
                     }
                 });
 
-                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        if(checkYorumAlani == true) {
-                            yorumlarIcerik.setBackgroundColor(getResources().getColor(R.color.white));
-                            checkYorumAlani=false;
-                        }
+                builder.setOnDismissListener(dialogInterface -> {
+                    if(checkYorumAlani) {
+                        yorumlarIcerik.setBackgroundColor(getResources().getColor(R.color.white));
+                        checkYorumAlani=false;
                     }
                 });
 
@@ -254,7 +251,9 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
    @Override
     public void onGetLike(LikeModel items) {
         this.likeModel=items;
-       if(durum == "secilmedi"){
+       if(durum == "secilmedi") {
+           begeniSayisiTxt.setText(String.valueOf(likeModel.getBegeniSayisi()));
+       } else if(durum == "secildi"){
            begeniSayisiTxt.setText(String.valueOf(likeModel.getBegeniSayisi()));
        }
    }

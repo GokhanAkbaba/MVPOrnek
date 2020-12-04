@@ -85,7 +85,6 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ePostaTextInputLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="@dimen/kayitOlTextInputLayoutWidth400"
                         android:layout_height="@dimen/kayitOlTextInputLayoutHeight400"
                         android:layout_marginLeft="7dp"

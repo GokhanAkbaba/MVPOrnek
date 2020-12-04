@@ -78,13 +78,12 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ePostaTextInputLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginTop="45dp"
-                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
                     android:paddingTop="0dp"
                     android:textColorHint="@color/colorGreyPrimary"
                     app:boxStrokeColor="@color/uygulamaMavisi"
@@ -110,7 +109,6 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/sifreTextInputLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"

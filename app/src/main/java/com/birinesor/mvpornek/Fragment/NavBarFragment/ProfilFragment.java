@@ -154,12 +154,16 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
     @Override
     public void onGetResult(KullaniciGetir kullaniciGetir) {
         this.kullaniciGetir=kullaniciGetir;
+        if(kullanici.getId() ==kullaniciGetir.getId()){
+            ayarlarButon.setVisibility(View.VISIBLE);
+        }else{
+            ayarlarButon.setVisibility(View.INVISIBLE);
+        }
         setTitle(kullaniciGetir.getAdSoyad());
         profilKullaniciAdSoyadTxt.setText(kullaniciGetir.getAdSoyad());
         profilKullaniciAdiTxt.setText("@"+kullaniciGetir.getKullaniciAdi());
         profilCevapSayi.setText(String.valueOf(kullaniciGetir.getCevapSayisi()));
         profilSoruSayisi.setText(String.valueOf(kullaniciGetir.getSoruSayisi()));
-
         GlideApp.with(getActivity()).load(kullaniciGetir.getProfilFoto()).apply(new RequestOptions().centerCrop()).into(profilRoundedImage);
     }
     @Override
@@ -173,7 +177,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         viewPagerAdapter.AddFragment(cevaplarim,"Cevaplarım");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabTextColors(getResources().getColor(R.color.uygulamaGrisi),getResources().getColor(R.color.uygulamaMavisi));
+
     }
 
     @Override

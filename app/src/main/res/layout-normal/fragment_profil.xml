@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@color/colorWhite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -11,11 +11,13 @@
         android:id="@+id/appbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:background="@color/colorWhite"
+        android:theme="@style/The">
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/profilCollapsing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             android:fitsSystemWindows="true"
             app:title="sdfsdfsdf"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways|snap"
@@ -26,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="55dp"
-                android:background="@color/white"
+                android:background="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -39,6 +41,7 @@
                     android:layout_marginLeft="35dp"
                     app:cardCornerRadius="15dp"
                     app:cardElevation="0dp"
+                    android:background="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -62,7 +65,6 @@
                     android:textAppearance="@style/customfontstyle"
                     android:textAlignment="viewEnd"
                     android:text="Gökhan Akbaba"
-                    android:textColor="@color/renkSiyah"
                     android:textSize="23sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -110,7 +112,6 @@
                             android:text="170"
                             android:textAlignment="center"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="19sp" />
 
                         <TextView
@@ -142,7 +143,6 @@
                             android:text="256"
                             android:textAlignment="center"
                             android:textAppearance="@style/customfontstyle"
-                            android:textColor="@color/renkSiyah"
                             android:textSize="19sp" />
 
                         <TextView
@@ -160,7 +160,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/profilToolbar"
-                android:background="@color/white"
+                android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/ThemeOverlay.AppCompat.Light"
@@ -175,7 +175,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginEnd="35dp"
-                        android:textColor="@color/renkSiyah"
                         android:textAppearance="@style/customfontstyle"
                         android:textStyle="bold"
                         android:textSize="19sp"
@@ -186,9 +185,11 @@
 
                     <ImageView
                         android:id="@+id/search_content_search_settings"
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:src="@mipmap/ayarlar_bar_icon"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_marginEnd="5dp"
+                        android:src="@drawable/ic_settings_svg"
+                        app:tint="@color/ayarlarMavisi"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.993"
@@ -201,23 +202,27 @@
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/profilTablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/uygulamaMavisi">
-        </com.google.android.material.tabs.TabLayout>
+            app:tabBackground="@color/colorWhite"
+            app:tabIndicatorColor="@color/uygulamaMavisi"
+            app:tabTextColor="@color/uygulamaMavisi"></com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
         android:id="@+id/profilNestedView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         android:overScrollMode="never"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         >
     </androidx.core.widget.NestedScrollView>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/profilViewPager"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

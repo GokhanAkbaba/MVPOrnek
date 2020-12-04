@@ -1,6 +1,7 @@
 package com.birinesor.mvpornek.Baslangic;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,7 +35,6 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
 
     private String mParam1;
     private String mParam2;
-    boolean iSecim;
     private InternetConnectionPresenter internetConnectionPresenter;
     Fragment fragment=null;
     boolean isLoged,deger;
@@ -69,6 +69,9 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_baslangic, container, false);
         getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
+        if (Build.VERSION.SDK_INT >= 27) {
+            getActivity().getWindow().setNavigationBarColor(getResources().getColor(R.color.uygulamaMavisiTwo));
+        }
         isLoged= SharedPrefManager.getInstance(getActivity()).isLoggedIn();
         kullanici=SharedPrefManager.getInstance(getActivity()).getKullanici();
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
@@ -101,40 +104,32 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
 
     @Override
     public void succesSelection() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(!isLoged){
-                    fragment=new StartFragment();
-                    loadFragment(fragment,"Start1");
-                }else{
-                    if(!deger){
-                            startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                    }else{
-                        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                    }
+        new Handler().postDelayed(() -> {
+            if(!isLoged){
+                fragment=new StartFragment();
+                loadFragment(fragment,"Start1");
+            }else{
+                if (deger) {
+                    Toast.makeText(getActivity(), "İnternet Bağlantınızı Kontrol Ediniz", Toast.LENGTH_LONG).show();
                 }
+                startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
             }
         },2500);
     }
 
     @Override
     public void failedSelection() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(!isLoged){
-                    fragment=new StartFragment();
-                    loadFragment(fragment,"Start1");
+        new Handler().postDelayed(() -> {
+            if(!isLoged){
+                fragment=new StartFragment();
+                loadFragment(fragment,"Start1");
+            }else{
+                if(!deger){
+                        fragment=new BeginingFragment();
+                        loadFragment(fragment,"BeginingFragment");
                 }else{
-                    if(!deger){
-                            fragment=new BeginingFragment();
-                            loadFragment(fragment,"BeginingFragment");
-                    }else{
-                        Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-                    }
+                    Toast.makeText(getActivity(),"İnternet Bağlantınızı Kontrol Ediniz",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
                 }
             }
         },2500);

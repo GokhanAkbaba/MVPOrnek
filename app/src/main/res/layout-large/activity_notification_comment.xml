@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".Activity.Notification.NotificationCommentActivity"
     tools:ignore="MissingDefaultResource">
 
@@ -11,6 +12,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,10 +38,19 @@
             android:id="@+id/notificationCommentRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/notificationCommentQuestionText"
-            android:layout_marginTop="4dp"
+            android:layout_below="@id/divider3"
+            android:background="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="453dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/ayarlarGrisi"
+            android:layout_below="@+id/notificationCommentQuestionText"
+            />
     </RelativeLayout>
 
 

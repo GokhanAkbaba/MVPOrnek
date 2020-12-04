@@ -5,25 +5,17 @@
     android:id="@+id/linearLayout15"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/notificationContentAppbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
 
-    <androidx.appcompat.widget.Toolbar
+    <RelativeLayout
         android:id="@+id/ayarlarToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_size"
-        android:background="@drawable/content_level_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
@@ -31,24 +23,21 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="35dp"
             android:textAppearance="@style/customfontstyle"
             android:text="@string/bildirimlerTxt"
-            android:textColor="@color/uygulamaMavisi"
-            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             android:textSize="21sp"
             />
 
-    </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+    </RelativeLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/bildirimlerViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="68dp"
+            android:layout_below="@+id/ayarlarToolbar"
             tools:ignore="MissingConstraints" >
 
         <com.google.android.material.tabs.TabLayout
@@ -57,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:background="@color/white"
+            android:background="@color/colorWhite"
             app:tabIndicatorColor="@color/uygulamaMavisi"
             android:layout_marginEnd="0dp">
 

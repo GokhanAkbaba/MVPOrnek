@@ -25,19 +25,19 @@ public class ProfilUpdatePresenterImpl implements ProfilUpdatePresenter,ProfilUp
     }
 
     @Override
-    public void onGuncelleEPostaHatasi() {
+    public void onGuncelleEPostaHatasi(String message) {
         if(profilUpdateView != null)
         {
-            profilUpdateView.setGuncelleEPostaAdiHatasi();
+            profilUpdateView.setGuncelleEPostaAdiHatasi(message);
             profilUpdateView.hideProgress();
         }
     }
 
     @Override
-    public void onGuncelleKullaniciAdiHatasi() {
+    public void onGuncelleKullaniciAdiHatasi(String message) {
         if(profilUpdateView != null)
         {
-            profilUpdateView.setGuncelleKullaniciAdiHatasi();
+            profilUpdateView.setGuncelleKullaniciAdiHatasi(message);
             profilUpdateView.hideProgress();
         }
 
@@ -67,6 +67,7 @@ public class ProfilUpdatePresenterImpl implements ProfilUpdatePresenter,ProfilUp
         {
             profilUpdateView.navigateToProfilUpdate();
             profilUpdateView.hideProgress();
+
         }
     }
 }

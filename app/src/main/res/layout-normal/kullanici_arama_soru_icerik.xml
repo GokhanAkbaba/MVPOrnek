@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,12 +20,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/aramaSorularIcerikLayout"
+            android:background="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="@color/colorWhite"
         android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
                 android:id="@+id/aramaKullaniciResmi"
@@ -104,7 +108,6 @@
                 android:layout_below="@+id/aramaSoruEtiket"
                 android:textAppearance="@style/customfontstyle"
                 android:text="@string/denemeSoru1Txt"
-                android:textColor="#000"
                 android:textSize="17sp" />
 
         <RelativeLayout

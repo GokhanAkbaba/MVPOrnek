@@ -2,5 +2,5 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <external-cache-path
         name="cache"
-        path="camera" />
+        path="/" />
 </paths>

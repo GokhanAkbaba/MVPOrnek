@@ -23,21 +23,21 @@ Context context;
     @Override
     public void Register(final String kullaniciAdi, final String adSoyad, final String sifre, final String sifreTekrar, final String ePosta, final onRegisterFinishedListener listener) {
 
-        if (TextUtils.isEmpty(adSoyad)) {
+        if (TextUtils.isEmpty(adSoyad) || adSoyad.trim().equals("")) {
             listener.onAdSoyadHatasi();
             return;
         }else{
             listener.onAdSoyadOnay();
         }
 
-        if (TextUtils.isEmpty(kullaniciAdi)) {
+        if (TextUtils.isEmpty(kullaniciAdi)  || kullaniciAdi.trim().equals("")) {
             listener.onKullaniciAdiHatasi("Kullanıcı Adı Boş Bırakmayınız");
             return;
         }else{
             listener.onKullaniciAdiOnay();
         }
 
-        if (TextUtils.isEmpty(sifre)) {
+        if (TextUtils.isEmpty(sifre) || sifre.trim().equals("")) {
             listener.onSifreHatasi();
             return;
         }else{

@@ -7,85 +7,98 @@
     android:layout_height="450dp"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"
+    android:background="@color/colorWhite"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:ignore="MissingClass,MissingDefaultResource">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         tools:ignore="MissingConstraints">
-        <RelativeLayout
-            android:id="@+id/baslik"
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/baslik"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/yorumTxt"
+            android:textAppearance="@style/customfontstyle" />
 
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="@string/yorumTxt"
-                android:textAppearance="@style/customfontstyle" />
-
-            <ImageButton
-                android:id="@+id/bottomSheetCloseBtn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@mipmap/mavi_kapat_icon"
-                android:clickable="true"
-                android:focusable="true"
-                android:scaleType="center"
-                tools:ignore="MissingConstraints" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/bottomSheetCloseBtn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@mipmap/mavi_kapat_icon"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="center"
+            tools:ignore="MissingConstraints" />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/ayarlarGrisi"
+            android:layout_below="@+id/bottomSheetCloseBtn"
+            />
+    </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/yorumlarRecyclerView"
             android:layout_width="match_parent"
             android:layout_below="@+id/baslik"
+            android:background="@color/colorWhite"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             tools:ignore="MissingConstraints" />
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        tools:ignore="MissingConstraints">
         <RelativeLayout
+            android:id="@+id/yorumAlani"
+            android:background="@color/colorWhite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            tools:ignore="MissingConstraints">
-            <RelativeLayout
-                android:id="@+id/yorumAlani"
-                android:background="@color/colorWhite"
+            android:layout_height="50dp">
+
+            <View
+                android:id="@+id/divider8"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="0.5dp"
+                android:background="@color/colorGreyPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.016" />
 
-                <View
-                    android:id="@+id/divider8"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorGreyPrimary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.016" />
-
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_centerVertical="true"
-                    android:text="@string/yorumEkleyinTxt"
-                    android:textAppearance="@style/customfontstyle" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_centerVertical="true"
+                android:text="@string/yorumEkleyinTxt"
+                android:textAppearance="@style/customfontstyle" />
         </RelativeLayout>
+    </RelativeLayout>
     </RelativeLayout>
 
 

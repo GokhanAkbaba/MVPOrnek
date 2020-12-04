@@ -1,6 +1,8 @@
 package com.birinesor.mvpornek.Baslangic;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -80,6 +82,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         }
     }
 
+    @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -171,11 +174,15 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
 
             }
         });
-        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        if (Build.VERSION.SDK_INT >= 27) {
+            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorWhite));
+            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
         return view;
     }
 
+    @SuppressLint({"NonConstantResourceId", "UseCompatLoadingForDrawables"})
     @Override
     public void onClick(View view) {
 
@@ -187,36 +194,36 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 {
                     for(int i = 0; i < etiketList.size(); i++)
                     {
-                        if("Adres"==etiketList.get(i))
+                        if("Adres".equals(etiketList.get(i)))
                         {
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,1);
-                        }else if("Yemek"==etiketList.get(i)){
+                        }else if("Yemek".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,2);
-                        }else if("Spor"==etiketList.get(i)){
+                        }else if("Spor".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,3);
-                        }else if("Alışveriş"==etiketList.get(i)){
+                        }else if("Alışveriş".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,4);
-                        }else if("Tatil"==etiketList.get(i)){
+                        }else if("Tatil".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,5);
-                        }else if("Sanat"==etiketList.get(i)){
+                        }else if("Sanat".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,6);
-                        }else if("Yazilim"==etiketList.get(i)){
+                        }else if("Yazilim".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,7);
-                        }else if("Oto"==etiketList.get(i)){
+                        }else if("Oto".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,17);
-                        }else if("Tarih"==etiketList.get(i)){
+                        }else if("Tarih".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,15);
-                        }else if("Egitim"==etiketList.get(i)){
+                        }else if("Egitim".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,14);
-                        }else if("Moda"==etiketList.get(i)){
+                        }else if("Moda".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,16);
-                        }else if("Muzik"==etiketList.get(i)){
+                        }else if("Muzik".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,13);
-                        }else if("Teknoloji"==etiketList.get(i)){
+                        }else if("Teknoloji".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,10);
-                        }else if("Oyun"==etiketList.get(i)){
+                        }else if("Oyun".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,11);
-                        }else if("Saglik"==etiketList.get(i)){
+                        }else if("Saglik".equals(etiketList.get(i))){
                             beginingPresenter.validateOptions(kullaniciId,selectedIlPlaka,12);
                         }
                     }
@@ -227,7 +234,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 break;
             case R.id.yazilimEtiketButon:
 
-                if(checkYazilimEtiket == false)
+                if(!checkYazilimEtiket)
                 {
 
                     etiketList.add("Yazilim");
@@ -249,7 +256,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 break;
             case R.id.otoEtiketButon:
 
-                if(checkOtoEtiket == false)
+                if(!checkOtoEtiket)
                 {
 
                     etiketList.add("Oto");
@@ -271,7 +278,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 break;
             case R.id.tarihEtiketButon:
 
-                if(checkTarihEtiket == false)
+                if(!checkTarihEtiket)
                 {
 
                     etiketList.add("Tarih");
@@ -293,7 +300,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 break;
             case R.id.egitimEtiketButon:
 
-                if(checkEgitimEtiket == false)
+                if(!checkEgitimEtiket)
                 {
 
                     etiketList.add("Egitim");
@@ -315,7 +322,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 break;
             case R.id.modaEtiketButon:
 
-                if(checkModaEtiket == false)
+                if(!checkModaEtiket)
                 {
 
                     etiketList.add("Moda");
@@ -505,7 +512,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 }
                 break;
             case R.id.tatilEtiketButon:
-                if(checkTatilEtiket == false)
+                if(!checkTatilEtiket)
                 {
                     etiketList.add("Tatil");
                     tatil.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
@@ -523,7 +530,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 }
                 break;
             case R.id.sanatEtiketButon:
-                if(checkSanatEtiket == false)
+                if(!checkSanatEtiket)
                 {
                     etiketList.add("Sanat");
                     sanat.setBackground(getActivity().getDrawable(R.drawable.baslarkenetiketonaylibuton));
@@ -541,7 +548,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
                 }
                 break;
             case R.id.yirmiDortSaatBildirimButonIc:
-                if(checkYirmiDortBildirim == false)
+                if(!checkYirmiDortBildirim)
                 {
                     yrmDrtBildirim.setBackground(getActivity().getDrawable(R.drawable.baslarkenilonaybuton));
                     yirmiDortSaatImage.setImageResource(R.mipmap.onay_icon);
@@ -561,7 +568,6 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
     @Override
     public void navigateToHome() {
         startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
-        Toast.makeText(getActivity(),"Seçim İşleminiz Başarılı",Toast.LENGTH_SHORT).show();
     }
 
     @Override

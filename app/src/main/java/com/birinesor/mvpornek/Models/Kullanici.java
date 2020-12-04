@@ -30,6 +30,7 @@ public class Kullanici {
     private String kullaniciEposta;
 
 
+
     public Kullanici(int id, String adSoyad, String kullaniciAdi, String kullaniciSifre, String salt, String kapakFoto, String profilFoto, String kullaniciEposta) {
         this.id = id;
         this.adSoyad = adSoyad;
@@ -41,6 +42,8 @@ public class Kullanici {
         this.kullaniciEposta = kullaniciEposta;
 
     }
+
+
 
     public int getId() {
         return id;

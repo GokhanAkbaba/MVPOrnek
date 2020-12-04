@@ -27,15 +27,24 @@ public class PasswordUpdateInteractorImpl implements PasswordUpdateInteractor {
                 if(TextUtils.isEmpty(mevcutSifre)){
                     listener.onGuncelleMevcutSifreHatasi("Mevcut Şifre Boş Bırakmayınız");
                     return;
+                }else if(mevcutSifre.trim().equals("")){
+                    listener.onGuncelleMevcutSifreHatasi("Mevcut Şifre Boş Bırakmayınız");
+                    return;
                 }
                 if(TextUtils.isEmpty(yeniSifre)){
+                    listener.onGuncelleYeniSifreHatasi();
+                    return;
+                }else if(yeniSifre.trim().equals("")){
                     listener.onGuncelleYeniSifreHatasi();
                     return;
                 }
                 if(TextUtils.isEmpty(yeniTekrarSifre)){
                     listener.onGuncelleYeniTekrarSifreHatasi();
                     return;
-                }
+                }else if(yeniTekrarSifre.trim().equals("")){
+                    listener.onGuncelleYeniTekrarSifreHatasi();
+                return;
+            }
                 if (!TextUtils.equals(yeniSifre, yeniTekrarSifre)) {
                     listener.GuncelleYeniSifreKontrolHatasi();
                     return;

@@ -1,17 +1,29 @@
 package com.birinesor.mvpornek.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +43,7 @@ import com.birinesor.mvpornek.Fragment.NavBarFragment.HomeFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.SearchFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.SettingsFragment;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
 import com.birinesor.mvpornek.Model.SoruKayit.QuestionRegistrationInteractorImpl;
@@ -56,14 +69,18 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Objects;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends FragmentActivity implements View.OnClickListener, TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
@@ -108,13 +125,30 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     Boolean checkIl64Etiket=false,checkIl65Etiket=false,checkIl66Etiket=false,checkIl67Etiket=false,checkIl68Etiket=false,checkIl69Etiket=false,checkIl70Etiket=false;
     Boolean checkIl71Etiket=false,checkIl72Etiket=false,checkIl73Etiket=false,checkIl74Etiket=false,checkIl75Etiket=false,checkIl76Etiket=false,checkIl77Etiket=false;
     Boolean checkIl78Etiket=false,checkIl79Etiket=false,checkIl80Etiket=false,checkIl81Etiket=false;
+
     public static HomeActivity getInstance() {
         return instance;
     }
 
+    @SuppressLint("HardwareIds")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.ana_sayfa);
         instance=this;
         bildirimFonksiyonları=new BildirimFonksiyonları(this);
@@ -183,6 +217,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         if(task.isSuccessful()){
                             kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
                             tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
+                            System.out.println("GÖKHAN "+task.getResult().getToken());
                         }
                         else{
                             System.out.println("İşlem Başarısız");
@@ -199,6 +234,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
 
     }
+
     protected void refreshBadgeView(int count){
         if(count != 0){
             boolean badgeIsVisible = notificationBadge.getVisibility() != VISIBLE;
@@ -220,7 +256,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
-   public void init(int value){
+    public void init(int value){
     progressBar.setVisibility(value);
     }
 

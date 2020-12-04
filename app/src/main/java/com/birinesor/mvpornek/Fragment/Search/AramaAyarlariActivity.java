@@ -1,7 +1,10 @@
 package com.birinesor.mvpornek.Fragment.Search;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +15,7 @@ import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariGetir.AramaAyarlariGeti
 import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariGetir.AramaAyarlariGetirModel;
 import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariGetir.AramaAyarlariGetirView;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.SearchFragment;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
@@ -21,7 +25,7 @@ import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariView;
 
 import java.util.List;
 
-public class AramaAyarlariActivity extends FragmentActivity implements View.OnClickListener, AramaAyarlariView, AramaAyarlariGetirView {
+public class AramaAyarlariActivity extends AppCompatActivity implements View.OnClickListener, AramaAyarlariView, AramaAyarlariGetirView {
     Switch kisilestirmeSwitch;
     Switch konumSwitch;
     AramaAyarlariPresenterImpl aramaAyarlariPresenter;
@@ -33,6 +37,22 @@ public class AramaAyarlariActivity extends FragmentActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arama_ayarlari);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         kullanici= SharedPrefManager.getInstance(this).getKullanici();
         kisilestirmeSwitch=findViewById(R.id.kisilestirmeSwitch);
         konumSwitch=findViewById(R.id.konumSwitch);

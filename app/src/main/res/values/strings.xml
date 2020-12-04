@@ -62,6 +62,10 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="sifreTextInputHint">Şifre</string>
     <string name="sifreTekrarTextInputHint">Şifre Tekrar</string>
     <string name="aramaCubuguTxt">Birine Sor\'da Ara</string>
+    <string name="soruYokTxt">Bu Etiket Altında Sor Yok</string>
+    <string name="sorumYokTxt">Henüz Hiç Gönderi Yok</string>
+    <string name="cevabımYokTxt">Henüz Hiç Cevap Yok</string>
+    <string name="begeniYokTxt">Henüz Hiç Beğeni Yok</string>
     <string name="searchTabItemKullaniciTxt">Kullanıcılar</string>
     <string name="searchTabItemSorularTxt">Sorular</string>
     <string name="denemeSoru1Txt">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından güzel oteller hangi illerde.</string>

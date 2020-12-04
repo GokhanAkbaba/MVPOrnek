@@ -14,7 +14,7 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="12dp"
         android:background="@drawable/notification_red_dot"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:textSize="12sp"
         android:clickable="false"
         android:text="9\+" />

@@ -55,6 +55,7 @@ class NotificationCommentAndQuestionAdapter extends RecyclerView.Adapter<Notific
     int begeniSayisi=notificationCommetAndQuestionModel.getBegeniSayisi();
     String yorumZaman=notificationCommetAndQuestionModel.getCevapZaman();
     String yorumKullaniciResmi=notificationCommetAndQuestionModel.getProfilFoto();
+    String yorumAdSoyad=notificationCommetAndQuestionModel.getAdSoyad();
     SimpleDateFormat spf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date newDate= null;
         try {
@@ -65,6 +66,7 @@ class NotificationCommentAndQuestionAdapter extends RecyclerView.Adapter<Notific
         spf= new SimpleDateFormat("dd MMM yyyy HH:mm");
         yorumZaman = spf.format(newDate);
         holder.notificatioYorumKullaniciAdi.setText("@"+yorumKullaniniciAdi);
+        holder.notificatioYorumKullaniciAdSoyad.setText(yorumAdSoyad);
     holder.notificationYorumTxt.setText(yorumTxt);
     holder.notificationYorumZaman.setText(yorumZaman);
     holder.notificationYorumBegeniSayisiTxt.setText(String.valueOf(begeniSayisi));
@@ -88,7 +90,7 @@ class NotificationCommentAndQuestionAdapter extends RecyclerView.Adapter<Notific
 
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
         ItemClickListener itemClickListener;
-        TextView notificatioYorumKullaniciAdi,notificationYorumTxt,notificationYorumBegeniSayisiTxt,notificationYorumZaman;
+        TextView notificatioYorumKullaniciAdi,notificatioYorumKullaniciAdSoyad,notificationYorumTxt,notificationYorumBegeniSayisiTxt,notificationYorumZaman;
         ImageView notificationYorumBegeniButon,notificationYorumRoundedKullaniciResmi;
         RecyclerViewAdapter(View itemView, ItemClickListener itemClickListener) {
             super(itemView);
@@ -99,6 +101,7 @@ class NotificationCommentAndQuestionAdapter extends RecyclerView.Adapter<Notific
             notificationYorumZaman=itemView.findViewById(R.id.notificationYorumZaman);
             notificationYorumBegeniButon=itemView.findViewById(R.id.notificationYorumBegeniButon);
             notificationYorumRoundedKullaniciResmi=itemView.findViewById(R.id.notificationYorumRoundedKullaniciResmi);
+            notificatioYorumKullaniciAdSoyad=itemView.findViewById(R.id.notificatioYorumKullaniciAdSoyad);
             notificationYorumBegeniButon.setOnClickListener(this::onClick);
             notificationYorumRoundedKullaniciResmi.setOnClickListener(this::onClick);
             notificatioYorumKullaniciAdi.setOnClickListener(this::onClick);

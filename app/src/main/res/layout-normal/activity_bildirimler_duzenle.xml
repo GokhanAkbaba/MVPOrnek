@@ -4,11 +4,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:background="@color/colorWhite"
 tools:ignore="MissingDefaultResource"
 tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
 
 <RelativeLayout
     android:layout_width="match_parent"
+    android:background="@color/colorWhite"
     android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/bildirimDuzenleAppBar"
@@ -74,6 +76,7 @@ tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
                     android:id="@+id/relativeLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
                     android:layout_marginTop="8dp">
                     <TextView
                         android:id="@+id/textView1"
@@ -82,7 +85,6 @@ tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="120dp"
-                        android:textColor="@color/renkSiyah"
                         android:textStyle="bold"
                         android:textAppearance="@style/customfontstyle"
                         android:textSize="@dimen/bildirimlerTextTitleSize"
@@ -119,6 +121,7 @@ tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
                     android:layout_below="@+id/relativeLayout1"
                     android:layout_marginTop="8dp">
                     <TextView
@@ -128,7 +131,6 @@ tools:context=".Activity.Ayarlar.BildirimlerDuzenleActivity">
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="120dp"
-                        android:textColor="@color/renkSiyah"
                         android:textStyle="bold"
                         android:textAppearance="@style/customfontstyle"
                         android:textSize="@dimen/bildirimlerTextTitleSize"

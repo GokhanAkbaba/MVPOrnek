@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class CevaplarimFragment extends Fragment implements ProfilAnswersView,Li
     AdapterProfilAnswers.ItemClickListener itemClickListener;
     AdapterProfilAnswers.ItemClickListener cevabımSilClickListener;
     ProfilAnswersPresenterImpl profilAnswersPresenter;
+    RelativeLayout cevaplarimContent;
     Boolean checkSoruAlani=false;
     public static TextView begeniSayisiTxt;
     public Object durum;
@@ -83,6 +85,7 @@ public class CevaplarimFragment extends Fragment implements ProfilAnswersView,Li
         swipeRefreshLayout=view.findViewById(R.id.swiperefreshFragmentCevaplarim);
         swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
         cevaplarimRecyclerView=view.findViewById(R.id.profilCevaplarimRecyclerView);
+        cevaplarimContent=view.findViewById(R.id.profilCevaplarimAlaniContent);
         cevaplarimRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         cevaplarimRecyclerView.setAdapter(adapterProfilAnswers);
         likesPresenter=new LikesPresenterImpl(this);
@@ -145,7 +148,13 @@ public class CevaplarimFragment extends Fragment implements ProfilAnswersView,Li
         adapterProfilAnswers= new AdapterProfilAnswers(data,getActivity(),itemClickListener,cevabımSilClickListener);
         adapterProfilAnswers.notifyDataSetChanged();
         cevaplarimRecyclerView.setAdapter(adapterProfilAnswers);
+        cevaplarimContent.setVisibility(View.INVISIBLE);
         answersModels=data;
+    }
+
+    @Override
+    public void onGetResultControl() {
+        cevaplarimContent.setVisibility(View.VISIBLE);
     }
 
     @Override

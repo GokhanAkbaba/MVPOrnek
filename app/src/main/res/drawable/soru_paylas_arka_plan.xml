@@ -4,7 +4,7 @@
         android:topRightRadius="100dp"
         android:bottomLeftRadius="100dp"
         />
-    <solid android:color="@color/profilSekmeBeyaz"/>
+    <solid android:color="@color/colorWhite"/>
     <padding
         android:left="0dp"
         android:top="0dp"

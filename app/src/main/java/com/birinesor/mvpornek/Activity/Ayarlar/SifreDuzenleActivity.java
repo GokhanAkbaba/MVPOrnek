@@ -2,13 +2,18 @@ package com.birinesor.mvpornek.Activity.Ayarlar;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Model.SifreGuncelle.PasswordUpdateInteractorImpl;
 import com.birinesor.mvpornek.Presenter.PasswordUpdatePresenter;
@@ -18,7 +23,7 @@ import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.PasswordUpdate;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class SifreDuzenleActivity extends Activity implements PasswordUpdate, View.OnClickListener {
+public class SifreDuzenleActivity extends AppCompatActivity implements PasswordUpdate, View.OnClickListener {
     TextInputLayout ayarlarMevcutSifreInputLayout,ayarlarYeniSifreInputLayout,ayarlarYeniSifreTekrarInputLayout;
     Button sifreGuncelle,sifreGuncelleGeri;
     String mevcutSifreTxt,yeniSifreTxt,yeniTekrarSifreTxt;
@@ -28,6 +33,21 @@ public class SifreDuzenleActivity extends Activity implements PasswordUpdate, Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.ayarlar_sifre_duzenle);
         ayarlarMevcutSifreInputLayout=findViewById(R.id.ayarlarMevcutSifreTextField);
         ayarlarYeniSifreInputLayout=findViewById(R.id.ayarlarYeniSifreTextField);

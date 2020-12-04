@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BirineSor" parent="Theme.AppCompat.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/uygulamaMavisi</item>
+        <item name="colorPrimaryVariant">@color/uygulamaMavisi</item>
+        <item name="colorOnPrimary">@color/whiteStatus</item>
+        <item name="colorAccent">@color/uygulamaMavisi</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/uygulamaMavisi</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/whiteStatus</item>
+        <!-- Status bar color. -->
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
