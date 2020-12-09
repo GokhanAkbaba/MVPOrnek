@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary" tools:ignore="MissingDefaultResource">#3F51B5</color>
-    <color name="ayarlarGrisi">#DFE1E5</color>
+    <color name="ayarlarGrisi">#bdbdbd</color>
     <color name="textInputColor">#DFE1E5</color>
     <color name="menuArkaPlanColor">#FFFFFF</color>
-    <color name="uygulamaYaziColor">#FFFFFF</color>
+    <color name="uygulamaYaziColor">#bdbdbd</color>
+    <color name="soruPaylasYaziRenk">#191925</color>
     <color name="uygulamaGrisi">#191925</color>
     <color name="uygulamaMavisi">#4A5BEA</color>
-    <color name="ayarlarMavisi">#FFFFFF</color>
+    <color name="ayarlarMavisi">#bdbdbd</color>
     <color name="colorPrimaryDark">#383F9F</color>
     <color name="colorAccent">#FF5252</color>
     <color name="hesapSilTextColor">#f44336</color>
-    <color name="colorWhite">#000000</color>
+    <color name="colorWhite">#070c10</color>
     <color name="profilSekmeBeyaz">#FFFFFF</color>
     <color name="soruIsaretiCevaplanmamisRenk">#FEB30F</color>
     <color name="soruIsaretiCevaplanmisRenk">#04C66A</color>
@@ -51,7 +52,7 @@
     <color name="black">#000000</color>
     <color name="whiteStatus">#FFFFFF</color>
     <color name="switchArkaPlan">#FFFFFF</color>
-    <color name="anaSayfaImageViewTintColor">#FFFFFF</color>
+    <color name="anaSayfaImageViewTintColor">#bdbdbd</color>
 
 
 </resources>

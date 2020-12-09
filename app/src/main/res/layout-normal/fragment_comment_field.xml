@@ -35,6 +35,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_height="45dp"
                 android:paddingLeft="10dp"
+                android:hint="Bir yorum ekle..."
                 android:maxLength="250"
                 android:background="@android:color/white" />
             <ImageButton

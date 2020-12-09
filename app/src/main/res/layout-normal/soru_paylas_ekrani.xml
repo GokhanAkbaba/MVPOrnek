@@ -61,7 +61,7 @@
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="start|top"
                 android:hint="@string/uygulama_adi_buyuk"
-                android:textColor="@color/uygulamaYaziColor"
+                android:textColor="@color/soruPaylasYaziRenk"
                 android:inputType="textMultiLine"
                 android:maxLength="250"
                 android:paddingStart="5dp"

@@ -5,6 +5,7 @@
     <color name="textInputColor">#FFFFFF</color>
     <color name="menuArkaPlanColor">#d1c4e9</color>
     <color name="uygulamaYaziColor">#191925</color>
+    <color name="soruPaylasYaziRenk">#191925</color>
     <color name="uygulamaGrisi">#191925</color>
     <color name="uygulamaMavisi">#4A5BEA</color>
     <color name="ayarlarMavisi">#4A5BEA</color>

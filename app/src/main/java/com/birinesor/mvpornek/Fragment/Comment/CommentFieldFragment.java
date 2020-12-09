@@ -74,7 +74,6 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         View view=inflater.inflate(R.layout.fragment_comment_field, container, false);
         editText=view.findViewById(R.id.edt);
         editText.setOnClickListener(this);
-
         yorumGonderBtn=view.findViewById(R.id.yorumGonderBtn);
         yorumGonderBtn.setOnClickListener(this);
         yorumGonderBtn.setEnabled(false);

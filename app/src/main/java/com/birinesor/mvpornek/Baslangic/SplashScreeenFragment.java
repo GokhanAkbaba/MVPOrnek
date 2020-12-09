@@ -1,5 +1,6 @@
 package com.birinesor.mvpornek.Baslangic;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,8 @@ import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.InternetConnectionView;
 import com.birinesor.mvpornek.View.SelectionControl;
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 
 public class SplashScreeenFragment extends Fragment implements SelectionControl, InternetConnectionView {
@@ -63,6 +67,7 @@ public class SplashScreeenFragment extends Fragment implements SelectionControl,
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

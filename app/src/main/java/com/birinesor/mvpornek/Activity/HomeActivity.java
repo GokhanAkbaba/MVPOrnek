@@ -5,16 +5,19 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.app.AppCompatDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.wifi.WifiManager;
@@ -24,6 +27,7 @@ import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,6 +53,9 @@ import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionIn
 import com.birinesor.mvpornek.Model.SoruKayit.QuestionRegistrationInteractorImpl;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
+import com.birinesor.mvpornek.Presenter.IpKayit.IpKayit;
+import com.birinesor.mvpornek.Presenter.IpKayit.IpKayitPresenter;
+import com.birinesor.mvpornek.Presenter.IpKayit.IpKayitPresenterImpl;
 import com.birinesor.mvpornek.Presenter.QuestionRegistrationPresenter;
 import com.birinesor.mvpornek.Presenter.QuestionRegistrationPresenterImpl;
 import com.birinesor.mvpornek.Presenter.TokenCreate.TokenCreatePresenterImpl;
@@ -76,16 +83,19 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Objects;
 
+import okhttp3.internal.Util;
+
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener, TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity<IpKontol> extends AppCompatActivity implements View.OnClickListener, IpKayit,TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
     private static final String CHANNEL_NAME ="Birine_Sor";
     private static final String CHANNEL_DESC ="Birine_Sor_Notifications";
+    private static final String TAG ="BİRİNE SOR" ;
 
     BottomNavigationView bottomNavigationView;
 
@@ -93,9 +103,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     View layoutView;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
+    private IpKayitPresenter ipKayitPresenter;
     TokenCreatePresenterImpl tokenCreatePresenter;
     public static HomeActivity instance;
     int item;
+    int unicode = 0x1F60A;
     Kullanici kullanici;
     FloatingActionButton birineSorBtn;
     AlertDialog.Builder dialogBuilder;
@@ -130,6 +142,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return instance;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("HardwareIds")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,8 +164,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
         setContentView(R.layout.ana_sayfa);
         instance=this;
+        kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
         bildirimFonksiyonları=new BildirimFonksiyonları(this);
         tokenCreatePresenter=new TokenCreatePresenterImpl(this);
+        ipKayitPresenter=new IpKayitPresenterImpl(this);
+        ipKayitPresenter.createIP(kullanici.getId(),IpKontrol.getIPAddress(true),IpKontrol.getIPAddress(false),IpKontrol.getMACAddress("wlan0"),IpKontrol.getMACAddress("eth0"));
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         birineSorBtn=findViewById(R.id.soruPaylasimButon);
@@ -163,8 +179,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
-        /*AnalyticsApplication application = (AnalyticsApplication) getApplication();
-       Tracker mTracker = application.getDefaultTracker();*/
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -215,7 +230,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if(task.isSuccessful()){
-                            kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
                             tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
                             System.out.println("GÖKHAN "+task.getResult().getToken());
                         }
@@ -234,7 +248,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
     protected void refreshBadgeView(int count){
         if(count != 0){
             boolean badgeIsVisible = notificationBadge.getVisibility() != VISIBLE;
@@ -2072,12 +2085,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 otoEtiketBtn.setOnClickListener((View v) -> {
                         if(!checkOtoEtiket) {
-                            etiketList.add(16);
+                            etiketList.add(17);
                             otoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
                             otoEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                             checkOtoEtiket = true;
                         }else{
-                            etiketList.remove(Integer.valueOf(16));
+                            etiketList.remove(Integer.valueOf(17));
                             otoEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
                             otoEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
                             checkOtoEtiket=false;
@@ -2257,5 +2270,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void showTokenFailedMessage() {
         System.out.println("Token HATA");
+    }
+
+    @Override
+    public void showIpKayitSuccesMessage() {
+        System.out.println("Ip Kayıt Başarılı Bir Şekilde Oluştu");
+    }
+
+    @Override
+    public void showIpKayitFailedMessage() {
+        System.out.println("Ip Kayıt Oluşturulurken Hata Meydana Geldi");
     }
 }

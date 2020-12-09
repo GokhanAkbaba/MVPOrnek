@@ -213,6 +213,16 @@ public interface GetDataService {
             @Field("token") String token
     );
     @FormUrlEncoded
+    @POST("kullaniciIPKayit.php")
+    Call<TokenOlusturResponse> ipKayitOlustur(
+            @Field("kullanici_id") int kullaniciID,
+            @Field("ipV4")  String iPv4,
+            @Field("ipV6") String ipV6,
+            @Field("macAdres") String macAdress,
+            @Field("macAdres2") String macAdress2
+
+    );
+    @FormUrlEncoded
     @POST("aramaAyarlariKayit.php")
     Call<AramaAyarlariModel> aramaAyarlariKayit(
             @Field("kullanici_id") int kullaniciID,
