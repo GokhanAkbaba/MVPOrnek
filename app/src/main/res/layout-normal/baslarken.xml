@@ -90,7 +90,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView37"
                 tools:ignore="MissingConstraints">
 
-                <Spinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/ilAutoCompleteTextView"
                     android:layout_width="150dp"
                     android:layout_height="50dp"

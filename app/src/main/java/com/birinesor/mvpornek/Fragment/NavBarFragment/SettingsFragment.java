@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity;
+import com.birinesor.mvpornek.Activity.Ayarlar.KazancActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
 import com.birinesor.mvpornek.Activity.HomeActivity;
@@ -50,6 +51,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     RelativeLayout sifreRelativeDegistirLayout;
     RelativeLayout cikisRelativeLayout;
     RelativeLayout profilRelativeLayout;
+    RelativeLayout kazancRelativeLayout;
 
     TokenDeletePresenter tokenDeletePresenter;
     HesapSilPresenterImpl hesapSilPresenter;
@@ -96,6 +98,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         bildirimlerLayout.setOnClickListener(this);
         hesabiSilLayout=view.findViewById(R.id.hesabiSilLayout);
         hesabiSilLayout.setOnClickListener(this);
+        kazancRelativeLayout=view.findViewById(R.id.kazancLayout);
+        kazancRelativeLayout.setOnClickListener(this);
         Switch geceSwitch=view.findViewById(R.id.geceModuSwitch);
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         hesapSilPresenter=new HesapSilPresenterImpl(this);
@@ -138,6 +142,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.bildirimlerLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), BildirimlerDuzenleActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
+            case R.id.kazancLayout:
+                startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.hesabiSilLayout:

@@ -22,6 +22,7 @@ public class IntroActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_activity);
+
        if (InitApplication.getInstance(this).isNightModeEnabled()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             getWindow().setStatusBarColor(getResources().getColor(R.color.black));

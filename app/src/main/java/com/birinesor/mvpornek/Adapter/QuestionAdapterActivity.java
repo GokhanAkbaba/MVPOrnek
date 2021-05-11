@@ -1,6 +1,8 @@
 package com.birinesor.mvpornek.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.birinesor.mvpornek.Activity.Ayrıntılar.YorumAyrintiActivity;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
@@ -117,6 +120,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             soruId=itemView.findViewById(R.id.soruIdTxt);
             soruYorumIcon=itemView.findViewById(R.id.soruYorumIcon);
             sorularIcerik.setOnLongClickListener(this::onLongClick);
+            sorularIcerik.setOnClickListener(this);
             soruYorumIcon.setOnClickListener(this::onClick);
             adSoyad.setOnClickListener(this::onClick);
             profilResmi.setOnClickListener(this::onClick);
@@ -142,6 +146,13 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
                     break;
                 case R.id.soruYorumIcon:
                     itemClickListener.onItemClick(view,getAdapterPosition());
+                    break;
+                case R.id.sorularIcerikLayout:
+                    int soruID=questionModels.get(getAdapterPosition()).getId();
+                    Intent intent = new Intent(context, YorumAyrintiActivity.class);
+                    intent.putExtra("soruID", soruID);
+                    context.startActivity(intent);
+                    ((Activity) context).overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                     break;
             }
 

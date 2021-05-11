@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".Activity.Ayrıntılar.YorumAyrintiActivity"
     tools:ignore="MissingDefaultResource">
     <RelativeLayout
         android:id="@+id/yorumAyrintiRelativeLayout"
         android:layout_width="match_parent"
+        android:background="@color/colorWhite"
         android:layout_height="match_parent">
         <androidx.cardview.widget.CardView
             android:id="@+id/yorumAyrintiCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
@@ -22,9 +25,11 @@
                 android:id="@+id/yorumAyrintiSorularIcerikLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:background="@color/colorWhite"
+                >
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:background="@color/colorWhite"
                     android:layout_height="wrap_content"
                     >
                     <androidx.cardview.widget.CardView
@@ -46,7 +51,7 @@
                             android:layout_height="50dp"
                             android:background="@color/white"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/rumeli" />
+                            />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -57,9 +62,8 @@
                         android:layout_marginEnd="10dp"
                         android:layout_toEndOf="@+id/yorumAyrintiKullaniciResmi"
                         android:layout_marginTop="10dp"
-                        android:text="Gökhan AKBABA"
+                        android:text="Birine Sor"
                         android:textAppearance="@style/customfontstyle"
-                        android:textColor="#000"
                         android:textSize="18sp" />
 
                     <TextView
@@ -68,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:textAppearance="@style/customfontstyle"
-                        android:text="1sa"
+                        android:text="-"
                         android:textSize="11sp"
                         android:layout_below="@+id/yorumAyrintiKullaniciAdiTxt"
                         android:layout_toEndOf="@+id/yorumAyrintiKullaniciResmi"
@@ -80,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="3dp"
-                        android:text="#Adres #Tatil"
+                        android:text="-"
                         android:textAppearance="@style/customfontstyle"
                         android:textSize="14sp"
                         android:layout_below="@+id/yorumAyrintiSoruPaylasmaZamani"/>
@@ -90,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="\@GokhanAkbaba"
+                        android:text="\@BirineSor"
                         android:layout_toEndOf="@+id/yorumAyrintiKullaniciResmi"
                         android:layout_below="@+id/yorumAyrintiKullaniciAdSoyad"
                         android:textAppearance="@style/customfontstyle"
@@ -104,8 +108,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="10dp"
                         android:textAppearance="@style/customfontstyle"
-                        android:text="@string/denemeSoru1Txt"
-                        android:textColor="#000"
+                        android:text="-"
                         android:textSize="17sp"
                         android:layout_below="@+id/yorumAyrintiSoruEtiketleri"
                         />
@@ -130,7 +133,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/customfontstyle"
-                            android:text="155"
+                            android:text=""
                             android:layout_marginTop="2dp"
                             android:layout_marginStart="4dp"
                             android:layout_toEndOf="@+id/yorumAyrintiSoruYorumIcon"
@@ -145,25 +148,24 @@
             android:layout_below="@id/yorumAyrintiCardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/yorumAlaniContent"
             tools:ignore="MissingConstraints,NotSibling"
             >
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/yorumAyrintiIcerikLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/yorumAlaniContent"
                 android:background="@color/white"
                 android:layout_below="@+id/yorumAyrintiCardView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.064"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/yorumAyrintiRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

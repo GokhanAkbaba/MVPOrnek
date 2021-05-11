@@ -19,6 +19,9 @@
     <string name="hesapSifreDegistirTxt">Şifre Değiştir</string>
     <string name="bildirimlerTxt">Bildirimler</string>
     <string name="bildirimDuzenleTxt">Bildirim Düzenle</string>
+    <string name="kazancTxt">Kazanç</string>
+    <string name="toplamKazancTxt">Toplam Kazanç</string>
+    <string name="kazancAciklamaTxt">Sorduğunuz her soru için 0.10 Kr. Cevapladığınız her soru için 0.15 Kr. kazanırsınız. </string>
     <string name="anlikBildirimlerTxt">Anlık Bildirimler</string>
     <string name="anlikBildirimAciklamaTxt">Yorumların ve beğenilerin hakkında bildirimler</string>
     <string name="bildirimIlgiAlanlariTxt">İlgi Alanları</string>
@@ -75,6 +78,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="ayarlarSayfaProfilDuzenleTxt">Profil Düzenle</string>
     <string name="ayarlarSayfaSifreDegistir">Şifre Değiştir</string>
     <string name="ayarlarSayfaBildirimler">Bildirimler</string>
+    <string name="kazancBildirimler">Kazanç</string>
     <string name="ayarlarSayfaCikisYap">Çıkış Yap</string>
     <string name="ayarlarGeceModuTxt">Gece Modu</string>
     <string name="hesabiSilTxt">Hesabı Sil</string>
@@ -234,7 +238,6 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="il">
-        <item>İl Seçiniz</item>
         <item>Adana</item>
         <item>Adıyaman</item>
         <item>Afyon</item>

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
 import com.birinesor.mvpornek.Fragment.ProfilTabFragment.BegendiklerimFragment;
@@ -82,11 +83,14 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
         }
+        if(CommentBottomDialogFragment.kutuDurum){
+            CommentBottomDialogFragment.instance.dialogCancel();
+        }
+        getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -122,7 +126,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
                     tabLayout.setBackgroundColor(getResources().getColor(R.color.profilSekmeBeyaz));
                     isShow = true;
                 } else if(isShow) {
-                    toolbar.setText(" ");//careful there should a space between double quote otherwise it wont work
+                    toolbar.setText(" ");
                     tabLayout.setBackgroundColor(getResources().getColor(R.color.white));
                     isShow = false;
                 }

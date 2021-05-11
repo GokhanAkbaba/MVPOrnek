@@ -88,7 +88,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Et
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {

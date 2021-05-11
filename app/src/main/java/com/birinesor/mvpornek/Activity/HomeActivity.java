@@ -4,43 +4,29 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.app.AppCompatDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.Formatter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity;
-import com.birinesor.mvpornek.AnalyticsApplication;
 import com.birinesor.mvpornek.BildirimFonksiyonları;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.HomeFragment;
@@ -76,20 +62,14 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Objects;
-
-import okhttp3.internal.Util;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity<IpKontol> extends AppCompatActivity implements View.OnClickListener, IpKayit,TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IpKayit,TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
@@ -147,6 +127,7 @@ public class HomeActivity<IpKontol> extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try{
         if (InitApplication.getInstance(this).isNightModeEnabled()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             getWindow().setStatusBarColor(getResources().getColor(R.color.black));
@@ -179,7 +160,6 @@ public class HomeActivity<IpKontol> extends AppCompatActivity implements View.On
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(this));
         internetConnectionPresenter.internetBaglantiKontrolu();
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -225,7 +205,7 @@ public class HomeActivity<IpKontol> extends AppCompatActivity implements View.On
             }
         }
 
-        FirebaseInstanceId.getInstance().getInstanceId()
+      FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
@@ -245,7 +225,9 @@ public class HomeActivity<IpKontol> extends AppCompatActivity implements View.On
              loadFragment(profilFragment,"Fragment");
 
         }
-
+         } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
     }
     protected void refreshBadgeView(int count){

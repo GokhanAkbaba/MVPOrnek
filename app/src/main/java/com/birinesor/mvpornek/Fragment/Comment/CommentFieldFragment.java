@@ -1,17 +1,22 @@
 package com.birinesor.mvpornek.Fragment.Comment;
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -38,7 +43,7 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
     ScrollView klavyeAlani;
     EditText editText;
     ImageButton yorumGonderBtn;
-
+    ListView listView;
     CommentRegistrationPresenterImpl commentRegistrationPresenter;
     NotificaitonPostPresenterImpl notificaitonPostPresenter;
 
@@ -80,7 +85,6 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
         yorumGonderBtn.setBackground(getActivity().getDrawable(R.drawable.yorum_gonder_buton));
         yorumGonderBtn.setColorFilter(getResources().getColor(R.color.ayarlarGrisi));
         klavyeAlani=view.findViewById(R.id.klavyeAlani);
-
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -97,6 +101,7 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
                     yorumGonderBtn.setColorFilter(getResources().getColor(R.color.uygulamaMavisi));
                     yorumGonderBtn.setBackground(getActivity().getDrawable(R.drawable.baslarkenilbuton));
                 }
+                
             }
 
             @Override
@@ -123,7 +128,40 @@ public class CommentFieldFragment extends BottomSheetDialogFragment implements V
             }
         });
     }
+    public void searchCitiesList() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.kullanici_list);
+        dialog.setTitle("Select City");
+        listView = (ListView) dialog.findViewById(R.id.list);
+        String[] values = new String[]{"Delhi",
+                "Banglore", "Chennai",
+                "Luckhow", "Goa",
+                "Pune", "Agra",
+                "Dehradun"};
+        dialog.show();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                int itemPosition = position;
+                String itemValue = (String) listView
+                        .getItemAtPosition(position);
+
+                // Show Alert
+                Toast.makeText(
+                        getActivity(),
+                        "Position :" + itemPosition + "  ListItem : "
+                                + itemValue, Toast.LENGTH_LONG).show();
+                dialog.cancel();
+
+            }
+
+        });
+    }
 
     @Override
     public void onClick(View view) {

@@ -33,9 +33,15 @@
                 android:layout_marginEnd="55dp"
                 android:textAppearance="@style/customfontstyle"
                 android:layout_marginTop="4dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
+                android:hint="Bir yorum ekle..."
+                android:inputType="textMultiLine"
                 android:maxLength="250"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:ems="10"
+                android:imeOptions="actionDone"
                 android:background="@android:color/white" />
             <ImageButton
                 android:id="@+id/yorumGonderBtn"
@@ -45,6 +51,7 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="-50dp"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/edt"
                 android:layout_marginBottom="4dp"
                 android:src="@mipmap/soru_gonder_icon" />

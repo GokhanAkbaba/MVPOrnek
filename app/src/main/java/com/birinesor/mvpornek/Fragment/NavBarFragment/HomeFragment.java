@@ -114,7 +114,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         questionMenuPresenter=new QuestionMenuPresenterImpl(this);
         internetConnectionPresenter=new InternetConnectionPresenterImpl(this,new InternetConnectionInteractorImpl(getActivity()));
         questionsDeletePresenter=new QuestionsDeletePresenterImpl(this);
-
         internetConnectionPresenter.internetBaglantiKontrolu();
         itemClickListener =((vw,position)-> {
                     int soruId=questionModels.get(position).getId();

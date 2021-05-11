@@ -2,6 +2,7 @@ package com.birinesor.mvpornek.Activity.Ayrıntılar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -25,6 +27,7 @@ import com.birinesor.mvpornek.Adapter.YorumAyrintiYorumlarAdapter;
 import com.birinesor.mvpornek.Fragment.Comment.CommentFieldFragment;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.birinesor.mvpornek.GlideApp;
+import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.YorumAyrintiSorusuModel;
 import com.birinesor.mvpornek.Models.YorumAyrintiSorusuYorumlarModel;
@@ -52,7 +55,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class YorumAyrintiActivity extends FragmentActivity implements YorumAyrintiSorusuView, CommentDeleteView, View.OnClickListener,NotificaitonPostView, YorumAyrintiYorumlarView, LikesView {
+public class YorumAyrintiActivity extends AppCompatActivity implements YorumAyrintiSorusuView, CommentDeleteView, View.OnClickListener,NotificaitonPostView, YorumAyrintiYorumlarView, LikesView {
     YorumAyrintiSorusuPresenterImpl yorumAyrintiSorusuPresenter;
     ImageView yorumAyrintiSorularIcerikKullaniciResmi;
     TextView yorumAyrintiKullaniciAdSoyad;
@@ -85,6 +88,21 @@ public class YorumAyrintiActivity extends FragmentActivity implements YorumAyrin
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (InitApplication.getInstance(this).isNightModeEnabled()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
+            }
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getWindow().setStatusBarColor(getResources().getColor(R.color.whiteStatus));
+            if (Build.VERSION.SDK_INT >= 27) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.whiteStatus));
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR |
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
         setContentView(R.layout.activity_yorum_ayrinti);
        extras = getIntent().getExtras();
         yorumAyrintiSorusuPresenter=new YorumAyrintiSorusuPresenterImpl(this);
@@ -181,7 +199,9 @@ public class YorumAyrintiActivity extends FragmentActivity implements YorumAyrin
         yorumAyrintiKullaniciAdSoyad.setText(data.get(0).getAdSoyad());
         yorumAyrintiKullaniciAdiTxt.setText("@"+data.get(0).getKullaniciAdi());
         yorumAyrintiSoruEtiketleri.setText(data.get(0).getEtiket());
-        yorumAyrintiYorumSayiTxt.setText(String.valueOf(data.get(0).getYorumSayisi()));
+        if(data.get(0).getYorumSayisi() > 0){
+            yorumAyrintiYorumSayiTxt.setText(String.valueOf(data.get(0).getYorumSayisi()));
+        }
         yorumAyrintiSoruTxt.setText(data.get(0).getSoru());
         GlideApp.with(this).load(data.get(0).getProfilFoto()).apply(new RequestOptions().centerCrop()).into(yorumAyrintiSorularIcerikKullaniciResmi);
     }
@@ -219,14 +239,16 @@ public class YorumAyrintiActivity extends FragmentActivity implements YorumAyrin
 
     @Override
     public void onorumAyrintiYorumlarKontrol() {
-        yorumAyrintiRelativeLayout.setVisibility(View.INVISIBLE);
-        Toast.makeText(this,"Soru Silinmiş",Toast.LENGTH_LONG).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        },2000);
+        ////Şuanlık kapatıldı
+            yorumAyrintiRelativeLayout.setVisibility(View.INVISIBLE);
+            Toast.makeText(this,"Soru Silinmiş",Toast.LENGTH_LONG).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            },2000);
+
     }
 
     @Override

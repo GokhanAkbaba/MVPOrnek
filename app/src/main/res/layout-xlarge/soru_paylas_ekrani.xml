@@ -244,7 +244,7 @@
                     android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
                     android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
                     android:background="@drawable/soru_etiket_buton_beyaz"
-                    android:hint="#Oyun"
+                    android:hint="#Oto"
                     android:textColorHint="@color/uygulamaMavisi"
                     android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
                     app:layout_constraintStart_toEndOf="@+id/sporEtiketBtn"

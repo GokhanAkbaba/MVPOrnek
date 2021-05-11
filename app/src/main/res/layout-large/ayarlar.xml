@@ -8,6 +8,16 @@
     android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
+    <ScrollView
+        android:id="@+id/filename_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:isScrollContainer="false"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -295,5 +305,6 @@
 
         </RelativeLayout>
     </RelativeLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,9 +35,9 @@ class YorumAyrintiYorumlarPresenterImpl implements YorumAyrintiYorumlarPresenter
                     if (response.isSuccessful() && response.body() !=null) {
                         yorumAyrintiYorumlarView.onorumAyrintiYorumlarGetResult(response.body());
                     }
-                }else{
+                }/*else{
                     yorumAyrintiYorumlarView.onorumAyrintiYorumlarKontrol();
-                }
+                }*/
             }
             @Override
             public void onFailure(Call<List<YorumAyrintiSorusuYorumlarModel>> call, Throwable t) {

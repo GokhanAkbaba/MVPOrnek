@@ -86,7 +86,10 @@ public class BildirimFonksiyonları {
         } catch (Exception e) {
             Log.e(TAG, "Exception: " + e.getMessage());
         }
-        HomeActivity.getInstance().notificationView(count);
+        if(count > 0){
+            HomeActivity.getInstance().notificationView(count);
+        }
+
     }
 
     public int getCount() {

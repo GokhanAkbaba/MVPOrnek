@@ -26,6 +26,7 @@ import com.birinesor.mvpornek.Presenter.Baslangic.BeginingPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.BeginingView;
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.util.ArrayList;
 
@@ -49,6 +50,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
     ImageView teknoImage,muzikImage,modaImage,sanatImage,sporImage,yemekImage,alisverisImage,otoImage;
     ImageView egitimImage,oyunImage,saglikImage,tarihImage,yazilimImage,tatilImage,adresImage,yirmiDortSaatImage;
 
+    SearchableSpinner searchableSpinner;
 
     int kullaniciId;
 
@@ -89,9 +91,12 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
        View view= inflater.inflate(R.layout.baslarken, container, false);
         view.findViewById(R.id.baslarkenSonrakiBtn).setOnClickListener(this);
         spinner=view.findViewById(R.id.ilAutoCompleteTextView);
+        searchableSpinner=view.findViewById(R.id.ilAutoCompleteTextView);
         ArrayAdapter arrayAdapter=ArrayAdapter.createFromResource(getContext(),R.array.il,android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
+        searchableSpinner.setTitle("İl Seçiniz");
+        searchableSpinner.setPositiveButton("Kapat");
 
         adres=view.findViewById(R.id.adresEtiketButon);
         adres.setOnClickListener(this);

@@ -173,13 +173,51 @@
             android:layout_marginTop="60dp"
             android:background="@color/ayarlarGrisi" />
     </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/kazancLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:clickable="true"
+            android:layout_below="@+id/bildirimlerLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imageViewKazanc"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_next__1_"
+                app:tint="@color/colorGreyPrimary" />
+
+            <TextView
+                android:id="@+id/textViewKazanc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/kazancBildirimler"
+                android:textAppearance="@style/customfontstyle"
+                android:textSize="@dimen/ayarlarSayfaTextSize400" />
+            <View
+                android:id="@+id/dividerKazanc"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_below="@+id/imageViewKazanc"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="60dp"
+                android:background="@color/ayarlarGrisi" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/geceModuLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
-            android:layout_below="@+id/bildirimlerLayout"
+            android:layout_below="@+id/kazancLayout"
             android:clickable="true"
             tools:ignore="MissingConstraints">
 

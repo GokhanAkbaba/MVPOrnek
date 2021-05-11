@@ -38,7 +38,7 @@ class SelectionControlnteractorImpl implements SelectionControlnteractor{
             }
             @Override
             public void onFailure(Call<SelectionControlModel> call, Throwable t) {
-                System.out.println("Selection Control Presenter"+t.getMessage());
+                System.out.println("Selection Control Presenter "+t.getMessage());
             }
         });
     }

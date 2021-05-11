@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.birinesor.mvpornek.Activity.HomeActivity;
+import com.birinesor.mvpornek.Fragment.NavBarFragment.ProfilFragment;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.GlideApp;
 import com.birinesor.mvpornek.Models.CommentModel;
@@ -28,15 +30,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
     private Context context;
     private ItemClickListener itemClickListener;
     private ItemClickListener begeniClickListener;
-
+    ProfilFragment profilFragment;
 
     public CommentAdapter(List<CommentModel> commentModels, Context context, ItemClickListener itemClickListener,ItemClickListener begeniClickListener) {
         this.commentModels = commentModels;
         this.context = context;
         this.itemClickListener = itemClickListener;
         this.begeniClickListener=begeniClickListener;
-
-
 
     }
 
@@ -97,6 +97,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
             begeniButonu.setOnClickListener(this::onClick);
             adSoyad.setOnClickListener(this);
             yorumlarIcerik.setOnLongClickListener(this::onLongClick);
+            profilResmi.setOnClickListener(this);
 
 
         }
@@ -114,8 +115,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Recycler
                 case R.id.imageButton:
                     begeniClickListener.onItemClick(view,getAdapterPosition());
                 break;
+                case R.id.roundedKullaniciResmi:
+                    profilFragment = ProfilFragment.newInstance(commentModels.get(getAdapterPosition()).getKullaniciId());
+                    ((HomeActivity)context).loadFragment(profilFragment,"Fragment");
+                    ((HomeActivity)context).menuDurum(3);
+                    break;
             }
-
         }
     }
 
