@@ -12,21 +12,31 @@ import android.widget.TextView;
 
 import com.birinesor.mvpornek.GlideApp;
 import com.birinesor.mvpornek.InitApplication;
+import com.birinesor.mvpornek.Models.KazancCevap;
+import com.birinesor.mvpornek.Models.KazancSoru;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.KullaniciGetir;
+import com.birinesor.mvpornek.Presenter.KazancCevap.KazancCevapPresenterImpl;
+import com.birinesor.mvpornek.Presenter.KazancSoru.KazancSoruPresenterImpl;
 import com.birinesor.mvpornek.Presenter.KullaniciGetir.UsersGetPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
+import com.birinesor.mvpornek.View.KazancCevapView;
+import com.birinesor.mvpornek.View.KazancSoruView;
 import com.birinesor.mvpornek.View.UsersGetView;
 import com.bumptech.glide.request.RequestOptions;
 
 import org.w3c.dom.Text;
 
-public class KazancActivity extends AppCompatActivity implements View.OnClickListener, UsersGetView {
-    UsersGetPresenterImpl usersGetPresenter;
+import java.util.List;
+
+public class KazancActivity extends AppCompatActivity implements View.OnClickListener, KazancCevapView, KazancSoruView {
+    KazancCevapPresenterImpl kazancCevapPresenter;
+    KazancSoruPresenterImpl kazancSoruPresenter;
     Kullanici kullanici;
-    KullaniciGetir kullaniciGetir;
     TextView toplamKazancText;
+    List<KazancCevap> cevapData;
+    double soru, cevap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +58,14 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_kazanc);
         Button kazancGeriButon=findViewById(R.id.kazancGeriBtn);
         kazancGeriButon.setOnClickListener(this);
-        usersGetPresenter=new UsersGetPresenterImpl(this);
+        kazancCevapPresenter=new KazancCevapPresenterImpl(this);
+        kazancSoruPresenter=new KazancSoruPresenterImpl(this);
         kullanici= SharedPrefManager.getInstance(this).getKullanici();
-        usersGetPresenter.loadUsersData(kullanici.getId());
+        kazancCevapPresenter.loadData(kullanici.getId());
+        kazancSoruPresenter.loadData(kullanici.getId());
         toplamKazancText=findViewById(R.id.toplamKazanctextView);
+
+
     }
 
     @Override
@@ -69,13 +83,34 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onGetResult(KullaniciGetir kullaniciGetir) {
-        this.kullaniciGetir=kullaniciGetir;
-        toplamKazancText.setText(String.valueOf((kullaniciGetir.getCevapSayisi() * 0.15) +(kullaniciGetir.getSoruSayisi() * 0.10)));
+    public void onGetResult(List<KazancCevap> data) {
+        this.cevapData=data;
+    }
+
+    @Override
+    public void onGetKazancSoruResult(List<KazancSoru> data) {
+        if(cevapData == null){
+            cevap=0;
+        }else{
+            cevap=cevapData.size() * 0.15;
+        }
+        if(data == null){
+            cevap=0;
+        }else{
+            soru=data.size() * 0.10;
+        }
+
+
+        toplamKazancText.setText(String.valueOf(soru + cevap));
+    }
+
+    @Override
+    public void onErrorKazancSoruLoading(String message) {
+        System.out.println("Kazanc Soru Idleri Getirilirken Hata Oluştu");
     }
 
     @Override
     public void onErrorLoading(String message) {
-
+        System.out.println("Kazanc Cevap Idleri Getirilirken Hata Oluştu");
     }
 }
