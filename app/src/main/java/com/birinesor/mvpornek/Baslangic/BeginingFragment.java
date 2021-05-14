@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,15 +24,23 @@ import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Model.Baslangic.BeginingInteractorImpl;
 import com.birinesor.mvpornek.Presenter.Baslangic.BeginingPresenter;
 import com.birinesor.mvpornek.Presenter.Baslangic.BeginingPresenterImpl;
+import com.birinesor.mvpornek.Presenter.TokenCreate.TokenCreatePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.BeginingView;
+import com.birinesor.mvpornek.View.TokenCreateView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 
-public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener {
+public class BeginingFragment extends Fragment implements BeginingView, View.OnClickListener, TokenCreateView {
 
     RelativeLayout adres,yemek,spor, tatil,alisveris,sanat,yrmDrtBildirim,teknoEtiketButon,muzikEtiketButon,egitimEtiketButon;
     RelativeLayout modaEtiketButon,otoEtiketButon,saglikEtiketButon,tarihEtiketButon,yazilimEtiketButon,oyunEtiketButon,yirmiDortSaatBildirimButonIc;
@@ -42,7 +51,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
     Boolean checkEgitimEtiket=false,checkTarihEtiket=false,checkOtoEtiket=false,checkYazilimEtiket=false;
     String selectedIl;
     int selectedIlPlaka;
-
+    TokenCreatePresenterImpl tokenCreatePresenter;
     TextView adresBaslarkenTxt,yemekBaslarkenTxt,sporBaslarkenTxt,sanatBaslarkenTxt,alisverisBaslarkenTxt,tatilBaslarkenTxt;
     TextView yazilimBaslarkenTxt,otoBaslarkenTxt,modaBaslarkenTxt,egitimBaslarkenTxt,tarihBaslarkenTxt,saglikBaslarkenTxt;
     TextView oyunBaslarkenTxt,teknolojiBaslarkenTxt,muzikBaslarkenTxt;
@@ -166,6 +175,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         yirmiDortSaatBildirimButonIc.setOnClickListener(this);
         Kullanici kullanici= SharedPrefManager.getInstance(getContext()).getKullanici();
         kullaniciId=kullanici.getId();
+        tokenCreatePresenter=new TokenCreatePresenterImpl(this);
         beginingPresenter=new BeginingPresenterImpl(this, new BeginingInteractorImpl());
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -184,6 +194,18 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
+        FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(new OnCompleteListener<InstallationTokenResult>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<InstallationTokenResult> task) {
+                if(task.isSuccessful()){
+                    tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
+                    System.out.println("GÖKHAN "+task.getResult().getToken());
+                }
+                else{
+                    System.out.println("İşlem Başarısız");
+                }
+            }
+        });
         return view;
     }
 
@@ -584,5 +606,15 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
     @Override
     public void setEtiketHatasi() {
         Toast.makeText(getActivity(),"En Az Bir Tane Soru Alanı Seçiniz",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showTokenSuccesMessage() {
+        System.out.println("Token Başarılı Bir Şekilde Oluştu");
+    }
+
+    @Override
+    public void showTokenFailedMessage() {
+        System.out.println("Token HATA");
     }
 }

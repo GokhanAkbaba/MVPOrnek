@@ -58,9 +58,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
 
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -69,7 +71,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IpKayit,TokenCreateView, InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IpKayit,InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
@@ -84,7 +86,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
     private IpKayitPresenter ipKayitPresenter;
-    TokenCreatePresenterImpl tokenCreatePresenter;
     public static HomeActivity instance;
     int item;
     int unicode = 0x1F60A;
@@ -147,7 +148,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         instance=this;
         kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
         bildirimFonksiyonları=new BildirimFonksiyonları(this);
-        tokenCreatePresenter=new TokenCreatePresenterImpl(this);
+
         ipKayitPresenter=new IpKayitPresenterImpl(this);
         ipKayitPresenter.createIP(kullanici.getId(),IpKontrol.getIPAddress(true),IpKontrol.getIPAddress(false),IpKontrol.getMACAddress("wlan0"),IpKontrol.getMACAddress("eth0"));
         loadFragment(new HomeFragment(),"AnaSayfaFragment");
@@ -205,19 +206,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-      FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if(task.isSuccessful()){
-                            tokenCreatePresenter.createToken(kullanici.getId(),task.getResult().getToken());
-                            System.out.println("GÖKHAN "+task.getResult().getToken());
-                        }
-                        else{
-                            System.out.println("İşlem Başarısız");
-                        }
-                    }
-                });
+
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             int soruID=extras.getInt("soruID");
@@ -2243,15 +2232,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
 
-    }
-    @Override
-    public void showTokenSuccesMessage() {
-        System.out.println("Token Başarılı Bir Şekilde Oluştu");
-    }
-
-    @Override
-    public void showTokenFailedMessage() {
-        System.out.println("Token HATA");
     }
 
     @Override

@@ -7,4 +7,11 @@
         <item>40sp</item>
         <item>100sp</item>
     </array>
+    <array name="suggestions">
+        <item>150sp</item>
+        <item>12sp</item>
+        <item>20sp</item>
+        <item>40sp</item>
+        <item>100sp</item>
+    </array>
 </resources>

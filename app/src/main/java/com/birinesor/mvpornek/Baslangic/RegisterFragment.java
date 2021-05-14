@@ -62,6 +62,8 @@ public class RegisterFragment extends Fragment implements RegisterView,View.OnCl
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
     }
 
     @Override

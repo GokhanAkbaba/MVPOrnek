@@ -145,12 +145,12 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         if(cevapData == null){
             cevap=0;
         }else{
-            cevap=cevapData.size() * 0.15;
+            cevap=cevapData.size() * 0.10;
         }
         if(data == null){
             cevap=0;
         }else{
-            soru=data.size() * 0.10;
+            soru=data.size() * 0.05;
         }
         this.soruData=data;
 
