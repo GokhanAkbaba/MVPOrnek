@@ -7,7 +7,10 @@ android:layout_height="match_parent"
 android:background="@color/colorWhite"
 tools:ignore="MissingDefaultResource"
 tools:context=".Activity.Ayarlar.KazancActivity">
-
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/kazancSwipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout
     android:layout_width="match_parent"
     android:background="@color/colorWhite"
@@ -55,6 +58,7 @@ tools:context=".Activity.Ayarlar.KazancActivity">
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/toplamKazancRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/kazancAppBar"
@@ -99,7 +103,102 @@ tools:context=".Activity.Ayarlar.KazancActivity">
             android:hint="0.10 TL" />
 
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toplamKazancRelativeLayout">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kazancIbanTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:background="@color/textInputColor"
+            android:layout_marginTop="30dp"
+            android:hint="@string/ibanTxt"
+            app:boxStrokeColor="@color/uygulamaMavisi"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kazancIbanInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="true"
+                android:maxLength="26"
+                android:textAppearance="@style/customfontstyle"
+                android:inputType="textPersonName"
+                android:text="@string/ibanOrnekTxt"
+                android:textCursorDrawable="@drawable/color_curse"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kazancAdSoyadTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kazancIbanTextField"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:background="@color/textInputColor"
+            android:hint="@string/adSoyadTxt"
+            app:boxStrokeColor="@color/uygulamaMavisi"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kazancAdSoyadInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="true"
+                android:inputType="textPersonName"
+                android:text="@string/adSoyadTxt"
+                android:textAppearance="@style/customfontstyle"
+                android:textCursorDrawable="@drawable/color_curse"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/kazancTransferEtButon"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="25px"
+            android:layout_below="@id/kazancAdSoyadTextField"
+            android:layout_marginEnd="76dp"
+            android:background="@drawable/button"
+            android:text="@string/kazancParaTransfeEt"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textAppearance="@style/customfontstyle"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kazancTransferEtButon"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/toplamKazancLimitTxt" />
+
+    </RelativeLayout>
 </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

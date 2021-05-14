@@ -94,8 +94,6 @@ public class ProfilDuzenleActivity extends AppCompatActivity implements ProfilUp
         adSoyadTxt.setText(kullanici.getAdSoyad());
         kullaniciAdiTxt.setText(kullanici.getKullaniciAdi());
         kullaniciEposta.setText(kullanici.getKullaniciEposta());
-
-
         ImagePickerActivity.clearCache(this);
 
         profilUpdatePresenter=new ProfilUpdatePresenterImpl(this,new ProfilUpdateInteractorImpl(ProfilDuzenleActivity.this));

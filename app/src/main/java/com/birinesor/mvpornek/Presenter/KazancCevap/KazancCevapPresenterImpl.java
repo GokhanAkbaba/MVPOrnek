@@ -21,6 +21,7 @@ class KazancCevapPresenterImpl implements KazancCevapPresenter{
 
     @Override
     public void loadData(int kullaniciId) {
+        kazancCevapView.onKazancCevapShowLoading();
         Call<List<KazancCevap>> call= RetrofitClientInstance
                 .getInstance()
                 .getDataService()
@@ -29,6 +30,7 @@ class KazancCevapPresenterImpl implements KazancCevapPresenter{
         call.enqueue(new Callback<List<KazancCevap>>() {
             @Override
             public void onResponse(Call<List<KazancCevap>> call, Response<List<KazancCevap>> response) {
+                kazancCevapView.onKazancCevapHideLoading();
                 if (response.isSuccessful() && response.body() !=null) {
                     kazancCevapView.onGetResult(response.body());
                 }
@@ -36,6 +38,7 @@ class KazancCevapPresenterImpl implements KazancCevapPresenter{
             @Override
             public void onFailure(Call<List<KazancCevap>> call, Throwable t) {
                 kazancCevapView.onErrorLoading(t.getMessage());
+                kazancCevapView.onKazancCevapHideLoading();
             }
         });
     }

@@ -18,12 +18,14 @@ import com.birinesor.mvpornek.Models.YorumAyrintiSorusuYorumlarModel;
 import com.birinesor.mvpornek.Response.AramaArsivKayitResponse;
 import com.birinesor.mvpornek.Response.AramaGecmisSilResponse;
 import com.birinesor.mvpornek.Response.BildirimlerCevaplarModel;
+import com.birinesor.mvpornek.Response.CevapKazancResponse;
 import com.birinesor.mvpornek.Response.IlgiAlaniKayitModel;
 import com.birinesor.mvpornek.Response.KullaniciGetirResponse;
 import com.birinesor.mvpornek.Models.QuestionModel;
 import com.birinesor.mvpornek.Response.CevapKaydetResponse;
 import com.birinesor.mvpornek.Response.CevapSilResponse;
 import com.birinesor.mvpornek.Response.EtiketResponse;
+import com.birinesor.mvpornek.Response.KullaniciKazancLog;
 import com.birinesor.mvpornek.Response.KullaniciResponse;
 import com.birinesor.mvpornek.Response.LikeModel;
 import com.birinesor.mvpornek.Response.NotificationCommentAndLikeModel;
@@ -117,6 +119,18 @@ public interface GetDataService {
     );
 
     @FormUrlEncoded
+    @POST("kazancCevapDurumuGuncelle.php")
+    Call<CevapKazancResponse> cevapKazancGuncelleme(
+            @Field("cevapId[]") ArrayList<Integer> etiket
+    );
+
+    @FormUrlEncoded
+    @POST("kazancSoruDurumuGuncelle.php")
+    Call<CevapKazancResponse> soruKazancGuncelleme(
+            @Field("soruId[]") ArrayList<Integer> etiket
+    );
+
+    @FormUrlEncoded
     @POST("sorulariGetir.php")
     Call<List<QuestionModel>> sorulariGetir(
             @Field("kullaniciId") int kullaniciId
@@ -130,6 +144,16 @@ public interface GetDataService {
             @Field("kullanici_id") int kullaniciId,
             @Field("soru_id") int soruId,
             @Field("cevap") String cevap
+    );
+
+    @FormUrlEncoded
+    @POST("kullaniciOdemeLog.php")
+    Call<KullaniciKazancLog> kullaniciKazancLogKayit(
+
+            @Field("kullaniciId") int kullaniciId,
+            @Field("tutar") String tutar,
+            @Field("iban") String iban,
+            @Field("adSoyad") String adSoyad
     );
 
     @FormUrlEncoded

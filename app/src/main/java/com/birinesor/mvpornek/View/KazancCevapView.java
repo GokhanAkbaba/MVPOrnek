@@ -8,4 +8,6 @@ public
 interface KazancCevapView {
     void onGetResult(List<KazancCevap> data);
     void onErrorLoading(String message);
+    void onKazancCevapShowLoading();
+    void onKazancCevapHideLoading();
 }

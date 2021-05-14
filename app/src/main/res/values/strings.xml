@@ -11,6 +11,7 @@
     <string name="gonderi">3 haftalık izine çıktım. Akdeniz tarafında fiyat performans bakımından
         güzel oteller hangi illerde..</string>
     <string name="ayarlarTxt">Ayarlar</string>
+    <string name="kazancParaTransfeEt">Kazançı Transfer Et</string>
     <string name="hesapTxt">Hesap</string>
     <string name="girisYapTxt">Giriş Yap</string>
     <string name="kayitOlTxt">Kayıt Ol</string>
@@ -21,6 +22,7 @@
     <string name="bildirimDuzenleTxt">Bildirim Düzenle</string>
     <string name="kazancTxt">Kazanç</string>
     <string name="toplamKazancTxt">Toplam Kazanç</string>
+    <string name="toplamKazancLimitTxt">Çekim Limiti Minumum 20 TL  </string>
     <string name="kazancAciklamaTxt">Sorduğunuz her soru için 0.10 Kr. Cevapladığınız her soru için 0.15 Kr. kazanırsınız. </string>
     <string name="anlikBildirimlerTxt">Anlık Bildirimler</string>
     <string name="anlikBildirimAciklamaTxt">Yorumların ve beğenilerin hakkında bildirimler</string>
@@ -31,6 +33,8 @@
     <string name="yorumEkleyinTxt">Yorum Ekleyin</string>
     <string name="iptalTxt">İptal</string>
     <string name="adSoyadTxt">Ad Soyad</string>
+    <string name="ibanTxt">IBAN</string>
+    <string name="ibanOrnekTxt">TR270001500158007312466191</string>
     <string name="kullaniciAdiTxt">Kullanıcı Adı</string>
     <string name="ePostaTxt">E-Posta</string>
     <string name="sifreDegistirTxt">Şifre Değiştir</string>

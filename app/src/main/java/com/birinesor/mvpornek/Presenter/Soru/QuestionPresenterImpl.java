@@ -34,6 +34,7 @@ public class QuestionPresenterImpl implements QuestionPresenter {
                     questionView.onGetResult(response.body());
                 }
                 List<QuestionModel> data=response.body();
+              
                 if(data == null || data.isEmpty() ){
                     questionView.onGetQuestionResultControl("İlgi Alanlarınız ile ilgili Soru Bulunamadı");
                 }
