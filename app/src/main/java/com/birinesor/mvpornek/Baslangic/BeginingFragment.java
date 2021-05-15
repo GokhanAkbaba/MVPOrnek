@@ -55,6 +55,7 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
     TextView adresBaslarkenTxt,yemekBaslarkenTxt,sporBaslarkenTxt,sanatBaslarkenTxt,alisverisBaslarkenTxt,tatilBaslarkenTxt;
     TextView yazilimBaslarkenTxt,otoBaslarkenTxt,modaBaslarkenTxt,egitimBaslarkenTxt,tarihBaslarkenTxt,saglikBaslarkenTxt;
     TextView oyunBaslarkenTxt,teknolojiBaslarkenTxt,muzikBaslarkenTxt;
+    TextView textView31;
 
     ImageView teknoImage,muzikImage,modaImage,sanatImage,sporImage,yemekImage,alisverisImage,otoImage;
     ImageView egitimImage,oyunImage,saglikImage,tarihImage,yazilimImage,tatilImage,adresImage,yirmiDortSaatImage;
@@ -106,7 +107,6 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         spinner.setAdapter(arrayAdapter);
         searchableSpinner.setTitle("İl Seçiniz");
         searchableSpinner.setPositiveButton("Kapat");
-
         adres=view.findViewById(R.id.adresEtiketButon);
         adres.setOnClickListener(this);
         yemek=view.findViewById(R.id.yemekEtiketButon);
@@ -170,6 +170,8 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         yazilimImage=view.findViewById(R.id.yazilimImage);
         tatilImage=view.findViewById(R.id.tatilImage);
         adresImage=view.findViewById(R.id.adresImage);
+        textView31 = view.findViewById(R.id.textView31);
+
         yirmiDortSaatImage=view.findViewById(R.id.yirmiDortSaatImage);
         yirmiDortSaatBildirimButonIc=view.findViewById(R.id.yirmiDortSaatBildirimButonIc);
         yirmiDortSaatBildirimButonIc.setOnClickListener(this);
@@ -591,28 +593,26 @@ public class BeginingFragment extends Fragment implements BeginingView, View.OnC
         }
 
     }
-
     @Override
     public void navigateToHome() {
         startActivity(new Intent(getActivity().getApplicationContext(), HomeActivity.class));
+        textView31.setVisibility(View.INVISIBLE);
     }
-
     @Override
     public void setIlHatasi() {
-        Toast.makeText(getActivity(),"Lütfen İl Seçiniz",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),"Lütfen İl Seçiniz",Toast.LENGTH_SHORT).show();
+        textView31.setVisibility(View.VISIBLE);
+
 
     }
-
     @Override
     public void setEtiketHatasi() {
         Toast.makeText(getActivity(),"En Az Bir Tane Soru Alanı Seçiniz",Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void showTokenSuccesMessage() {
         System.out.println("Token Başarılı Bir Şekilde Oluştu");
     }
-
     @Override
     public void showTokenFailedMessage() {
         System.out.println("Token HATA");

@@ -19,6 +19,24 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="10dp"
+                android:text="Lüften İl Seçiniz"
+                android:visibility="invisible"
+                android:textColor="@color/hataRenk"
+                android:textAlignment="center"
+                android:textAppearance="@style/customfontstyle"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ilConstraint"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
