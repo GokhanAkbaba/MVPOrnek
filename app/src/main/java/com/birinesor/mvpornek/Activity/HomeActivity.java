@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,6 +61,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.installations.FirebaseInstallations;
 import com.google.firebase.installations.InstallationTokenResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -71,7 +73,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IpKayit,InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IpKayit,InternetConnectionView,FragmentManager.OnBackStackChangedListener, QuestionRegistrationView, TokenCreateView {
 
 
     private static final String CHANNEL_ID ="birine_sor";
@@ -85,6 +87,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     View layoutView;
     private QuestionRegistrationPresenter questionRegistrationPresenter;
     private InternetConnectionPresenter internetConnectionPresenter;
+    TokenCreatePresenterImpl tokenCreatePresenter;
     private IpKayitPresenter ipKayitPresenter;
     public static HomeActivity instance;
     int item;
@@ -144,10 +147,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             }
         }
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("TOKEN HATA", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+                        System.out.println("TOKEN OLUMLU "+task.getResult());
+                        tokenCreatePresenter.createToken(kullanici.getId(),task.getResult());
+                    }
+                });
         setContentView(R.layout.ana_sayfa);
         instance=this;
         kullanici= SharedPrefManager.getInstance(getApplicationContext()).getKullanici();
         bildirimFonksiyonları=new BildirimFonksiyonları(this);
+            tokenCreatePresenter=new TokenCreatePresenterImpl(this);
 
         ipKayitPresenter=new IpKayitPresenterImpl(this);
         ipKayitPresenter.createIP(kullanici.getId(),IpKontrol.getIPAddress(true),IpKontrol.getIPAddress(false),IpKontrol.getMACAddress("wlan0"),IpKontrol.getMACAddress("eth0"));
@@ -2242,5 +2259,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void showIpKayitFailedMessage() {
         System.out.println("Ip Kayıt Oluşturulurken Hata Meydana Geldi");
+    }
+
+    @Override
+    public void showTokenSuccesMessage() {
+        System.out.println("Token Başarılı Bir Şekilde Oluştu");
+    }
+    @Override
+    public void showTokenFailedMessage() {
+        System.out.println("Token HATA");
     }
 }
