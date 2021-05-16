@@ -25,144 +25,144 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/kullaniciResmi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="6dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.103">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/kullaniciResmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="6dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.103">
 
-                <ImageView
-                    android:id="@+id/profilCevapRoundedKullaniciResmi"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/white"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/rumeli" />
-            </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/profilCevapRoundedKullaniciResmi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rumeli" />
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/profilCevapKullaniciAdSoyad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textAppearance="@style/customfontstyle"
-                android:text="Gökhan AKBABA"
-                android:textSize="18sp"
-                android:layout_toEndOf="@+id/kullaniciResmi"
-                />
+                <TextView
+                    android:id="@+id/profilCevapKullaniciAdSoyad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textAppearance="@style/customfontstyle"
+                    android:text="Gökhan AKBABA"
+                    android:textSize="18sp"
+                    android:layout_toEndOf="@+id/kullaniciResmi"
+                    />
 
-            <TextView
-                android:id="@+id/profilCevapPaylasmaZamani"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textAppearance="@style/customfontstyle"
-                android:text="1sa"
-                android:textSize="11sp"
-                android:layout_below="@+id/profilCevapKullaniciAdiTxt"
-                android:layout_toEndOf="@+id/kullaniciResmi"
+                <TextView
+                    android:id="@+id/profilCevapPaylasmaZamani"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textAppearance="@style/customfontstyle"
+                    android:text="1sa"
+                    android:textSize="11sp"
+                    android:layout_below="@+id/profilCevapKullaniciAdiTxt"
+                    android:layout_toEndOf="@+id/kullaniciResmi"
 
-               />
+                    />
 
-            <TextView
-                android:id="@+id/profilCevaplananKisiTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:textAppearance="@style/customfontstyle"
-                android:text="dfss"
-                android:layout_marginTop="6dp"
-                android:textSize="14sp"
-                android:layout_below="@id/profilCevapPaylasmaZamani"
-                 />
+                <TextView
+                    android:id="@+id/profilCevaplananKisiTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:textAppearance="@style/customfontstyle"
+                    android:text="dfss"
+                    android:layout_marginTop="6dp"
+                    android:textSize="14sp"
+                    android:layout_below="@id/profilCevapPaylasmaZamani"
+                    />
 
-            <TextView
-                android:id="@+id/profilCevapKullaniciAdiTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textAppearance="@style/customfontstyle"
-                android:text="\@GokhanAkbaba"
-                android:layout_toEndOf="@+id/kullaniciResmi"
-                android:layout_below="@+id/profilCevapKullaniciAdSoyad"
-                android:textSize="12sp"
-                />
+                <TextView
+                    android:id="@+id/profilCevapKullaniciAdiTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textAppearance="@style/customfontstyle"
+                    android:text="\@GokhanAkbaba"
+                    android:layout_toEndOf="@+id/kullaniciResmi"
+                    android:layout_below="@+id/profilCevapKullaniciAdSoyad"
+                    android:textSize="12sp"
+                    />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="4dp"
-                android:autoLink="web"
-                android:textColorLink="@color/uygulamaMavisi"
-                android:layout_below="@+id/profilCevaplananKisiTxt"
-                android:textAppearance="@style/customfontstyle"
-                android:text="@string/denemeSoru1Txt"
-                android:textSize="17sp"
-                 />
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@color/uygulamaMavisi"
+                    android:layout_below="@+id/profilCevaplananKisiTxt"
+                    android:textAppearance="@style/customfontstyle"
+                    android:text="@string/denemeSoru1Txt"
+                    android:textSize="17sp"
+                    />
 
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="453dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/ayarlarGrisi"
-                android:layout_below="@+id/relativeLayout7"
-               />
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="453dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/ayarlarGrisi"
+                    android:layout_below="@+id/relativeLayout7"
+                    />
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/customfontstyle"
-                android:textSize="14sp"
-                android:layout_marginTop="6dp"
-                android:layout_marginStart="4dp"
-                android:layout_toEndOf="@+id/profilCevaplananKisiTxt"
-                android:layout_below="@+id/profilCevapPaylasmaZamani"
-                android:text="sorusuna yanıt olarak"
-                app:layout_constraintStart_toEndOf="@+id/profilCevaplananKisiTxt"
-                app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/customfontstyle"
+                    android:textSize="14sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@+id/profilCevaplananKisiTxt"
+                    android:layout_below="@+id/profilCevapPaylasmaZamani"
+                    android:text="sorusuna yanıt olarak"
+                    app:layout_constraintStart_toEndOf="@+id/profilCevaplananKisiTxt"
+                    app:layout_constraintTop_toBottomOf="@+id/kullaniciResmi" />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView12"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp">
-            <ImageView
-                android:id="@+id/profilCevapImageButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:clickable="true"
-                android:tag="seçilmedi"
-                android:src="@mipmap/guven_oyu"
-                app:tint="@color/ayarlarGrisi" />
+                <RelativeLayout
+                    android:id="@+id/relativeLayout7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView12"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp">
+                    <ImageView
+                        android:id="@+id/profilCevapImageButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:tag="seçilmedi"
+                        android:src="@mipmap/guven_oyu"
+                        app:tint="@color/ayarlarGrisi" />
 
-            <TextView
-                android:id="@+id/yorumCevapBegeniSayisiTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/profilCevapImageButton"
-                android:textAlignment="center"
-                android:text="15"
-                android:textAppearance="@style/customfontstyle"
-                />
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/yorumCevapBegeniSayisiTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/profilCevapImageButton"
+                        android:textAlignment="center"
+                        android:text="15"
+                        android:textAppearance="@style/customfontstyle"
+                        />
                 </RelativeLayout>
+            </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

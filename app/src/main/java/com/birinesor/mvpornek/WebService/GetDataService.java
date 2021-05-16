@@ -13,6 +13,7 @@ import com.birinesor.mvpornek.Models.LikesModel;
 import com.birinesor.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.birinesor.mvpornek.Models.SearchQuestionModel;
 import com.birinesor.mvpornek.Models.SelectionControlModel;
+import com.birinesor.mvpornek.Models.SorularOnayModel;
 import com.birinesor.mvpornek.Models.YorumAyrintiSorusuModel;
 import com.birinesor.mvpornek.Models.YorumAyrintiSorusuYorumlarModel;
 import com.birinesor.mvpornek.Response.AramaArsivKayitResponse;
@@ -175,22 +176,24 @@ public interface GetDataService {
 
     );
     @FormUrlEncoded
+    @POST("sorularOnay.php")
+    Call<List<SorularOnayModel>> soruOnaylariGetir(
+            @Field("soruId") int soruId
+    );
+    @FormUrlEncoded
     @POST("ilgiAlanlariGetir.php")
     Call<List<IlgiAlanlariGetirModel>> ilgiAlanlariGetir(
             @Field("kullaniciID") int kullaniciID
-
     );
     @FormUrlEncoded
     @POST("aramaAyarlariGetir.php")
     Call<List<AramaAyarlariGetirModel>> aramaAyarlariGetir(
             @Field("kullaniciID") int kullaniciID
-
     );
     @FormUrlEncoded
     @POST("bildirimlerCevaplariGetir.php")
     Call<List<BildirimlerCevaplarModel>> bildirimCevaplarGetir(
             @Field("kullaniciID") int kullaniciID
-
     );
     @FormUrlEncoded
     @POST("bildirimlerBegenileriGetir.php")
@@ -395,6 +398,4 @@ public interface GetDataService {
     Call<SifremiUnuttumResponse> sifremiUnuttum(
             @Field("eposta") String ePosta
     );
-
-
 }

@@ -88,6 +88,7 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="ayarlarSayfaBildirimler">Bildirimler</string>
     <string name="kazancBildirimler">Kazanç</string>
     <string name="ayarlarSayfaCikisYap">Çıkış Yap</string>
+    <string name="ayarlarSayfaAdmin">Admin</string>
     <string name="ayarlarGeceModuTxt">Gece Modu</string>
     <string name="hesabiSilTxt">Hesabı Sil</string>
     <string name="profil_fotografi_sec_txt">Profil Fotoğrafı Seç</string>

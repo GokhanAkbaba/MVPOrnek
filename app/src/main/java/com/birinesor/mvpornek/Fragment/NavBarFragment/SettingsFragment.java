@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.birinesor.mvpornek.Activity.Ayarlar.AdminActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.KazancActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
@@ -52,7 +53,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     RelativeLayout cikisRelativeLayout;
     RelativeLayout profilRelativeLayout;
     RelativeLayout kazancRelativeLayout;
-
+    RelativeLayout adminRelativeLayout;
     TokenDeletePresenter tokenDeletePresenter;
     HesapSilPresenterImpl hesapSilPresenter;
 
@@ -100,6 +101,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         hesabiSilLayout.setOnClickListener(this);
         kazancRelativeLayout=view.findViewById(R.id.kazancLayout);
         kazancRelativeLayout.setOnClickListener(this);
+        adminRelativeLayout=view.findViewById(R.id.adminLayout);
+        adminRelativeLayout.setOnClickListener(this);
         Switch geceSwitch=view.findViewById(R.id.geceModuSwitch);
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         hesapSilPresenter=new HesapSilPresenterImpl(this);
@@ -146,6 +149,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.kazancLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
+            case R.id.adminLayout:
+                startActivity(new Intent(getActivity().getApplicationContext(), AdminActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.hesabiSilLayout:

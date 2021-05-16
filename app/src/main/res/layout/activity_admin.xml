@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Ayarlar.AdminActivity">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <ScrollView
+           android:id="@+id/admin_scroll"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:fillViewport="true"
+           android:isScrollContainer="false"
+           android:scrollbars="none"
+           tools:ignore="MissingConstraints">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/adminSayfasiSorularLayout"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               tools:ignore="MissingDefaultResource">
+               <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                   android:id="@+id/adminSwipeRefreshLayout"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   tools:ignore="MissingConstraints">
+
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/adminSayfasiRecyclerView"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:background="@color/colorWhite"
+                       tools:ignore="MissingConstraints" />
+
+               </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+               <TextView
+                   android:id="@+id/adminRecyclerViewTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:visibility="invisible"
+                   android:text="Gösterilecek bir şey yok."
+                   android:textAppearance="@style/customfontstyle"
+                   app:layout_constraintBottom_toBottomOf="@+id/adminSwipeRefreshLayout"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="@+id/adminSwipeRefreshLayout" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+       </ScrollView>
+   </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
