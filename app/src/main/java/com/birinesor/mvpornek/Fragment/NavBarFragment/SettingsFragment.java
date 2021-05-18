@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.birinesor.mvpornek.Activity.Ayarlar.AdminActivity;
+import com.birinesor.mvpornek.Activity.Ayarlar.AdminCevaplarActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.BildirimlerDuzenleActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.KazancActivity;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
@@ -53,7 +54,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     RelativeLayout cikisRelativeLayout;
     RelativeLayout profilRelativeLayout;
     RelativeLayout kazancRelativeLayout;
-    RelativeLayout adminRelativeLayout;
+    RelativeLayout adminRelativeLayout,adminCevaplarLayout;
     TokenDeletePresenter tokenDeletePresenter;
     HesapSilPresenterImpl hesapSilPresenter;
 
@@ -103,6 +104,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         kazancRelativeLayout.setOnClickListener(this);
         adminRelativeLayout=view.findViewById(R.id.adminLayout);
         adminRelativeLayout.setOnClickListener(this);
+        adminCevaplarLayout=view.findViewById(R.id.adminCevaplarLayout);
+        adminCevaplarLayout.setOnClickListener(this);
         Switch geceSwitch=view.findViewById(R.id.geceModuSwitch);
         tokenDeletePresenter=new TokenDeletePresenterImpl(this);
         hesapSilPresenter=new HesapSilPresenterImpl(this);
@@ -153,6 +156,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.adminLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), AdminActivity.class));
+                getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+                break;
+            case R.id.adminCevaplarLayout:
+                startActivity(new Intent(getActivity().getApplicationContext(), AdminCevaplarActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.hesabiSilLayout:

@@ -22,7 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BirineSor"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.Ayarlar.AdminActivity"></activity>
+        <activity android:name=".Activity.Ayarlar.AdminCevaplarActivity"></activity>
+        <activity android:name=".Activity.Ayarlar.AdminActivity" />
         <activity android:name=".Activity.Ayarlar.KazancActivity" />
         <activity
             android:name=".Fragment.Search.AramaAyarlariActivity"

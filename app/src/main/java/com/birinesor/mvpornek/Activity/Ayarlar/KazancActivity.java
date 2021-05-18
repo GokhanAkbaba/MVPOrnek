@@ -44,6 +44,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +66,8 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
     Button trasferEtBtn;
     ArrayList<Integer> cevapKazancList=new ArrayList<Integer>();
     ArrayList<Integer> soruKazancList=new ArrayList<Integer>();
-    double soru, cevap;
+    double soru, cevap,toplamUcret ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,23 +147,25 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         if(cevapData == null){
             cevap=0;
         }else{
-            cevap=cevapData.size() * 0.10;
+            Double cevapDataSize = Double.valueOf(cevapData.size());
+            cevap=cevapDataSize * Double.valueOf(0.10);
         }
         if(data == null){
             cevap=0;
         }else{
-            soru=data.size() * 0.05;
+            Double dataSize=Double.valueOf(data.size());
+            soru=dataSize * Double.valueOf(0.05);
         }
         this.soruData=data;
-
-
-        if(Double.parseDouble(String.valueOf(soru + cevap)) >= 20){
+        DecimalFormat precision = new DecimalFormat("0.00");
+        if(Double.parseDouble(String.valueOf(soru + cevap)) >= 20.0){
             trasferEtBtn.setEnabled(true);
         }else{
             trasferEtBtn.setEnabled(false);
 
         }
-        toplamKazancText.setText(String.valueOf(soru + cevap)+ " TL");
+        toplamUcret=(soru + cevap);
+        toplamKazancText.setText(precision.format(toplamUcret)+ " TL");
     }
 
     @Override

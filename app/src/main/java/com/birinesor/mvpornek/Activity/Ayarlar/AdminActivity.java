@@ -6,20 +6,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.Adapter.AdapterSorularOnay;
 import com.birinesor.mvpornek.Adapter.EtiketlerAdapter;
 import com.birinesor.mvpornek.Models.SorularOnayModel;
+import com.birinesor.mvpornek.Presenter.SoruOnay.SoruOnayDurumGuncellePresenterImpl;
 import com.birinesor.mvpornek.Presenter.SoruOnayPresenter;
 import com.birinesor.mvpornek.Presenter.SoruOnayPresenterImpl;
 import com.birinesor.mvpornek.R;
+import com.birinesor.mvpornek.View.SoruOnayDurumGuncelle;
 import com.birinesor.mvpornek.View.SoruOnayView;
 
 import java.util.List;
 
-public class AdminActivity extends AppCompatActivity implements SoruOnayView {
+public class AdminActivity extends AppCompatActivity implements SoruOnayView, SoruOnayDurumGuncelle {
     private RecyclerView soruOnayRecyclerView;
+    SoruOnayDurumGuncellePresenterImpl soruOnayDurumGuncellePresenter;
     AdapterSorularOnay adapterSorularOnay;
     List<SorularOnayModel> sorularOnayData;
     SoruOnayPresenterImpl soruOnayPresenter;
@@ -30,6 +36,7 @@ public class AdminActivity extends AppCompatActivity implements SoruOnayView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        soruOnayDurumGuncellePresenter=new SoruOnayDurumGuncellePresenterImpl(this);
 
         soruOnayRecyclerView=findViewById(R.id.adminSayfasiRecyclerView);
         soruOnayPresenter=new SoruOnayPresenterImpl(this);
@@ -42,10 +49,14 @@ public class AdminActivity extends AppCompatActivity implements SoruOnayView {
             soruOnayPresenter.loadSoruOnay();
         });
         itemOnayClickListener =((vw,position)-> {
-            System.out.println("Onay"+position);
+            View onayViewButon = soruOnayRecyclerView.getLayoutManager().findViewByPosition(position);
+            TextView onayViewButonTxt=onayViewButon.findViewById(R.id.soruOnayId);
+            soruOnayDurumGuncellePresenter.soruOnayDurumGuncelle(Integer.parseInt((String) onayViewButonTxt.getText()),1);
         });
         itemRedClickListener =((vw,position)-> {
-            System.out.println("Red"+position);
+            View redViewButon = soruOnayRecyclerView.getLayoutManager().findViewByPosition(position);
+            TextView redViewButonTxt=redViewButon.findViewById(R.id.soruOnayId);
+            soruOnayDurumGuncellePresenter.soruOnayDurumGuncelle(Integer.parseInt((String) redViewButonTxt.getText()),-1);
         });
 
     }
@@ -73,5 +84,16 @@ public class AdminActivity extends AppCompatActivity implements SoruOnayView {
     @Override
     public void onSoruOnayHide() {
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void showSoruOnayDurumGuncelleSuccesMessage() {
+        System.out.println("Soru Onay Güncellme Başarılı");
+        soruOnayPresenter.loadSoruOnay();
+    }
+
+    @Override
+    public void showSoruOnayDurumGuncelleFailedMessage() {
+        System.out.println("Soru Onay Güncellme Başarısız");
     }
 }

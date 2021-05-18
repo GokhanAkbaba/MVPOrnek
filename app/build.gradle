@@ -9,8 +9,8 @@ android {
         applicationId "com.birinesor.mvpornek"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 13
-        versionName "13"
+        versionCode 15
+        versionName "15"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,7 +26,6 @@ android {
 
 
 }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

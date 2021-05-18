@@ -4,6 +4,7 @@ package com.birinesor.mvpornek.WebService;
 import com.birinesor.mvpornek.AramaAyarlari.AramaAyarlariGetir.AramaAyarlariGetirModel;
 import com.birinesor.mvpornek.Models.AnswersModel;
 import com.birinesor.mvpornek.Models.BildirimlerBegenilerModel;
+import com.birinesor.mvpornek.Models.CevaplarOnayModels;
 import com.birinesor.mvpornek.Models.CommentModel;
 import com.birinesor.mvpornek.Models.EtiketlerModel;
 import com.birinesor.mvpornek.Models.IlgiAlanlariGetirModel;
@@ -130,6 +131,18 @@ public interface GetDataService {
     Call<CevapKazancResponse> soruKazancGuncelleme(
             @Field("soruId[]") ArrayList<Integer> etiket
     );
+    @FormUrlEncoded
+    @POST("kazancSoruOnayDurumuGuncelle.php")
+    Call<CevapKazancResponse> soruOnayDurumuGuncelleme(
+            @Field("soruId") int soruId,
+            @Field("durum") int durum
+    );
+    @FormUrlEncoded
+    @POST("kazancCevapOnayDurumuGuncelle.php")
+    Call<CevapKazancResponse> cevapDurumuGuncelleme(
+            @Field("cevapId") int cevapId,
+            @Field("durum") int durum
+    );
 
     @FormUrlEncoded
     @POST("sorulariGetir.php")
@@ -179,6 +192,11 @@ public interface GetDataService {
     @POST("sorularOnay.php")
     Call<List<SorularOnayModel>> soruOnaylariGetir(
             @Field("soruId") int soruId
+    );
+    @FormUrlEncoded
+    @POST("cevaplarOnay.php")
+    Call<List<CevaplarOnayModels>> cevapOnaylariGetir(
+            @Field("cevapId") int cevapId
     );
     @FormUrlEncoded
     @POST("ilgiAlanlariGetir.php")

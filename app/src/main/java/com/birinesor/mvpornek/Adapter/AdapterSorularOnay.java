@@ -60,6 +60,7 @@ public class AdapterSorularOnay extends RecyclerView.Adapter<AdapterSorularOnay.
         holder.soruOnayKullaniciAdi.setText(soruOnayKullaniciAdi);
         holder.soruOnaySoru.setText(soruOnaySoru);
         holder.soruOnayZaman.setText(soruOnayZaman);
+        holder.soruIdTextView.setText(sorularOnayModel.getSoruId());
         GlideApp.with(context).load(soruOnayKullaniciResim).apply(new RequestOptions().centerCrop()).into(holder.soruOnayKullaniciResim);
     }
 
@@ -70,7 +71,7 @@ public class AdapterSorularOnay extends RecyclerView.Adapter<AdapterSorularOnay.
     public class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
         AdapterSorularOnay.ItemClickListener itemOnayClickListener;
         AdapterSorularOnay.ItemClickListener itemRedClickListener;
-        TextView soruOnayKullaniciAdi,soruOnayAdSoyad,soruOnaySoru,soruOnayZaman;
+        TextView soruOnayKullaniciAdi,soruOnayAdSoyad,soruOnaySoru,soruOnayZaman,soruIdTextView,cevapIdTextView;
         ImageView soruOnayKullaniciResim;
         Button onayButon,redButon;
         public RecyclerViewAdapter(View itemView, AdapterSorularOnay.ItemClickListener itemClickListener,AdapterSorularOnay.ItemClickListener itemRedClickListener) {
@@ -83,6 +84,8 @@ public class AdapterSorularOnay extends RecyclerView.Adapter<AdapterSorularOnay.
             soruOnayKullaniciAdi=itemView.findViewById(R.id.adminSorularKullaniciAdiTxt);
             soruOnaySoru=itemView.findViewById(R.id.textView12);
             soruOnayZaman=itemView.findViewById(R.id.adminSorularPaylasmaZamani);
+            soruIdTextView=itemView.findViewById(R.id.soruOnayId);
+            cevapIdTextView=itemView.findViewById(R.id.reddetCevapId);
             soruOnayKullaniciResim=itemView.findViewById(R.id.adminSorularRoundedKullaniciResmi);
             onayButon.setOnClickListener(this::onClick);
             redButon.setOnClickListener(this::onClick);

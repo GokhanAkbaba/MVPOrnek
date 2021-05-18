@@ -347,8 +347,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
-            android:visibility="gone"
             android:layout_below="@+id/cikisYapLayout"
+            android:visibility="gone"
             android:clickable="true"
             tools:ignore="MissingConstraints">
 
@@ -378,6 +378,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
                 android:layout_below="@+id/imageView10"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="60dp"
+                android:background="@color/ayarlarGrisi" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/adminCevaplarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_below="@+id/adminLayout"
+            android:visibility="gone"
+            android:clickable="true"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_next__1_"
+                app:tint="@color/colorGreyPrimary" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:textAppearance="@style/customfontstyle"
+                android:text="@string/ayarlarSayfaAdminCevaplar"
+                android:textSize="@dimen/ayarlarSayfaTextSize400"/>
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_below="@+id/imageView11"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="60dp"
                 android:background="@color/ayarlarGrisi" />
