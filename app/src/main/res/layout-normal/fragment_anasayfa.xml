@@ -696,6 +696,49 @@
                             app:layout_constraintEnd_toEndOf="@+id/anasayfa_yazilim_btn"
                             app:layout_constraintStart_toStartOf="@+id/anasayfa_yazilim_btn"
                             app:layout_constraintTop_toBottomOf="@+id/anasayfa_yazilim_btn" />
+                <RelativeLayout
+                    android:id="@+id/anasayfa_kripto_btn"
+                    android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
+                    android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/ana_sayfa_kripto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="@+id/anasayfa_yazilim_btn"
+                    app:layout_constraintStart_toEndOf="@+id/anasayfa_yazilim_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/anaSayfaKriptoButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_crypto_vault"
+                        app:tint="@color/anaSayfaImageViewTintColor"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/kriptoAnaSayfaTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/kriptoText"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
+                    android:textAppearance="@style/customfontstyle"
+                    app:layout_constraintEnd_toEndOf="@+id/anasayfa_kripto_btn"
+                    app:layout_constraintStart_toStartOf="@+id/anasayfa_kripto_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/anasayfa_kripto_btn" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

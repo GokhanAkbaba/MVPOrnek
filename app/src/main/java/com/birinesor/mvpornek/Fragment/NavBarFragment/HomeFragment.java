@@ -57,6 +57,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     private static final int Tarih = 15;
     private static final int Moda = 16;
     private static final int Oto = 17;
+    private static final int Kripto = 18;
 
     public Boolean internetKontrol=false;
 
@@ -64,13 +65,13 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
 
 
-    RelativeLayout anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn;
+    RelativeLayout anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_kripto_btn;
     RelativeLayout anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkFilmDiziEtiket = false;
     Boolean checkSoruAlani=false,checkTeknoEtiket=false,checkOyunEtiket=false,checkSaglikEtiket=false,checkMuzikEtiket=false,checkEgitimEtiket=false,checkTarihEtiket=false,checkModaEtiket=false,checkOtoEtiket=false,
-    checkYazilimEtiket=false;
-    ImageView anaSayfaYazilimButonIamge,anaSayfaOtoButonIamge,anaSayfaModaButonIamge,anaSayfaTarihButonIamge,anaSayfaEgitimButonIamge;
+    checkYazilimEtiket=false,checkKriptoEtiket=false;
+    ImageView anaSayfaYazilimButonIamge,anaSayfaOtoButonIamge,anaSayfaModaButonIamge,anaSayfaTarihButonIamge,anaSayfaEgitimButonIamge,anaSayfaKriptoButonIamge;
     ImageView anaSayfaMuzikButonIamge,anaSayfaSaglikButonIamge,anaSayfaOyunButonIamge,anaSayfaTeknoButonIamge,anaSayfaFilmDiziButonIamge;
     ImageView anaSayfaAlisverisButonIamge,anaSayfaYemekButonIamge,anaSayfaTatilButonIamge,anaSayfaAdresButonIamge,anaSayfaSporButonIamge;
     int refreshControl=0;
@@ -92,7 +93,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
 
     TextView textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,soruAlaniTextView;
-    TextView teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt;
+    TextView teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt;
 
     ConstraintLayout soruAlaniLayoutContent;
 
@@ -165,6 +166,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         textViewSpor=view.findViewById(R.id.sporAnaSayfaTxt);
         textViewTatil=view.findViewById(R.id.tatilAnaSayfaTxt);
         textViewYemek=view.findViewById(R.id.yemekAnaSayfaTxt);
+        kriptoAnaSayfaTxt=view.findViewById(R.id.kriptoAnaSayfaTxt);
         soruAlaniTextView=view.findViewById(R.id.recyclerViewSoruAlaniText);
         soruAlaniLayoutContent=view.findViewById(R.id.soruAlaniContent);
         progressBarAnaSayfa=getActivity().findViewById(R.id.progressBarAnaSayfa);
@@ -189,6 +191,9 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         anasayfa_oto_btn.setOnClickListener(this);
         anasayfa_yazilim_btn=view.findViewById(R.id.anasayfa_yazilim_btn);
         anasayfa_yazilim_btn.setOnClickListener(this);
+        anasayfa_kripto_btn=view.findViewById(R.id.anasayfa_kripto_btn);
+        anasayfa_kripto_btn.setOnClickListener(this);
+        anaSayfaKriptoButonIamge=view.findViewById(R.id.anaSayfaKriptoButonIamge);
         anaSayfaYazilimButonIamge=view.findViewById(R.id.anaSayfaYazilimButonIamge);
         anaSayfaOtoButonIamge=view.findViewById(R.id.anaSayfaOtoButonIamge);
         anaSayfaModaButonIamge=view.findViewById(R.id.anaSayfaModaButonIamge);
@@ -255,8 +260,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAlisverisButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Alisveris);
                         refreshControl=Alisveris;
@@ -268,8 +273,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAlisverisButonIamge.setImageResource(R.drawable.ic_alisveris);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,textViewYemek,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                         refreshControl=-1;
@@ -283,8 +288,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYemekButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Yemek);
                     }
@@ -295,8 +300,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYemekButonIamge.setImageResource(R.drawable.ic_yemek);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,textViewTatil,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -309,8 +314,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTatilButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Tatil);
                     }
@@ -321,8 +326,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTatilButonIamge.setImageResource(R.drawable.ic_tatil);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewTatil,textViewYemek,textViewAlisveris,textViewAdres,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -335,8 +340,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAdresButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon);
-                    anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Adres);
                     }
@@ -347,8 +352,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaAdresButonIamge.setImageResource(R.drawable.ic_location);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon);
-                    anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,textViewSpor,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -361,8 +366,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSporButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon);
-                    anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Spor);
                     }
@@ -373,8 +378,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSporButonIamge.setImageResource(R.drawable.ic_trophy);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon);
-                    anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,teknoAnaSayfaTxt,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -387,8 +392,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTeknoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Teknoloji);
                     }
@@ -399,8 +404,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTeknoButonIamge.setImageResource(R.drawable.ic_teknoloji_svg);
-                    anaSayfaButonGoster(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,textViewFilmDizi,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -413,8 +418,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaFilmDiziButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
 
                     if(internetKontrol){
                         questionMenuPresenter.loadData(FilmDizi);
@@ -426,8 +431,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaFilmDiziButonIamge.setImageDrawable(getActivity().getDrawable(R.mipmap.spor_icon));
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -440,8 +445,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOyunButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Oyun);
                     }
@@ -452,8 +457,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOyunButonIamge.setImageResource(R.drawable.ic_oyun_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -466,8 +471,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSaglikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Saglik);
                     }
@@ -478,8 +483,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaSaglikButonIamge.setImageResource(R.drawable.ic_saglik_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -492,8 +497,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaMuzikButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Muzik);
                     }
@@ -504,8 +509,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaMuzikButonIamge.setImageResource(R.drawable.ic_muzik_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -518,8 +523,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaEgitimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Egitim);
                     }
@@ -530,8 +535,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaEgitimButonIamge.setImageResource(R.drawable.ic_book);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -544,8 +549,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTarihButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Tarih);
                     }
@@ -556,8 +561,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaTarihButonIamge.setImageResource(R.drawable.ic_tarih_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -570,8 +575,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaModaButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Moda);
                     }
@@ -582,8 +587,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaModaButonIamge.setImageResource(R.drawable.ic_moda_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -596,8 +601,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOtoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Oto);
                     }
@@ -608,8 +613,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaOtoButonIamge.setImageResource(R.drawable.ic_auto_svg);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_yazilim_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -622,8 +627,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYazilimButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
-                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGizle(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGizle(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,kriptoAnaSayfaTxt);
 
                     if(internetKontrol){
                         questionMenuPresenter.loadData(Yazilim);
@@ -635,8 +640,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
                     anaSayfaYazilimButonIamge.setImageResource(R.drawable.ic_engineer);
-                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon);
-                    anaSayfaTextRenkGoster(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn);
+                    anaSayfaTextRenkGoster(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,kriptoAnaSayfaTxt);
                     if(internetKontrol){
                         questionPresenter.loadData(kullanici.getId());
                     }
@@ -644,10 +649,37 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     refreshControl=-1;
                 }
                 break;
+            case R.id.anasayfa_kripto_btn:
+                if(!checkKriptoEtiket)
+                {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
+                    anaSayfaKriptoButonIamge.setImageResource(R.mipmap.mavi_kapat_icon);
+                    anaSayfaButonGizle(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_yazilim_btn);
+                    anaSayfaTextRenkGizle(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
+
+                    if(internetKontrol){
+                        questionMenuPresenter.loadData(Kripto);
+                    }
+                    checkKriptoEtiket = true;
+                    refreshControl=Kripto;
+                }
+                else
+                {
+                    internetConnectionPresenter.internetBaglantiKontrolu();
+                    anaSayfaKriptoButonIamge.setImageResource(R.drawable.ic_crypto_vault);
+                    anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,filmDiziButon,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_yazilim_btn);
+                    anaSayfaTextRenkGoster(yazilimAnaSayfaTxt,otoAnaSayfaTxt,modaAnaSayfaTxt,tarihAnaSayfaTxt,egitimAnaSayfaTxt,muzikAnaSayfaTxt,saglikAnaSayfaTxt,oyunAnaSayfaTxt,textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,yazilimAnaSayfaTxt);
+                    if(internetKontrol){
+                        questionPresenter.loadData(kullanici.getId());
+                    }
+                    checkKriptoEtiket=false;
+                    refreshControl=-1;
+                }
+                break;
         }
     }
 
-    public void anaSayfaButonGizle(RelativeLayout button1,RelativeLayout button2,RelativeLayout button3,RelativeLayout button4,RelativeLayout button5,RelativeLayout button6,RelativeLayout button7,RelativeLayout button8,RelativeLayout button9,RelativeLayout button10,RelativeLayout button11,RelativeLayout button12,RelativeLayout button13,RelativeLayout button14){
+    public void anaSayfaButonGizle(RelativeLayout button1,RelativeLayout button2,RelativeLayout button3,RelativeLayout button4,RelativeLayout button5,RelativeLayout button6,RelativeLayout button7,RelativeLayout button8,RelativeLayout button9,RelativeLayout button10,RelativeLayout button11,RelativeLayout button12,RelativeLayout button13,RelativeLayout button14,RelativeLayout button15){
         button1.setEnabled(false);
         button2.setEnabled(false);
         button3.setEnabled(false);
@@ -662,10 +694,11 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         button12.setEnabled(false);
         button13.setEnabled(false);
         button14.setEnabled(false);
+        button15.setEnabled(false);
 
 
     }
-    public void anaSayfaButonGoster(RelativeLayout button1,RelativeLayout button2,RelativeLayout button3,RelativeLayout button4,RelativeLayout button5,RelativeLayout button6,RelativeLayout button7,RelativeLayout button8,RelativeLayout button9,RelativeLayout button10,RelativeLayout button11,RelativeLayout button12,RelativeLayout button13,RelativeLayout button14){
+    public void anaSayfaButonGoster(RelativeLayout button1,RelativeLayout button2,RelativeLayout button3,RelativeLayout button4,RelativeLayout button5,RelativeLayout button6,RelativeLayout button7,RelativeLayout button8,RelativeLayout button9,RelativeLayout button10,RelativeLayout button11,RelativeLayout button12,RelativeLayout button13,RelativeLayout button14,RelativeLayout button15){
         button1.setEnabled(true);
         button2.setEnabled(true);
         button3.setEnabled(true);
@@ -680,10 +713,11 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         button12.setEnabled(true);
         button13.setEnabled(true);
         button14.setEnabled(true);
+        button15.setEnabled(true);
 
     }
 
-    public void anaSayfaTextRenkGizle(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15){
+    public void anaSayfaTextRenkGizle(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15,TextView textView16){
         textView1.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView2.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
         textView3.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
@@ -699,9 +733,10 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         textView13.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
         textView14.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
         textView15.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
+        textView16.setTextColor(getResources().getColor(R.color.ayarlarGrisi));
 
     }
-    public void anaSayfaTextRenkGoster(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15){
+    public void anaSayfaTextRenkGoster(TextView textView1,TextView textView2,TextView textView3,TextView textView4,TextView textView5,TextView textView6,TextView textView7,TextView textView8,TextView textView9,TextView textView10,TextView textView11,TextView textView12,TextView textView13,TextView textView14,TextView textView15,TextView textView16){
         textView1.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView2.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView3.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
@@ -717,6 +752,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         textView13.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView14.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
         textView15.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
+        textView16.setTextColor(getResources().getColor(R.color.uygulamaYaziColor));
 
     }
 
