@@ -184,6 +184,7 @@
                     android:textColorHint="@color/uygulamaMavisi"
                     android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/saglikEtiketBtn"
                     tools:ignore="NotSibling"
                     tools:layout_editor_absoluteY="0dp" />
@@ -290,6 +291,33 @@
                     android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
                     app:layout_constraintStart_toEndOf="@+id/muzikEtiketBtn"
                     app:layout_constraintTop_toBottomOf="@+id/teknoEtiketBtn" />
+
+                <Button
+                    android:id="@+id/kriptoEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginEnd="35dp"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="#KriptoPara"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
+                    app:layout_constraintStart_toEndOf="@+id/teknoEtiketBtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="NotSibling"
+                    tools:layout_editor_absoluteY="0dp" />
+                <Button
+                    android:id="@+id/digerEtiketBtn"
+                    android:layout_width="@dimen/soruPaylasEtiketBtnWidth400"
+                    android:layout_height="@dimen/soruPaylasEtiketBtnHeight400"
+                    android:layout_marginStart="@dimen/soruPaylasEtiketBtnLayoutMarginStart400"
+                    android:layout_marginTop="@dimen/soruPaylasEtiketBtnLayoutMarginTop320"
+                    android:background="@drawable/soru_etiket_buton_beyaz"
+                    android:hint="#Diğer"
+                    android:textColorHint="@color/uygulamaMavisi"
+                    android:textSize="@dimen/soruPaylasEtiketBtnTextSize400"
+                    app:layout_constraintStart_toEndOf="@+id/oyunEtiketBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/kriptoEtiketBtn" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
 

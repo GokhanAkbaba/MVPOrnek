@@ -35,6 +35,7 @@ import com.birinesor.mvpornek.Response.NotificationResponse;
 import com.birinesor.mvpornek.Response.SearchListResponse;
 import com.birinesor.mvpornek.Response.SifreResponse;
 import com.birinesor.mvpornek.Response.SifremiUnuttumResponse;
+import com.birinesor.mvpornek.Response.SoruGorunumKaydet;
 import com.birinesor.mvpornek.Response.SoruKaydetResponse;
 import com.birinesor.mvpornek.Response.SoruSilResponse;
 import com.birinesor.mvpornek.Response.TokenOlusturResponse;
@@ -137,6 +138,15 @@ public interface GetDataService {
             @Field("soruId") int soruId,
             @Field("durum") int durum
     );
+
+    @FormUrlEncoded
+    @POST("soruGorunumGuncelle.php")
+    Call<SoruGorunumKaydet> soruGorunumDurum(
+            @Field("kullaniciId") int kullaniciId,
+            @Field("soruId") int soruId,
+            @Field("secim") int secim
+    );
+
     @FormUrlEncoded
     @POST("kazancCevapOnayDurumuGuncelle.php")
     Call<CevapKazancResponse> cevapDurumuGuncelleme(

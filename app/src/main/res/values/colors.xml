@@ -45,6 +45,7 @@
     <color name="ana_sayfa_oto_color">#7579e7</color>
     <color name="ana_sayfa_yazilim_color">#e5df88</color>
     <color name="ana_sayfa_kripto_color">#9eacf9</color>
+    <color name="ana_sayfa_diger_color">#9FE6A0</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -55,5 +56,9 @@
     <color name="switchArkaPlan">#88888888</color>
     <color name="anaSayfaImageViewTintColor">#FFFFFF</color>
 
+
+    <color name="bg_row_background">#fa315b</color>
+    <color name="item_name">#535353</color>
+    <color name="description">#a9a9a9</color>
 
 </resources>

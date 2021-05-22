@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
     private ItemClickListener itemClickListener;
     private ItemClickListener itemLongClickListener;
     ProfilFragment profilFragment;
+
 
     public QuestionAdapterActivity(List<QuestionModel> questionModels, Context context, ItemClickListener itemClickListener, ItemClickListener itemLongClickListener) {
         this.questionModels = questionModels;
@@ -105,6 +107,7 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
         TextView adSoyad,kullanicAdi,etiket,yorum_sayisi,sorular,zaman,soruId;
         ImageView profilResmi,soruYorumIcon;
         ConstraintLayout sorularIcerik;
+        public RelativeLayout relativeLayout4;
         RecyclerViewAdapter(View itemView,ItemClickListener itemClickListener,ItemClickListener itemLongClickListener) {
             super(itemView);
             this.itemClickListener=itemClickListener;
@@ -119,11 +122,13 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
             sorularIcerik=itemView.findViewById(R.id.sorularIcerikLayout);
             soruId=itemView.findViewById(R.id.soruIdTxt);
             soruYorumIcon=itemView.findViewById(R.id.soruYorumIcon);
+            relativeLayout4= itemView.findViewById(R.id.relativeLayout4);
             sorularIcerik.setOnLongClickListener(this::onLongClick);
             sorularIcerik.setOnClickListener(this);
             soruYorumIcon.setOnClickListener(this::onClick);
             adSoyad.setOnClickListener(this::onClick);
             profilResmi.setOnClickListener(this::onClick);
+
         }
 
         @Override
@@ -168,7 +173,6 @@ public class QuestionAdapterActivity extends RecyclerView.Adapter<QuestionAdapte
     public interface ItemClickListener{
         void onItemClick(View view, int position);
     }
-
 
     public String zamanDonusumu(String zaman){
 

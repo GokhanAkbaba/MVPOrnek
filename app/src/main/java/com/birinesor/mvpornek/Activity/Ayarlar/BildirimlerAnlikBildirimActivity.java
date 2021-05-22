@@ -29,7 +29,7 @@ public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implemen
     IlgiAlanlariPresenterImpl ilgiAlanlariPresenter;
     IlgiAlaniKayitPresenterImpl ilgiAlaniKayitPresenter;
     int secimSayac = 0;
-    Switch switchAdres,switchYemek,switchSpor,switchTatil,switchAlisveris,switchSanat,switchYazilim,switchOto,switchModa,switchTarih,switchEgitim,switchMuzik,switchSaglik,switchOyun,switchTekno;
+    Switch switchAdres,switchDiger,switchYemek,switchSpor,switchTatil,switchAlisveris,switchSanat,switchYazilim,switchOto,switchModa,switchTarih,switchEgitim,switchMuzik,switchSaglik,switchOyun,switchTekno,switchKripto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,7 @@ public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implemen
         Button bildirimIlgiAlaniGeriBtn=findViewById(R.id.bildirimIlgiAlaniGeriBtn);
         switchAdres=findViewById(R.id.switchAdres);
         switchYemek=findViewById(R.id.switchYemek);
+        switchDiger=findViewById(R.id.switchDiger);
         switchTatil=findViewById(R.id.switchTatil);
         switchSpor=findViewById(R.id.switchSpor);
         switchOto=findViewById(R.id.switchOto);
@@ -65,6 +66,7 @@ public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implemen
         switchSaglik=findViewById(R.id.switchSaglik);
         switchOyun=findViewById(R.id.switchOyun);
         switchTekno=findViewById(R.id.switchTekno);
+        switchKripto=findViewById(R.id.switchKripto);
         bildirimIlgiAlaniGeriBtn.setOnClickListener(this);
         Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
         ilgiAlanlariPresenter=new IlgiAlanlariPresenterImpl(this);
@@ -284,6 +286,34 @@ public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implemen
             }
 
         });
+        switchKripto.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                secimSayac++;
+                ilgiAlaniKayitPresenter.validateIlgiAlaniKayit(kullanici.getId(),Degiskenler.KRIPTO_ID,data.get(0).getIl(),1);
+            } else {
+                if(1 < secimSayac){
+                    ilgiAlaniKayitPresenter.validateIlgiAlaniKayit(kullanici.getId(),Degiskenler.KRIPTO_ID,data.get(0).getIl(),2);
+                    secimSayac--;
+                }else{
+                    Toast.makeText(this,"En Az 1 Tane Alan Seçilmelidir",Toast.LENGTH_SHORT).show();
+                    switchKripto.setChecked(true);
+                }
+            }
+        });
+        switchDiger.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                secimSayac++;
+                ilgiAlaniKayitPresenter.validateIlgiAlaniKayit(kullanici.getId(),Degiskenler.DIGER_ID,data.get(0).getIl(),1);
+            } else {
+                if(1 < secimSayac){
+                    ilgiAlaniKayitPresenter.validateIlgiAlaniKayit(kullanici.getId(),Degiskenler.DIGER_ID,data.get(0).getIl(),2);
+                    secimSayac--;
+                }else{
+                    Toast.makeText(this,"En Az 1 Tane Alan Seçilmelidir",Toast.LENGTH_SHORT).show();
+                    switchKripto.setChecked(true);
+                }
+            }
+        });
 
     }
     @Override
@@ -344,6 +374,10 @@ public class BildirimlerAnlikBildirimActivity extends AppCompatActivity implemen
                 switchSaglik.setChecked(true);
             }else if(data.get(i).getEtiketID()==13){
                 switchMuzik.setChecked(true);
+            }else if(data.get(i).getEtiketID()==18){
+                switchKripto.setChecked(true);
+            }else if(data.get(i).getEtiketID()==19){
+                switchDiger.setChecked(true);
             }
 
         }

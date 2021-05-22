@@ -348,7 +348,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:layout_below="@+id/cikisYapLayout"
-            android:visibility="gone"
+
             android:clickable="true"
             tools:ignore="MissingConstraints">
 
@@ -389,7 +389,6 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:layout_below="@+id/adminLayout"
-            android:visibility="gone"
             android:clickable="true"
             tools:ignore="MissingConstraints">
 

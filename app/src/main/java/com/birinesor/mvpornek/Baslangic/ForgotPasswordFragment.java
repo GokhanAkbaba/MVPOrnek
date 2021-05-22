@@ -75,7 +75,6 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_kullanici_sifre_unuttum, container, false);
         sifremiUnuttumBtn=view.findViewById(R.id.sifremiUnuttumYapBtn);
         sifremiUnuttumBtn.setOnClickListener(this);

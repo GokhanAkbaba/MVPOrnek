@@ -104,8 +104,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     BildirimFonksiyonları bildirimFonksiyonları;
     ArrayList<Integer> illerList=new ArrayList<Integer>();
     ArrayList<Integer> etiketList=new ArrayList<Integer>();
-    Boolean checkAdanaEtiket=false,checkArtvinEtiket=false,checkTeknoEtiket=false,checkSaglikEtiket=false;
-    Boolean checkMuzikEtiket=false,checkEgitimEtiket=false,checkTarihEtiket=false,checkOtoEtiket=false,checkModaEtiket=false,checkOyunEtiket=false;
+    Boolean checkDigerEtiket=false,checkArtvinEtiket=false,checkTeknoEtiket=false,checkSaglikEtiket=false;
+    Boolean checkMuzikEtiket=false,checkEgitimEtiket=false,checkTarihEtiket=false,checkOtoEtiket=false,checkModaEtiket=false,checkOyunEtiket=false,checkKriptoEtiket=false;;
     Boolean checkYemekEtiket =false,checkAdresEtiket = false,checkSporEtiket = false,checkGeziEtiket = false,
             checkTatilEtiket = false,checkAlisverisEtiket = false,checkSanatEtiket = false,checkYirmiDortBildirim=false,checkYazilimEtiket = false;
 
@@ -288,6 +288,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Button muzikEtiketBtn=layoutView.findViewById(R.id.muzikEtiketBtn);
                 Button alisverisButon=layoutView.findViewById(R.id.alisverisEtiketBtn);
                 Button adresButon=layoutView.findViewById(R.id.adresEtiketBtn);
+                Button kriptoButon=layoutView.findViewById(R.id.kriptoEtiketBtn);
+                Button digerEtiketBtn=layoutView.findViewById(R.id.digerEtiketBtn);
                 Button il01=layoutView.findViewById(R.id.il_01);
                 il01.setOnClickListener(this);
                 Button il02=layoutView.findViewById(R.id.il_02);
@@ -2029,6 +2031,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 });
 
+                digerEtiketBtn.setOnClickListener((View v) -> {
+                    if(!checkAdresEtiket) {
+                        etiketList.add(1);
+                        digerEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                        digerEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                        checkDigerEtiket = true;
+                    }else{
+                        etiketList.remove(Integer.valueOf(1));
+                        digerEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                        digerEtiketBtn.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                        checkDigerEtiket=false;
+                    }
+
+                });
+
                 tatilButon.setOnClickListener((View v) -> {
                         if(!checkTatilEtiket) {
                             etiketList.add(4);
@@ -2127,6 +2144,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         checkMuzikEtiket=false;
                     }
                 });
+            kriptoButon.setOnClickListener((View v) -> {
+                if(!checkKriptoEtiket) {
+                    etiketList.add(18);
+                    kriptoButon.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
+                    kriptoButon.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
+                    checkKriptoEtiket = true;
+                }else{
+                    etiketList.remove(Integer.valueOf(18));
+                    kriptoButon.setBackground(getDrawable(R.drawable.soru_etiket_buton_beyaz));
+                    kriptoButon.setHintTextColor(getResources().getColor(R.color.uygulamaMavisi));
+                    checkKriptoEtiket=false;
+                }
+            });
                 alertDialog.show();
 
 

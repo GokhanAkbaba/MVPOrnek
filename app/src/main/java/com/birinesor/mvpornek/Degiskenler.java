@@ -9,6 +9,8 @@ public class Degiskenler {
     public static int SANAT_ID=6;
     public static int YAZILIM_ID=7;
     public static int MUZIK_ID=13;
+    public static int KRIPTO_ID=18;
+    public static int DIGER_ID=19;
     public static int SAGLIK_ID=12;
     public static int OYUN_ID=11;
     public static int TEKNOLOJI_ID=10;

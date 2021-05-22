@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -739,6 +740,50 @@
                     app:layout_constraintEnd_toEndOf="@+id/anasayfa_kripto_btn"
                     app:layout_constraintStart_toStartOf="@+id/anasayfa_kripto_btn"
                     app:layout_constraintTop_toBottomOf="@+id/anasayfa_kripto_btn" />
+
+                <RelativeLayout
+                    android:id="@+id/anasayfa_diger_btn"
+                    android:layout_width="@dimen/fragmentAnaSayfaButonWidth400"
+                    android:layout_height="@dimen/fragmentAnaSayfaButonHeight400"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/ana_sayfa_diger"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="@+id/anasayfa_kripto_btn"
+                    app:layout_constraintStart_toEndOf="@+id/anasayfa_kripto_btn"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/anaSayfaDigerButonIamge"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="9.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="9.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_diger"
+                        app:tint="@color/anaSayfaImageViewTintColor"
+                        tools:ignore="MissingConstraints" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/digerAnaSayfaTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/digerText"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/fragmentAnaSayfaButonTextSize400"
+                    android:textAppearance="@style/customfontstyle"
+                    app:layout_constraintEnd_toEndOf="@+id/anasayfa_diger_btn"
+                    app:layout_constraintStart_toStartOf="@+id/anasayfa_diger_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/anasayfa_diger_btn" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
