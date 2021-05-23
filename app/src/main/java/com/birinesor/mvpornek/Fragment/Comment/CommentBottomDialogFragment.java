@@ -234,7 +234,8 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
 
     @Override
     public void onErrorLoading(String message) {
-        Toast.makeText(getActivity().getApplicationContext(), "Yorumlar Görüntülenirken Hata Oluştu", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity().getApplicationContext(), "Yorumlar Görüntülenirken Hata Oluştu", Toast.LENGTH_SHORT).show();
+        System.out.println("Yorumlar Görüntülenirken Hata Oluştu");
     }
     @Override
     public void showSuccesMessage() {
@@ -265,7 +266,7 @@ public class CommentBottomDialogFragment extends BottomSheetDialogFragment imple
 
     @Override
     public void showNotificaitonFailedMessage() {
-////
+        ///
     }
     public void dialogCancel(){
         getDialog().cancel();

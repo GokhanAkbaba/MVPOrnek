@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adminCevaplarIcerikLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="2dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/adminCevaplarKullaniciResmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103">
+
+            <ImageView
+                android:id="@+id/adminCevaplarRoundedKullaniciResmi"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rumeli" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/adminCevaplarKullaniciAdSoyad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/adminCevaplarKullaniciResmi"
+            android:text="Gökhan AKBABA"
+            android:textAppearance="@style/customfontstyle"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/adminCevaplarPaylasmaZamani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adminCevaplarKullaniciAdiTxt"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/adminCevaplarKullaniciResmi"
+            android:text="1sa"
+            android:textAppearance="@style/customfontstyle"
+            android:textSize="11sp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/adminCevaplarKullaniciAdiTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/adminCevaplarKullaniciAdSoyad"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/adminCevaplarKullaniciResmi"
+            android:text="\@GokhanAkbaba"
+            android:textAppearance="@style/customfontstyle"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adminCevaplarPaylasmaZamani"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+            android:autoLink="web"
+            android:text="@string/denemeSoru1Txt"
+            android:textAppearance="@style/customfontstyle"
+            android:textColorLink="@color/uygulamaMavisi"
+            android:textSize="17sp" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentEnd="true">
+
+            <Button
+                android:id="@+id/onayBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="112dp"
+                android:layout_toStartOf="@+id/reddetBtn"
+                android:text="Onayla" />
+
+            <Button
+                android:id="@+id/reddetBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="25dp"
+                android:text="Reddet" />
+
+            <TextView
+                android:id="@+id/cevapOnayId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/onayBtn"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="65dp"
+                android:visibility="invisible"
+                android:layout_marginTop="3dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/cevapCevapId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reddetBtn"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-26dp"
+                android:visibility="invisible"
+                android:layout_marginEnd="74dp"
+                android:text="TextView" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:background="@color/ayarlarGrisi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

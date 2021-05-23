@@ -21,7 +21,8 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/padd_10"
-            android:src="@drawable/ic_right_arrow"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/anaSayfaImageViewTintColor"
             tools:ignore="RtlHardcoded" />
 
         <TextView

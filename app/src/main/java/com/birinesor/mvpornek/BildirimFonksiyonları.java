@@ -69,11 +69,12 @@ public class BildirimFonksiyonları {
                     PendingIntent.getActivity(context,0, resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setSmallIcon(R.mipmap.ic_uygulama_icon )
                     .setContentTitle(durum)
                     .setContentIntent(resultPendingIntent)
                     .setStyle(new NotificationCompat.BigTextStyle().bigText(ileti))
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setContentText(ileti)
                     .setAutoCancel(true);
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             int uniqID = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);

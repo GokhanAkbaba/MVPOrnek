@@ -348,7 +348,6 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:layout_below="@+id/cikisYapLayout"
-
             android:clickable="true"
             tools:ignore="MissingConstraints">
 

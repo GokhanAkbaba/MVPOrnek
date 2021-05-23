@@ -261,6 +261,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     progressBar.setVisibility(value);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onClick(View view) {
                 layoutView = getLayoutInflater().inflate(R.layout.soru_paylas_ekrani, null);
@@ -2033,7 +2034,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 digerEtiketBtn.setOnClickListener((View v) -> {
                     if(!checkAdresEtiket) {
-                        etiketList.add(1);
+                        etiketList.add(19);
                         digerEtiketBtn.setBackground(getDrawable(R.drawable.soru_etiket_arkaplan));
                         digerEtiketBtn.setHintTextColor(getResources().getColor(R.color.profilSekmeBeyaz));
                         checkDigerEtiket = true;
@@ -2182,10 +2183,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         FragmentManager.BackStackEntry entry=getSupportFragmentManager().getBackStackEntryAt(count -1);
         if(count == 0){
             super.onBackPressed();
+            System.out.println("SORUNNNN-2");
         } else if(count >1){
             if(Objects.equals(entry.getName(), "AramaAsama-4") || Objects.equals(entry.getName(), "AramaAsamaTık-2")){
                 getSupportFragmentManager().popBackStack("Fragment", 0);
+                System.out.println("SORUNNNN-3");
             }else{
+                System.out.println("SORUNNNN-1");
                 getSupportFragmentManager().popBackStack();
             }
 
@@ -2197,9 +2201,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if(Objects.equals(entry.getName(), "Fragment")){
+            System.out.println("SORUNNNN-4");
            getSupportFragmentManager().popBackStack("Fragment", POP_BACK_STACK_INCLUSIVE);
            bottomNavigationView.getMenu().getItem(0).setChecked(true);
         }else if(Objects.equals(entry.getName(), "AnaSayfaFragment")){
+            System.out.println("SORUNNNN-5");
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

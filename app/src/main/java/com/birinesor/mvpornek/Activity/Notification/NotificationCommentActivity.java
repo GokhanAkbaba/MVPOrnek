@@ -91,6 +91,7 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
             if(extras.containsKey("bildirimYapılanSoruID"))
             {
                 soruID = Integer.parseInt(extras.getString("bildirimYapılanSoruID"));
+                System.out.println("BİLLLLGG"+soruID);
                 notificationCommetAndQuestionPresenter.loadDataNotificationComment(soruID);
                 setBildirimAcilis(true);
             }

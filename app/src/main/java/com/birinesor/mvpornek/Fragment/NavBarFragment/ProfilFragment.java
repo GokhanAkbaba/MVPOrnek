@@ -87,11 +87,17 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
         }
-
-        if(CommentBottomDialogFragment.kutuDurum){
-            CommentBottomDialogFragment.instance.dialogCancel();
-            CommentBottomDialogFragment.kutuDurum=false;
+        CommentBottomDialogFragment test = (CommentBottomDialogFragment) getActivity().getSupportFragmentManager().findFragmentByTag("CommentBottomDialogFragment");
+        if (test != null && test.isVisible()) {
+            System.out.println("KUTU DURUM-- "+CommentBottomDialogFragment.kutuDurum);
+            if(CommentBottomDialogFragment.kutuDurum){
+                CommentBottomDialogFragment.instance.dialogCancel();
+                CommentBottomDialogFragment.kutuDurum=false;
+            }
         }
+
+
+
         getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
     }
 

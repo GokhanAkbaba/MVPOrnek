@@ -51,6 +51,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends BottomSheetDialogFragment implements View.OnClickListener, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener, QuestionMenuView, QuestionView, InternetConnectionView, QuestionsDeleteView, SoruGorunumView {
 
@@ -135,6 +136,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     int soruId=questionModels.get(position).getId();
                     int soruSoranKullaniciId=questionModels.get(position).getKullaniciId();
                     showBottomSheet(soruId,soruSoranKullaniciId);
+
         });
 
         itemLongClickListener =((vw,position)-> {
@@ -145,7 +147,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                     checkSoruAlani = true;
                 }
                 final CharSequence[] items = {"Sil"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
                 builder.setItems(items, (dialog, item) -> questionsDeletePresenter.deleteOptions(questionModels.get(position).getId()));
                 builder.setOnDismissListener(dialogInterface -> {
                     if(checkSoruAlani) {
@@ -275,11 +277,12 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     public void showBottomSheet(int soruId,int soruSoranKullaniciId) {
         CommentBottomDialogFragment commentBottomDialogFragment =
                 CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciId);
-        commentBottomDialogFragment.show(getActivity().getSupportFragmentManager(),
+        commentBottomDialogFragment.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
                 CommentBottomDialogFragment.TAG);
+
     }
 
-    @SuppressLint("NonConstantResourceId")
+    @SuppressLint({"NonConstantResourceId", "UseCompatLoadingForDrawables"})
     @Override
     public void onClick(View view) {
         switch (view.getId())
@@ -460,7 +463,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 else
                 {
                     internetConnectionPresenter.internetBaglantiKontrolu();
-                    anaSayfaFilmDiziButonIamge.setImageDrawable(getActivity().getDrawable(R.mipmap.spor_icon));
+                    anaSayfaFilmDiziButonIamge.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.mipmap.spor_icon));
                     anaSayfaButonGoster(anasayfa_tekno_btn,anasayfa_oyun_btn,anasayfa_saglik_btn,anasayfa_muzik_btn,anasayfa_egitim_btn,anasayfa_tarih_btn,anasayfa_moda_btn,anasayfa_oto_btn,anasayfa_yazilim_btn,alisverisButon,yemekButon,tatilButon,adresButon,sporButon,anasayfa_kripto_btn,anasayfa_diger_btn);
                     anaSayfaTextRenkGoster(textViewFilmDizi,teknoAnaSayfaTxt,textViewSpor,textViewAdres,textViewTatil,textViewYemek,textViewAlisveris,oyunAnaSayfaTxt,saglikAnaSayfaTxt,muzikAnaSayfaTxt,egitimAnaSayfaTxt,tarihAnaSayfaTxt,modaAnaSayfaTxt,otoAnaSayfaTxt,yazilimAnaSayfaTxt,kriptoAnaSayfaTxt,textViewDiger);
                     if(internetKontrol){
@@ -869,7 +872,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         if(refreshControl==0 || refreshControl==-1){
                 //questionPresenter.loadData(kullanici.getId());
 
-        }else if (refreshControl != -1){
+        }else {
                 //questionMenuPresenter.loadData(refreshControl);
         }
         internetKontrol=true;
@@ -890,7 +893,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
-        if (viewHolder instanceof RecyclerView.ViewHolder) {
+        if (viewHolder != null) {
             // get the removed item name to display it in snack bar
             //String name = cartList.get(viewHolder.getAdapterPosition()).getName();
 
@@ -913,6 +916,20 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 .make(coordinatorLayout, "Soruyu Artık Görmeyeceksiniz.", Snackbar.LENGTH_LONG);
         snackbar.setActionTextColor(Color.YELLOW);
         snackbar.show();
+        if(refreshControl==0 || refreshControl==-1){
+            internetConnectionPresenter.internetBaglantiKontrolu();
+            if(internetKontrol){
+                questionPresenter.loadData(kullanici.getId());
+            }
+        }else {
+            if (refreshControl == -1) {
+                return;
+            }
+            internetConnectionPresenter.internetBaglantiKontrolu();
+            if(internetKontrol){
+                questionMenuPresenter.loadData(refreshControl);
+            }
+        }
     }
 
     @Override
