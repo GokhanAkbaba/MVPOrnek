@@ -9,8 +9,8 @@ android {
         applicationId "com.birinesor.mvpornek"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 16
-        versionName "16"
+        versionCode 17
+        versionName "17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

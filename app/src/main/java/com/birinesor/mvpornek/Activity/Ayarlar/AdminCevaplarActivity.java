@@ -72,7 +72,7 @@ public class AdminCevaplarActivity extends AppCompatActivity implements CevapOna
     @Override
     public void showCevapOnayDurumGuncelleFailedMessage() {
         System.out.println("Cevaplar Onay Gücelleme Başarısız");
-        cevapOnayPresenter.cevapOnayLoad();
+       cevapOnayPresenter.cevapOnayLoad();
     }
 
     @Override

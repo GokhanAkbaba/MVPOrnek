@@ -151,14 +151,14 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
             cevap=cevapDataSize * Double.valueOf(0.10);
         }
         if(data == null){
-            cevap=0;
+            soru=0;
         }else{
             Double dataSize=Double.valueOf(data.size());
             soru=dataSize * Double.valueOf(0.05);
         }
         this.soruData=data;
         DecimalFormat precision = new DecimalFormat("0.00");
-        if(Double.parseDouble(String.valueOf(soru + cevap)) >= 20.0){
+        if(Double.parseDouble(String.valueOf(soru + cevap)) >= 0.0){
             trasferEtBtn.setEnabled(true);
         }else{
             trasferEtBtn.setEnabled(false);
