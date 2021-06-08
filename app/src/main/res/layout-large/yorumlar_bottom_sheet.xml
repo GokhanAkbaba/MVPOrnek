@@ -58,6 +58,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/yorumlarRecyclerView"
             android:layout_width="match_parent"
+            android:layout_above="@+id/yorumAlaniBody"
             android:layout_below="@+id/baslik"
             android:background="@color/colorWhite"
             android:layout_height="wrap_content"
@@ -69,6 +70,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/yorumAlaniBody"
         android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         tools:ignore="MissingConstraints">

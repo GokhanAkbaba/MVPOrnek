@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -94,16 +95,20 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         cevapKazancGuncellePresenter=new CevapKazancGuncellePresenterImpl(this);
         kazancSoruGuncellePresenter = new KazancSoruGuncellePresenterImpl(this);
         kullanici= SharedPrefManager.getInstance(this).getKullanici();
-        kazancCevapPresenter.loadData(kullanici.getId());
-        kazancSoruPresenter.loadData(kullanici.getId());
+        //kazancCevapPresenter.loadData(kullanici.getId());
+        //kazancSoruPresenter.loadData(kullanici.getId());
+        kazancCevapPresenter.loadData(1034);
+        kazancSoruPresenter.loadData(1034);
         toplamKazancText=findViewById(R.id.toplamKazanctextView);
         kazancAdSoyadTextField=findViewById(R.id.kazancAdSoyadTextField);
         kazancIbanTextField=findViewById(R.id.kazancIbanTextField);
         swipeRefreshLayout = findViewById(R.id.kazancSwipeLayout);
         swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
         swipeRefreshLayout.setOnRefreshListener(() ->{
-            kazancCevapPresenter.loadData(kullanici.getId());
-            kazancSoruPresenter.loadData(kullanici.getId());
+            //kazancCevapPresenter.loadData(kullanici.getId());
+            //kazancSoruPresenter.loadData(kullanici.getId());
+            kazancCevapPresenter.loadData(1034);
+            kazancSoruPresenter.loadData(1034);
         });
         kullaniciKazancPresenter = new KullaniciKazancPresenterImpl(this,new KullaniciKazancInteractorImpl(this));
 
@@ -164,6 +169,8 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
             trasferEtBtn.setEnabled(false);
 
         }
+        System.out.println("Soru "+soru);
+        System.out.println("Cevap "+cevap);
         toplamUcret=(soru + cevap);
         toplamKazancText.setText(precision.format(toplamUcret)+ " TL");
     }
@@ -230,6 +237,7 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         toplamKazancText.setText("");
         hideKullaniciKazancProgress();
     }
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         tutar = toplamKazancText.getText().toString();
