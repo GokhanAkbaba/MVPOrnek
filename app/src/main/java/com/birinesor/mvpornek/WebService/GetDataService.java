@@ -9,6 +9,7 @@ import com.birinesor.mvpornek.Models.CommentModel;
 import com.birinesor.mvpornek.Models.EtiketlerModel;
 import com.birinesor.mvpornek.Models.IlgiAlanlariGetirModel;
 import com.birinesor.mvpornek.Models.KazancCevap;
+import com.birinesor.mvpornek.Models.KazancHesaplaModels;
 import com.birinesor.mvpornek.Models.KazancSoru;
 import com.birinesor.mvpornek.Models.LikesModel;
 import com.birinesor.mvpornek.Models.NotificationCommetAndQuestionModel;
@@ -189,6 +190,12 @@ public interface GetDataService {
     @FormUrlEncoded
     @POST("getAnswersMoneyCount.php")
     Call<List<KazancCevap>> kazancCevapGetir(
+            @Field("kullaniciId") int kullaniciId
+
+    );
+    @FormUrlEncoded
+    @POST("kullaniciKazancHesapla.php")
+    Call<List<KazancHesaplaModels>> kullaniciKazancHesapla(
             @Field("kullaniciId") int kullaniciId
 
     );

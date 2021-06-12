@@ -491,8 +491,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 soruPaylasButon.setOnClickListener((View v) -> {
                         internetConnectionPresenter.internetBaglantiKontrolu();
-                        String soruAlaniText=soruAlaniTxt.getText().toString();
-                        questionRegistrationPresenter.questionRegistrationValideCredentals(kullanici.getId(),soruAlaniText,etiketList,illerList);
+                        if(etiketList.size() < 3 ){
+                            String soruAlaniText=soruAlaniTxt.getText().toString();
+                            questionRegistrationPresenter.questionRegistrationValideCredentals(kullanici.getId(),soruAlaniText,etiketList,illerList);
+                        }else{
+                            Toast.makeText(this,"En Fazla 2 Etiket Seçebilirsiniz",Toast.LENGTH_LONG).show();
+                        }
 
                 });
 

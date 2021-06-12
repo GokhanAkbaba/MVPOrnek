@@ -22,7 +22,7 @@
     <string name="bildirimDuzenleTxt">Bildirim Düzenle</string>
     <string name="kazancTxt">Kazanç</string>
     <string name="toplamKazancTxt">Toplam Kazanç</string>
-    <string name="toplamKazancLimitTxt">Çekim Limiti Minumum 20 TL  </string>
+    <string name="toplamKazancLimitTxt">Çekim Limiti Minumum 30 TL  </string>
     <string name="kazancAciklamaTxt">Sorduğunuz her soru için 0.05 TL. Cevapladığınız her soru için 0.10 TL. kazanırsınız. </string>
     <string name="anlikBildirimlerTxt">Anlık Bildirimler</string>
     <string name="anlikBildirimAciklamaTxt">Yorumların ve beğenilerin hakkında bildirimler</string>

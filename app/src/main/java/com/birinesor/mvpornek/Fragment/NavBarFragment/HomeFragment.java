@@ -241,6 +241,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         textViewDiger=view.findViewById(R.id.digerAnaSayfaTxt);
         yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
         swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
+        questionPresenter.loadData(kullanici.getId());
         swipeRefreshLayout.setOnRefreshListener(() -> {
             if(refreshControl==0 || refreshControl==-1){
                 internetConnectionPresenter.internetBaglantiKontrolu();

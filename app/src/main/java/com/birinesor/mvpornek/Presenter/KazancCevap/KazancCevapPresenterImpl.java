@@ -31,7 +31,7 @@ class KazancCevapPresenterImpl implements KazancCevapPresenter{
             @Override
             public void onResponse(Call<List<KazancCevap>> call, Response<List<KazancCevap>> response) {
                 kazancCevapView.onKazancCevapHideLoading();
-                if (response.isSuccessful() && response.body() !=null) {
+                if (response.isSuccessful() && response.body() != null) {
                     kazancCevapView.onGetResult(response.body());
                 }
             }
