@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,19 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
-import com.birinesor.mvpornek.GlideApp;
 import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Model.KullaniciKazanc.KullaniciKazancInteractorImpl;
 import com.birinesor.mvpornek.Models.KazancCevap;
 import com.birinesor.mvpornek.Models.KazancSoru;
 import com.birinesor.mvpornek.Models.Kullanici;
-import com.birinesor.mvpornek.Models.KullaniciGetir;
 import com.birinesor.mvpornek.Presenter.CevapKazancGuncellePresenterImpl;
 import com.birinesor.mvpornek.Presenter.KazancCevap.KazancCevapPresenterImpl;
 import com.birinesor.mvpornek.Presenter.KazancSoru.KazancSoruPresenterImpl;
-import com.birinesor.mvpornek.Presenter.KazancSoruGuncellePresenter;
 import com.birinesor.mvpornek.Presenter.KazancSoruGuncellePresenterImpl;
-import com.birinesor.mvpornek.Presenter.KullaniciGetir.UsersGetPresenterImpl;
 import com.birinesor.mvpornek.Presenter.KullaniciKazancLog.KullaniciKazancPresenter;
 import com.birinesor.mvpornek.Presenter.KullaniciKazancLog.KullaniciKazancPresenterImpl;
 import com.birinesor.mvpornek.R;
@@ -39,13 +34,8 @@ import com.birinesor.mvpornek.View.KazancCevapView;
 import com.birinesor.mvpornek.View.KazancSoruGuncelleView;
 import com.birinesor.mvpornek.View.KazancSoruView;
 import com.birinesor.mvpornek.View.KullaniciKazancLogView;
-import com.birinesor.mvpornek.View.UsersGetView;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.w3c.dom.Text;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,7 +122,7 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
                 System.out.println(s);
             }
         });
-
+        kazancHesapla();
 
     }
 
@@ -149,7 +139,12 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onGetKazancSoruResult(List<KazancSoru> data) {
-        if(cevapData == null){
+        this.soruData=data;
+    }
+    public void kazancHesapla(){
+        System.out.println("Soru");
+        System.out.println("Cevap"+cevapData);
+       /* if(cevapData == null){
             cevap=0;
         }else{
             Double cevapDataSize = Double.valueOf(cevapData.size());
@@ -161,7 +156,6 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
             Double dataSize=Double.valueOf(data.size());
             soru=dataSize * Double.valueOf(0.05);
         }
-        this.soruData=data;
         DecimalFormat precision = new DecimalFormat("0.00");
         if(Double.parseDouble(String.valueOf(soru + cevap)) >= 0.0){
             trasferEtBtn.setEnabled(true);
@@ -169,12 +163,9 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
             trasferEtBtn.setEnabled(false);
 
         }
-        System.out.println("Soru "+soru);
-        System.out.println("Cevap "+cevap);
         toplamUcret=(soru + cevap);
-        toplamKazancText.setText(precision.format(toplamUcret)+ " TL");
+        toplamKazancText.setText(precision.format(toplamUcret)+ " TL");*/
     }
-
     @Override
     public void onErrorKazancSoruLoading(String message) {
         System.out.println("Kazanc Soru Idleri Getirilirken Hata Oluştu");

@@ -189,9 +189,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         soruAlaniLayoutContent=view.findViewById(R.id.soruAlaniContent);
         soruGorunumPresenter=new SoruGorunumPresenterImpl(this);
         progressBarAnaSayfa=getActivity().findViewById(R.id.progressBarAnaSayfa);
-
-
-
         filmDiziButon=view.findViewById(R.id.anasayfa_filmDizi_btn);
         filmDiziButon.setOnClickListener(this);
         anasayfa_tekno_btn=view.findViewById(R.id.anasayfa_tekno_btn);
@@ -216,7 +213,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         anasayfa_kripto_btn.setOnClickListener(this);
         anasayfa_diger_btn=view.findViewById(R.id.anasayfa_diger_btn);
         anasayfa_diger_btn.setOnClickListener(this);
-
         anaSayfaKriptoButonIamge=view.findViewById(R.id.anaSayfaKriptoButonIamge);
         anaSayfaYazilimButonIamge=view.findViewById(R.id.anaSayfaYazilimButonIamge);
         anaSayfaOtoButonIamge=view.findViewById(R.id.anaSayfaOtoButonIamge);
@@ -234,7 +230,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         anaSayfaAdresButonIamge=view.findViewById(R.id.anaSayfaAdresButonIamge);
         anaSayfaSporButonIamge=view.findViewById(R.id.anaSayfaSporButonIamge);
         anaSayfaDigerButonIamge=view.findViewById(R.id.anaSayfaDigerButonIamge);
-
         teknoAnaSayfaTxt=view.findViewById(R.id.teknoAnaSayfaTxt);
         oyunAnaSayfaTxt=view.findViewById(R.id.oyunAnaSayfaTxt);
         saglikAnaSayfaTxt=view.findViewById(R.id.saglikAnaSayfaTxt);
@@ -245,9 +240,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
         otoAnaSayfaTxt=view.findViewById(R.id.otoAnaSayfaTxt);
         textViewDiger=view.findViewById(R.id.digerAnaSayfaTxt);
         yazilimAnaSayfaTxt=view.findViewById(R.id.yazilimAnaSayfaTxt);
-
         swipeRefreshLayout.setColorSchemeResources(R.color.uygulamaMavisi);
-
         swipeRefreshLayout.setOnRefreshListener(() -> {
             if(refreshControl==0 || refreshControl==-1){
                 internetConnectionPresenter.internetBaglantiKontrolu();
@@ -261,19 +254,23 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                 }
             }
         });
-
         recyclerViewSoruAlani=(RecyclerView) view.findViewById(R.id.recyclerViewSoruAlani);
         recyclerViewSoruAlani.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewSoruAlani.setOnClickListener(this);
-
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerViewSoruAlani);
 
-
-
+        recyclerViewSoruAlani.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (! recyclerViewSoruAlani.canScrollVertically(1)){ //1 for down
+                    System.out.println("Çalıştı");
+                }
+            }
+        });
         return view;
     }
-
     public void showBottomSheet(int soruId,int soruSoranKullaniciId) {
         CommentBottomDialogFragment commentBottomDialogFragment =
                 CommentBottomDialogFragment.newInstance(soruId,soruSoranKullaniciId);
@@ -287,7 +284,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     public void onClick(View view) {
         switch (view.getId())
         {
-
             case R.id.anasayfa_alisveris_btn:
                 if(!checkAlisverisEtiket)
                 {
@@ -300,7 +296,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                         refreshControl=Alisveris;
                     }
                     checkAlisverisEtiket = true;
-
                 }
                 else
                 {
@@ -313,7 +308,6 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
                         refreshControl=-1;
                     }
                     checkAlisverisEtiket=false;
-
                 }
                 break;
             case R.id.anasayfa_yemek_btn:
