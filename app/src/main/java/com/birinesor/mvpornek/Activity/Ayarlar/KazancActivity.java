@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,15 @@ import com.birinesor.mvpornek.View.KazancSoruGuncelleView;
 import com.birinesor.mvpornek.View.KazancSoruView;
 import com.birinesor.mvpornek.View.KullaniciKazancHesapla;
 import com.birinesor.mvpornek.View.KullaniciKazancLogView;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.jetbrains.annotations.NotNull;
@@ -68,6 +78,7 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
     ArrayList<Integer> cevapKazancList=new ArrayList<Integer>();
     ArrayList<Integer> soruKazancList=new ArrayList<Integer>();
     double soru, cevap,toplamUcret ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,8 +143,9 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-    }
 
+
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -254,6 +266,7 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 trasferEtBtn.setEnabled(false);
         }
+
     }
 
     @Override

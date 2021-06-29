@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,17 @@ import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.HesapSilView;
 import com.birinesor.mvpornek.View.TokenDeleteView;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+
+import org.jetbrains.annotations.NotNull;
 
 
 public class SettingsFragment extends Fragment implements View.OnClickListener, TokenDeleteView, HesapSilView {
@@ -57,6 +69,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     RelativeLayout adminRelativeLayout,adminCevaplarLayout;
     TokenDeletePresenter tokenDeletePresenter;
     HesapSilPresenterImpl hesapSilPresenter;
+    private InterstitialAd mInterstitialAd;
+    String TAG="Birine Sor Reklam";
 
     Toolbar toolbar;
 
@@ -125,10 +139,75 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
             }
         });
+        MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull @NotNull InitializationStatus initializationStatus) {
+
+            }
+        });
+        loadAdMob();
+        startKazancActivity();
         return view;
 
     }
+    private void showInterstitial(){
+        if(mInterstitialAd != null){
+            mInterstitialAd.show(getActivity());
+            startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
+            getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
+        }else{
+            Log.d("TAG","The interstitial ad wasn't ready yet.");
+            startKazancActivity();
 
+        }
+    }
+    private void startKazancActivity(){
+        if (mInterstitialAd == null) {
+            loadAdMob();
+        }
+    }
+    public void loadAdMob(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(getContext(), "ca-app-pub-5898900112999132/5470923457", adRequest, new InterstitialAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull @NotNull InterstitialAd interstitialAd) {
+                SettingsFragment.this.mInterstitialAd = interstitialAd;
+                Log.i(TAG,"onAdLoaded");
+                mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(@NonNull @NotNull AdError adError) {
+                        SettingsFragment.this.mInterstitialAd = null;
+                        Log.d("TAG", "The ad was dismissed.");
+                    }
+
+                    @Override
+                    public void onAdShowedFullScreenContent() {
+                        Log.d("TAG", "The ad failed to show.");
+
+                    }
+
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        SettingsFragment.this.mInterstitialAd = null;
+                        Log.d("TAG", "The ad was shown.");
+                    }
+
+                    @Override
+                    public void onAdImpression() {
+                        super.onAdImpression();
+                    }
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull @NotNull LoadAdError loadAdError) {
+                Log.i(TAG,loadAdError.getMessage());
+                System.out.println("HATA VAR");
+                mInterstitialAd = null;
+            }
+        });
+
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -151,9 +230,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.kazancLayout:
-                startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
+                showInterstitial();
+                /*startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
-                break;
+                */break;
             case R.id.adminLayout:
                 startActivity(new Intent(getActivity().getApplicationContext(), AdminActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);

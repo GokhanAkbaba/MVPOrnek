@@ -22,6 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BirineSor"
         android:usesCleartextTraffic="true">
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5898900112999132~4199745099"/>
         <activity android:name=".Activity.Ayarlar.AdminCevaplarActivity"></activity>
         <activity android:name=".Activity.Ayarlar.AdminActivity" />
         <activity android:name=".Activity.Ayarlar.KazancActivity" />
