@@ -1,22 +1,19 @@
 package com.birinesor.mvpornek.Activity.Ayarlar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.birinesor.mvpornek.InitApplication;
@@ -40,18 +37,7 @@ import com.birinesor.mvpornek.View.KazancSoruGuncelleView;
 import com.birinesor.mvpornek.View.KazancSoruView;
 import com.birinesor.mvpornek.View.KullaniciKazancHesapla;
 import com.birinesor.mvpornek.View.KullaniciKazancLogView;
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.textfield.TextInputLayout;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -171,12 +157,7 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         soru=dataSize * 0.05;
 
         DecimalFormat precision = new DecimalFormat("0.00");
-        if(Double.parseDouble(String.valueOf(soru + cevap)) >= 0.0){
-            trasferEtBtn.setEnabled(true);
-        }else{
-            trasferEtBtn.setEnabled(false);
-
-        }
+        trasferEtBtn.setEnabled(Double.parseDouble(String.valueOf(soru + cevap)) >= 0.0);
         toplamUcret=(soru + cevap);
         toplamKazancText.setText(precision.format(toplamUcret)+ " TL");
     }

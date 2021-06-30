@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.birinesor.mvpornek.Activity.Ayarlar.KazancActivity;
 import com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity;
 import com.birinesor.mvpornek.BildirimFonksiyonları;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
@@ -62,6 +63,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.installations.FirebaseInstallations;
 import com.google.firebase.installations.InstallationTokenResult;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -121,6 +132,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Boolean checkIl64Etiket=false,checkIl65Etiket=false,checkIl66Etiket=false,checkIl67Etiket=false,checkIl68Etiket=false,checkIl69Etiket=false,checkIl70Etiket=false;
     Boolean checkIl71Etiket=false,checkIl72Etiket=false,checkIl73Etiket=false,checkIl74Etiket=false,checkIl75Etiket=false,checkIl76Etiket=false,checkIl77Etiket=false;
     Boolean checkIl78Etiket=false,checkIl79Etiket=false,checkIl80Etiket=false,checkIl81Etiket=false;
+
+    private InterstitialAd mInterstitialAd;
 
     public static HomeActivity getInstance() {
         return instance;
@@ -213,7 +226,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
         });
-
+        loadAdMob();
         addBadgeView();
 
         notificationBadge.setVisibility(View.INVISIBLE);
@@ -234,6 +247,70 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
          } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull @NotNull InitializationStatus initializationStatus) {
+
+            }
+        });
+
+    }
+    public void showInterstitial(){
+        if(mInterstitialAd != null){
+            mInterstitialAd.show(this);
+
+        }else{
+            Log.d("TAG","The interstitial ad wasn't ready yet.");
+            startAds();
+
+        }
+    }
+    public void startAds(){
+        if (mInterstitialAd == null) {
+            loadAdMob();
+        }
+    }
+    public void loadAdMob(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(this, "ca-app-pub-5898900112999132/5470923457", adRequest, new InterstitialAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull @NotNull InterstitialAd interstitialAd) {
+                mInterstitialAd = interstitialAd;
+                Log.i(TAG,"onAdLoaded");
+                mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(@NonNull @NotNull AdError adError) {
+                        mInterstitialAd = null;
+                        Log.d("TAG", "The ad was dismissed.");
+                    }
+
+                    @Override
+                    public void onAdShowedFullScreenContent() {
+                        Log.d("TAG", "The ad failed to show.");
+
+                    }
+
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        mInterstitialAd = null;
+                        Log.d("TAG", "The ad was shown.");
+                    }
+
+                    @Override
+                    public void onAdImpression() {
+                        super.onAdImpression();
+                    }
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull @NotNull LoadAdError loadAdError) {
+                Log.i(TAG,loadAdError.getMessage());
+                System.out.println("HATA VAR");
+                mInterstitialAd = null;
+            }
+        });
 
     }
     protected void refreshBadgeView(int count){
