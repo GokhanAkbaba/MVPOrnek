@@ -161,7 +161,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);
                 break;
             case R.id.kazancLayout:
-                //showInterstitial();
+
                 HomeActivity.getInstance().showInterstitial();
                 startActivity(new Intent(getActivity().getApplicationContext(), KazancActivity.class));
                 getActivity().overridePendingTransition(R.anim.alerter_slide_in_from_left,R.anim.alerter_slide_out_to_right);

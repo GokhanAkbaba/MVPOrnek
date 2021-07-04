@@ -160,6 +160,8 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
             }
         });
 
+        HomeActivity.getInstance().startAds();
+
     }
 
     @Override

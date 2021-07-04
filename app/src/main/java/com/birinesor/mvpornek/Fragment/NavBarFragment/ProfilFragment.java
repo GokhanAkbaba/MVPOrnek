@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.bumptech.glide.request.RequestOptions;
 import com.birinesor.mvpornek.Activity.Ayarlar.ProfilDuzenleActivity;
@@ -96,7 +97,7 @@ public class ProfilFragment extends Fragment implements UsersGetView,View.OnClic
             }
         }
 
-
+        HomeActivity.getInstance().startAds();
 
         getActivity().findViewById(R.id.anasayfa_nav_view).setVisibility(View.VISIBLE);
     }

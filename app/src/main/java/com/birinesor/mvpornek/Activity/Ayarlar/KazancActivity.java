@@ -5,16 +5,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Model.KullaniciKazanc.KullaniciKazancInteractorImpl;
@@ -37,6 +43,14 @@ import com.birinesor.mvpornek.View.KazancSoruGuncelleView;
 import com.birinesor.mvpornek.View.KazancSoruView;
 import com.birinesor.mvpornek.View.KullaniciKazancHesapla;
 import com.birinesor.mvpornek.View.KullaniciKazancLogView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.DecimalFormat;
@@ -64,6 +78,9 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
     ArrayList<Integer> cevapKazancList=new ArrayList<Integer>();
     ArrayList<Integer> soruKazancList=new ArrayList<Integer>();
     double soru, cevap,toplamUcret ;
+    private static final String AD_UNIT_ID = "ca-app-pub-5898900112999132/5538403889";
+    private FrameLayout adContainerView;
+    private AdView adView;
 
 
     @Override
@@ -128,10 +145,76 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
                 System.out.println(s);
             }
         });
+        HomeActivity.getInstance().startAds();
+        // Initialize the Mobile Ads SDK.
 
 
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        adView.loadAd(adRequest);
 
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.d("TAG", "onAdLoaded.");
+            }
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError adError) {
+                // Code to be executed when an ad request fails.
+                Log.d("TAG", "adError" + adError);
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+                Log.d("TAG", "onAdOpened.");
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                Log.d("TAG", "onAdClicked.");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+                Log.d("TAG", "onAdClosed.");
+            }
+        });
     }
+    /*
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+*/
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -151,13 +234,13 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
     @SuppressLint("SetTextI18n")
     public void kazancHesapla(){
         double cevapDataSize = (double) this.kazancHesaplaModels.get(0).getCevapSayisi();
-        cevap=cevapDataSize * 0.10;
+        cevap=cevapDataSize * 0.08;
 
         double dataSize= (double) this.kazancHesaplaModels.get(0).getSoruSayisi();
         soru=dataSize * 0.05;
 
         DecimalFormat precision = new DecimalFormat("0.00");
-        trasferEtBtn.setEnabled(Double.parseDouble(String.valueOf(soru + cevap)) >= 0.0);
+        trasferEtBtn.setEnabled(Double.parseDouble(String.valueOf(soru + cevap)) >= 20.0);
         toplamUcret=(soru + cevap);
         toplamKazancText.setText(precision.format(toplamUcret)+ " TL");
     }

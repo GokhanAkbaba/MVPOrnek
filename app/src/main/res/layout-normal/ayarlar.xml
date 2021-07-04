@@ -350,7 +350,7 @@
             android:background="@color/colorWhite"
             android:layout_below="@+id/cikisYapLayout"
             android:clickable="true"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -391,7 +391,7 @@
             android:background="@color/colorWhite"
             android:layout_below="@+id/adminLayout"
             android:clickable="true"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:ignore="MissingConstraints">
 
             <ImageView

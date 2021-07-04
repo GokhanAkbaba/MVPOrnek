@@ -134,7 +134,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Et
 
         itemEtiketlerClickListener =((vw,position)-> {
         });
-
+        HomeActivity.getInstance().startAds();
 
         return view;
     }

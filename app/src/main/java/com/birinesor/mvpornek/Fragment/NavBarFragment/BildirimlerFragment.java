@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerBegenilerFragment;
 import com.birinesor.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerCevaplarFragment;
 import com.birinesor.mvpornek.Fragment.BildirimlerTabFragment.BildirimlerFragmentViewPagerAdapter;
@@ -65,7 +66,7 @@ public class BildirimlerFragment extends Fragment {
         bildirimlerViewPager.setAdapter(bildirimlerFragmentViewPagerAdapter);
         tabLayout.setupWithViewPager(bildirimlerViewPager);
         tabLayout.setTabTextColors(getResources().getColor(R.color.uygulamaGrisi),getResources().getColor(R.color.uygulamaMavisi));
-
+        HomeActivity.getInstance().startAds();
         return view;
     }
 

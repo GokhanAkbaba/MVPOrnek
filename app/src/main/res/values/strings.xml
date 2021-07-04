@@ -22,8 +22,10 @@
     <string name="bildirimDuzenleTxt">Bildirim Düzenle</string>
     <string name="kazancTxt">Kazanç</string>
     <string name="toplamKazancTxt">Toplam Kazanç</string>
-    <string name="toplamKazancLimitTxt">Çekim Limiti Minumum 30 TL  </string>
-    <string name="kazancAciklamaTxt">Sorduğunuz her soru için 0.05 TL. Cevapladığınız her soru için 0.10 TL. kazanırsınız. </string>
+    <string name="toplamKazancLimitTxt">Çekim Limiti Minumum 20 TL dir.</string>
+    <string name="kazancAciklamaTxt2">Hesaplamalar belirli zaman aralıkları ile yapılmaktadır.
+    En geç 24 saat içinde hesaplanma yapılır.  Para transfer işlemleri en geç 24 saat içinde yapılmaktadır.</string>
+    <string name="kazancAciklamaTxt">Sorduğunuz her soru için 0.05 TL. Cevapladığınız her soru için 0.08 TL. kazanırsınız. </string>
     <string name="anlikBildirimlerTxt">Anlık Bildirimler</string>
     <string name="anlikBildirimAciklamaTxt">Yorumların ve beğenilerin hakkında bildirimler</string>
     <string name="bildirimIlgiAlanlariTxt">İlgi Alanları</string>
@@ -204,6 +206,8 @@ lütfen aşağıdaki alanlardan en az 1 tane seçiniz</string>
     <string name="kriptoText">Kripto Para</string>
     <string name="digerText">Diğer</string>
     <string name="yazilimText">Yazilim</string>
+
+    <string name="adaptive_banner_ad_unit_id">ca-app-pub-5898900112999132/1801698228</string>
 
 
     <string-array name="kullanici_isimleri">
