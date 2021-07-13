@@ -192,6 +192,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         internetConnectionPresenter.internetBaglantiKontrolu();
         questionRegistrationPresenter=new QuestionRegistrationPresenterImpl(this,new QuestionRegistrationInteractorImpl(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
@@ -231,7 +232,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         notificationBadge.setVisibility(View.INVISIBLE);
         if(NotificationCommentActivity.getBildirimAcilis() != null){
-            if(NotificationCommentActivity.getBildirimAcilis() == true){
+            if(NotificationCommentActivity.getBildirimAcilis()){
                 notificationView(bildirimFonksiyonları.getCount());
             }
         }
