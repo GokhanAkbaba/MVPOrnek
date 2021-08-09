@@ -1,7 +1,6 @@
 package com.birinesor.mvpornek.Activity.Ayarlar;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +15,8 @@ import com.birinesor.mvpornek.BirineSorHelper.BirineSorUtil;
 import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Model.SifreGuncelle.PasswordUpdateInteractorImpl;
-import com.birinesor.mvpornek.Presenter.PasswordUpdatePresenter;
-import com.birinesor.mvpornek.Presenter.PasswordUpdatePresenterImpl;
+import com.birinesor.mvpornek.Presenter.PasswordUpdate.PasswordUpdatePresenter;
+import com.birinesor.mvpornek.Presenter.PasswordUpdate.PasswordUpdatePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.PasswordUpdate;

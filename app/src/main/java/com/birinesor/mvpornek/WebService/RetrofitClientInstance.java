@@ -8,7 +8,7 @@ public class RetrofitClientInstance {
     private static Retrofit retrofit;
     private static RetrofitClientInstance mIstance;
     //private static final String BASE_URL = "https://inamemrah.com/birineSorWebServis/";
-    private static final String BASE_URL = "http://birnesor.com/api/";
+    private static final String BASE_URL = "https://birnesor.com/api/";
 
     private RetrofitClientInstance()
     {

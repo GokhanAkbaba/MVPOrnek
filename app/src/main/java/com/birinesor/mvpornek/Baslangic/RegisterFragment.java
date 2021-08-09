@@ -17,8 +17,8 @@ import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionIn
 import com.birinesor.mvpornek.Model.Kayit.RegisterInteractorImpl;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
-import com.birinesor.mvpornek.Presenter.RegisterPresenter;
-import com.birinesor.mvpornek.Presenter.RegisterPresenterImpl;
+import com.birinesor.mvpornek.Presenter.Register.RegisterPresenter;
+import com.birinesor.mvpornek.Presenter.Register.RegisterPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.View.InternetConnectionView;
 import com.birinesor.mvpornek.View.RegisterView;

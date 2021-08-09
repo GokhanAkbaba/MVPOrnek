@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.birinesor.mvpornek.Activity.HomeActivity;
-import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment;
+import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment.KullaniciIcerikFragment;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.Response.SearchListResponse;
 

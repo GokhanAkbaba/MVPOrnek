@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.birinesor.mvpornek.Adapter.SearchAdapterQuestion;
 import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.birinesor.mvpornek.Models.SearchQuestionModel;
-import com.birinesor.mvpornek.Presenter.QuestionSearchFragmentPresenterImpl;
+import com.birinesor.mvpornek.Presenter.QuestionSearchFragment.QuestionSearchFragmentPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.View.QuestionSearchFragmentView;
 

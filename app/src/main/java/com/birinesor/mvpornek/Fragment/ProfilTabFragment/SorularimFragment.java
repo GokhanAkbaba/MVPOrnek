@@ -22,7 +22,7 @@ import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.QuestionModel;
 import com.birinesor.mvpornek.Presenter.ProfilQuestion.ProfilQuestionPresenterImpl;
-import com.birinesor.mvpornek.Presenter.QuestionsDeletePresenterImpl;
+import com.birinesor.mvpornek.Presenter.QuestionDelete.QuestionsDeletePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.ProfilQuestionView;

@@ -1,7 +1,6 @@
 package com.birinesor.mvpornek.Fragment.NavBarFragment;
 
 import android.annotation.SuppressLint;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,12 +31,10 @@ import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionIn
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.QuestionModel;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
-import com.birinesor.mvpornek.Presenter.QuestionMenuPresenterImpl;
-import com.birinesor.mvpornek.Presenter.QuestionsDeletePresenterImpl;
+import com.birinesor.mvpornek.Presenter.QuestionMenu.QuestionMenuPresenterImpl;
+import com.birinesor.mvpornek.Presenter.QuestionDelete.QuestionsDeletePresenterImpl;
 import com.birinesor.mvpornek.Presenter.Soru.QuestionPresenterImpl;
 import com.birinesor.mvpornek.Presenter.SoruGorunum.SoruGorunumPresenterImpl;
-import com.birinesor.mvpornek.Presenter.SoruOnay.SoruOnayDurumGuncellePresenter;
-import com.birinesor.mvpornek.Presenter.SoruOnay.SoruOnayDurumGuncellePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.InternetConnectionView;
@@ -834,6 +831,7 @@ public class HomeFragment extends BottomSheetDialogFragment implements View.OnCl
     @Override
     public void onErrorLoading(String message) {
         Toast.makeText(getActivity(),"Sorular Yüklenirken Hata oluştu.",Toast.LENGTH_LONG).show();
+        System.out.println("HATA MESAJI"+message);
     }
 
     @Override

@@ -27,7 +27,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.birinesor.mvpornek.Activity.Ayarlar.KazancActivity;
 import com.birinesor.mvpornek.Activity.Notification.NotificationCommentActivity;
 import com.birinesor.mvpornek.BildirimFonksiyonları;
 import com.birinesor.mvpornek.Fragment.NavBarFragment.BildirimlerFragment;
@@ -44,8 +43,8 @@ import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnecti
 import com.birinesor.mvpornek.Presenter.IpKayit.IpKayit;
 import com.birinesor.mvpornek.Presenter.IpKayit.IpKayitPresenter;
 import com.birinesor.mvpornek.Presenter.IpKayit.IpKayitPresenterImpl;
-import com.birinesor.mvpornek.Presenter.QuestionRegistrationPresenter;
-import com.birinesor.mvpornek.Presenter.QuestionRegistrationPresenterImpl;
+import com.birinesor.mvpornek.Presenter.QuestionRegistration.QuestionRegistrationPresenter;
+import com.birinesor.mvpornek.Presenter.QuestionRegistration.QuestionRegistrationPresenterImpl;
 import com.birinesor.mvpornek.Presenter.TokenCreate.TokenCreatePresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
@@ -53,15 +52,12 @@ import com.birinesor.mvpornek.View.InternetConnectionView;
 import com.birinesor.mvpornek.View.QuestionRegistrationView;
 
 import com.birinesor.mvpornek.View.TokenCreateView;
-import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.installations.FirebaseInstallations;
-import com.google.firebase.installations.InstallationTokenResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import com.google.android.gms.ads.AdError;

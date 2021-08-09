@@ -2,7 +2,6 @@ package com.birinesor.mvpornek.Activity.Ayarlar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -12,11 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.Adapter.AdapterCevaplarOnay;
-import com.birinesor.mvpornek.Adapter.AdapterSorularOnay;
 import com.birinesor.mvpornek.Models.CevaplarOnayModels;
-import com.birinesor.mvpornek.Models.SorularOnayModel;
-import com.birinesor.mvpornek.Presenter.CevapOnay.CevapOnayDurumGuncellePresenterImpl;
-import com.birinesor.mvpornek.Presenter.CevapOnayPresenterImpl;
+import com.birinesor.mvpornek.Presenter.CevapOnayDurum.CevapOnayDurumGuncellePresenterImpl;
+import com.birinesor.mvpornek.Presenter.CevapOnay.CevapOnayPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.View.CevapOnayDurumGuncelle;
 import com.birinesor.mvpornek.View.CevapOnayView;

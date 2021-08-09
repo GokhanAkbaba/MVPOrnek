@@ -1,13 +1,9 @@
 package com.birinesor.mvpornek.Fragment.NavBarFragment;
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,12 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.birinesor.mvpornek.Activity.Ayarlar.SifreDuzenleActivity;
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Adapter.EtiketlerAdapter;
 import com.birinesor.mvpornek.Adapter.SearchAdapterQuestion;
-import com.birinesor.mvpornek.Fragment.Comment.CommentBottomDialogFragment;
-import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment;
 import com.birinesor.mvpornek.Fragment.Search.AramaAyarlariActivity;
 import com.birinesor.mvpornek.Fragment.Search.AramaIcerikFragment;
 import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
@@ -36,12 +29,11 @@ import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.SearchQuestionModel;
 import com.birinesor.mvpornek.Presenter.Etketler.EtiketlerPresenterImpl;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
-import com.birinesor.mvpornek.Presenter.SearchQuestionPresenterImpl;
+import com.birinesor.mvpornek.Presenter.SearchQuestion.SearchQuestionPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.EtiketlerView;
 import com.birinesor.mvpornek.View.InternetConnectionView;
-import com.birinesor.mvpornek.View.SearchQuestionView;
 
 import java.util.List;
 

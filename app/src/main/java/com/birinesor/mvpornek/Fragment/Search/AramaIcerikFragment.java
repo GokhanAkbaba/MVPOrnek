@@ -22,11 +22,11 @@ import android.widget.EditText;
 
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Adapter.SearchAdapter;
-import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment;
+import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment.KullaniciIcerikFragment;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Presenter.AramaArsivKayit.AramaArsivKayitPresenterImpl;
-import com.birinesor.mvpornek.Presenter.AramaGecmisSilPresenterImpl;
-import com.birinesor.mvpornek.Presenter.SearchUsersPresenterImpl;
+import com.birinesor.mvpornek.Presenter.AramaGecmisSil.AramaGecmisSilPresenterImpl;
+import com.birinesor.mvpornek.Presenter.SearchUsers.SearchUsersPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.Response.SearchListResponse;
 import com.birinesor.mvpornek.SharedPrefManager;

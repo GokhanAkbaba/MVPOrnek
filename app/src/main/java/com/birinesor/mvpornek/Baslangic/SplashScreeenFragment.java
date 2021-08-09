@@ -1,6 +1,5 @@
 package com.birinesor.mvpornek.Baslangic;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +14,17 @@ import android.widget.Toast;
 
 import com.birinesor.mvpornek.Activity.HomeActivity;
 import com.birinesor.mvpornek.Model.InternetBaglantiKontrol.InternetConnectionInteractorImpl;
-import com.birinesor.mvpornek.Model.SelectionControlnteractorImpl;
+import com.birinesor.mvpornek.Model.SelectionControl.SelectionControlnteractorImpl;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.SelectionControlModel;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenter;
 import com.birinesor.mvpornek.Presenter.InternetBaglantiKontrol.InternetConnectionPresenterImpl;
-import com.birinesor.mvpornek.Presenter.SelectionControlPresenter;
-import com.birinesor.mvpornek.Presenter.SelectionControlPresenterImpl;
+import com.birinesor.mvpornek.Presenter.SelectionControl.SelectionControlPresenter;
+import com.birinesor.mvpornek.Presenter.SelectionControl.SelectionControlPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
 import com.birinesor.mvpornek.View.InternetConnectionView;
 import com.birinesor.mvpornek.View.SelectionControl;
-
-import static androidx.core.content.ContextCompat.getSystemService;
 
 
 public class SplashScreeenFragment extends Fragment implements SelectionControl, InternetConnectionView {

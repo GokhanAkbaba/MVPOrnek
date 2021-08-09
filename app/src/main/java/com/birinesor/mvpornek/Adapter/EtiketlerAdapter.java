@@ -12,10 +12,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.birinesor.mvpornek.Activity.HomeActivity;
-import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment;
+import com.birinesor.mvpornek.Fragment.KullaniciIcerikFragment.KullaniciIcerikFragment;
 import com.birinesor.mvpornek.Models.EtiketlerModel;
 import com.birinesor.mvpornek.R;
-import com.birinesor.mvpornek.Response.SearchListResponse;
 
 import java.util.List;
 

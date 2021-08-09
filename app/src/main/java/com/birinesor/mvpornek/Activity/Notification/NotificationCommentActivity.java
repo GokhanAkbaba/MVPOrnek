@@ -25,8 +25,8 @@ import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.Kullanici;
 import com.birinesor.mvpornek.Models.NotificationCommetAndQuestionModel;
 import com.birinesor.mvpornek.Presenter.Like.LikesPresenterImpl;
-import com.birinesor.mvpornek.Presenter.NotificationCommetAndQuestionPresenter;
-import com.birinesor.mvpornek.Presenter.NotificationCommetAndQuestionPresenterImpl;
+import com.birinesor.mvpornek.Presenter.NotificationCommetAndQuestionPresenter.NotificationCommetAndQuestionPresenter;
+import com.birinesor.mvpornek.Presenter.NotificationCommetAndQuestionPresenter.NotificationCommetAndQuestionPresenterImpl;
 import com.birinesor.mvpornek.Presenter.NotificationPost.NotificaitonPostPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.Response.LikeModel;
@@ -83,15 +83,12 @@ public class NotificationCommentActivity extends AppCompatActivity implements No
         notificationCommetAndQuestionPresenter=new NotificationCommetAndQuestionPresenterImpl(this);
         likesPresenter=new LikesPresenterImpl(this);
         notificaitonPostPresenter=new NotificaitonPostPresenterImpl(this);
-
         notificationCommentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         Kullanici kullanici= SharedPrefManager.getInstance(this).getKullanici();
         if(extras != null){
             if(extras.containsKey("bildirimYapılanSoruID"))
             {
                 soruID = Integer.parseInt(extras.getString("bildirimYapılanSoruID"));
-                System.out.println("BİLLLLGG"+soruID);
                 notificationCommetAndQuestionPresenter.loadDataNotificationComment(soruID);
                 setBildirimAcilis(true);
             }

@@ -7,16 +7,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.birinesor.mvpornek.Adapter.AdapterSorularOnay;
-import com.birinesor.mvpornek.Adapter.EtiketlerAdapter;
 import com.birinesor.mvpornek.Models.SorularOnayModel;
-import com.birinesor.mvpornek.Presenter.SoruOnay.SoruOnayDurumGuncellePresenterImpl;
-import com.birinesor.mvpornek.Presenter.SoruOnayPresenter;
-import com.birinesor.mvpornek.Presenter.SoruOnayPresenterImpl;
+import com.birinesor.mvpornek.Presenter.SoruOnayDurumGuncelle.SoruOnayDurumGuncellePresenterImpl;
+import com.birinesor.mvpornek.Presenter.SoruOnay.SoruOnayPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.View.SoruOnayDurumGuncelle;
 import com.birinesor.mvpornek.View.SoruOnayView;

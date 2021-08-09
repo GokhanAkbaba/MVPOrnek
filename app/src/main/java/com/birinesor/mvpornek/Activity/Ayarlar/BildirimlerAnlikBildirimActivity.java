@@ -1,6 +1,5 @@
 package com.birinesor.mvpornek.Activity.Ayarlar;
 
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.birinesor.mvpornek.Degiskenler;
 import com.birinesor.mvpornek.InitApplication;
 import com.birinesor.mvpornek.Models.IlgiAlanlariGetirModel;
 import com.birinesor.mvpornek.Models.Kullanici;
-import com.birinesor.mvpornek.Presenter.IlgiAlaniKayitPresenterImpl;
+import com.birinesor.mvpornek.Presenter.IlgiAlaniKayit.IlgiAlaniKayitPresenterImpl;
 import com.birinesor.mvpornek.Presenter.IlgiAlanlari.IlgiAlanlariPresenterImpl;
 import com.birinesor.mvpornek.R;
 import com.birinesor.mvpornek.SharedPrefManager;
