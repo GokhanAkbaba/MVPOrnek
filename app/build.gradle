@@ -4,7 +4,6 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "com.birinesor.mvpornek"
         minSdkVersion 22

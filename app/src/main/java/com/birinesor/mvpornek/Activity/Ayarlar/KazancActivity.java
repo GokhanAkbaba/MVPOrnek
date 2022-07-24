@@ -105,9 +105,9 @@ public class KazancActivity extends AppCompatActivity implements View.OnClickLis
         kazancSoruGuncellePresenter = new KazancSoruGuncellePresenterImpl(this);
         kazancCevapPresenter=new KazancCevapPresenterImpl(this);
         kazancSoruPresenter=new KazancSoruPresenterImpl(this);
-        kullaniciKazancHesaplaPresenter.loadKazancData(kullanici.getId());
-        kazancCevapPresenter.loadData(kullanici.getId());
-        kazancSoruPresenter.loadData(kullanici.getId());
+        kullaniciKazancHesaplaPresenter.loadKazancData(1029);
+        kazancCevapPresenter.loadData(1029);
+        kazancSoruPresenter.loadData(1029);
         toplamKazancText=findViewById(R.id.toplamKazanctextView);
         kazancAdSoyadTextField=findViewById(R.id.kazancAdSoyadTextField);
         kazancIbanTextField=findViewById(R.id.kazancIbanTextField);
